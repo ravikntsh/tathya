@@ -1,3 +1,9 @@
 geo/src/
 # Source documents dropped into the repo root stay local
 /*.pdf
+
+# Secrets: never commit
+*SECRET*
+*secret*
+.env
+.env.*

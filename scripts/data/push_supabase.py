@@ -26,6 +26,11 @@ URL = "https://hqueptmttyerlzpomfwy.supabase.co/rest/v1"
 
 def secret_key():
     key = os.environ.get("SUPABASE_SECRET_KEY")
+    if not key:
+        # A local, git-ignored key file (see .gitignore: *SECRET*). Never commit it.
+        f = ROOT / "supabase" / "SUPABASE_SECRET_KEY.txt"
+        if f.exists():
+            key = f.read_text(encoding="utf-8-sig").strip()
     if not key and sys.platform == "win32":
         # setx writes the user environment; read it directly so no restart is needed.
         import winreg
