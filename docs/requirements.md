@@ -4,6 +4,54 @@ Oct 16, 2026 · Ravi Sharma
 
 A source-first, mobile-first site that shows India's record since 1857, what has improved, where it has lagged, and who did what, so every claim in a debate can be backed with one shareable link.
 
+## Revision 2 (Oct 16, 2026)
+
+Decisions made after an outside review (a ChatGPT-drafted "Product Blueprint"). Where this section conflicts with the rest of the document, this section wins.
+
+**Purpose and audience**
+- Debate support stays, but it isn't the whole purpose. The site is also for young Indians, including the Gen-Z protesters of 2026, to see what the situation is, how it changed and how it used to be, told with data, photos and plain language.
+- Framing: "on India's side, not any party's". Don't label the site "nationalist".
+- The "Lessons from the Threads arguments" and Myth vs record stay central.
+
+**Photos and media (new section)**
+- A photo and media section: then-and-now pairs, events and places, shown on the timeline and on topic pages.
+- Photos come from two routes, both with a credit and licence on every image:
+  - **Sourced online:** public domain, Creative Commons, or used with permission, with the original URL and licence recorded. A photo being on a government or news website doesn't make it free to use. No news-agency photos without a licence.
+  - **Moderator uploads:** a moderator adds their own photo or one supplied by a contributor, with the photographer's name, date, place, and a declaration of rights.
+- Every photo carries a caption, date, place and source. No AI-generated images of real people or events. Illustrations are labelled as illustrations.
+- Photos go through the same two-approval review as other contributions.
+
+**Login**
+- Sign in with Google, or with email and password. No magic links, and no phone OTP.
+
+**Evidence model (adopted from the blueprint)**
+- Evidence status and legal status are separate fields:
+  - **Evidence status:** Supported / Partly supported / Contradicted / Unsubstantiated / Unresolved.
+  - **Legal status:** for example FIR, investigation, chargesheet, trial, convicted, acquitted, under appeal.
+  - "Pending in court" is a legal status, never a truth verdict. This replaces the Verified / Disputed / Unsupported / Pending in court labels below.
+- A **source registry**. Each source has a publisher, a class, method, coverage, licence, limitations, and date last checked. Every observation points to a source. The classes are:
+  - A: primary record
+  - B: independent dataset or survey
+  - C: reproducible analysis
+  - D: reporting
+  - E: advocacy or incident tracker
+  - F: remote sensing
+- Non-government sources are welcome when the method is transparent and the result can be cross-checked. Never pick a source because it agrees with us. Different sources stay as separate lines and are never spliced into one series.
+- Missing values carry a reason (not published, suppressed, not collected, not applicable). Boundaries carry a version (2014 Telangana, 2019 J&K and Ladakh, 2020 DNH-DD). Source snapshots are never overwritten.
+- Every indicator page has a "What this does not prove" box.
+
+**Pages (adopted from the blueprint)**
+- The Government scorecard becomes a **project ledger**. Each scheme shows who proposed, sanctioned, funded, delivered and measured it, at centre, state and local level, across successive governments. Status steps: announced → approved → funded → under construction → operational → outcome measured → outcome independently evaluated.
+- The Opposition record becomes a **legislative record** that covers every party in the same format.
+
+**Design**
+- No beige or paper background. Use a clean white base with cool grey surfaces, keeping Chakra navy as the primary colour. Saffron and green stay out of the palette, as before.
+
+**Operations**
+- Licence check for every map, photo and dataset before launch. The current development map uses an unlicensed shapefile.
+- Hindi text needs human review before launch. It was first drafted by AI.
+- Tooling: Anaconda on the build machine provides Python (data pipeline) and Node (conda envs `forge` and `pmtracker-build`), if a build step is needed later.
+
 ## Principles
 
 The site is on India's side, not any party's: it shows wins and lags for every government since 1947, so no reader can dismiss it as a party page.
@@ -127,7 +175,8 @@ Build the palette around the navy of the Ashoka Chakra, not saffron or green: th
 
 | Role | Colour | Hex | Use |
 |---|---|---|---|
-| Background | Paper white | #FAF8F3 | Page background |
+| Background | White | #FFFFFF | Page background (was paper #FAF8F3; changed in Revision 2) |
+| Surface | Cool grey | #F4F6FA | Panels, cards, table headers |
 | Text | Ink | #1F2430 | Body text |
 | Primary | Chakra navy | #1B2A6B | Headers, buttons, map borders, timeline |
 | Accent | Muted saffron | #D9822B | Highlights and the year slider handle only, used sparingly |

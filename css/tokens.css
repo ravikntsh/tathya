@@ -1,16 +1,17 @@
 /* Palette from docs/requirements.md (Design). Saffron is for the slider handle and rare highlights only. */
 :root {
-  --paper: #FAF8F3;
-  --ink: #1F2430;
-  --ink-muted: #4A5163;
+  --paper: #FFFFFF;
+  --surface-muted: #F4F6FA;
+  --ink: #1A2233;
+  --ink-muted: #4B5565;
   --navy: #1B2A6B;
   --saffron: #D9822B;
   --teal: #2A8C82;
   --terracotta: #C2553A;
   --slate: #8A93A3;
   --surface: #FFFFFF;
-  --line: #E4E0D6;
-  --no-data: #D5D9E0;
+  --line: #E3E7EE;
+  --no-data: #DDE2EA;
   /* One-hue sequential map scale, light to dark navy */
   --seq-0: #E8EBF5;
   --seq-1: #B9C1E0;
@@ -32,6 +33,7 @@
     --terracotta: #E88A72;
     --slate: #9AA3B3;
     --surface: #172150;
+    --surface-muted: #131C45;
     --line: #2A3566;
     --no-data: #3A4470;
     --seq-0: #26326B;
@@ -53,6 +55,7 @@
   --terracotta: #E88A72;
   --slate: #9AA3B3;
   --surface: #172150;
+  --surface-muted: #131C45;
   --line: #2A3566;
   --no-data: #3A4470;
   --seq-0: #26326B;

@@ -2,7 +2,7 @@ import { SITE_NAME, SITE_URL } from "./config.js";
 import { getLang, fmt } from "./i18n.js";
 
 // Share images always use the light palette so they read the same everywhere.
-const C = { paper: "#FAF8F3", ink: "#1F2430", muted: "#4A5163", navy: "#1B2A6B", teal: "#2A8C82", terracotta: "#C2553A", slate: "#8A93A3", line: "#E4E0D6" };
+const C = { paper: "#FFFFFF", ink: "#1A2233", muted: "#4B5565", navy: "#1B2A6B", teal: "#2A8C82", terracotta: "#C2553A", slate: "#8A93A3", line: "#E3E7EE" };
 
 export function cardLink(state) {
   const p = new URLSearchParams({ ind: state.indicator, round: state.round });
