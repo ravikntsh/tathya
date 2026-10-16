@@ -57,8 +57,8 @@
   {
     "id": "rbi_nsdp_pc_2011",
     "label": {
-      "en": "RBI / MoSPI state accounts",
-      "hi": "RBI / MoSPI राज्य लेखा"
+      "en": "State accounts, 2011-12 prices",
+      "hi": "राज्य लेखा, 2011-12 मूल्य"
     },
     "provider": "RBI Handbook of Statistics on Indian States",
     "class": "A"
@@ -223,6 +223,96 @@
       "hi": "PLFS सर्वेक्षण (MoSPI), 7+ आयु"
     },
     "provider": "MoSPI, Periodic Labour Force Survey",
+    "class": "A"
+  },
+  {
+    "id": "mospi_nni_pc_1993",
+    "label": {
+      "en": "India NNI, 1993-94 prices",
+      "hi": "भारत NNI, 1993-94 मूल्य"
+    },
+    "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+    "class": "A"
+  },
+  {
+    "id": "mospi_nni_pc_1999",
+    "label": {
+      "en": "India NNI, 1999-2000 prices",
+      "hi": "भारत NNI, 1999-2000 मूल्य"
+    },
+    "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+    "class": "A"
+  },
+  {
+    "id": "mospi_nni_pc_2004",
+    "label": {
+      "en": "India NNI, 2004-05 prices",
+      "hi": "भारत NNI, 2004-05 मूल्य"
+    },
+    "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+    "class": "A"
+  },
+  {
+    "id": "mospi_nni_pc_2011",
+    "label": {
+      "en": "India NNI, 2011-12 prices",
+      "hi": "भारत NNI, 2011-12 मूल्य"
+    },
+    "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+    "class": "A"
+  },
+  {
+    "id": "mospi_nni_pc_2022",
+    "label": {
+      "en": "India NNI, 2022-23 prices (new base)",
+      "hi": "भारत NNI, 2022-23 मूल्य (नया आधार)"
+    },
+    "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+    "class": "A"
+  },
+  {
+    "id": "mospi_nni_pc_current",
+    "label": {
+      "en": "India NNI, today's prices",
+      "hi": "भारत NNI, उसी वर्ष के मूल्य"
+    },
+    "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+    "class": "A"
+  },
+  {
+    "id": "rbi_nsdp_pc_1993",
+    "label": {
+      "en": "State accounts, 1993-94 prices",
+      "hi": "राज्य लेखा, 1993-94 मूल्य"
+    },
+    "provider": "RBI Handbook of Statistics on Indian States",
+    "class": "A"
+  },
+  {
+    "id": "rbi_nsdp_pc_1999",
+    "label": {
+      "en": "State accounts, 1999-2000 prices",
+      "hi": "राज्य लेखा, 1999-2000 मूल्य"
+    },
+    "provider": "RBI Handbook of Statistics on Indian States",
+    "class": "A"
+  },
+  {
+    "id": "rbi_nsdp_pc_2004",
+    "label": {
+      "en": "State accounts, 2004-05 prices",
+      "hi": "राज्य लेखा, 2004-05 मूल्य"
+    },
+    "provider": "RBI Handbook of Statistics on Indian States",
+    "class": "A"
+  },
+  {
+    "id": "rbi_nsdp_pc_current",
+    "label": {
+      "en": "State accounts, today's prices",
+      "hi": "राज्य लेखा, उसी वर्ष के मूल्य"
+    },
+    "provider": "RBI Handbook of Statistics on Indian States",
     "class": "A"
   }
 ]

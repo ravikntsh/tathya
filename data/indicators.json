@@ -256,7 +256,7 @@
   {
     "id": "state_income_per_capita",
     "sort": 10,
-    "unit": "₹ in 2011-12 prices",
+    "unit": "₹ at fixed base-year prices",
     "domain": [
       0,
       400000
@@ -264,16 +264,16 @@
     "decimals": 0,
     "higher_is_better": true,
     "short_label": {
-      "en": "Income per person (2011-12 ₹)",
-      "hi": "प्रति व्यक्ति आय (2011-12 ₹)"
+      "en": "Income per person (inflation removed)",
+      "hi": "प्रति व्यक्ति आय (मुद्रास्फीति हटाकर)"
     },
     "label": {
-      "en": "Income per person in 2011-12 rupees (inflation removed): per capita Net State Domestic Product at constant 2011-12 prices",
-      "hi": "2011-12 के रुपयों में प्रति व्यक्ति आय (मुद्रास्फीति हटाकर): स्थिर 2011-12 मूल्यों पर प्रति व्यक्ति शुद्ध राज्य घरेलू उत्पाद"
+      "en": "Income per person at constant prices (inflation removed): per capita net state/national income",
+      "hi": "स्थिर मूल्यों पर प्रति व्यक्ति आय (मुद्रास्फीति हटाकर): प्रति व्यक्ति शुद्ध राज्य/राष्ट्रीय आय"
     },
     "definition": {
-      "en": "Average income produced per person, valued at 2011-12 prices so that inflation is removed and years can be compared. It is NOT what people earn in today's rupees: at 2024-25's own prices the all-India figure is roughly ₹2 lakh. It is also net of depreciation, so it is lower than GDP per person. To convert to dollars, use the 2011 rates: about ₹46.7 per US$ (market) or ₹15.5 per international $ (PPP, World Bank).",
-      "hi": "प्रति व्यक्ति औसत आय, 2011-12 के मूल्यों पर, ताकि मुद्रास्फीति हट जाए और वर्षों की तुलना हो सके। यह आज के रुपयों में कमाई नहीं है: 2024-25 के अपने मूल्यों पर अखिल भारतीय आँकड़ा लगभग ₹2 लाख है। यह मूल्यह्रास के बाद की शुद्ध आय है, इसलिए प्रति व्यक्ति GDP से कम है। डॉलर में बदलने के लिए 2011 की दरें लें: लगभग ₹46.7 प्रति अमेरिकी डॉलर (बाज़ार) या ₹15.5 प्रति अंतरराष्ट्रीय डॉलर (PPP, विश्व बैंक)।"
+      "en": "Income per person valued at the prices of a base year, so inflation is removed and years can be compared within one base. Each base year (1993-94, 1999-2000, 2004-05, 2011-12, 2022-23) is a separate line: they are never joined. Net of depreciation, so lower than GDP per person. For what people earn in each year's own rupees, see 'Income per person (today's ₹)'.",
+      "hi": "आधार वर्ष के मूल्यों पर प्रति व्यक्ति आय, ताकि मुद्रास्फीति हटे और एक आधार के भीतर वर्षों की तुलना हो सके। हर आधार वर्ष (1993-94, 1999-2000, 2004-05, 2011-12, 2022-23) एक अलग रेखा है: इन्हें जोड़ा नहीं जाता। मूल्यह्रास के बाद की शुद्ध आय, इसलिए प्रति व्यक्ति GDP से कम। हर वर्ष के अपने रुपयों में कमाई के लिए 'प्रति व्यक्ति आय (उसी वर्ष के ₹)' देखें।"
     },
     "break_note": null,
     "anchor": [
@@ -399,5 +399,32 @@
       "hi": "भारत की जनगणना: 2001 में 'घर के भीतर' शौचालय के बारे में पूछा गया, 2011 में 'परिसर के भीतर'। ORGI दोनों की सीधे तुलना करता है।"
     },
     "break_note": null
+  },
+  {
+    "id": "income_per_capita_current",
+    "sort": 9,
+    "unit": "₹ (that year's prices)",
+    "domain": [
+      0,
+      600000
+    ],
+    "decimals": 0,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Income per person (today's ₹)",
+      "hi": "प्रति व्यक्ति आय (उसी वर्ष के ₹)"
+    },
+    "label": {
+      "en": "Income per person in each year's own rupees (current prices): per capita net state/national income",
+      "hi": "हर वर्ष के अपने रुपयों में प्रति व्यक्ति आय (चालू मूल्य): प्रति व्यक्ति शुद्ध राज्य/राष्ट्रीय आय"
+    },
+    "definition": {
+      "en": "What the average income per person was in that year's rupees. Includes inflation, so growth here is larger than real growth. Base-year revisions (2011-12, 2022-23) are marked as breaks. Divide by that year's exchange rate to get US dollars.",
+      "hi": "उस वर्ष के रुपयों में प्रति व्यक्ति औसत आय। इसमें मुद्रास्फीति शामिल है, इसलिए यहाँ वृद्धि वास्तविक वृद्धि से अधिक दिखती है। आधार-वर्ष संशोधन (2011-12, 2022-23) विराम के रूप में चिह्नित हैं। अमेरिकी डॉलर के लिए उस वर्ष की विनिमय दर से भाग दें।"
+    },
+    "break_note": null,
+    "anchor": [
+      "mospi_nni_pc_current"
+    ]
   }
 ]

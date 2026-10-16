@@ -318,7 +318,14 @@ function render() {
   const cells = new Map(["IN", ...data.states.map((s) => s.code)].map((c) => [c, cell(c)]));
   if (!cells.get("IN")) {
     const y = estMode() ? state.year : periods.find((p) => p.period === state.period)?.year;
-    cells.set("IN", weightedIndia(cells, y));
+    // An official All-India figure for the same year (e.g. MoSPI national income next to
+    // the RBI state table) always wins over a calculated average.
+    let official = null;
+    for (const a of i.anchor || []) {
+      const o = data.series(state.indicator, a, "IN").find((p) => p.year === y);
+      if (o) { official = { kind: "obs", value: o.value, o }; break; }
+    }
+    cells.set("IN", official ?? weightedIndia(cells, y));
   }
   lastCells = cells;
   const valueOf = (code) => cells.get(code)?.value ?? null;
