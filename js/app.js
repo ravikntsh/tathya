@@ -379,20 +379,7 @@ function renderCard() {
     domain: i.domain,
     series: series.slice(-8).map((s) => ({ round: s.period, value: s.value })),
   };
-  const link = cardLink({ indicator: state.indicator, dataset: state.dataset, round: state.period, region: state.region });
-  el.querySelectorAll("[data-act]").forEach((b) =>
-    b.addEventListener("click", async () => {
-      const act = b.dataset.act;
-      const name = `tathya-${state.indicator}-${code}-${o.period}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-");
-      if (act === "sq") download(await shareImage(card, link, [1080, 1080]), `${name}-1080.png`);
-      else if (act === "wide") download(await shareImage(card, link, [1200, 675]), `${name}-1200x675.png`);
-      else {
-        const texts = shareTexts(card, link);
-        const ok = await copy(act === "x" ? texts.short : act === "long" ? texts.long : link);
-        if (ok) { const old = b.textContent; b.textContent = t("copied"); setTimeout(() => (b.textContent = old), 1200); }
-      }
-    })
-  );
+  wireShare(el, card, code, o.period);
 }
 
 // Card for a year without data: shows the estimate, how it was made and the real
@@ -410,7 +397,54 @@ function renderEstimateCard(el, i, code, c) {
     <p class="when"><span class="est-tag">${t("estimateTitle")}</span> ${state.year}</p>
     <p class="small">${esc(how)}</p>
     ${basis.map((o) => `<p class="src">${sourceLine(o)}</p>`).join("")}
-    <p class="muted small">${t("estNoShare")}</p>`;
+    <p class="muted small">${t("estShareNote")}</p>
+    <div class="share" role="group" aria-label="${t("share")}">
+      <button class="pill" data-act="sq">${t("shareSquare")}</button>
+      <button class="pill" data-act="wide">${t("shareWide")}</button>
+      <button class="pill" data-act="x">${t("copyX")}</button>
+      <button class="pill" data-act="long">${t("copyLong")}</button>
+      <button class="pill" data-act="link">${t("copyLink")}</button>
+    </div>`;
+
+  // Observed points, then the estimate as an outlined bar.
+  const real = data.series(state.indicator, state.dataset, code).filter((p) => p.year < state.year).slice(-6);
+  const srcs = [...new Set(basis.map((o) => data.sourceById.get(o.sourceId)?.publisher ?? o.sourceId))];
+  const card = {
+    regionName: regionName(code),
+    indicatorLabel: tr(i.short_label),
+    value: c.value,
+    valueText: fmtVal(c.value),
+    unit: unitText(i),
+    deltaUnit: deltaUnit(i),
+    decimals: i.decimals,
+    round: String(state.year),
+    years: src,
+    prev: null,
+    higherIsBetter: i.higher_is_better,
+    sourceName: `${srcs.join("; ")} (${src})`,
+    sourceUrl: data.sourceById.get(basis.at(-1).sourceId)?.url ?? "",
+    domain: i.domain,
+    series: [...real.map((s) => ({ round: s.period, value: s.value })), { round: String(state.year), value: c.value, est: true }],
+    estimate: { note: how },
+  };
+  wireShare(el, card, code, String(state.year));
+}
+
+function wireShare(el, card, code, label) {
+  const link = cardLink({ indicator: state.indicator, dataset: state.dataset, round: state.period, region: state.region, est: estMode(), year: state.year });
+  el.querySelectorAll("[data-act]").forEach((b) =>
+    b.addEventListener("click", async () => {
+      const act = b.dataset.act;
+      const name = `tathya-${state.indicator}-${code}-${label}${card.estimate ? "-estimate" : ""}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-");
+      if (act === "sq") download(await shareImage(card, link, [1080, 1080]), `${name}-1080.png`);
+      else if (act === "wide") download(await shareImage(card, link, [1200, 675]), `${name}-1200x675.png`);
+      else {
+        const texts = shareTexts(card, link);
+        const ok = await copy(act === "x" ? texts.short : act === "long" ? texts.long : link);
+        if (ok) { const old = b.textContent; b.textContent = t("copied"); setTimeout(() => (b.textContent = old), 1200); }
+      }
+    })
+  );
 }
 
 function renderCompareOptions() {

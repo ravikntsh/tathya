@@ -42,7 +42,7 @@
 
 ## Estimates (off by default)
 
-The reader can turn on "Show estimates for years without data". When it's on, the map slider moves year by year, and years without real data are filled with estimates. **An estimate is never data.** On the map it is faded with a dashed edge, in rankings and cards it is marked ≈, and it can't be shared as an image or text.
+The reader can turn on "Show estimates for years without data". When it's on, the map slider moves year by year, and years without real data are filled with estimates. **An estimate is never data.** On the map it is faded with a dashed edge, and in rankings and cards it is marked ≈. Estimates can be shared, but every shared image carries an "ESTIMATE · NOT OFFICIAL DATA" stamp, a ≈ value, the method, the 90% range (for trends) and the real data points it is based on. The estimated bar is drawn as a dashed outline. Shared text begins with the same label, and links reopen the page in estimates mode.
 
 - **Between two real data points** of the same series: a straight line. If a definition or territory changes between the two points, there is no estimate across that gap.
 - **After the latest point:** a trend through the latest (up to) five points of the latest unbroken segment, with a 90% prediction interval. It needs at least three points.
