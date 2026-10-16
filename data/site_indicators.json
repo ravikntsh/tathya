@@ -662,15 +662,16 @@
    "en": "Capital spending of the armed forces, the 'Capital Outlay on Defence Services' demand. Its heads include land, aircraft and aero-engines, heavy and medium vehicles, other equipment, naval fleet and dockyards, construction works, and investment in defence public enterprises (2026-27 document). Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
    "hi": "सशस्त्र बलों का पूंजीगत व्यय, 'रक्षा सेवाओं पर पूंजी परिव्यय' मांग। इसके शीर्षों में भूमि, विमान और एयरो-इंजन, भारी और मध्यम वाहन, अन्य उपकरण, नौसैनिक बेड़ा और गोदी, निर्माण कार्य और रक्षा सार्वजनिक उपक्रमों में निवेश शामिल हैं (2026-27 दस्तावेज़)। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
   },
-  "break_note": {
-   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
-   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
-  },
+  "break_note": null,
   "anchor": [
    "ub_def_capital_actual",
    "ub_def_capital_be"
   ],
-  "group": "defence"
+  "group": "defence",
+  "method_note": {
+   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+  }
  },
  {
   "id": "def_budget_revenue_cr",
@@ -694,15 +695,16 @@
    "en": "Day-to-day spending of the armed forces (pay and allowances, stores, transportation, works and other running costs, as in the demand's heads), the 'Defence Services (Revenue)' demand. Excludes pensions and capital outlay. This single demand starts in the 2016-17 documents, which also recast 2014-15 Actuals and the 2015-16 Budget Estimate; earlier years were split over five demands and are not added up here. Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
    "hi": "सशस्त्र बलों का दैनिक व्यय (वेतन और भत्ते, भंडार, परिवहन, निर्माण कार्य, रखरखाव), 'रक्षा सेवाएँ (राजस्व)' मांग। इसमें पेंशन और पूंजी परिव्यय शामिल नहीं। यह एकल मांग 2016-17 के दस्तावेज़ों से शुरू होती है, जिनमें 2014-15 के वास्तविक और 2015-16 के बजट अनुमान भी नए ढाँचे में दिए गए; पहले के वर्ष पाँच मांगों में बँटे थे और यहाँ जोड़े नहीं गए। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
   },
-  "break_note": {
-   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
-   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
-  },
+  "break_note": null,
   "anchor": [
    "ub_def_revenue_actual",
    "ub_def_revenue_be"
   ],
-  "group": "defence"
+  "group": "defence",
+  "method_note": {
+   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+  }
  },
  {
   "id": "def_pensions_cr",
@@ -726,15 +728,16 @@
    "en": "Pensions and other retirement benefits paid under the 'Defence Pensions' demand. Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
    "hi": "'रक्षा पेंशन' मांग के तहत दी गई पेंशन और अन्य सेवानिवृत्ति लाभ। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
   },
-  "break_note": {
-   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
-   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
-  },
+  "break_note": null,
   "anchor": [
    "ub_def_pensions_actual",
    "ub_def_pensions_be"
   ],
-  "group": "defence"
+  "group": "defence",
+  "method_note": {
+   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+  }
  },
  {
   "id": "def_production_cr",
@@ -811,13 +814,14 @@
    "en": "Per cent of usually working persons (principal + subsidiary status) whose industry of work is NIC-2008 section A. PLFS survey estimate; July-June agricultural years.",
    "hi": "सामान्य रूप से काम करने वाले व्यक्तियों (मुख्य + सहायक स्थिति) का प्रतिशत जिनका काम NIC-2008 खंड A में है। PLFS सर्वेक्षण अनुमान; जुलाई-जून कृषि वर्ष।"
   },
-  "break_note": "July-June annual reports (2017-18 to 2022-23); 2020-21 and 2023-24 missing.",
+  "break_note": null,
   "domain": [
    0,
    100
   ],
   "decimals": 1,
-  "anchor": null
+  "anchor": null,
+  "method_note": "July-June annual reports (2017-18 to 2022-23); 2020-21 and 2023-24 missing."
  },
  {
   "id": "jobs_industry_share",
@@ -946,13 +950,14 @@
    "en": "Unemployed persons as a per cent of the labour force (those working or seeking work), age 15+, usual status. Someone who did any subsidiary work during the year counts as employed, so this rate is low by design.",
    "hi": "श्रम बल (काम करने वाले या काम खोजने वाले) में बेरोज़गार व्यक्तियों का प्रतिशत, 15+ आयु, सामान्य स्थिति। वर्ष में कोई भी सहायक काम करने वाला रोज़गार में गिना जाता है, इसलिए यह दर स्वभावतः कम रहती है।"
   },
-  "break_note": "July-June annual-report series and calendar-year (Jan-Dec) API series are kept separate.",
+  "break_note": null,
   "domain": [
    0,
    40
   ],
   "decimals": 1,
-  "anchor": null
+  "anchor": null,
+  "method_note": "July-June annual-report series and calendar-year (Jan-Dec) API series are kept separate."
  },
  {
   "id": "wpr",
@@ -973,13 +978,14 @@
    "en": "Workers as a per cent of all persons aged 15+. Includes unpaid helpers in household enterprises.",
    "hi": "15+ आयु के सभी व्यक्तियों में श्रमिकों का प्रतिशत। इसमें घरेलू उद्यमों में बिना वेतन के सहायक भी शामिल हैं।"
   },
-  "break_note": "July-June annual-report series and calendar-year (Jan-Dec) API series are kept separate.",
+  "break_note": null,
   "domain": [
    0,
    80
   ],
   "decimals": 1,
-  "anchor": null
+  "anchor": null,
+  "method_note": "July-June annual-report series and calendar-year (Jan-Dec) API series are kept separate."
  },
  {
   "id": "factories",
@@ -1000,13 +1006,14 @@
    "en": "Registered factories (Factories Act; mainly 10+ workers with power or 20+ without) counted by ASI. Excludes small unregistered units.",
    "hi": "ASI द्वारा गिने गए पंजीकृत कारखाने (कारखाना अधिनियम; मुख्यतः बिजली के साथ 10+ या बिना बिजली 20+ श्रमिक)। छोटी अपंजीकृत इकाइयाँ शामिल नहीं।"
   },
-  "break_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks.",
+  "break_note": null,
   "domain": [
    0,
    300000
   ],
   "decimals": 0,
-  "anchor": null
+  "anchor": null,
+  "method_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks."
  },
  {
   "id": "factory_workers",
@@ -1027,13 +1034,14 @@
    "en": "Workers directly or through contractors engaged in manufacturing in ASI factories; excludes supervisory and managerial staff (counted under employees).",
    "hi": "ASI कारखानों में विनिर्माण में सीधे या ठेकेदार के माध्यम से लगे श्रमिक; पर्यवेक्षी और प्रबंधकीय कर्मचारी (कर्मचारियों में गिने जाते हैं) शामिल नहीं।"
   },
-  "break_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks.",
+  "break_note": null,
   "domain": [
    0,
    20000000
   ],
   "decimals": 0,
-  "anchor": null
+  "anchor": null,
+  "method_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks."
  },
  {
   "id": "factory_gva_inr_crore",
@@ -1054,13 +1062,14 @@
    "en": "Value of output minus inputs of ASI factories, before depreciation, in that year's rupees (not adjusted for inflation).",
    "hi": "ASI कारखानों के उत्पादन मूल्य में से इनपुट घटाकर, मूल्यह्रास से पहले, उसी वर्ष के रुपयों में (मुद्रास्फीति समायोजित नहीं)।"
   },
-  "break_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks.",
+  "break_note": null,
   "domain": [
    0,
    3000000
   ],
   "decimals": 0,
-  "anchor": null
+  "anchor": null,
+  "method_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks."
  },
  {
   "id": "trade_exports_usd_bn",
@@ -1135,13 +1144,14 @@
    "en": "GDP divided by mid-year population, in that year's rupees. Larger than income per person (NNI per capita) because it still includes depreciation and income paid abroad. Base years 2011-12 and 2022-23 are separate series.",
    "hi": "मध्य-वर्ष जनसंख्या से विभाजित जीडीपी, उसी वर्ष के रुपयों में। प्रति व्यक्ति आय (प्रति व्यक्ति NNI) से अधिक, क्योंकि इसमें मूल्यह्रास और विदेश को दी गई आय शामिल रहती है। आधार वर्ष 2011-12 और 2022-23 अलग श्रृंखलाएँ हैं।"
   },
-  "break_note": "Base 2011-12 and base 2022-23 are separate datasets; do not join.",
+  "break_note": null,
   "domain": [
    0,
    300000
   ],
   "decimals": 0,
-  "anchor": null
+  "anchor": null,
+  "method_note": "Base 2011-12 and base 2022-23 are separate datasets; do not join."
  },
  {
   "id": "gdp_per_capita_constant",
@@ -1162,13 +1172,14 @@
    "en": "Real GDP per person; inflation removed using the base year's prices. The two base series have different price levels and must not be joined.",
    "hi": "वास्तविक प्रति व्यक्ति जीडीपी; आधार वर्ष के मूल्यों से मुद्रास्फीति हटाई गई। दोनों आधार श्रृंखलाओं के मूल्य स्तर अलग हैं और इन्हें जोड़ा नहीं जाना चाहिए।"
   },
-  "break_note": "Base 2011-12 and base 2022-23 are separate datasets; do not join.",
+  "break_note": null,
   "domain": [
    0,
    300000
   ],
   "decimals": 0,
-  "anchor": null
+  "anchor": null,
+  "method_note": "Base 2011-12 and base 2022-23 are separate datasets; do not join."
  },
  {
   "id": "cfc_share_gdp",
@@ -1189,13 +1200,14 @@
    "en": "Wear and tear of buildings, machinery and other fixed assets, as a share of GDP at market prices. Calculated here from the two printed values. This is the main gap between GDP and net national income.",
    "hi": "भवनों, मशीनरी और अन्य अचल परिसंपत्तियों की टूट-फूट, बाज़ार मूल्य पर जीडीपी के हिस्से के रूप में। यहाँ दो छपे मानों से परिकलित। यही जीडीपी और शुद्ध राष्ट्रीय आय के बीच का मुख्य अंतर है।"
   },
-  "break_note": "One dataset per national-accounts base (1993-94, 1999-2000, 2004-05, 2011-12, 2022-23); bases overlap in years and differ in level.",
+  "break_note": null,
   "domain": [
    0,
    20
   ],
   "decimals": 1,
-  "anchor": null
+  "anchor": null,
+  "method_note": "One dataset per national-accounts base (1993-94, 1999-2000, 2004-05, 2011-12, 2022-23); bases overlap in years and differ in level."
  },
  {
   "id": "cfc_current_inr_crore",
@@ -1216,13 +1228,14 @@
    "en": "Depreciation of the economy's fixed assets as estimated in the national accounts, in that year's rupees.",
    "hi": "राष्ट्रीय लेखा में अनुमानित अर्थव्यवस्था की अचल परिसंपत्तियों का मूल्यह्रास, उसी वर्ष के रुपयों में।"
   },
-  "break_note": "One dataset per national-accounts base; not spliced.",
+  "break_note": null,
   "domain": [
    0,
    5000000
   ],
   "decimals": 0,
-  "anchor": null
+  "anchor": null,
+  "method_note": "One dataset per national-accounts base; not spliced."
  },
  {
   "id": "nfia_current_inr_crore",
@@ -1243,12 +1256,477 @@
    "en": "Income earned by Indians abroad minus income paid to foreigners (interest, profits, wages). Negative means more goes out than comes in; GNI = GDP + this.",
    "hi": "विदेश में भारतीयों द्वारा अर्जित आय में से विदेशियों को दी गई आय (ब्याज, लाभ, मज़दूरी) घटाकर। ऋणात्मक का अर्थ है जितनी आय आती है उससे अधिक बाहर जाती है; GNI = GDP + यह।"
   },
-  "break_note": "One dataset per national-accounts base; not spliced.",
+  "break_note": null,
   "domain": [
    -500000,
    400
   ],
   "decimals": 0,
-  "anchor": null
+  "anchor": null,
+  "method_note": "One dataset per national-accounts base; not spliced."
+ },
+ {
+  "id": "hospital_beds_per_1000",
+  "sort": 101,
+  "unit": "beds per 1,000 people",
+  "domain": [
+   0,
+   5
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Hospital beds",
+   "hi": "अस्पताल बिस्तर"
+  },
+  "label": {
+   "en": "Hospital beds per 1,000 people",
+   "hi": "प्रति 1,000 लोगों पर अस्पताल बिस्तर"
+  },
+  "definition": {
+   "en": "Inpatient hospital beds, public and private, per 1,000 people (World Bank, from WHO and country data). All-India only: the National Health Profile prints state counts of government hospital beds but not population or a per-person rate, and its coverage changes sharply from year to year. No WHO norm for hospital beds is shown because we found no official WHO document stating one.",
+   "hi": "प्रति 1,000 लोगों पर अस्पतालों में भर्ती के बिस्तर, सरकारी और निजी दोनों (विश्व बैंक, WHO और देश के आंकड़ों से)। केवल अखिल भारत: राष्ट्रीय स्वास्थ्य प्रोफ़ाइल राज्यों के सरकारी अस्पताल बिस्तरों की संख्या छापती है, पर जनसंख्या या प्रति व्यक्ति दर नहीं, और उसका कवरेज साल-दर-साल बहुत बदलता है। अस्पताल बिस्तरों का कोई WHO मानक नहीं दिखाया गया है क्योंकि हमें ऐसा कोई आधिकारिक WHO दस्तावेज़ नहीं मिला।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "method_note": "World Bank series jumps from 0.787 (1991) to 2.13 (2000) with no explanation; treated as a break."
+ },
+ {
+  "id": "doctors_per_10000",
+  "sort": 102,
+  "unit": "doctors per 10,000 people",
+  "domain": [
+   0,
+   50
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Doctors",
+   "hi": "डॉक्टर"
+  },
+  "label": {
+   "en": "Medical doctors (allopathic) per 10,000 people",
+   "hi": "प्रति 10,000 लोगों पर चिकित्सक (एलोपैथिक)"
+  },
+  "definition": {
+   "en": "Modern-medicine (allopathic) doctors per 10,000 people, from the WHO Global Health Observatory. For India WHO uses doctors registered with state medical councils and the National Medical Commission, a cumulative count that includes doctors who have retired, died, emigrated or are registered twice, so it overstates doctors actually working. AYUSH practitioners are excluded. Benchmark: WHO's Global Strategy on Human Resources for Health: Workforce 2030 (2016, Annex 1) uses an indicative threshold of 44.5 doctors, nurses and midwives together per 10,000 people; it is not a threshold for doctors alone (see health workers).",
+   "hi": "प्रति 10,000 लोगों पर आधुनिक चिकित्सा (एलोपैथिक) डॉक्टर, WHO ग्लोबल हेल्थ ऑब्ज़र्वेटरी से। भारत के लिए WHO राज्य चिकित्सा परिषदों और राष्ट्रीय चिकित्सा आयोग में पंजीकृत डॉक्टरों की संचयी संख्या लेता है, जिसमें सेवानिवृत्त, मृत, विदेश गए या दो बार पंजीकृत डॉक्टर भी शामिल हैं, इसलिए यह वास्तव में काम कर रहे डॉक्टरों से अधिक है। आयुष चिकित्सक शामिल नहीं हैं। मानदंड: WHO की 'Global Strategy on Human Resources for Health: Workforce 2030' (2016, अनुलग्नक 1) डॉक्टर, नर्स और दाई को मिलाकर प्रति 10,000 लोगों पर 44.5 की सांकेतिक सीमा का उपयोग करती है; यह केवल डॉक्टरों की सीमा नहीं है (स्वास्थ्यकर्मी देखें)।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "method_note": "WHO's 1991 value (12.31) is not comparable with 1995 onward (4.79 in 1995); break marked at 1995."
+ },
+ {
+  "id": "nurses_midwives_per_10000",
+  "sort": 103,
+  "unit": "nurses and midwives per 10,000 people",
+  "domain": [
+   0,
+   50
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Nurses and midwives",
+   "hi": "नर्स और दाई"
+  },
+  "label": {
+   "en": "Nursing and midwifery personnel per 10,000 people",
+   "hi": "प्रति 10,000 लोगों पर नर्सिंग और मिडवाइफरी कर्मी"
+  },
+  "definition": {
+   "en": "Nursing and midwifery personnel per 10,000 people, from the WHO Global Health Observatory. Based on registration data, not a count of nurses currently working.",
+   "hi": "प्रति 10,000 लोगों पर नर्सिंग और मिडवाइफरी कर्मी, WHO ग्लोबल हेल्थ ऑब्ज़र्वेटरी से। यह पंजीकरण आंकड़ों पर आधारित है, वर्तमान में काम कर रही नर्सों की गिनती नहीं।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "method_note": "WHO's 2018 value (17.0) is well below 2017 and 2020 and is likely a reporting change."
+ },
+ {
+  "id": "health_workers_per_10000",
+  "sort": 104,
+  "unit": "doctors, nurses and midwives per 10,000 people",
+  "domain": [
+   0,
+   60
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Doctors, nurses and midwives",
+   "hi": "डॉक्टर, नर्स और दाई"
+  },
+  "label": {
+   "en": "Doctors, nurses and midwives per 10,000 people",
+   "hi": "प्रति 10,000 लोगों पर डॉक्टर, नर्स और दाई"
+  },
+  "definition": {
+   "en": "Medical doctors plus nursing and midwifery personnel per 10,000 people: the sum of WHO's two published densities for the same year, added by Tathya. WHO benchmark: 44.5 doctors, nurses and midwives per 10,000 people, the indicative SDG index threshold in WHO's Global Strategy on Human Resources for Health: Workforce 2030 (2016, Annex 1: 4.45 per 1,000). WHO uses it to estimate workforce needs; it is not a legal norm. Both inputs are registration counts and overstate the active workforce.",
+   "hi": "प्रति 10,000 लोगों पर चिकित्सक और नर्सिंग-मिडवाइफरी कर्मी: उसी वर्ष के WHO के दो प्रकाशित घनत्वों का योग, जिसे Tathya ने जोड़ा है। WHO मानदंड: प्रति 10,000 लोगों पर 44.5 डॉक्टर, नर्स और दाई, जो WHO की 'Global Strategy on Human Resources for Health: Workforce 2030' (2016, अनुलग्नक 1: प्रति 1,000 पर 4.45) में SDG सूचकांक की सांकेतिक सीमा है। WHO इसका उपयोग कार्यबल की ज़रूरत के अनुमान के लिए करता है; यह कानूनी मानक नहीं है। दोनों आंकड़े पंजीकरण पर आधारित हैं और सक्रिय कार्यबल से अधिक हैं।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "method_note": "Inherits the 2018 nursing outlier."
+ },
+ {
+  "id": "people_per_doctor_mohfw",
+  "sort": 105,
+  "unit": "people per doctor",
+  "domain": [
+   0,
+   1500
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "People per doctor (govt estimate)",
+   "hi": "प्रति डॉक्टर लोग (सरकारी अनुमान)"
+  },
+  "label": {
+   "en": "Doctor-population ratio as stated by the Health Ministry (people per doctor)",
+   "hi": "स्वास्थ्य मंत्रालय द्वारा बताया गया डॉक्टर-जनसंख्या अनुपात (प्रति डॉक्टर लोग)"
+  },
+  "definition": {
+   "en": "The '1:N' figure the Ministry of Health gives in Parliament: people per doctor, counting registered allopathic doctors and registered AYUSH practitioners and assuming 80% of them are available. It is an estimate, not a count of working doctors, and it is not comparable with WHO's allopathic-only density. Answers call it better than a 'WHO standard of 1:1000'; we found no WHO document stating such a standard.",
+   "hi": "संसद में स्वास्थ्य मंत्रालय द्वारा दिया गया '1:N' आंकड़ा: प्रति डॉक्टर लोग, जिसमें पंजीकृत एलोपैथिक डॉक्टर और पंजीकृत आयुष चिकित्सक गिने जाते हैं और माना जाता है कि उनमें से 80% उपलब्ध हैं। यह अनुमान है, काम कर रहे डॉक्टरों की गिनती नहीं, और WHO के केवल-एलोपैथिक घनत्व से तुलनीय नहीं है। उत्तरों में इसे 'WHO मानक 1:1000' से बेहतर बताया गया है; हमें ऐसा मानक बताने वाला कोई WHO दस्तावेज़ नहीं मिला।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health"
+ },
+ {
+  "id": "med_colleges",
+  "sort": 106,
+  "unit": "colleges",
+  "domain": [
+   0,
+   900
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Medical colleges (MBBS)",
+   "hi": "मेडिकल कॉलेज (एमबीबीएस)"
+  },
+  "label": {
+   "en": "Number of medical colleges teaching MBBS (government and private)",
+   "hi": "एमबीबीएस पढ़ाने वाले मेडिकल कॉलेजों की संख्या (सरकारी और निजी)"
+  },
+  "definition": {
+   "en": "All colleges permitted by the National Medical Commission to admit MBBS students in that academic year, as reported by MoHFW/NMC. Some sources include AIIMS and other national institutes and some do not; such changes are marked as breaks.",
+   "hi": "उस शैक्षणिक वर्ष में राष्ट्रीय आयुर्विज्ञान आयोग द्वारा एमबीबीएस में प्रवेश की अनुमति प्राप्त सभी कॉलेज, जैसा स्वास्थ्य मंत्रालय/एनएमसी ने बताया। कुछ स्रोतों में एम्स और अन्य राष्ट्रीय संस्थान शामिल हैं और कुछ में नहीं; ऐसे बदलाव विराम के रूप में चिह्नित हैं।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "map_domain": [
+   0,
+   100
+  ],
+  "method_note": "NMC college list (2026-27) excludes AIIMS/JIPMER/INIs."
+ },
+ {
+  "id": "med_colleges_govt",
+  "sort": 107,
+  "unit": "colleges",
+  "domain": [
+   0,
+   500
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Government medical colleges",
+   "hi": "सरकारी मेडिकल कॉलेज"
+  },
+  "label": {
+   "en": "Number of government medical colleges teaching MBBS",
+   "hi": "एमबीबीएस पढ़ाने वाले सरकारी मेडिकल कॉलेजों की संख्या"
+  },
+  "definition": {
+   "en": "Medical colleges run by the central or state government (including ESIC and municipal colleges) that admit MBBS students. Whether AIIMS and other national institutes are counted depends on the source; see the note on each value.",
+   "hi": "केंद्र या राज्य सरकार द्वारा संचालित (ईएसआईसी और नगर निगम कॉलेजों सहित) एमबीबीएस में प्रवेश देने वाले मेडिकल कॉलेज। एम्स और अन्य राष्ट्रीय संस्थान गिने गए हैं या नहीं, यह स्रोत पर निर्भर है; हर मान का नोट देखें।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "map_domain": [
+   0,
+   60
+  ],
+  "method_note": "NMC college list (2026-27) excludes AIIMS/JIPMER/INIs."
+ },
+ {
+  "id": "med_colleges_private",
+  "sort": 108,
+  "unit": "colleges",
+  "domain": [
+   0,
+   500
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Private medical colleges",
+   "hi": "निजी मेडिकल कॉलेज"
+  },
+  "label": {
+   "en": "Number of private medical colleges teaching MBBS (incl. trust, society and deemed-university colleges)",
+   "hi": "एमबीबीएस पढ़ाने वाले निजी मेडिकल कॉलेजों की संख्या (ट्रस्ट, सोसाइटी और डीम्ड विश्वविद्यालय कॉलेज सहित)"
+  },
+  "definition": {
+   "en": "Medical colleges not run by government: private, trust and society colleges and deemed universities, combined as the source prints them (\"Pvt.\", \"Pvt., Trust & Society\" or \"Private\").",
+   "hi": "सरकार द्वारा संचालित नहीं होने वाले मेडिकल कॉलेज: निजी, ट्रस्ट और सोसाइटी कॉलेज तथा डीम्ड विश्वविद्यालय, जैसा स्रोत इन्हें एक साथ छापता है (\"Pvt.\", \"Pvt., Trust & Society\" या \"Private\")।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "map_domain": [
+   0,
+   60
+  ]
+ },
+ {
+  "id": "mbbs_seats",
+  "sort": 109,
+  "unit": "seats",
+  "domain": [
+   0,
+   150000
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "MBBS seats",
+   "hi": "एमबीबीएस सीटें"
+  },
+  "label": {
+   "en": "Total MBBS seats (annual admission capacity) in medical colleges",
+   "hi": "मेडिकल कॉलेजों में कुल एमबीबीएस सीटें (वार्षिक प्रवेश क्षमता)"
+  },
+  "definition": {
+   "en": "Number of MBBS students the medical colleges in the state are permitted to admit each year (government plus private). It is capacity, not the number actually admitted.",
+   "hi": "राज्य के मेडिकल कॉलेजों को हर वर्ष जितने एमबीबीएस छात्र प्रवेश देने की अनुमति है (सरकारी और निजी मिलाकर)। यह क्षमता है, वास्तव में प्रवेश पाए छात्रों की संख्या नहीं।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "health",
+  "map_domain": [
+   0,
+   16000
+  ],
+  "method_note": "NMC college list (2026-27) excludes AIIMS/JIPMER/INIs; 2014-15 state rows exclude AIIMS."
+ },
+ {
+  "id": "schools",
+  "sort": 110,
+  "unit": "schools",
+  "domain": [
+   0,
+   1600000
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Schools",
+   "hi": "विद्यालय"
+  },
+  "label": {
+   "en": "Number of schools",
+   "hi": "विद्यालयों की संख्या"
+  },
+  "definition": {
+   "en": "Total number of schools of all managements (government, government-aided, private unaided recognised and others), from primary to higher secondary, as counted by UDISE+.",
+   "hi": "यूडाइस+ द्वारा गिने गए सभी प्रबंधनों (सरकारी, सरकारी सहायता प्राप्त, मान्यता प्राप्त निजी गैर-सहायता प्राप्त और अन्य) के कुल विद्यालय, प्राथमिक से उच्चतर माध्यमिक तक।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "education",
+  "dataset": "udiseplus_state",
+  "map_domain": [
+   0,
+   300000
+  ]
+ },
+ {
+  "id": "ger_secondary",
+  "sort": 111,
+  "unit": "%",
+  "domain": [
+   0,
+   130
+  ],
+  "decimals": 1,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Secondary GER",
+   "hi": "माध्यमिक GER"
+  },
+  "label": {
+   "en": "Gross enrolment ratio, secondary (classes IX-X)",
+   "hi": "सकल नामांकन अनुपात, माध्यमिक (कक्षा 9-10)"
+  },
+  "definition": {
+   "en": "Students enrolled in classes IX-X, of any age, as a percentage of the projected population aged 14-15. It can exceed 100 when over- or under-age children are enrolled.",
+   "hi": "कक्षा 9-10 में नामांकित किसी भी आयु के छात्र, 14-15 वर्ष की अनुमानित जनसंख्या के प्रतिशत के रूप में। अधिक या कम आयु के बच्चों के नामांकन से यह 100 से ऊपर जा सकता है।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "education",
+  "dataset": "udiseplus_state",
+  "method_note": {
+   "en": "From 2022-23 UDISE+ collects data student by student instead of school totals, and its population projections were moderated; the reports say ratios are not strictly comparable with 2021-22 and earlier.",
+   "hi": "2022-23 से यूडाइस+ विद्यालय-वार कुल के बजाय हर छात्र का आँकड़ा लेता है और जनसंख्या अनुमान भी संशोधित किए गए; रिपोर्ट के अनुसार अनुपात 2021-22 और पहले के वर्षों से पूरी तरह तुलनीय नहीं हैं।"
+  }
+ },
+ {
+  "id": "ptr_secondary",
+  "sort": 112,
+  "unit": "pupils per teacher",
+  "domain": [
+   0,
+   60
+  ],
+  "decimals": 1,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Secondary PTR",
+   "hi": "माध्यमिक PTR"
+  },
+  "label": {
+   "en": "Pupil-teacher ratio, secondary (classes IX-X)",
+   "hi": "छात्र-शिक्षक अनुपात, माध्यमिक (कक्षा 9-10)"
+  },
+  "definition": {
+   "en": "Students enrolled in classes IX-X per teacher teaching those classes. Lower means more teachers per student. Most UDISE+ reports print it as a whole number (2019-20: one decimal).",
+   "hi": "कक्षा 9-10 में नामांकित छात्र प्रति शिक्षक (उन कक्षाओं को पढ़ाने वाले)। कम अंक का अर्थ है प्रति छात्र अधिक शिक्षक। अधिकांश यूडाइस+ रिपोर्टों में यह पूर्णांक में छपा है (2019-20: एक दशमलव)।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "education",
+  "dataset": "udiseplus_state",
+  "method_note": {
+   "en": "From 2022-23 UDISE+ collects data student by student instead of school totals, and its population projections were moderated; the reports say ratios are not strictly comparable with 2021-22 and earlier.",
+   "hi": "2022-23 से यूडाइस+ विद्यालय-वार कुल के बजाय हर छात्र का आँकड़ा लेता है और जनसंख्या अनुमान भी संशोधित किए गए; रिपोर्ट के अनुसार अनुपात 2021-22 और पहले के वर्षों से पूरी तरह तुलनीय नहीं हैं।"
+  }
+ },
+ {
+  "id": "colleges_per_lakh",
+  "sort": 113,
+  "unit": "colleges per lakh people aged 18-23",
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "College density",
+   "hi": "कॉलेज घनत्व"
+  },
+  "label": {
+   "en": "Colleges per lakh population aged 18-23",
+   "hi": "18-23 वर्ष की प्रति लाख आबादी पर कॉलेज"
+  },
+  "definition": {
+   "en": "Number of colleges per 1,00,000 people in the eligible age group 18-23, from the All India Survey on Higher Education (AISHE). The 18-23 population base changed from 2001-census to 2011-census projections with the 2020-21 report, marked as a break.",
+   "hi": "उच्च शिक्षा पर अखिल भारतीय सर्वेक्षण (AISHE) के अनुसार 18-23 वर्ष की पात्र आयु वर्ग की प्रति 1,00,000 आबादी पर कॉलेजों की संख्या। 2020-21 की रिपोर्ट से 18-23 आबादी का आधार 2001 जनगणना के अनुमानों से बदलकर 2011 जनगणना के अनुमान हो गया, जिसे विराम के रूप में दिखाया गया है।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "education",
+  "method_note": "AISHE 2020-21 report onward uses Census-2011-based population projections for the 18-23 age group (earlier reports: 2001-census projections)."
+ },
+ {
+  "id": "ger_higher",
+  "sort": 114,
+  "unit": "%",
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 1,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Higher-education GER",
+   "hi": "उच्च शिक्षा GER"
+  },
+  "label": {
+   "en": "Gross enrolment ratio in higher education (18-23)",
+   "hi": "उच्च शिक्षा में सकल नामांकन अनुपात (18-23 वर्ष)"
+  },
+  "definition": {
+   "en": "Total enrolment in higher education, regardless of age, as a percentage of the population aged 18-23 (AISHE). GER from the 2020-21 report onward, and AISHE's revised time series, use Census-2011-based population projections; earlier annual reports used 2001-census projections and printed higher values.",
+   "hi": "उच्च शिक्षा में कुल नामांकन (आयु से परे) को 18-23 वर्ष की आबादी के प्रतिशत के रूप में (AISHE)। 2020-21 की रिपोर्ट से और AISHE की संशोधित समय-श्रृंखला में 2011 जनगणना आधारित जनसंख्या अनुमान उपयोग हुए हैं; पहले की वार्षिक रिपोर्टों में 2001 जनगणना के अनुमान थे और मान अधिक छपे थे।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "education",
+  "method_note": "Population base changed with the AISHE 2020-21 report (2001-census to 2011-census projections). AISHE re-stated All-India GER from 2011-12 and State GER for 2016-17 to 2019-20 on the new base; those are separate datasets."
+ },
+ {
+  "id": "universities",
+  "sort": 115,
+  "unit": "universities",
+  "domain": [
+   0,
+   1400
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Universities",
+   "hi": "विश्वविद्यालय"
+  },
+  "label": {
+   "en": "Number of universities",
+   "hi": "विश्वविद्यालयों की संख्या"
+  },
+  "definition": {
+   "en": "Universities and university-level institutions (central, state public, state private, deemed, institutes of national importance and others) covered by the All India Survey on Higher Education in that year.",
+   "hi": "उस वर्ष उच्च शिक्षा पर अखिल भारतीय सर्वेक्षण में शामिल विश्वविद्यालय और विश्वविद्यालय-स्तरीय संस्थान (केंद्रीय, राज्य सार्वजनिक, राज्य निजी, डीम्ड, राष्ट्रीय महत्व के संस्थान आदि)।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "education",
+  "map_domain": [
+   0,
+   120
+  ]
+ },
+ {
+  "id": "nirf_top100",
+  "sort": 116,
+  "unit": "institutions",
+  "domain": [
+   0,
+   101
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Institutions in NIRF top 100",
+   "hi": "NIRF शीर्ष 100 में संस्थान"
+  },
+  "label": {
+   "en": "Number of the state's institutions in the NIRF Overall ranking top 100",
+   "hi": "NIRF समग्र रैंकिंग के शीर्ष 100 में राज्य के संस्थानों की संख्या"
+  },
+  "definition": {
+   "en": "How many of the 100 best-ranked higher education institutions in the Ministry of Education's National Institutional Ranking Framework (Overall category) are located in the state. Ranking is by NIRF's scores for teaching, research, graduation outcomes, outreach and perception; only institutions that apply are ranked.",
+   "hi": "शिक्षा मंत्रालय के राष्ट्रीय संस्थागत रैंकिंग फ्रेमवर्क (समग्र श्रेणी) में सर्वश्रेष्ठ 100 उच्च शिक्षा संस्थानों में से कितने उस राज्य में हैं। रैंकिंग शिक्षण, अनुसंधान, स्नातक परिणाम, पहुँच और धारणा के NIRF अंकों पर आधारित है; केवल आवेदन करने वाले संस्थान रैंक किए जाते हैं।"
+  },
+  "break_note": null,
+  "anchor": [],
+  "group": "education",
+  "map_domain": [
+   0,
+   25
+  ]
  }
 ]

@@ -710,5 +710,194 @@
   },
   "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
   "class": "A"
+ },
+ {
+  "id": "wb_hospital_beds",
+  "label": {
+   "en": "World Bank (WHO data), hospital beds",
+   "hi": "विश्व बैंक (WHO आंकड़े), अस्पताल बिस्तर"
+  },
+  "provider": "World Bank WDI / WHO",
+  "class": "A"
+ },
+ {
+  "id": "who_doctors",
+  "label": {
+   "en": "WHO, medical doctors (registered)",
+   "hi": "WHO, चिकित्सक (पंजीकृत)"
+  },
+  "provider": "WHO Global Health Observatory (NHWA)",
+  "class": "A"
+ },
+ {
+  "id": "who_nurses_midwives",
+  "label": {
+   "en": "WHO, nursing and midwifery personnel",
+   "hi": "WHO, नर्सिंग और मिडवाइफरी कर्मी"
+  },
+  "provider": "WHO Global Health Observatory (NHWA)",
+  "class": "A"
+ },
+ {
+  "id": "who_doctors_nurses_midwives",
+  "label": {
+   "en": "WHO, doctors + nurses and midwives (sum by Tathya)",
+   "hi": "WHO, डॉक्टर + नर्स और दाई (योग: Tathya)"
+  },
+  "provider": "WHO Global Health Observatory (NHWA); sum by Tathya",
+  "class": "A"
+ },
+ {
+  "id": "mohfw_doctor_population_ratio",
+  "label": {
+   "en": "Health Ministry in Parliament (estimate)",
+   "hi": "संसद में स्वास्थ्य मंत्रालय (अनुमान)"
+  },
+  "provider": "MoHFW via Lok Sabha answers",
+  "class": "A"
+ },
+ {
+  "id": "nhp_med_colleges",
+  "label": {
+   "en": "National Health Profile (CBHI), medical college tables",
+   "hi": "राष्ट्रीय स्वास्थ्य प्रोफ़ाइल (CBHI), मेडिकल कॉलेज तालिकाएँ"
+  },
+  "provider": "CBHI / MoHFW (from NMC)",
+  "class": "A"
+ },
+ {
+  "id": "ls_as76_2024",
+  "label": {
+   "en": "Lok Sabha answer, 26 Jul 2024 (medical colleges and seats)",
+   "hi": "लोकसभा उत्तर, 26 जुलाई 2024 (मेडिकल कॉलेज और सीटें)"
+  },
+  "provider": "MoHFW in Lok Sabha (from NMC)",
+  "class": "A"
+ },
+ {
+  "id": "ls_au847_2025",
+  "label": {
+   "en": "Lok Sabha answer, 7 Feb 2025 (MBBS seats 2014-15)",
+   "hi": "लोकसभा उत्तर, 7 फ़रवरी 2025 (एमबीबीएस सीटें 2014-15)"
+  },
+  "provider": "MoHFW in Lok Sabha (from NMC)",
+  "class": "A"
+ },
+ {
+  "id": "ls_au5703_2026",
+  "label": {
+   "en": "Lok Sabha answer, 27 Mar 2026 (medical colleges 2021-26)",
+   "hi": "लोकसभा उत्तर, 27 मार्च 2026 (मेडिकल कॉलेज 2021-26)"
+  },
+  "provider": "MoHFW in Lok Sabha (from NMC)",
+  "class": "A"
+ },
+ {
+  "id": "ls_au3650_2026",
+  "label": {
+   "en": "Lok Sabha answer, 13 Mar 2026 (govt/private medical colleges)",
+   "hi": "लोकसभा उत्तर, 13 मार्च 2026 (सरकारी/निजी मेडिकल कॉलेज)"
+  },
+  "provider": "MoHFW in Lok Sabha (from NMC)",
+  "class": "A"
+ },
+ {
+  "id": "ls_au1099_2026",
+  "label": {
+   "en": "Lok Sabha answer, 24 Jul 2026 (MBBS seats 2023-26)",
+   "hi": "लोकसभा उत्तर, 24 जुलाई 2026 (एमबीबीएस सीटें 2023-26)"
+  },
+  "provider": "MoHFW in Lok Sabha (from NMC)",
+  "class": "A"
+ },
+ {
+  "id": "nmc_mbbs_list",
+  "label": {
+   "en": "NMC list of colleges teaching MBBS",
+   "hi": "एनएमसी: एमबीबीएस पढ़ाने वाले कॉलेजों की सूची"
+  },
+  "provider": "National Medical Commission",
+  "class": "A"
+ },
+ {
+  "id": "nirf_overall",
+  "label": {
+   "en": "NIRF Overall ranking",
+   "hi": "NIRF समग्र रैंकिंग"
+  },
+  "provider": "NIRF, Ministry of Education",
+  "class": "A"
+ },
+ {
+  "id": "udiseplus_state",
+  "label": {
+   "en": "UDISE+ (school census, Ministry of Education)",
+   "hi": "यूडाइस+ (विद्यालय गणना, शिक्षा मंत्रालय)"
+  },
+  "provider": "Ministry of Education (DoSEL), UDISE+",
+  "class": "A"
+ },
+ {
+  "id": "aishe_colleges_per_lakh_2001proj",
+  "label": {
+   "en": "AISHE annual reports 2012-13 to 2019-20 (2001-census population projections)",
+   "hi": "AISHE वार्षिक रिपोर्ट 2012-13 से 2019-20 (2001 जनगणना आधारित जनसंख्या अनुमान)"
+  },
+  "provider": "Ministry of Education - AISHE",
+  "class": "A"
+ },
+ {
+  "id": "aishe_colleges_per_lakh_2011proj",
+  "label": {
+   "en": "AISHE annual reports 2020-21 onward (2011-census population projections)",
+   "hi": "AISHE वार्षिक रिपोर्ट 2020-21 से (2011 जनगणना आधारित जनसंख्या अनुमान)"
+  },
+  "provider": "Ministry of Education - AISHE",
+  "class": "A"
+ },
+ {
+  "id": "aishe_ger_2001proj",
+  "label": {
+   "en": "AISHE annual reports 2012-13 to 2019-20 (2001-census population projections)",
+   "hi": "AISHE वार्षिक रिपोर्ट 2012-13 से 2019-20 (2001 जनगणना आधारित जनसंख्या अनुमान)"
+  },
+  "provider": "Ministry of Education - AISHE",
+  "class": "A"
+ },
+ {
+  "id": "aishe_ger_2011proj",
+  "label": {
+   "en": "AISHE annual reports 2020-21 onward (2011-census population projections)",
+   "hi": "AISHE वार्षिक रिपोर्ट 2020-21 से (2011 जनगणना आधारित जनसंख्या अनुमान)"
+  },
+  "provider": "Ministry of Education - AISHE",
+  "class": "A"
+ },
+ {
+  "id": "aishe_ger_2011proj_rev2021",
+  "label": {
+   "en": "AISHE 2020-21 report, revised GER 2016-17 to 2019-20 (2011-census projections)",
+   "hi": "AISHE 2020-21 रिपोर्ट, संशोधित GER 2016-17 से 2019-20 (2011 जनगणना अनुमान)"
+  },
+  "provider": "Ministry of Education - AISHE",
+  "class": "A"
+ },
+ {
+  "id": "aishe_ger_timeseries_2011proj",
+  "label": {
+   "en": "AISHE GER time series on 2011-census projections (All-India)",
+   "hi": "AISHE GER समय-श्रृंखला, 2011 जनगणना अनुमान (अखिल भारत)"
+  },
+  "provider": "Ministry of Education - AISHE",
+  "class": "A"
+ },
+ {
+  "id": "aishe_universities",
+  "label": {
+   "en": "AISHE annual reports, Table 1",
+   "hi": "AISHE वार्षिक रिपोर्ट, तालिका 1"
+  },
+  "provider": "Ministry of Education - AISHE",
+  "class": "A"
  }
 ]

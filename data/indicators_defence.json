@@ -218,15 +218,16 @@
       "en": "Capital spending of the armed forces, the 'Capital Outlay on Defence Services' demand. Its heads include land, aircraft and aero-engines, heavy and medium vehicles, other equipment, naval fleet and dockyards, construction works, and investment in defence public enterprises (2026-27 document). Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
       "hi": "सशस्त्र बलों का पूंजीगत व्यय, 'रक्षा सेवाओं पर पूंजी परिव्यय' मांग। इसके शीर्षों में भूमि, विमान और एयरो-इंजन, भारी और मध्यम वाहन, अन्य उपकरण, नौसैनिक बेड़ा और गोदी, निर्माण कार्य और रक्षा सार्वजनिक उपक्रमों में निवेश शामिल हैं (2026-27 दस्तावेज़)। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
     },
-    "break_note": {
-      "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
-      "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
-    },
+    "break_note": null,
     "anchor": [
       "ub_def_capital_actual",
       "ub_def_capital_be"
     ],
-    "group": "defence"
+    "group": "defence",
+    "method_note": {
+      "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+      "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+    }
   },
   {
     "id": "def_budget_revenue_cr",
@@ -250,15 +251,16 @@
       "en": "Day-to-day spending of the armed forces (pay and allowances, stores, transportation, works and other running costs, as in the demand's heads), the 'Defence Services (Revenue)' demand. Excludes pensions and capital outlay. This single demand starts in the 2016-17 documents, which also recast 2014-15 Actuals and the 2015-16 Budget Estimate; earlier years were split over five demands and are not added up here. Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
       "hi": "सशस्त्र बलों का दैनिक व्यय (वेतन और भत्ते, भंडार, परिवहन, निर्माण कार्य, रखरखाव), 'रक्षा सेवाएँ (राजस्व)' मांग। इसमें पेंशन और पूंजी परिव्यय शामिल नहीं। यह एकल मांग 2016-17 के दस्तावेज़ों से शुरू होती है, जिनमें 2014-15 के वास्तविक और 2015-16 के बजट अनुमान भी नए ढाँचे में दिए गए; पहले के वर्ष पाँच मांगों में बँटे थे और यहाँ जोड़े नहीं गए। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
     },
-    "break_note": {
-      "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
-      "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
-    },
+    "break_note": null,
     "anchor": [
       "ub_def_revenue_actual",
       "ub_def_revenue_be"
     ],
-    "group": "defence"
+    "group": "defence",
+    "method_note": {
+      "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+      "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+    }
   },
   {
     "id": "def_pensions_cr",
@@ -282,15 +284,16 @@
       "en": "Pensions and other retirement benefits paid under the 'Defence Pensions' demand. Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
       "hi": "'रक्षा पेंशन' मांग के तहत दी गई पेंशन और अन्य सेवानिवृत्ति लाभ। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
     },
-    "break_note": {
-      "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
-      "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
-    },
+    "break_note": null,
     "anchor": [
       "ub_def_pensions_actual",
       "ub_def_pensions_be"
     ],
-    "group": "defence"
+    "group": "defence",
+    "method_note": {
+      "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+      "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+    }
   },
   {
     "id": "def_production_cr",
