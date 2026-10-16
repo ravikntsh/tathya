@@ -20,7 +20,7 @@ const W = 420, H = 230, M = { t: 14, r: 46, b: 26, l: 46 };
 // breakBefore starts a new segment, so a definition change is never joined up.
 // With estimates on, each line gets a dashed projection and a shaded 90% range
 // after its last point, and hovering between points shows interpolated values.
-export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds, scale }) {
+export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds, scale, events = [] }) {
   const toYear = Math.max(new Date().getFullYear() + 4, xDomain[1]);
   // Only extend series that are still current (see projectionEnd in estimate.js);
   // a series that ended in 1946 is history, not something to project.
@@ -47,6 +47,13 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
     if (yr > xDomain[0] && yr < xMax) {
       s += `<line class="era" x1="${x(yr)}" x2="${x(yr)}" y1="${M.t}" y2="${H - M.b}"/><text class="era-label" x="${x(yr) + 3}" y="${M.t + 9}">${yr}</text>`;
     }
+  }
+  // Context events (wars, crises, policy changes): a small flag at the top of the
+  // plot with a faint line, named on hover. They explain jumps; they don't claim causes.
+  const evs = events.filter((e) => e.year >= xDomain[0] && e.year <= xMax);
+  for (const e of evs) {
+    const ex = x(e.year).toFixed(1);
+    s += `<g class="ctx"><line x1="${ex}" x2="${ex}" y1="${M.t}" y2="${H - M.b}"/><path d="M${ex},${M.t - 1} l4,-6 h-8 z"><title>${esc(e.label)} (${esc(e.when)}): ${esc(e.summary)}</title></path></g>`;
   }
   if (activeYear && activeYear >= xDomain[0] && activeYear <= xMax) {
     s += `<line class="cursor" x1="${x(activeYear)}" x2="${x(activeYear)}" y1="${M.t}" y2="${H - M.b}"/>`;
@@ -87,10 +94,10 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
     .join("")}${projs.some(Boolean) ? `<span class="est-key"><svg width="22" height="10" aria-hidden="true"><rect class="est-band s0" x="1" y="1" width="20" height="8"/><line class="est-line s0" x1="1" x2="21" y1="5" y2="5"/></svg>${t("estimateKey")}</span>` : ""}</div>`;
   el.innerHTML = s;
   el.classList.add("chart-wrap");
-  bindHover(el, { lines, projs, x, y, xDomain: [xDomain[0], xMax], decimals, unit, estimates });
+  bindHover(el, { lines, projs, x, y, xDomain: [xDomain[0], xMax], decimals, unit, estimates, events: evs });
 }
 
-function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates }) {
+function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates, events = [] }) {
   const svg = el.querySelector("svg.chart");
   const hit = svg.querySelector(".hit");
   const hover = svg.querySelector(".hover");
@@ -124,7 +131,8 @@ function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates 
     xhair.setAttribute("x1", x(year)); xhair.setAttribute("x2", x(year));
     dots.innerHTML = rows.map(({ l, v }) => `<circle class="dot ${l.style.cls}${v.est ? " est" : ""}" cx="${x(year)}" cy="${y(v.value)}" r="4.5"/>`).join("");
     hover.setAttribute("visibility", "visible");
-    tip.innerHTML = `<strong>${year}</strong>${rows.length ? rows.map(({ l, v }) =>
+    const here = events.filter((e) => Math.abs(e.year - year) <= 0 || (e.endYear && year >= e.year && year <= e.endYear));
+    tip.innerHTML = `<strong>${year}</strong>${here.map((e) => `<div class="tip-ctx">⚑ ${esc(e.label)}</div>`).join("")}${rows.length ? rows.map(({ l, v }) =>
       `<div class="tip-row"><i class="sw ${l.style.cls}"></i><span>${esc(l.label)}</span><b>${v.text}</b>${v.note ? `<small>${esc(v.note)}</small>` : ""}</div>`).join("")
       : `<div class="muted">${t("noData")}</div>`}`;
     tip.hidden = false;

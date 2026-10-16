@@ -30,6 +30,17 @@ Decisions made after an outside review (a ChatGPT-drafted "Product Blueprint"). 
   - Diplomacy and trade: memberships, embassies and trade partners.
 - The same rules apply as everywhere else: each source is its own line, every index carries a methodology note, and wins sit beside setbacks.
 
+**Who governed, party pages, current issues and chart notices (Oct 2026)**
+- **Aim**, as the editor stated it: help young Indians, including the protesters of 2026, see where India started, how long change takes, and what each government did. We build it to the founding standard, "on India's side, not any party's": every party, including the current government, is judged by the same yardstick, so the facts persuade on their own.
+- **Who governed:**
+  - A sourced dataset of Union governments (Prime Minister, party, coalition, dates) and state Chief Ministers (party, dates, President's Rule).
+  - The map can show the governing party per state, but **without colours**: a text label with the party abbreviation on each state. The fact card names the Chief Minister and the Union government at the time.
+- **Party and coalition pages:**
+  - One template for every party: national metrics while it led the government and while it was in opposition, its signature programmes (linked to the project ledger), its legislative record, and achievements and setbacks, each with a source.
+  - Scandals are included only where there is a court judgment, a CAG or official inquiry finding, or the party's own admission. The legal status is shown separately from the evidence, and allegations are labelled as allegations.
+- **Current issues:** each live protest or allegation gets a page showing the claim, what the site's data shows (linked charts), what is still unknown, and the legal status, with a dated update log.
+- **Chart notices:** sudden changes in a chart are marked with dated context events (wars, droughts, the Emergency, 1991, the 2008 crisis, demonetisation, GST, COVID-19 and so on), each with a source. A marker explains the timing; it never claims a cause.
+
 **Communal relations (renamed from "Communal violence")**
 - The rail item and page are called "Communal relations". The page covers both incidents and coexistence:
   - Incidents, riots and deaths, labelled exactly as their sources label them (NCRB "communal/religious riots", MHA "communal incidents"), with reporting caveats.

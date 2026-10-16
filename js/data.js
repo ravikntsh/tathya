@@ -23,7 +23,10 @@ export async function loadData() {
     data.origin = "local";
   }
   const out = index(data);
-  out.population = await loadPopulation();
+  [out.population, out.context] = await Promise.all([
+    loadPopulation(),
+    fetch("data/context_events.json").then((r) => (r.ok ? r.json() : [])).catch(() => []),
+  ]);
   return out;
 }
 

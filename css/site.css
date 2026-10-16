@@ -291,3 +291,8 @@ a.brand { color: inherit; text-decoration: none; }
 .nb-stats b { font-size: 1.05rem; color: var(--navy); font-variant-numeric: tabular-nums; }
 .nb-stats b.pos { color: var(--teal); }
 .nb-stats b.neg { color: var(--terracotta); }
+
+/* Context event markers on charts */
+.chart .ctx line { stroke: var(--saffron); stroke-opacity: .45; stroke-dasharray: 1 3; }
+.chart .ctx path { fill: var(--saffron); cursor: help; }
+.tip-ctx { color: var(--ink); font-weight: 600; font-size: .74rem; margin: 1px 0 3px; }

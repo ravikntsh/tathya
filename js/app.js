@@ -165,6 +165,14 @@ const regionName = (code) => tr(data.regionByCode.get(code)?.name) || code;
 const dsLabel = (id) => tr(data.datasetById.get(id)?.label) || id;
 const ind = () => data.indicatorById.get(state.indicator);
 const unitText = (i) => (i.unit === "%" ? "%" : ` ${i.unit}`);
+// Context events for an indicator's charts (data/context_events.json).
+function contextFor(indicatorId) {
+  return (data.context || [])
+    .filter((e) => !e.indicators?.length || e.indicators.includes(indicatorId))
+    .map((e) => ({ year: Number(String(e.date).slice(0, 4)), endYear: e.end_date ? Number(String(e.end_date).slice(0, 4)) : null,
+      label: e.label, summary: e.summary, when: e.end_date ? `${e.date} – ${e.end_date}` : e.date }));
+}
+
 // Estimates can't go below 0, or above 100 for percentages.
 const boundsOf = (i) => [0, i.unit === "%" ? 100 : Infinity];
 // Trend scale for estimates: logit for percentages, log for rates per 1,000, linear otherwise.
@@ -372,6 +380,7 @@ function renderTrend() {
     estimates: state.estimates,
     bounds: boundsOf(i),
     scale: scaleOf(i),
+    events: contextFor(i.id),
   });
   $("trend-note").textContent = lines.length > 1 ? t("sourcesNote") : "";
 }
