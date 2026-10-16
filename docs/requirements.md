@@ -30,6 +30,26 @@ Decisions made after an outside review (a ChatGPT-drafted "Product Blueprint"). 
   - Diplomacy and trade: memberships, embassies and trade partners.
 - The same rules apply as everywhere else: each source is its own line, every index carries a methodology note, and wins sit beside setbacks.
 
+**Site structure: neutral sections (Oct 2026)**
+
+Topics are reached through broad, neutral sections, not through headings that read as accusations. A reader who feels attacked by a heading leaves before seeing the data. Every fact stays; only the way in changes.
+
+| Rail section | Contains |
+|---|---|
+| Development | The tracker, grouped into basic necessities, health, education, infrastructure, economy & jobs, and defence |
+| Economy & jobs | Income, jobs, industry, trade; inflation and rupee |
+| Infrastructure | Roads, rail, airports, ports, metro; failures (bridge collapses, accidents) |
+| Education | Schools, colleges, literacy; **exam integrity** (leaks and cancellations, and responses such as the Public Examinations Act 2024) |
+| Governance & accountability | Corruption cases and audits (CAG findings, cases, convictions); project delivery |
+| Democracy & institutions | Elections; Parliament; courts; **media & internet** (government takedown requests from platform transparency reports and PIB, internet shutdowns, press-freedom indices with their methods, RTI use) |
+| Society | Communal relations (incidents and survey data on coexistence) |
+| National security | External; internal |
+| Border & neighbours | Nine neighbours |
+| India in the world | Perception abroad; GDP rank; military strength; diplomacy and trade |
+| Governments & parties | Who governed when; party and coalition records; current issues |
+
+This replaces the earlier issue rail (Terror, Corruption, Exam leaks, Inflation and rupee, Censorship and takedowns, Border and China).
+
 **Who governed, party pages, current issues and chart notices (Oct 2026)**
 - **Aim**, as the editor stated it: help young Indians, including the protesters of 2026, see where India started, how long change takes, and what each government did. We build it to the founding standard, "on India's side, not any party's": every party, including the current government, is judged by the same yardstick, so the facts persuade on their own.
 - **Who governed:**
