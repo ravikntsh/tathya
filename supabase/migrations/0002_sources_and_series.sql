@@ -20,11 +20,13 @@ create table if not exists public.datasets (
   id        text primary key,               -- one consistent series from one provider
   label     jsonb not null,                 -- {"en": ..., "hi": ...}
   provider  text not null,
-  class     text not null
+  class     text not null,
+  chart     boolean not null default true  -- false: don't draw its All-India line (repeats another source)
 );
 
 alter table public.indicators add column if not exists domain   jsonb;   -- [min, max] for the map scale
 alter table public.indicators add column if not exists decimals int not null default 1;
+alter table public.indicators add column if not exists map_domain jsonb;  -- optional narrower scale for the state map
 
 drop table if exists public.observations;
 create table public.observations (

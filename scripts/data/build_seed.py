@@ -30,10 +30,27 @@ def j(v):
 
 regions, indicators, datasets = load("regions.json"), load("indicators.json"), load("datasets.json")
 sources = [s for f in sorted(DATA.glob("sources_*.json")) for s in load(f.name)]
-rows = []
-for f in sorted(DATA.glob("series_*.csv")):
+
+# When two files give the same key (e.g. the All-India SRS row appears both in the
+# ORGI documents and in the RBI Handbook), keep the file listed first: primary
+# documents before compilations. Differences in value are reported, not hidden.
+PRECEDENCE = ["series_history.csv", "series_nfhs.csv", "series_national.csv", "series_state_rbi.csv"]
+files = sorted(DATA.glob("series_*.csv"), key=lambda f: PRECEDENCE.index(f.name) if f.name in PRECEDENCE else 99)
+rows, kept, overlaps = [], {}, []
+for f in files:
     with f.open(encoding="utf-8-sig") as fh:
-        rows += [dict(r, _file=f.name) for r in csv.DictReader(fh)]
+        for r in csv.DictReader(fh):
+            key = (r["region_code"], r["indicator_id"], r["dataset_id"], r["period_label"])
+            if key in kept:
+                other = kept[key]
+                if abs(float(other["value"]) - float(r["value"])) > 1e-9:
+                    overlaps.append(f"{key}: {other['_file']}={other['value']} vs {f.name}={r['value']}")
+                continue
+            r["_file"] = f.name
+            kept[key] = r
+            rows.append(r)
+if overlaps:
+    print(f"{len(overlaps)} overlapping values differ (kept the first file):\n  " + "\n  ".join(overlaps), file=sys.stderr)
 
 known = {
     "region_code": {r["code"] for r in regions},
@@ -47,9 +64,6 @@ for r in rows:
         if r[field] not in ok:
             errors.append(f"{r['_file']}: unknown {field} {r[field]!r}")
     key = (r["region_code"], r["indicator_id"], r["dataset_id"], r["period_label"])
-    if key in seen:
-        errors.append(f"duplicate {key} in {seen[key]} and {r['_file']}")
-    seen[key] = r["_file"]
     try:
         float(r["value"])
         int(r["year"])
@@ -65,12 +79,12 @@ for r in regions:
                "on conflict (code) do update set kind = excluded.kind, name = excluded.name;")
 for i in indicators:
     out.append(
-        "insert into public.indicators (id, label, short_label, definition, unit, dataset, higher_is_better, break_note, sort, domain, decimals) "
+        "insert into public.indicators (id, label, short_label, definition, unit, dataset, higher_is_better, break_note, sort, domain, decimals, map_domain) "
         f"values ({q(i['id'])}, {j(i['label'])}, {j(i['short_label'])}, {j(i['definition'])}, {q(i['unit'])}, 'multiple', "
-        f"{str(i['higher_is_better']).lower()}, {j(i.get('break_note'))}, {i['sort']}, {j(i.get('domain'))}, {i.get('decimals', 1)}) "
+        f"{str(i['higher_is_better']).lower()}, {j(i.get('break_note'))}, {i['sort']}, {j(i.get('domain'))}, {i.get('decimals', 1)}, {j(i.get('map_domain'))}) "
         "on conflict (id) do update set label = excluded.label, short_label = excluded.short_label, definition = excluded.definition, "
         "unit = excluded.unit, higher_is_better = excluded.higher_is_better, break_note = excluded.break_note, sort = excluded.sort, "
-        "domain = excluded.domain, decimals = excluded.decimals;")
+        "domain = excluded.domain, decimals = excluded.decimals, map_domain = excluded.map_domain;")
 for s in sources:
     out.append(
         "insert into public.sources (id, publisher, title, url, class, licence, method, coverage, limitations, last_checked) "
@@ -80,8 +94,8 @@ for s in sources:
         "licence = excluded.licence, method = excluded.method, coverage = excluded.coverage, limitations = excluded.limitations, "
         "last_checked = excluded.last_checked;")
 for d in datasets:
-    out.append(f"insert into public.datasets (id, label, provider, class) values ({q(d['id'])}, {j(d['label'])}, {q(d['provider'])}, {q(d['class'])}) "
-               "on conflict (id) do update set label = excluded.label, provider = excluded.provider, class = excluded.class;")
+    out.append(f"insert into public.datasets (id, label, provider, class, chart) values ({q(d['id'])}, {j(d['label'])}, {q(d['provider'])}, {q(d['class'])}, {str(d.get('chart', True)).lower()}) "
+               "on conflict (id) do update set label = excluded.label, provider = excluded.provider, class = excluded.class, chart = excluded.chart;")
 out.append("delete from public.observations;")
 cols = "region_code, indicator_id, dataset_id, period_label, year, value, source_id, source_table, source_page, date_pulled, archive_url, break_before, note"
 for r in rows:

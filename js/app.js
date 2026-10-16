@@ -137,7 +137,7 @@ const deltaUnit = (i) => (i.unit === "%" ? ` ${t("pts")}` : unitText(i));
 
 function render() {
   const i = ind();
-  setDomain(i.domain);
+  setDomain(i.map_domain ?? i.domain);
 
   // Indicator chips
   $("indicators").innerHTML = data.indicators
@@ -221,7 +221,8 @@ function render() {
 
 function renderTrend() {
   const i = ind();
-  const dsList = data.nationalDatasets(state.indicator);
+  // Datasets marked chart:false repeat another source's All-India line (e.g. the RBI copy of Census literacy).
+  const dsList = data.nationalDatasets(state.indicator).filter((ds) => data.datasetById.get(ds)?.chart !== false);
   // The map's dataset first, then the rest; each source keeps its own line.
   dsList.sort((a, b) => (a === state.dataset ? -1 : b === state.dataset ? 1 : 0));
   const lines = dsList.slice(0, LINE_STYLES.length).map((ds, k) => ({ label: dsLabel(ds), points: data.series(state.indicator, ds, "IN"), style: LINE_STYLES[k] }));

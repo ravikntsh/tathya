@@ -170,7 +170,11 @@
       "en": "Average years a newborn would live if current death rates held. Census actuarial estimates cover ten-year periods; SRS life tables cover five-year periods; UN figures are annual model estimates.",
       "hi": "यदि वर्तमान मृत्यु दरें बनी रहें तो एक नवजात के औसत जीवन वर्ष। जनगणना बीमांकिक अनुमान दस-वर्षीय अवधि के हैं; SRS जीवन तालिकाएँ पाँच-वर्षीय अवधि की; संयुक्त राष्ट्र के आँकड़े वार्षिक मॉडल अनुमान हैं।"
     },
-    "break_note": null
+    "break_note": null,
+    "map_domain": [
+      55,
+      80
+    ]
   },
   {
     "id": "infant_mortality",
@@ -194,7 +198,11 @@
       "en": "Deaths before age one per 1,000 live births. Lower is better. SRS is India's official series from 1971; pre-1947 registration undercounted deaths.",
       "hi": "प्रति 1,000 जीवित जन्मों पर एक वर्ष से पहले होने वाली मृत्यु। कम बेहतर है। SRS 1971 से भारत की आधिकारिक श्रृंखला है; 1947 से पहले के पंजीकरण में मृत्यु कम दर्ज होती थी।"
     },
-    "break_note": null
+    "break_note": null,
+    "map_domain": [
+      0,
+      100
+    ]
   },
   {
     "id": "gdp_per_capita",
