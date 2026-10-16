@@ -1,0 +1,19 @@
+[
+  { "id": "nfhs", "label": { "en": "NFHS (household survey)", "hi": "NFHS (घरेलू सर्वेक्षण)" }, "provider": "IIPS / MoHFW", "class": "A" },
+  { "id": "census_literacy", "label": { "en": "Census of India", "hi": "भारत की जनगणना" }, "provider": "Census of India", "class": "A" },
+  { "id": "census_literacy_state", "label": { "en": "Census of India", "hi": "भारत की जनगणना" }, "provider": "Census of India via RBI Handbook", "class": "A" },
+  { "id": "census_actuarial_le", "label": { "en": "Census actuarial estimates", "hi": "जनगणना बीमांकिक अनुमान" }, "provider": "Census of India", "class": "A" },
+  { "id": "srs_le", "label": { "en": "SRS life tables", "hi": "SRS जीवन तालिकाएँ" }, "provider": "Registrar General of India", "class": "A" },
+  { "id": "srs_imr", "label": { "en": "Sample Registration System", "hi": "नमूना पंजीकरण प्रणाली" }, "provider": "Registrar General of India", "class": "A" },
+  { "id": "colonial_imr", "label": { "en": "British India vital registration", "hi": "ब्रिटिश भारत महत्वपूर्ण पंजीकरण" }, "provider": "Government of British India", "class": "A" },
+  { "id": "rbi_nsdp_pc_2011", "label": { "en": "RBI / MoSPI state accounts", "hi": "RBI / MoSPI राज्य लेखा" }, "provider": "RBI Handbook of Statistics on Indian States", "class": "A" },
+  { "id": "maddison_gdppc", "label": { "en": "Maddison Project (Groningen)", "hi": "मैडिसन प्रोजेक्ट (ग्रोनिंगन)" }, "provider": "Maddison Project 2023", "class": "C" },
+  { "id": "wb_electricity", "label": { "en": "World Bank", "hi": "विश्व बैंक" }, "provider": "World Bank / SE4ALL", "class": "B" },
+  { "id": "jmp_basic_water", "label": { "en": "WHO/UNICEF JMP (basic water)", "hi": "WHO/UNICEF JMP (बुनियादी पेयजल)" }, "provider": "WHO/UNICEF JMP", "class": "B" },
+  { "id": "jmp_basic_sanitation", "label": { "en": "WHO/UNICEF JMP (basic sanitation)", "hi": "WHO/UNICEF JMP (बुनियादी स्वच्छता)" }, "provider": "WHO/UNICEF JMP", "class": "B" },
+  { "id": "who_clean_fuel", "label": { "en": "WHO (share of people)", "hi": "WHO (लोगों का प्रतिशत)" }, "provider": "WHO", "class": "B" },
+  { "id": "findex_women_account", "label": { "en": "World Bank Findex (women 15+)", "hi": "विश्व बैंक फ़िंडेक्स (15+ महिलाएँ)" }, "provider": "World Bank Global Findex", "class": "B" },
+  { "id": "un_wpp_le", "label": { "en": "UN World Population Prospects", "hi": "संयुक्त राष्ट्र विश्व जनसंख्या संभावनाएँ" }, "provider": "UN DESA", "class": "B" },
+  { "id": "un_igme_imr", "label": { "en": "UN IGME estimates", "hi": "संयुक्त राष्ट्र IGME अनुमान" }, "provider": "UN IGME", "class": "B" },
+  { "id": "unesco_adult_literacy", "label": { "en": "UNESCO (adults 15+)", "hi": "यूनेस्को (15+ वयस्क)" }, "provider": "UNESCO UIS", "class": "B" }
+]

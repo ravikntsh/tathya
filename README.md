@@ -20,13 +20,13 @@ powershell -ExecutionPolicy Bypass -File scripts/serve.ps1
 | `data/indicators.json` | Labels and definitions in English and Hindi |
 | `data/regions.json` | States and UTs (codes, English and Hindi names) |
 | `supabase/migrations/0001_tracker.sql` | Tables plus read-only row-level security |
-| `scripts/build-seed.ps1` | Generates `supabase/seed.sql` from the files above |
+| `scripts/data/build_seed.py` | Checks every row and generates `supabase/seed.sql` and `data/observations.csv` |
 
 The site reads from Supabase when `SUPABASE_ANON_KEY` is set in `js/config.js`, and falls back to the local files otherwise.
 
 To load the data into Supabase:
 1. In the Supabase SQL Editor, run `supabase/migrations/0001_tracker.sql`.
-2. Run `scripts/build-seed.ps1`.
+2. Run `C:ProgramDatanaconda3python.exe -I scripts/data/build_seed.py`.
 3. Run the generated `supabase/seed.sql` in the SQL Editor.
 
 Rules:

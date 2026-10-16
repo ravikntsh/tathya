@@ -1,3 +1,4 @@
+[hidden] { display: none !important; }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -154,3 +155,30 @@ thead th { color: var(--ink-muted); font-weight: 600; }
   .ranks { grid-template-columns: 1fr 1fr; }
   .rank-row { grid-template-columns: 7em 1fr 2.6em; }
 }
+
+/* Multi-source charts */
+.field-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.field-row .field { min-width: 200px; flex: 1; }
+.panel-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.panel-head h2 { margin: 0; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.seg button { font: inherit; font-size: .75rem; border: 0; background: var(--surface); color: var(--ink-muted); padding: 4px 10px; cursor: pointer; min-height: 30px; }
+.seg button[aria-pressed="true"] { background: var(--navy); color: var(--paper); }
+.chart .ln.s0, .chart .dot.s0, .legend-inline .ln.s0 { stroke: var(--navy); }
+.chart .dot.s0 { fill: var(--navy); }
+.chart .ln.s1, .chart .dot.s1, .legend-inline .ln.s1 { stroke: #5B6E9E; }
+.chart .dot.s1 { fill: #5B6E9E; }
+.chart .ln.s2, .chart .dot.s2, .legend-inline .ln.s2 { stroke: var(--teal); }
+.chart .dot.s2 { fill: var(--teal); }
+.chart .ln.s3, .chart .dot.s3, .legend-inline .ln.s3 { stroke: var(--slate); }
+.chart .dot.s3 { fill: var(--slate); }
+.chart .ln.s4, .chart .dot.s4, .legend-inline .ln.s4 { stroke: var(--saffron); }
+.chart .dot.s4 { fill: var(--saffron); }
+.chart .ln { fill: none; stroke-width: 2.2; }
+.legend-inline .ln { stroke-width: 2.5; }
+.chart .era { stroke: var(--slate); stroke-dasharray: 2 3; }
+.chart .era-label { fill: var(--ink-muted); font-size: 9px; }
+.legend-inline { flex-wrap: wrap; gap: 4px 14px; margin-top: 4px; }
+.legend-inline span { display: inline-flex; align-items: center; gap: 4px; }
+.fact-card .big small { font-size: 1rem; font-weight: 600; margin-left: 4px; }
+.table-panel .pill + .pill { margin-left: 6px; }

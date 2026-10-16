@@ -1,0 +1,371 @@
+region_code,indicator_id,dataset_id,period_label,year,value,source_id,source_table,source_page,date_pulled,break_before,note
+AP,electricity,nfhs,NFHS-5,2020,99.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AP,electricity,nfhs,NFHS-4,2016,99.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,
+AP,improved_water,nfhs,NFHS-5,2020,96.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AP,improved_water,nfhs,NFHS-4,2016,95.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,
+AP,improved_sanitation,nfhs,NFHS-5,2020,77.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AP,improved_sanitation,nfhs,NFHS-4,2016,54.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,
+AP,clean_fuel,nfhs,NFHS-5,2020,83.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AP,clean_fuel,nfhs,NFHS-4,2016,62.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",16,2026-10-16,0,
+AP,women_bank_account,nfhs,NFHS-5,2020,81.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",19,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AP,women_bank_account,nfhs,NFHS-4,2016,66.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",19,2026-10-16,0,
+AS,electricity,nfhs,NFHS-5,2020,92.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AS,electricity,nfhs,NFHS-4,2016,78.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,
+AS,improved_water,nfhs,NFHS-5,2020,86.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AS,improved_water,nfhs,NFHS-4,2016,84.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,
+AS,improved_sanitation,nfhs,NFHS-5,2020,68.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AS,improved_sanitation,nfhs,NFHS-4,2016,49.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,
+AS,clean_fuel,nfhs,NFHS-5,2020,42.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AS,clean_fuel,nfhs,NFHS-4,2016,25.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",24,2026-10-16,0,
+AS,women_bank_account,nfhs,NFHS-5,2020,78.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",27,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AS,women_bank_account,nfhs,NFHS-4,2016,45.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",27,2026-10-16,0,
+BR,electricity,nfhs,NFHS-5,2020,96.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,NFHS-5 fieldwork 2019-20
+BR,electricity,nfhs,NFHS-4,2016,60.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,
+BR,improved_water,nfhs,NFHS-5,2020,99.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,NFHS-5 fieldwork 2019-20
+BR,improved_water,nfhs,NFHS-4,2016,98.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,
+BR,improved_sanitation,nfhs,NFHS-5,2020,49.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,NFHS-5 fieldwork 2019-20
+BR,improved_sanitation,nfhs,NFHS-4,2016,26.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,
+BR,clean_fuel,nfhs,NFHS-5,2020,37.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,NFHS-5 fieldwork 2019-20
+BR,clean_fuel,nfhs,NFHS-4,2016,17.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",32,2026-10-16,0,
+BR,women_bank_account,nfhs,NFHS-5,2020,76.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",35,2026-10-16,0,NFHS-5 fieldwork 2019-20
+BR,women_bank_account,nfhs,NFHS-4,2016,26.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",35,2026-10-16,0,
+GA,electricity,nfhs,NFHS-5,2020,100.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GA,electricity,nfhs,NFHS-4,2016,99.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,
+GA,improved_water,nfhs,NFHS-5,2020,98.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GA,improved_water,nfhs,NFHS-4,2016,96.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,
+GA,improved_sanitation,nfhs,NFHS-5,2020,87.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GA,improved_sanitation,nfhs,NFHS-4,2016,78.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,
+GA,clean_fuel,nfhs,NFHS-5,2020,96.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GA,clean_fuel,nfhs,NFHS-4,2016,84.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",40,2026-10-16,0,
+GA,women_bank_account,nfhs,NFHS-5,2020,88.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",43,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GA,women_bank_account,nfhs,NFHS-4,2016,82.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",43,2026-10-16,0,
+GJ,electricity,nfhs,NFHS-5,2020,97.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GJ,electricity,nfhs,NFHS-4,2016,96.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,
+GJ,improved_water,nfhs,NFHS-5,2020,97.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GJ,improved_water,nfhs,NFHS-4,2016,95.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,
+GJ,improved_sanitation,nfhs,NFHS-5,2020,74.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GJ,improved_sanitation,nfhs,NFHS-4,2016,63.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,
+GJ,clean_fuel,nfhs,NFHS-5,2020,66.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GJ,clean_fuel,nfhs,NFHS-4,2016,52.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",48,2026-10-16,0,
+GJ,women_bank_account,nfhs,NFHS-5,2020,70.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",51,2026-10-16,0,NFHS-5 fieldwork 2019-20
+GJ,women_bank_account,nfhs,NFHS-4,2016,48.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",51,2026-10-16,0,
+HP,electricity,nfhs,NFHS-5,2020,99.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,NFHS-5 fieldwork 2019-20
+HP,electricity,nfhs,NFHS-4,2016,99.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,
+HP,improved_water,nfhs,NFHS-5,2020,96.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,NFHS-5 fieldwork 2019-20
+HP,improved_water,nfhs,NFHS-4,2016,94.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,
+HP,improved_sanitation,nfhs,NFHS-5,2020,81.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,NFHS-5 fieldwork 2019-20
+HP,improved_sanitation,nfhs,NFHS-4,2016,72.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,
+HP,clean_fuel,nfhs,NFHS-5,2020,51.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,NFHS-5 fieldwork 2019-20
+HP,clean_fuel,nfhs,NFHS-4,2016,36.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",56,2026-10-16,0,
+HP,women_bank_account,nfhs,NFHS-5,2020,83.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",59,2026-10-16,0,NFHS-5 fieldwork 2019-20
+HP,women_bank_account,nfhs,NFHS-4,2016,68.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",59,2026-10-16,0,
+KA,electricity,nfhs,NFHS-5,2020,99.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KA,electricity,nfhs,NFHS-4,2016,98.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,
+KA,improved_water,nfhs,NFHS-5,2020,95.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KA,improved_water,nfhs,NFHS-4,2016,95.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,
+KA,improved_sanitation,nfhs,NFHS-5,2020,74.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KA,improved_sanitation,nfhs,NFHS-4,2016,57.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,
+KA,clean_fuel,nfhs,NFHS-5,2020,79.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KA,clean_fuel,nfhs,NFHS-4,2016,54.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",64,2026-10-16,0,
+KA,women_bank_account,nfhs,NFHS-5,2020,88.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",67,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KA,women_bank_account,nfhs,NFHS-4,2016,59.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",67,2026-10-16,0,
+KL,electricity,nfhs,NFHS-5,2020,99.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KL,electricity,nfhs,NFHS-4,2016,99.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,
+KL,improved_water,nfhs,NFHS-5,2020,94.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KL,improved_water,nfhs,NFHS-4,2016,94.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,
+KL,improved_sanitation,nfhs,NFHS-5,2020,98.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KL,improved_sanitation,nfhs,NFHS-4,2016,98.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,
+KL,clean_fuel,nfhs,NFHS-5,2020,72.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KL,clean_fuel,nfhs,NFHS-4,2016,57.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",72,2026-10-16,0,
+KL,women_bank_account,nfhs,NFHS-5,2020,78.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",75,2026-10-16,0,NFHS-5 fieldwork 2019-20
+KL,women_bank_account,nfhs,NFHS-4,2016,70.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",75,2026-10-16,0,
+MH,electricity,nfhs,NFHS-5,2020,97.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MH,electricity,nfhs,NFHS-4,2016,93.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,
+MH,improved_water,nfhs,NFHS-5,2020,93.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MH,improved_water,nfhs,NFHS-4,2016,92.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,
+MH,improved_sanitation,nfhs,NFHS-5,2020,72.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MH,improved_sanitation,nfhs,NFHS-4,2016,52.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,
+MH,clean_fuel,nfhs,NFHS-5,2020,79.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MH,clean_fuel,nfhs,NFHS-4,2016,59.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",80,2026-10-16,0,
+MH,women_bank_account,nfhs,NFHS-5,2020,72.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",83,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MH,women_bank_account,nfhs,NFHS-4,2016,45.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",83,2026-10-16,0,
+MN,electricity,nfhs,NFHS-5,2020,98.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MN,electricity,nfhs,NFHS-4,2016,92.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,
+MN,improved_water,nfhs,NFHS-5,2020,77.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MN,improved_water,nfhs,NFHS-4,2016,63.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,
+MN,improved_sanitation,nfhs,NFHS-5,2020,64.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MN,improved_sanitation,nfhs,NFHS-4,2016,52.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,
+MN,clean_fuel,nfhs,NFHS-5,2020,70.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MN,clean_fuel,nfhs,NFHS-4,2016,42.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",88,2026-10-16,0,
+MN,women_bank_account,nfhs,NFHS-5,2020,74.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",91,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MN,women_bank_account,nfhs,NFHS-4,2016,34.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",91,2026-10-16,0,
+ML,electricity,nfhs,NFHS-5,2020,91.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,NFHS-5 fieldwork 2019-20
+ML,electricity,nfhs,NFHS-4,2016,91.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,
+ML,improved_water,nfhs,NFHS-5,2020,79.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,NFHS-5 fieldwork 2019-20
+ML,improved_water,nfhs,NFHS-4,2016,70.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,
+ML,improved_sanitation,nfhs,NFHS-5,2020,82.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,NFHS-5 fieldwork 2019-20
+ML,improved_sanitation,nfhs,NFHS-4,2016,61.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,
+ML,clean_fuel,nfhs,NFHS-5,2020,33.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,NFHS-5 fieldwork 2019-20
+ML,clean_fuel,nfhs,NFHS-4,2016,21.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",96,2026-10-16,0,
+ML,women_bank_account,nfhs,NFHS-5,2020,70.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",99,2026-10-16,0,NFHS-5 fieldwork 2019-20
+ML,women_bank_account,nfhs,NFHS-4,2016,54.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",99,2026-10-16,0,
+MZ,electricity,nfhs,NFHS-5,2020,98.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MZ,electricity,nfhs,NFHS-4,2016,96.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,
+MZ,improved_water,nfhs,NFHS-5,2020,95.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MZ,improved_water,nfhs,NFHS-4,2016,93.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,
+MZ,improved_sanitation,nfhs,NFHS-5,2020,95.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MZ,improved_sanitation,nfhs,NFHS-4,2016,84.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,
+MZ,clean_fuel,nfhs,NFHS-5,2020,83.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MZ,clean_fuel,nfhs,NFHS-4,2016,66.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",104,2026-10-16,0,
+MZ,women_bank_account,nfhs,NFHS-5,2020,80.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",107,2026-10-16,0,NFHS-5 fieldwork 2019-20
+MZ,women_bank_account,nfhs,NFHS-4,2016,57.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",107,2026-10-16,0,
+NL,electricity,nfhs,NFHS-5,2020,98.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,NFHS-5 fieldwork 2019-20
+NL,electricity,nfhs,NFHS-4,2016,96.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,
+NL,improved_water,nfhs,NFHS-5,2020,91.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,NFHS-5 fieldwork 2019-20
+NL,improved_water,nfhs,NFHS-4,2016,82.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,
+NL,improved_sanitation,nfhs,NFHS-5,2020,87.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,NFHS-5 fieldwork 2019-20
+NL,improved_sanitation,nfhs,NFHS-4,2016,76.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,
+NL,clean_fuel,nfhs,NFHS-5,2020,43.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,NFHS-5 fieldwork 2019-20
+NL,clean_fuel,nfhs,NFHS-4,2016,32.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",112,2026-10-16,0,
+NL,women_bank_account,nfhs,NFHS-5,2020,63.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",115,2026-10-16,0,NFHS-5 fieldwork 2019-20
+NL,women_bank_account,nfhs,NFHS-4,2016,38.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",115,2026-10-16,0,
+SK,electricity,nfhs,NFHS-5,2020,99.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,NFHS-5 fieldwork 2019-20
+SK,electricity,nfhs,NFHS-4,2016,99.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,
+SK,improved_water,nfhs,NFHS-5,2020,92.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,NFHS-5 fieldwork 2019-20
+SK,improved_water,nfhs,NFHS-4,2016,97.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,
+SK,improved_sanitation,nfhs,NFHS-5,2020,87.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,NFHS-5 fieldwork 2019-20
+SK,improved_sanitation,nfhs,NFHS-4,2016,89.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,
+SK,clean_fuel,nfhs,NFHS-5,2020,78.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,NFHS-5 fieldwork 2019-20
+SK,clean_fuel,nfhs,NFHS-4,2016,59.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",120,2026-10-16,0,
+SK,women_bank_account,nfhs,NFHS-5,2020,76.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",123,2026-10-16,0,NFHS-5 fieldwork 2019-20
+SK,women_bank_account,nfhs,NFHS-4,2016,63.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",123,2026-10-16,0,
+TG,electricity,nfhs,NFHS-5,2020,99.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TG,electricity,nfhs,NFHS-4,2016,98.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,
+TG,improved_water,nfhs,NFHS-5,2020,98.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TG,improved_water,nfhs,NFHS-4,2016,97.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,
+TG,improved_sanitation,nfhs,NFHS-5,2020,76.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TG,improved_sanitation,nfhs,NFHS-4,2016,52.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,
+TG,clean_fuel,nfhs,NFHS-5,2020,91.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TG,clean_fuel,nfhs,NFHS-4,2016,67.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",128,2026-10-16,0,
+TG,women_bank_account,nfhs,NFHS-5,2020,84.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",131,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TG,women_bank_account,nfhs,NFHS-4,2016,59.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",131,2026-10-16,0,
+TR,electricity,nfhs,NFHS-5,2020,98.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TR,electricity,nfhs,NFHS-4,2016,92.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,
+TR,improved_water,nfhs,NFHS-5,2020,88.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TR,improved_water,nfhs,NFHS-4,2016,86.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,
+TR,improved_sanitation,nfhs,NFHS-5,2020,73.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TR,improved_sanitation,nfhs,NFHS-4,2016,63.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,
+TR,clean_fuel,nfhs,NFHS-5,2020,45.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TR,clean_fuel,nfhs,NFHS-4,2016,31.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",136,2026-10-16,0,
+TR,women_bank_account,nfhs,NFHS-5,2020,76.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",139,2026-10-16,0,NFHS-5 fieldwork 2019-20
+TR,women_bank_account,nfhs,NFHS-4,2016,59.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",139,2026-10-16,0,
+WB,electricity,nfhs,NFHS-5,2020,97.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,NFHS-5 fieldwork 2019-20
+WB,electricity,nfhs,NFHS-4,2016,94.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,
+WB,improved_water,nfhs,NFHS-5,2020,97.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,NFHS-5 fieldwork 2019-20
+WB,improved_water,nfhs,NFHS-4,2016,97.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,
+WB,improved_sanitation,nfhs,NFHS-5,2020,68.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,NFHS-5 fieldwork 2019-20
+WB,improved_sanitation,nfhs,NFHS-4,2016,52.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,
+WB,clean_fuel,nfhs,NFHS-5,2020,40.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,NFHS-5 fieldwork 2019-20
+WB,clean_fuel,nfhs,NFHS-4,2016,27.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",144,2026-10-16,0,
+WB,women_bank_account,nfhs,NFHS-5,2020,76.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",147,2026-10-16,0,NFHS-5 fieldwork 2019-20
+WB,women_bank_account,nfhs,NFHS-4,2016,43.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",147,2026-10-16,0,
+AN,electricity,nfhs,NFHS-5,2020,97.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AN,electricity,nfhs,NFHS-4,2016,97.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,
+AN,improved_water,nfhs,NFHS-5,2020,96.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AN,improved_water,nfhs,NFHS-4,2016,95.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,
+AN,improved_sanitation,nfhs,NFHS-5,2020,88.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AN,improved_sanitation,nfhs,NFHS-4,2016,75.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,
+AN,clean_fuel,nfhs,NFHS-5,2020,79.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AN,clean_fuel,nfhs,NFHS-4,2016,63.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",152,2026-10-16,0,
+AN,women_bank_account,nfhs,NFHS-5,2020,89.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",155,2026-10-16,0,NFHS-5 fieldwork 2019-20
+AN,women_bank_account,nfhs,NFHS-4,2016,81.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",155,2026-10-16,0,
+DH,electricity,nfhs,NFHS-5,2020,99.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-5 fieldwork 2019-20
+DH,electricity,nfhs,NFHS-4,2016,98.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-4 value as printed in the NFHS-5 fact sheet for the merged UT of Dadra & Nagar Haveli and Daman & Diu
+DH,improved_water,nfhs,NFHS-5,2020,95.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-5 fieldwork 2019-20
+DH,improved_water,nfhs,NFHS-4,2016,94.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-4 value as printed in the NFHS-5 fact sheet for the merged UT of Dadra & Nagar Haveli and Daman & Diu
+DH,improved_sanitation,nfhs,NFHS-5,2020,65.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-5 fieldwork 2019-20
+DH,improved_sanitation,nfhs,NFHS-4,2016,44.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-4 value as printed in the NFHS-5 fact sheet for the merged UT of Dadra & Nagar Haveli and Daman & Diu
+DH,clean_fuel,nfhs,NFHS-5,2020,79.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-5 fieldwork 2019-20
+DH,clean_fuel,nfhs,NFHS-4,2016,63.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",160,2026-10-16,0,NFHS-4 value as printed in the NFHS-5 fact sheet for the merged UT of Dadra & Nagar Haveli and Daman & Diu
+DH,women_bank_account,nfhs,NFHS-5,2020,83.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",163,2026-10-16,0,NFHS-5 fieldwork 2019-20
+DH,women_bank_account,nfhs,NFHS-4,2016,46.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",163,2026-10-16,0,NFHS-4 value as printed in the NFHS-5 fact sheet for the merged UT of Dadra & Nagar Haveli and Daman & Diu
+JK,electricity,nfhs,NFHS-5,2020,99.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,NFHS-5 fieldwork 2019-20
+JK,electricity,nfhs,NFHS-4,2016,97.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,
+JK,improved_water,nfhs,NFHS-5,2020,91.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,NFHS-5 fieldwork 2019-20
+JK,improved_water,nfhs,NFHS-4,2016,89.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,
+JK,improved_sanitation,nfhs,NFHS-5,2020,75.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,NFHS-5 fieldwork 2019-20
+JK,improved_sanitation,nfhs,NFHS-4,2016,53.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,
+JK,clean_fuel,nfhs,NFHS-5,2020,69.2,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,NFHS-5 fieldwork 2019-20
+JK,clean_fuel,nfhs,NFHS-4,2016,57.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",168,2026-10-16,0,
+JK,women_bank_account,nfhs,NFHS-5,2020,84.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",171,2026-10-16,0,NFHS-5 fieldwork 2019-20
+JK,women_bank_account,nfhs,NFHS-4,2016,60.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",171,2026-10-16,0,
+LA,electricity,nfhs,NFHS-5,2020,99.5,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LA,electricity,nfhs,NFHS-4,2016,98.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,Ladakh was part of Jammu & Kashmir in NFHS-4; NFHS-4 value as printed in the NFHS-5 Ladakh fact sheet
+LA,improved_water,nfhs,NFHS-5,2020,88.7,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LA,improved_water,nfhs,NFHS-4,2016,83.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,Ladakh was part of Jammu & Kashmir in NFHS-4; NFHS-4 value as printed in the NFHS-5 Ladakh fact sheet
+LA,improved_sanitation,nfhs,NFHS-5,2020,42.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LA,improved_sanitation,nfhs,NFHS-4,2016,17.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,Ladakh was part of Jammu & Kashmir in NFHS-4; NFHS-4 value as printed in the NFHS-5 Ladakh fact sheet
+LA,clean_fuel,nfhs,NFHS-5,2020,76.3,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LA,clean_fuel,nfhs,NFHS-4,2016,67.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",176,2026-10-16,0,Ladakh was part of Jammu & Kashmir in NFHS-4; NFHS-4 value as printed in the NFHS-5 Ladakh fact sheet
+LA,women_bank_account,nfhs,NFHS-5,2020,88.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",179,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LA,women_bank_account,nfhs,NFHS-4,2016,75.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",179,2026-10-16,0,Ladakh was part of Jammu & Kashmir in NFHS-4; NFHS-4 value as printed in the NFHS-5 Ladakh fact sheet
+LD,electricity,nfhs,NFHS-5,2020,99.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LD,electricity,nfhs,NFHS-4,2016,100.0,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,
+LD,improved_water,nfhs,NFHS-5,2020,92.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LD,improved_water,nfhs,NFHS-4,2016,91.1,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,
+LD,improved_sanitation,nfhs,NFHS-5,2020,99.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LD,improved_sanitation,nfhs,NFHS-4,2016,99.6,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,
+LD,clean_fuel,nfhs,NFHS-5,2020,59.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LD,clean_fuel,nfhs,NFHS-4,2016,31.8,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",184,2026-10-16,0,
+LD,women_bank_account,nfhs,NFHS-5,2020,66.9,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",187,2026-10-16,0,NFHS-5 fieldwork 2019-20
+LD,women_bank_account,nfhs,NFHS-4,2016,74.4,nfhs5-compendium-phase1,"State fact sheet, Key Indicators",187,2026-10-16,0,
+IN,electricity,nfhs,NFHS-5,2021,96.8,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2019-21
+IN,electricity,nfhs,NFHS-4,2016,88.0,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+IN,improved_water,nfhs,NFHS-5,2021,95.9,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2019-21
+IN,improved_water,nfhs,NFHS-4,2016,94.4,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+IN,improved_sanitation,nfhs,NFHS-5,2021,70.2,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2019-21
+IN,improved_sanitation,nfhs,NFHS-4,2016,48.5,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+IN,clean_fuel,nfhs,NFHS-5,2021,58.6,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2019-21
+IN,clean_fuel,nfhs,NFHS-4,2016,43.8,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",7,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+IN,women_bank_account,nfhs,NFHS-5,2021,78.6,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",10,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2019-21
+IN,women_bank_account,nfhs,NFHS-4,2016,53.0,nfhs5-compendium-phase2,"India fact sheet, Key Indicators",10,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+AR,electricity,nfhs,NFHS-5,2021,94.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+AR,electricity,nfhs,NFHS-4,2016,88.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+AR,improved_water,nfhs,NFHS-5,2021,93.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+AR,improved_water,nfhs,NFHS-4,2016,86.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+AR,improved_sanitation,nfhs,NFHS-5,2021,82.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+AR,improved_sanitation,nfhs,NFHS-4,2016,61.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+AR,clean_fuel,nfhs,NFHS-5,2021,53.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+AR,clean_fuel,nfhs,NFHS-4,2016,45.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",13,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+AR,women_bank_account,nfhs,NFHS-5,2021,78.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",16,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+AR,women_bank_account,nfhs,NFHS-4,2016,56.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",16,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CT,electricity,nfhs,NFHS-5,2021,98.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CT,electricity,nfhs,NFHS-4,2016,96.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CT,improved_water,nfhs,NFHS-5,2021,95.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CT,improved_water,nfhs,NFHS-4,2016,91.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CT,improved_sanitation,nfhs,NFHS-5,2021,76.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CT,improved_sanitation,nfhs,NFHS-4,2016,34.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CT,clean_fuel,nfhs,NFHS-5,2021,33.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CT,clean_fuel,nfhs,NFHS-4,2016,22.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",19,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CT,women_bank_account,nfhs,NFHS-5,2021,80.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",22,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CT,women_bank_account,nfhs,NFHS-4,2016,51.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",22,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+HR,electricity,nfhs,NFHS-5,2021,99.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+HR,electricity,nfhs,NFHS-4,2016,98.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+HR,improved_water,nfhs,NFHS-5,2021,98.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+HR,improved_water,nfhs,NFHS-4,2016,98.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+HR,improved_sanitation,nfhs,NFHS-5,2021,85.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+HR,improved_sanitation,nfhs,NFHS-4,2016,80.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+HR,clean_fuel,nfhs,NFHS-5,2021,59.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+HR,clean_fuel,nfhs,NFHS-4,2016,52.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",25,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+HR,women_bank_account,nfhs,NFHS-5,2021,73.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",28,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+HR,women_bank_account,nfhs,NFHS-4,2016,45.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",28,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+JH,electricity,nfhs,NFHS-5,2021,94.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+JH,electricity,nfhs,NFHS-4,2016,81.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+JH,improved_water,nfhs,NFHS-5,2021,86.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+JH,improved_water,nfhs,NFHS-4,2016,78.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+JH,improved_sanitation,nfhs,NFHS-5,2021,56.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+JH,improved_sanitation,nfhs,NFHS-4,2016,25.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+JH,clean_fuel,nfhs,NFHS-5,2021,31.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+JH,clean_fuel,nfhs,NFHS-4,2016,18.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",31,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+JH,women_bank_account,nfhs,NFHS-5,2021,79.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",34,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+JH,women_bank_account,nfhs,NFHS-4,2016,45.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",34,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+MP,electricity,nfhs,NFHS-5,2021,98.4,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+MP,electricity,nfhs,NFHS-4,2016,90.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+MP,improved_water,nfhs,NFHS-5,2021,89.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+MP,improved_water,nfhs,NFHS-4,2016,85.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+MP,improved_sanitation,nfhs,NFHS-5,2021,65.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+MP,improved_sanitation,nfhs,NFHS-4,2016,34.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+MP,clean_fuel,nfhs,NFHS-5,2021,40.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+MP,clean_fuel,nfhs,NFHS-4,2016,29.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",37,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+MP,women_bank_account,nfhs,NFHS-5,2021,74.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",40,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+MP,women_bank_account,nfhs,NFHS-4,2016,37.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",40,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+OR,electricity,nfhs,NFHS-5,2021,97.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+OR,electricity,nfhs,NFHS-4,2016,86.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+OR,improved_water,nfhs,NFHS-5,2021,91.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+OR,improved_water,nfhs,NFHS-4,2016,89.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+OR,improved_sanitation,nfhs,NFHS-5,2021,60.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+OR,improved_sanitation,nfhs,NFHS-4,2016,30.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+OR,clean_fuel,nfhs,NFHS-5,2021,34.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+OR,clean_fuel,nfhs,NFHS-4,2016,19.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",43,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+OR,women_bank_account,nfhs,NFHS-5,2021,86.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",46,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+OR,women_bank_account,nfhs,NFHS-4,2016,56.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",46,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PB,electricity,nfhs,NFHS-5,2021,99.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PB,electricity,nfhs,NFHS-4,2016,99.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PB,improved_water,nfhs,NFHS-5,2021,98.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PB,improved_water,nfhs,NFHS-4,2016,99.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PB,improved_sanitation,nfhs,NFHS-5,2021,86.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PB,improved_sanitation,nfhs,NFHS-4,2016,82.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PB,clean_fuel,nfhs,NFHS-5,2021,76.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PB,clean_fuel,nfhs,NFHS-4,2016,65.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",49,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PB,women_bank_account,nfhs,NFHS-5,2021,81.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",52,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PB,women_bank_account,nfhs,NFHS-4,2016,58.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",52,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+RJ,electricity,nfhs,NFHS-5,2021,98.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+RJ,electricity,nfhs,NFHS-4,2016,91.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+RJ,improved_water,nfhs,NFHS-5,2021,96.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+RJ,improved_water,nfhs,NFHS-4,2016,93.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+RJ,improved_sanitation,nfhs,NFHS-5,2021,71.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+RJ,improved_sanitation,nfhs,NFHS-4,2016,46.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+RJ,clean_fuel,nfhs,NFHS-5,2021,41.4,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+RJ,clean_fuel,nfhs,NFHS-4,2016,31.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",55,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+RJ,women_bank_account,nfhs,NFHS-5,2021,79.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",58,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+RJ,women_bank_account,nfhs,NFHS-4,2016,58.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",58,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+TN,electricity,nfhs,NFHS-5,2021,99.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+TN,electricity,nfhs,NFHS-4,2016,99.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+TN,improved_water,nfhs,NFHS-5,2021,98.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+TN,improved_water,nfhs,NFHS-4,2016,97.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+TN,improved_sanitation,nfhs,NFHS-5,2021,72.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+TN,improved_sanitation,nfhs,NFHS-4,2016,52.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+TN,clean_fuel,nfhs,NFHS-5,2021,82.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+TN,clean_fuel,nfhs,NFHS-4,2016,73.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",61,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+TN,women_bank_account,nfhs,NFHS-5,2021,92.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",64,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+TN,women_bank_account,nfhs,NFHS-4,2016,77.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",64,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UP,electricity,nfhs,NFHS-5,2021,91.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UP,electricity,nfhs,NFHS-4,2016,72.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UP,improved_water,nfhs,NFHS-5,2021,99.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UP,improved_water,nfhs,NFHS-4,2016,98.4,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UP,improved_sanitation,nfhs,NFHS-5,2021,68.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UP,improved_sanitation,nfhs,NFHS-4,2016,36.4,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UP,clean_fuel,nfhs,NFHS-5,2021,49.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UP,clean_fuel,nfhs,NFHS-4,2016,32.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",67,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UP,women_bank_account,nfhs,NFHS-5,2021,75.4,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",70,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UP,women_bank_account,nfhs,NFHS-4,2016,54.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",70,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UT,electricity,nfhs,NFHS-5,2021,99.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UT,electricity,nfhs,NFHS-4,2016,97.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UT,improved_water,nfhs,NFHS-5,2021,95.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UT,improved_water,nfhs,NFHS-4,2016,93.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UT,improved_sanitation,nfhs,NFHS-5,2021,78.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UT,improved_sanitation,nfhs,NFHS-4,2016,66.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UT,clean_fuel,nfhs,NFHS-5,2021,59.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UT,clean_fuel,nfhs,NFHS-4,2016,51.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",73,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+UT,women_bank_account,nfhs,NFHS-5,2021,80.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",76,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+UT,women_bank_account,nfhs,NFHS-4,2016,58.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",76,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CH,electricity,nfhs,NFHS-5,2021,99.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CH,electricity,nfhs,NFHS-4,2016,99.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CH,improved_water,nfhs,NFHS-5,2021,99.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CH,improved_water,nfhs,NFHS-4,2016,100.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CH,improved_sanitation,nfhs,NFHS-5,2021,85.0,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CH,improved_sanitation,nfhs,NFHS-4,2016,83.7,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CH,clean_fuel,nfhs,NFHS-5,2021,95.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CH,clean_fuel,nfhs,NFHS-4,2016,93.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",79,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+CH,women_bank_account,nfhs,NFHS-5,2021,87.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",82,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+CH,women_bank_account,nfhs,NFHS-4,2016,79.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",82,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+DL,electricity,nfhs,NFHS-5,2021,99.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+DL,electricity,nfhs,NFHS-4,2016,99.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+DL,improved_water,nfhs,NFHS-5,2021,99.4,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+DL,improved_water,nfhs,NFHS-4,2016,99.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+DL,improved_sanitation,nfhs,NFHS-5,2021,81.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+DL,improved_sanitation,nfhs,NFHS-4,2016,75.1,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+DL,clean_fuel,nfhs,NFHS-5,2021,98.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+DL,clean_fuel,nfhs,NFHS-4,2016,97.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",85,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+DL,women_bank_account,nfhs,NFHS-5,2021,72.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",88,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+DL,women_bank_account,nfhs,NFHS-4,2016,64.5,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",88,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PY,electricity,nfhs,NFHS-5,2021,99.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PY,electricity,nfhs,NFHS-4,2016,99.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PY,improved_water,nfhs,NFHS-5,2021,99.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PY,improved_water,nfhs,NFHS-4,2016,99.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PY,improved_sanitation,nfhs,NFHS-5,2021,84.9,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PY,improved_sanitation,nfhs,NFHS-4,2016,64.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PY,clean_fuel,nfhs,NFHS-5,2021,92.3,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PY,clean_fuel,nfhs,NFHS-4,2016,84.8,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",91,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)
+PY,women_bank_account,nfhs,NFHS-5,2021,92.6,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",94,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF); NFHS-5 fieldwork 2020-21
+PY,women_bank_account,nfhs,NFHS-4,2016,68.2,nfhs5-compendium-phase2,"State fact sheet, Key Indicators",94,2026-10-16,0,Copy of the official IIPS compendium hosted by The DHS Program (ICF)

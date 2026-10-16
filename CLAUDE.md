@@ -10,7 +10,7 @@ This repo belongs to the **ravikntsh** account. The machine is also signed in as
 - No build step. Preview with `scripts/serve.ps1` (port 8080).
 - Python: `C:\ProgramData\anaconda3\python.exe` (pandas, requests). Node: conda envs `forge` (v26) or `pmtracker-build` (v24).
 - Map: `tools/build-map.html` (mapshaper in the browser), with sources in `geo/src/` (gitignored).
-- Data: `data/*.csv|json` → `scripts/build-seed.ps1` → `supabase/seed.sql`, which the user runs in the Supabase SQL Editor.
+- Data: `data/series_*.csv` and `data/sources_*.json` → `scripts/data/build_seed.py` → `supabase/seed.sql` (the user runs it in the Supabase SQL Editor) and `data/observations.csv` (the site's local fallback). Fetch scripts are in `scripts/data/`.
 
 ## Rules
 Read `docs/requirements.md`. Revision 2 at the top overrides the rest. Never write a number you didn't read in a source. Keep each source as its own series.

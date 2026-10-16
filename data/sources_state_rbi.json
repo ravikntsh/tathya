@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rbi-hsis-2023-24-t06",
+    "publisher": "Reserve Bank of India (Handbook of Statistics on Indian States 2023-24); original source: Office of the Registrar General and Census Commissioner, Ministry of Home Affairs",
+    "title": "Table 6: State-wise Literacy Rate (per cent), census years 1951-2011",
+    "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/6T_091220248DDB438F8E2C497E8FF554B50EB84197.XLSX",
+    "class": "A",
+    "licence": "RBI website content; reuse with attribution to RBI and the original source (no explicit open licence stated in the file)",
+    "method": "Persons literacy rate from each decennial Census as compiled by RBI. Values copied exactly from the Excel table; cells printed as '-' (not available) skipped. Taken from the 2023-24 edition because the latest (2024-25) edition dropped the literacy table.",
+    "coverage": "34 states/UTs plus All India; 1951, 1961, 1971, 1981, 1991, 2001, 2011; 215 values",
+    "limitations": "Age base changes: 1951-71 rates relate to population aged 5+, 1981-2011 to aged 7+ (break flagged at first 7+ point). 1951 West Bengal relates to total population incl. 0-4; 1951 Chhattisgarh, Madhya Pradesh, Manipur based on sample population. 2001 India and Manipur exclude three Senapati sub-divisions. Andhra Pradesh is undivided (no Telangana row); Jammu & Kashmir includes Ladakh. Table does not state the territorial basis for pre-2001 figures, though it gives separate figures for Chhattisgarh, Jharkhand and Uttarakhand back to 1951. Dadra & Nagar Haveli and Daman & Diu are printed separately and were left out.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "rbi-hsis-2024-25-t04",
+    "publisher": "Reserve Bank of India (Handbook of Statistics on Indian States 2024-25); original source: Sample Registration System Bulletin, Office of the Registrar General and Census Commissioner, Ministry of Home Affairs",
+    "title": "Table 4: State-wise Infant Mortality Rate (per thousand live births), 2004-2023",
+    "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/4T_11122025025F203A250E46CAB963946C776ADBAF.XLSX",
+    "class": "A",
+    "licence": "RBI website content; reuse with attribution to RBI and the original source (no explicit open licence stated in the file)",
+    "method": "SRS infant deaths per 1,000 live births, total, as compiled by RBI. Values copied exactly; '.' (not applicable) and '-' (not available) skipped. Dadra & Nagar Haveli values marked '*' (2020-2023, footnote: include Daman & Diu) mapped to DH with the marker stripped.",
+    "coverage": "35 states/UTs plus All India; annual 2004-2023; 694 values",
+    "limitations": "Andhra Pradesh is undivided up to 2013 (Telangana not applicable); break flagged at 2014. Table gives no note on whether Jammu & Kashmir includes Ladakh after 2019; no Ladakh row. Dadra & Nagar Haveli and Daman & Diu printed separately for 2004-2019 and left out. SRS estimates for small states/UTs are based on small samples and fluctuate year to year.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "rbi-hsis-2024-25-t07",
+    "publisher": "Reserve Bank of India (Handbook of Statistics on Indian States 2024-25); original source: SRS Abridged Life Tables, Office of the Registrar General and Census Commissioner, Ministry of Home Affairs",
+    "title": "Table 7: State-wise Life Expectancy (years at birth), 1993-97 to 2019-23",
+    "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/7T_11122025164B47839F9943F2BC176783B25CB079.XLSX",
+    "class": "A",
+    "licence": "RBI website content; reuse with attribution to RBI and the original source (no explicit open licence stated in the file)",
+    "method": "Expectation of life at birth, 'Total' column (persons), five-year moving periods from SRS abridged life tables. Values copied exactly; '-' skipped. Year = end year of the period.",
+    "coverage": "22 states plus All India; 27 periods 1993-97 to 2019-23; 527 values",
+    "limitations": "Only major states are covered (no NE states other than Assam, no UTs other than Delhi). Bihar, Madhya Pradesh and Uttar Pradesh include Jharkhand, Chhattisgarh and Uttarakhand till 2009-13 (break flagged at 2010-14). Andhra Pradesh includes Telangana till 2013-17 (break at 2014-18). Jammu & Kashmir includes Ladakh in all periods. Overlapping five-year periods are not independent observations.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "rbi-hsis-2024-25-t20",
+    "publisher": "Reserve Bank of India (Handbook of Statistics on Indian States 2024-25); original source: National Statistical Office, Ministry of Statistics and Programme Implementation",
+    "title": "Table 20: Per Capita Net State Domestic Product (Constant Prices, base 2011-12, rupees), 2011-12 to 2024-25",
+    "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/20T_111220252B6EE27737FD4931A99C5A448B7CEC68.XLSX",
+    "class": "A",
+    "licence": "RBI website content; reuse with attribution to RBI and the original source (no explicit open licence stated in the file)",
+    "method": "Per capita NSDP at constant 2011-12 prices in rupees, by fiscal year, as compiled by RBI from NSO/MoSPI. Values copied exactly; '-' skipped. Year = end year of the fiscal year (2011-12 -> 2012).",
+    "coverage": "33 states/UTs; fiscal years 2011-12 to 2024-25; 453 values",
+    "limitations": "No All-India row in this table (India per capita NNI not included here). Jammu & Kashmir includes Ladakh for 2011-12 to 2018-19 and is UT of J&K only from 2019-20 (break flagged). Telangana is listed from 2011-12, so Andhra Pradesh figures are for residual AP throughout. No Ladakh, Lakshadweep or Dadra & Nagar Haveli and Daman & Diu rows. The table does not flag provisional years, but recent state accounts estimates are routinely revised by MoSPI; several states have no 2024-25 (and Gujarat no 2023-24) figure.",
+    "last_checked": "2026-10-16"
+  }
+]

@@ -1,9 +1,9 @@
 import { csvParse } from "https://cdn.jsdelivr.net/npm/d3-dsv@3.0.1/+esm";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
 
-// Loads regions, indicators and observations. Supabase is the source of truth;
-// the CSV/JSON files in /data are the seed and the fallback when no key is set
-// or the tables are still empty.
+// Loads regions, indicators, datasets, sources and observations. Supabase is the
+// source of truth; the files in /data are the seed and the fallback when
+// Supabase is unreachable or still on the old schema.
 export async function loadData() {
   let data = null;
   if (SUPABASE_ANON_KEY) {
@@ -31,86 +31,99 @@ async function rest(table, query = "select=*") {
 }
 
 async function fromSupabase() {
-  const [regions, indicators, observations] = await Promise.all([
+  const [regions, indicators, datasets, sources] = await Promise.all([
     rest("regions"),
     rest("indicators", "select=*&order=sort"),
-    rest("observations", "select=*&limit=10000"),
+    rest("datasets"),
+    rest("sources"),
   ]);
-  return { regions, indicators, observations: observations.map(normaliseObs) };
+  // PostgREST caps responses, so page through observations.
+  const observations = [];
+  for (let from = 0; ; from += 1000) {
+    const page = await rest("observations", `select=*&order=id&offset=${from}&limit=1000`);
+    observations.push(...page);
+    if (page.length < 1000) break;
+  }
+  if (observations.length && !("dataset_id" in observations[0])) throw new Error("old schema");
+  return { regions, indicators, datasets, sources, observations: observations.map(normalise) };
 }
 
 async function fromLocal() {
-  const [regions, indicators, csv] = await Promise.all([
+  const [regions, indicators, datasets, sources, csv] = await Promise.all([
     fetch("data/regions.json").then((r) => r.json()),
     fetch("data/indicators.json").then((r) => r.json()),
-    fetch("data/nfhs_state.csv").then((r) => (r.ok ? r.text() : "")),
+    fetch("data/datasets.json").then((r) => r.json()),
+    fetch("data/sources.json").then((r) => r.json()),
+    fetch("data/observations.csv").then((r) => (r.ok ? r.text() : "")),
   ]);
-  const rows = csv ? csvParse(csv) : [];
-  return { regions, indicators, observations: rows.map(normaliseObs) };
+  return { regions, indicators, datasets, sources, observations: (csv ? csvParse(csv) : []).map(normalise) };
 }
 
-function normaliseObs(r) {
-  const years = r.survey_years;
+function normalise(r) {
   return {
-    region: r.region_code ?? r.state_code,
+    region: r.region_code,
     indicator: r.indicator_id,
-    round: r.round,
-    years,
-    periodEnd: Number(r.period_end) || periodEnd(years),
+    dataset: r.dataset_id,
+    period: r.period_label,
+    year: Number(r.year),
     value: Number(r.value),
-    sourceUrl: r.source_url,
-    sourcePage: r.source_page || "",
-    publisher: r.publisher,
+    sourceId: r.source_id,
+    sourceTable: r.source_table || "",
+    sourcePage: r.source_page ? String(r.source_page) : "",
     datePulled: r.date_pulled,
     archiveUrl: r.archive_url || "",
+    breakBefore: r.break_before === true || r.break_before === "1" || r.break_before === 1,
     note: r.note || "",
   };
 }
 
-// "2019-21" -> 2021, "2015-16" -> 2016
-function periodEnd(years) {
-  const [a, b] = String(years).split("-");
-  if (!b) return Number(a);
-  return Number(a.slice(0, a.length - b.length) + b);
-}
-
-function index({ regions, indicators, observations, origin }) {
+function index({ regions, indicators, datasets, sources, observations, origin }) {
   const regionByCode = new Map(regions.map((r) => [r.code, r]));
-  const indicatorById = new Map(indicators.map((i) => [i.id, i]));
   const obs = observations.filter((o) => Number.isFinite(o.value) && regionByCode.has(o.region));
-  // indicator -> round -> region -> observation
+  // indicator -> dataset -> period -> region -> observation
   const cube = new Map();
   for (const o of obs) {
-    if (!cube.has(o.indicator)) cube.set(o.indicator, new Map());
-    const byRound = cube.get(o.indicator);
-    if (!byRound.has(o.round)) byRound.set(o.round, new Map());
-    byRound.get(o.round).set(o.region, o);
+    const d = (cube.get(o.indicator) ?? cube.set(o.indicator, new Map()).get(o.indicator));
+    const p = (d.get(o.dataset) ?? d.set(o.dataset, new Map()).get(o.dataset));
+    const r = (p.get(o.period) ?? p.set(o.period, new Map()).get(o.period));
+    r.set(o.region, o);
   }
-  function rounds(indicatorId) {
-    const byRound = cube.get(indicatorId);
-    if (!byRound) return [];
-    return [...byRound.keys()]
-      .map((round) => {
-        // NFHS-5 was fielded in two phases (2019-20 and 2020-21); label the round
-        // with the full span while each row keeps the years printed in its source.
-        const rows = [...byRound.get(round).values()];
-        const start = Math.min(...rows.map((o) => Number(String(o.years).slice(0, 4))));
-        const end = Math.max(...rows.map((o) => o.periodEnd));
-        return { round, years: `${start}-${String(end).slice(2)}`, periodEnd: end };
-      })
-      .sort((a, b) => a.periodEnd - b.periodEnd);
+
+  const datasetIds = (ind) => [...(cube.get(ind)?.keys() ?? [])];
+  // Datasets with values for states (map-able) and for India (chart lines).
+  const stateDatasets = (ind) =>
+    datasetIds(ind).filter((ds) => [...cube.get(ind).get(ds).values()].some((m) => [...m.keys()].some((k) => k !== "IN")));
+  const nationalDatasets = (ind) =>
+    datasetIds(ind).filter((ds) => [...cube.get(ind).get(ds).values()].some((m) => m.has("IN")));
+
+  // Periods of a dataset, ordered by plotting year (latest year of any row in that period).
+  function periods(ind, ds, { statesOnly = false } = {}) {
+    const byPeriod = cube.get(ind)?.get(ds);
+    if (!byPeriod) return [];
+    return [...byPeriod.entries()]
+      .filter(([, m]) => !statesOnly || [...m.keys()].some((k) => k !== "IN"))
+      .map(([period, m]) => ({ period, year: Math.max(...[...m.values()].map((o) => o.year)) }))
+      .sort((a, b) => a.year - b.year);
   }
-  const get = (indicatorId, round, region) => cube.get(indicatorId)?.get(round)?.get(region) ?? null;
-  const series = (indicatorId, region) =>
-    rounds(indicatorId).map((r) => get(indicatorId, r.round, region)).filter(Boolean);
+  const get = (ind, ds, period, region) => cube.get(ind)?.get(ds)?.get(period)?.get(region) ?? null;
+  const series = (ind, ds, region) =>
+    [...(cube.get(ind)?.get(ds)?.values() ?? [])]
+      .map((m) => m.get(region))
+      .filter(Boolean)
+      .sort((a, b) => a.year - b.year);
+
   return {
     origin,
     regions,
     states: regions.filter((r) => r.kind !== "country"),
-    indicators: [...indicators].sort((a, b) => a.sort - b.sort),
+    indicators: [...indicators].filter((i) => cube.has(i.id)).sort((a, b) => a.sort - b.sort),
     regionByCode,
-    indicatorById,
-    rounds,
+    indicatorById: new Map(indicators.map((i) => [i.id, i])),
+    datasetById: new Map(datasets.map((d) => [d.id, d])),
+    sourceById: new Map(sources.map((s) => [s.id, s])),
+    stateDatasets,
+    nationalDatasets,
+    periods,
     get,
     series,
     count: obs.length,

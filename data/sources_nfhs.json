@@ -1,0 +1,26 @@
+[
+  {
+    "id": "nfhs5-compendium-phase1",
+    "publisher": "IIPS / Ministry of Health and Family Welfare (copy hosted by MoHFW National Health Mission)",
+    "title": "NFHS-5 State Factsheet Compendium, Phase I (22 states/UTs)",
+    "url": "https://nhm.gov.in/uhc-day/Session%202/NFHS-5%20State%20Factsheet%20Compendium_Phase-I%20(1).pdf",
+    "class": "A",
+    "licence": "Government of India publication",
+    "method": "Household survey; fact sheets print NFHS-5 (2019-20) and NFHS-4 (2015-16) side by side.",
+    "coverage": "22 states/UTs",
+    "limitations": "Provisional fact-sheet results; survey estimates with sampling error.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "nfhs5-compendium-phase2",
+    "publisher": "IIPS / Ministry of Health and Family Welfare (copy hosted by The DHS Program, ICF)",
+    "title": "NFHS-5 India and State Factsheet Compendium, Phase II (India + 14 states/UTs)",
+    "url": "https://dhsprogram.com/pubs/pdf/OF43/NFHS-5_India_and_State_Factsheet_Compendium_Phase-II.pdf",
+    "class": "A",
+    "licence": "Government of India publication",
+    "method": "Household survey; fact sheets print NFHS-5 (2020-21; India 2019-21) and NFHS-4 (2015-16) side by side.",
+    "coverage": "India and 14 states/UTs",
+    "limitations": "Provisional fact-sheet results; survey estimates with sampling error.",
+    "last_checked": "2026-10-16"
+  }
+]

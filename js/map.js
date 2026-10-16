@@ -3,9 +3,12 @@ import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm
 import { t, tr, fmt } from "./i18n.js";
 
 const NS = "http://www.w3.org/2000/svg";
-// Fixed 0-100 buckets so moving the slider shows real change, not a rescaled map.
-export const THRESHOLDS = [20, 40, 60, 80];
-export const bucket = (v) => THRESHOLDS.filter((x) => v >= x).length;
+// Five equal bands over the indicator's fixed domain, so moving the slider shows
+// real change, not a rescaled map.
+let domain = [0, 100];
+export const setDomain = (d) => (domain = d || [0, 100]);
+const thresholds = () => [1, 2, 3, 4].map((i) => domain[0] + ((domain[1] - domain[0]) * i) / 5);
+export const bucket = (v) => thresholds().filter((x) => v >= x).length;
 
 export async function loadMap(url) {
   const topo = await fetch(url).then((r) => {
@@ -63,7 +66,7 @@ export function createMap(container, features, { onSelect }) {
   }
   container.replaceChildren(svg);
 
-  function update({ valueOf, regionName, selected, label }) {
+  function update({ valueOf, regionName, selected, label, format = (v) => fmt(v) + "%" }) {
     svg.setAttribute("aria-label", label);
     for (const [code, s] of shapes) {
       const v = valueOf(code);
@@ -73,7 +76,7 @@ export function createMap(container, features, { onSelect }) {
       const isSel = code === selected;
       s.el.classList.toggle("selected", isSel);
       s.ring?.classList.toggle("selected", isSel);
-      const text = `${regionName(code)}: ${v == null ? t("noData") : fmt(v) + "%"}`;
+      const text = `${regionName(code)}: ${v == null ? t("noData") : format(v)}`;
       s.title.textContent = text;
       s.el.setAttribute("aria-label", text);
       s.el.setAttribute("aria-pressed", String(isSel));
@@ -82,12 +85,15 @@ export function createMap(container, features, { onSelect }) {
   return { update };
 }
 
-export function renderLegend(el) {
+export function renderLegend(el, unit = "%") {
+  const th = thresholds();
+  const n = (v) => fmt(v, 0);
   const cells = [0, 1, 2, 3, 4].map((i) => {
-    const lo = i === 0 ? 0 : THRESHOLDS[i - 1];
-    const hi = THRESHOLDS[i] ?? 100;
-    return `<span class="lg-cell"><i style="background:var(--seq-${i})"></i>${lo}–${hi}%</span>`;
+    const lo = i === 0 ? domain[0] : th[i - 1];
+    const hi = th[i] ?? domain[1];
+    return `<span class="lg-cell"><i style="background:var(--seq-${i})"></i>${n(lo)}–${n(hi)}${unit === "%" ? "%" : ""}</span>`;
   });
+  if (unit !== "%") cells.push(`<span class="lg-cell muted">${unit}</span>`);
   el.innerHTML = `${cells.join("")}<span class="lg-cell"><i class="lg-nodata"></i>${t("noData")}</span>`;
 }
 

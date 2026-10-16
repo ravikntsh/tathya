@@ -48,10 +48,16 @@
           <span class="label" id="ind-label" data-i18n="indicator"></span>
           <div id="indicators" class="chips" role="radiogroup" aria-labelledby="ind-label"></div>
         </div>
-        <div class="field slider-field">
-          <label class="label" for="round" data-i18n="round"></label>
-          <input id="round" type="range" min="0" max="0" step="1" value="0">
-          <div id="round-ticks" class="ticks"></div>
+        <div class="field-row">
+          <div class="field" id="source-field" hidden>
+            <label class="label" for="source" data-i18n="mapSource"></label>
+            <select id="source"></select>
+          </div>
+          <div class="field slider-field" id="slider-field">
+            <label class="label" for="round" data-i18n="round"></label>
+            <input id="round" type="range" min="0" max="0" step="1" value="0">
+            <div id="round-ticks" class="ticks"></div>
+          </div>
         </div>
       </section>
 
@@ -70,11 +76,19 @@
           <section id="card" class="fact-card" aria-live="polite"></section>
 
           <section class="panel">
-            <h2 data-i18n="nationalTrend"></h2>
+            <div class="panel-head">
+              <h2 data-i18n="nationalTrend"></h2>
+              <div id="ranges" class="seg" role="group" aria-label="Time range">
+                <button type="button" data-range="all" data-i18n="since1857"></button>
+                <button type="button" data-range="1947" data-i18n="since1947"></button>
+                <button type="button" data-range="1990" data-i18n="since1990"></button>
+              </div>
+            </div>
             <div id="trend"></div>
+            <p id="trend-note" class="muted small"></p>
           </section>
 
-          <section class="panel ranks">
+          <section class="panel ranks" id="ranks">
             <div>
               <h2 data-i18n="top"></h2>
               <div id="top"></div>
@@ -85,7 +99,7 @@
             </div>
           </section>
 
-          <section class="panel">
+          <section class="panel" id="compare-panel">
             <h2 data-i18n="compare"></h2>
             <div class="compare-pick">
               <select id="cmp-a" aria-label="First state"></select>
@@ -98,6 +112,7 @@
 
       <section class="panel table-panel">
         <button id="table-toggle" class="pill" type="button" aria-expanded="false" aria-controls="table"></button>
+        <button id="csv" class="pill" type="button" data-i18n="downloadCsv"></button>
         <p id="ind-def" class="muted small"></p>
         <div id="table" class="table-wrap" hidden></div>
       </section>

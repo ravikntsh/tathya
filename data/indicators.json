@@ -5,7 +5,10 @@
     "unit": "%",
     "dataset": "NFHS",
     "higher_is_better": true,
-    "short_label": { "en": "Improved sanitation", "hi": "बेहतर स्वच्छता" },
+    "short_label": {
+      "en": "Improved sanitation",
+      "hi": "बेहतर स्वच्छता"
+    },
     "label": {
       "en": "Population living in households that use an improved sanitation facility",
       "hi": "बेहतर स्वच्छता सुविधा वाले परिवारों में रहने वाली आबादी"
@@ -14,7 +17,12 @@
       "en": "Share of people (all ages) whose household uses an improved toilet facility, as defined in the NFHS fact sheets. Survey estimate, not an administrative count.",
       "hi": "उन लोगों (सभी आयु) का प्रतिशत जिनका परिवार NFHS की परिभाषा के अनुसार बेहतर शौचालय सुविधा का उपयोग करता है। यह सर्वेक्षण अनुमान है, प्रशासनिक गिनती नहीं।"
     },
-    "break_note": null
+    "break_note": null,
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1
   },
   {
     "id": "electricity",
@@ -22,7 +30,10 @@
     "unit": "%",
     "dataset": "NFHS",
     "higher_is_better": true,
-    "short_label": { "en": "Electricity", "hi": "बिजली" },
+    "short_label": {
+      "en": "Electricity",
+      "hi": "बिजली"
+    },
     "label": {
       "en": "Population living in households with electricity",
       "hi": "बिजली वाले परिवारों में रहने वाली आबादी"
@@ -31,7 +42,12 @@
       "en": "Share of people (all ages) living in households that have an electricity connection. Says nothing about hours of supply.",
       "hi": "बिजली कनेक्शन वाले परिवारों में रहने वाले लोगों (सभी आयु) का प्रतिशत। इससे आपूर्ति के घंटों का पता नहीं चलता।"
     },
-    "break_note": null
+    "break_note": null,
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1
   },
   {
     "id": "clean_fuel",
@@ -39,7 +55,10 @@
     "unit": "%",
     "dataset": "NFHS",
     "higher_is_better": true,
-    "short_label": { "en": "Clean cooking fuel", "hi": "स्वच्छ रसोई ईंधन" },
+    "short_label": {
+      "en": "Clean cooking fuel",
+      "hi": "स्वच्छ रसोई ईंधन"
+    },
     "label": {
       "en": "Households using clean fuel for cooking",
       "hi": "खाना पकाने के लिए स्वच्छ ईंधन का उपयोग करने वाले परिवार"
@@ -48,7 +67,12 @@
       "en": "Share of households whose main cooking fuel is clean (electricity, LPG/natural gas, biogas). This is use, not just an LPG connection, so it is lower than Ujjwala connection counts.",
       "hi": "उन परिवारों का प्रतिशत जिनका मुख्य रसोई ईंधन स्वच्छ है (बिजली, एलपीजी/प्राकृतिक गैस, बायोगैस)। यह वास्तविक उपयोग है, केवल एलपीजी कनेक्शन नहीं, इसलिए यह उज्ज्वला कनेक्शन संख्या से कम है।"
     },
-    "break_note": null
+    "break_note": null,
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1
   },
   {
     "id": "improved_water",
@@ -56,7 +80,10 @@
     "unit": "%",
     "dataset": "NFHS",
     "higher_is_better": true,
-    "short_label": { "en": "Improved drinking water", "hi": "बेहतर पेयजल स्रोत" },
+    "short_label": {
+      "en": "Improved drinking water",
+      "hi": "बेहतर पेयजल स्रोत"
+    },
     "label": {
       "en": "Population living in households with an improved drinking-water source",
       "hi": "बेहतर पेयजल स्रोत वाले परिवारों में रहने वाली आबादी"
@@ -65,7 +92,12 @@
       "en": "Includes piped water, public taps, tube wells and protected wells. It is not the same as a household tap connection (Jal Jeevan Mission), which will be added separately.",
       "hi": "इसमें पाइप से पानी, सार्वजनिक नल, ट्यूबवेल और सुरक्षित कुएँ शामिल हैं। यह घरेलू नल कनेक्शन (जल जीवन मिशन) के समान नहीं है, जिसे अलग से जोड़ा जाएगा।"
     },
-    "break_note": null
+    "break_note": null,
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1
   },
   {
     "id": "women_bank_account",
@@ -73,7 +105,10 @@
     "unit": "%",
     "dataset": "NFHS",
     "higher_is_better": true,
-    "short_label": { "en": "Women's own bank account", "hi": "महिलाओं का अपना बैंक खाता" },
+    "short_label": {
+      "en": "Women's own bank account",
+      "hi": "महिलाओं का अपना बैंक खाता"
+    },
     "label": {
       "en": "Women age 15-49 having a bank or savings account that they themselves use",
       "hi": "15-49 वर्ष की महिलाएँ जिनके पास स्वयं उपयोग किया जाने वाला बैंक या बचत खाता है"
@@ -81,6 +116,131 @@
     "definition": {
       "en": "Share of women age 15-49 with a bank or savings account they use themselves. Covers women only, so it is not the same as Jan Dhan account totals.",
       "hi": "15-49 वर्ष की उन महिलाओं का प्रतिशत जिनके पास स्वयं उपयोग किया जाने वाला बैंक या बचत खाता है। यह केवल महिलाओं पर है, इसलिए जन धन खातों की कुल संख्या के समान नहीं है।"
+    },
+    "break_note": null,
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1
+  },
+  {
+    "id": "literacy",
+    "sort": 6,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Literacy",
+      "hi": "साक्षरता"
+    },
+    "label": {
+      "en": "Literacy rate",
+      "hi": "साक्षरता दर"
+    },
+    "definition": {
+      "en": "Share of people who can read and write with understanding in any language. The Census age base changed over time (whole population before 1951, age 5+ in 1951-1971, age 7+ from 1981), marked as breaks. UNESCO's line covers adults 15+.",
+      "hi": "किसी भी भाषा में समझ के साथ पढ़-लिख सकने वाले लोगों का प्रतिशत। जनगणना का आयु आधार समय के साथ बदला (1951 से पहले पूरी आबादी, 1951-1971 में 5+ आयु, 1981 से 7+ आयु), जिसे विराम के रूप में दिखाया गया है। यूनेस्को की रेखा 15+ वयस्कों की है।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "life_expectancy",
+    "sort": 7,
+    "unit": "years",
+    "domain": [
+      20,
+      80
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Life expectancy",
+      "hi": "जीवन प्रत्याशा"
+    },
+    "label": {
+      "en": "Life expectancy at birth",
+      "hi": "जन्म के समय जीवन प्रत्याशा"
+    },
+    "definition": {
+      "en": "Average years a newborn would live if current death rates held. Census actuarial estimates cover ten-year periods; SRS life tables cover five-year periods; UN figures are annual model estimates.",
+      "hi": "यदि वर्तमान मृत्यु दरें बनी रहें तो एक नवजात के औसत जीवन वर्ष। जनगणना बीमांकिक अनुमान दस-वर्षीय अवधि के हैं; SRS जीवन तालिकाएँ पाँच-वर्षीय अवधि की; संयुक्त राष्ट्र के आँकड़े वार्षिक मॉडल अनुमान हैं।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "infant_mortality",
+    "sort": 8,
+    "unit": "per 1,000 live births",
+    "domain": [
+      0,
+      200
+    ],
+    "decimals": 0,
+    "higher_is_better": false,
+    "short_label": {
+      "en": "Infant mortality",
+      "hi": "शिशु मृत्यु दर"
+    },
+    "label": {
+      "en": "Infant mortality rate",
+      "hi": "शिशु मृत्यु दर"
+    },
+    "definition": {
+      "en": "Deaths before age one per 1,000 live births. Lower is better. SRS is India's official series from 1971; pre-1947 registration undercounted deaths.",
+      "hi": "प्रति 1,000 जीवित जन्मों पर एक वर्ष से पहले होने वाली मृत्यु। कम बेहतर है। SRS 1971 से भारत की आधिकारिक श्रृंखला है; 1947 से पहले के पंजीकरण में मृत्यु कम दर्ज होती थी।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "gdp_per_capita",
+    "sort": 9,
+    "unit": "2011 int. $",
+    "domain": [
+      0,
+      10000
+    ],
+    "decimals": 0,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "GDP per person",
+      "hi": "प्रति व्यक्ति GDP"
+    },
+    "label": {
+      "en": "GDP per person (2011 international dollars, PPP)",
+      "hi": "प्रति व्यक्ति GDP (2011 अंतरराष्ट्रीय डॉलर, PPP)"
+    },
+    "definition": {
+      "en": "Average income per person, adjusted for inflation and price levels so years can be compared (Maddison Project 2023). Before 1947 the figures are academic reconstructions: Broadberry, Custodis and Gupta (2015) for 1600-1871, Heston (1983) for 1870-1900, and Maddison (1985) for 1900-46. Treat them as estimates with wide uncertainty.",
+      "hi": "प्रति व्यक्ति औसत आय, मुद्रास्फीति और मूल्य स्तर के लिए समायोजित ताकि वर्षों की तुलना हो सके (मैडिसन प्रोजेक्ट 2023)। 1947 से पहले के आँकड़े अकादमिक पुनर्निर्माण हैं: 1600-1871 के लिए ब्रॉडबेरी, कस्टोडिस और गुप्ता (2015), 1870-1900 के लिए हेस्टन (1983), और 1900-46 के लिए मैडिसन (1985)। इन्हें काफ़ी अनिश्चितता वाले अनुमान मानें।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "state_income_per_capita",
+    "sort": 10,
+    "unit": "₹ (2011-12 prices)",
+    "domain": [
+      0,
+      400000
+    ],
+    "decimals": 0,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "State income per person",
+      "hi": "प्रति व्यक्ति राज्य आय"
+    },
+    "label": {
+      "en": "Per capita Net State Domestic Product, constant 2011-12 prices",
+      "hi": "प्रति व्यक्ति शुद्ध राज्य घरेलू उत्पाद, स्थिर 2011-12 मूल्य"
+    },
+    "definition": {
+      "en": "Average income produced per person in a state, in rupees at 2011-12 prices. Compiled by state statistics bureaus; RBI Handbook of Statistics on Indian States.",
+      "hi": "किसी राज्य में प्रति व्यक्ति उत्पन्न औसत आय, 2011-12 के मूल्यों पर रुपये में। राज्य सांख्यिकी ब्यूरो द्वारा संकलित; RBI भारतीय राज्यों पर सांख्यिकी पुस्तिका।"
     },
     "break_note": null
   }
