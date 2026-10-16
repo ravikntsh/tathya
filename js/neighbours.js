@@ -100,6 +100,7 @@ function eventItem(e) {
     <div class="tl-date">${esc(fmtDate(e.date, e.end_date))}</div>
     <div class="tl-body">
       <span class="tl-type">${esc(t("nbTypes")[e.type] ?? e.type)}</span>
+      ${e.source_class ? `<span class="tl-src tl-src-${esc(e.source_class)}">${esc(t("nbSrcClass")[e.source_class] ?? "")}</span>` : ""}
       <h3>${esc(e.title)}</h3>
       <p>${esc(e.summary)}</p>
       <p class="src">${t("source")}: ${srcs || `<span class="muted">${t("noData")}</span>`}</p>
