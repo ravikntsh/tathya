@@ -16,12 +16,17 @@ export function renderRail(el, { active = "development" } = {}) {
         if (!Array.isArray(i)) return `<li><span aria-disabled="true">${esc(i)}<small>${t("soon")}</small></span></li>`;
         // Border & neighbours (live pages) is the group with the nine neighbour labels.
         const isNeighbours = i[1].length === NEIGHBOURS.length;
+        const hrefs = i[2] || [];
+        const mixed = hrefs.some(Boolean);
         const subs = i[1]
           .map((x, j) => (isNeighbours
             ? `<li>${link(`neighbours.html#c=${NEIGHBOURS[j]}`, x, active === NEIGHBOURS[j])}</li>`
-            : `<li><span aria-disabled="true">${esc(x)}</span></li>`))
+            : hrefs[j]
+              ? `<li>${link(hrefs[j], x, false)}</li>`
+              : `<li><span aria-disabled="true">${esc(x)}${mixed ? ` <small>${t("soon")}</small>` : ""}</span></li>`))
           .join("");
-        return `<li class="rail-group"><span class="rail-group-h">${esc(i[0])}</span><ul>${subs}</ul>${isNeighbours ? "" : `<small class="rail-soon">${t("soon")}</small>`}</li>`;
+        const allSoon = !isNeighbours && !hrefs.some(Boolean);
+        return `<li class="rail-group"><span class="rail-group-h">${esc(i[0])}</span><ul>${subs}</ul>${allSoon ? `<small class="rail-soon">${t("soon")}</small>` : ""}</li>`;
       })
       .join("");
 }

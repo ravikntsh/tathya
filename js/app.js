@@ -26,6 +26,11 @@ async function init() {
     return;
   }
   readHash();
+  if (state.group) {
+    const first = data.indicators.find((i) => (i.group || "economy") === state.group);
+    if (first) state.indicator = first.id;
+    state.group = null;
+  }
   if (!data.indicatorById.has(state.indicator) || !data.indicators.some((i) => i.id === state.indicator)) state.indicator = data.indicators[0]?.id;
   pickDataset();
 
@@ -68,6 +73,7 @@ function readHash() {
   if (RANGES[p.get("from")]) state.range = p.get("from");
   state.estimates = p.get("est") === "1";
   state.year = Number(p.get("yr")) || null;
+  state.group = p.get("grp") || null;
 }
 
 function writeHash() {
@@ -452,6 +458,7 @@ function render() {
   } else $("table").innerHTML = "";
 
   renderCard();
+  splitCard();
   renderCompareOptions();
   renderCompare();
   writeHash();
@@ -463,7 +470,20 @@ function renderTrend() {
   const dsList = data.nationalDatasets(state.indicator).filter((ds) => data.datasetById.get(ds)?.chart !== false);
   // The map's dataset first, then the rest; each source keeps its own line.
   dsList.sort((a, b) => (a === state.dataset ? -1 : b === state.dataset ? 1 : 0));
-  const lines = dsList.slice(0, LINE_STYLES.length).map((ds, k) => ({ label: dsLabel(ds), points: data.series(state.indicator, ds, "IN"), style: LINE_STYLES[k] }));
+  // With a state selected, its own line (one source) comes first, then India's lines.
+  const regionLine = [];
+  if (state.region && state.dataset) {
+    // Up to two of the state's own sources (each its own line), longest first.
+    const own = (combined() ? priorityDatasets() : [state.dataset])
+      .map((ds) => ({ ds, pts: data.series(state.indicator, ds, state.region) }))
+      .filter((x) => x.pts.length >= 2)
+      .sort((a, b) => b.pts.length - a.pts.length)
+      .slice(0, 2);
+    for (const { ds, pts } of own) regionLine.push({ label: `${regionName(state.region)} (${dsLabel(ds)})`, points: pts });
+  }
+  const natLines = dsList.map((ds) => ({ label: `${t("national")}: ${dsLabel(ds)}`, points: data.series(state.indicator, ds, "IN") }));
+  const lines = [...regionLine, ...natLines.slice(0, LINE_STYLES.length - regionLine.length)].map((l, k) => ({ ...l, style: LINE_STYLES[k] }));
+  document.querySelector('[data-i18n="nationalTrend"]').textContent = state.region ? t("stateTrend")(regionName(state.region)) : t("nationalTrend");
   const years = lines.flatMap((l) => l.points.map((p) => p.year));
   const minYear = Math.max(Math.min(...years), RANGES[state.range]);
   const maxYear = Math.max(...years);
@@ -638,6 +658,19 @@ function wireShare(el, card, code, label) {
       }
     })
   );
+}
+
+// The card keeps the headline (place, indicator, value, change) above the trend
+// chart; its source, notes and share buttons move to the panel below the chart.
+// Moving the nodes keeps their click handlers.
+function splitCard() {
+  const card = $("card"), foot = $("card-foot");
+  foot.replaceChildren();
+  for (const n of [...card.children]) {
+    const head = n.matches(".region, .ind, .big, .when, .delta") || n.querySelector(".calc-tag");
+    if (!head) foot.appendChild(n);
+  }
+  foot.hidden = !foot.children.length;
 }
 
 function renderCompareOptions() {
