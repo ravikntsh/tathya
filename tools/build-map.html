@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Build map</title>
+<style>body{font:14px system-ui;margin:16px;background:#FAF8F3;color:#1F2430} pre{white-space:pre-wrap}</style>
+<script src="https://cdn.jsdelivr.net/npm/mapshaper@0.6.100/www/modules.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mapshaper@0.6.100/www/mapshaper.js"></script>
+</head>
+<body>
+<h1>Build geo/india-states.topo.json</h1>
+<p>Dev tool. Serve the repo with scripts/serve.ps1, open /tools/build-map.html, press Build.
+Source: DataMeet states.geojson and dists11.geojson in geo/src (not committed).</p>
+<button id="go">Build</button>
+<pre id="log"></pre>
+<script>
+// What this does (keep in step with README "Map"):
+// 1. States: drop J&K (rebuilt from districts below); code every state; merge
+//    Dadara & Nagar Havelli + Daman & Diu into DH (2020 merger).
+// 2. J&K districts from dists11: Leh + Kargil -> LA (2019 UT), the rest -> JK.
+//    Unnamed "Data Not Available" pieces are assigned by the rule in ASSIGN below.
+// 3. Merge, simplify, write TopoJSON with only a `code` property.
+const NAME_TO_CODE = {
+  "Andaman & Nicobar Island": "AN", "Andhra Pradesh": "AP", "Arunanchal Pradesh": "AR", "Assam": "AS",
+  "Bihar": "BR", "Chandigarh": "CH", "Chhattisgarh": "CT", "Dadara & Nagar Havelli": "DH", "Daman & Diu": "DH",
+  "Goa": "GA", "Gujarat": "GJ", "Haryana": "HR", "Himachal Pradesh": "HP", "Jharkhand": "JH",
+  "Karnataka": "KA", "Kerala": "KL", "Lakshadweep": "LD", "Madhya Pradesh": "MP", "Maharashtra": "MH",
+  "Manipur": "MN", "Meghalaya": "ML", "Mizoram": "MZ", "NCT of Delhi": "DL", "Nagaland": "NL", "Odisha": "OR",
+  "Puducherry": "PY", "Punjab": "PB", "Rajasthan": "RJ", "Sikkim": "SK", "Tamil Nadu": "TN", "Telangana": "TG",
+  "Tripura": "TR", "Uttar Pradesh": "UP", "Uttarakhand": "UT", "West Bengal": "WB",
+};
+// The unnamed J&K polygon in dists11 covers PoK and Gilgit-Baltistan in one piece.
+// The Survey of India map (Nov 2019) puts Gilgit-Baltistan in Ladakh UT and PoK in
+// J&K UT. APPROXIMATION: split at latitude 35.0N (north -> LA, south -> JK).
+// Replace with the Survey of India line before launch.
+const GB_SPLIT_LAT = 35.0;
+async function splitUnnamed(f) {
+  const fc = { type: "FeatureCollection", features: [{ ...f, properties: {} }] };
+  const box = `bbox=70,${GB_SPLIT_LAT},82,38`;
+  const out = await mapshaper.applyCommands(
+    `-i in.geojson -clip ${box} -each "code='LA'" -o n.geojson -i in.geojson -erase ${box} -each "code='JK'" -o s.geojson`,
+    { "in.geojson": fc }
+  );
+  const read = (k) => JSON.parse(typeof out[k] === "string" ? out[k] : new TextDecoder().decode(out[k])).features;
+  return [...read("n.geojson"), ...read("s.geojson")];
+}
+const log = (s) => (document.getElementById("log").textContent += s + "\n");
+
+async function build() {
+  const [states, dists] = await Promise.all(["states", "dists11"].map((f) => fetch(`../geo/src/${f}.geojson`).then((r) => r.json())));
+  const features = [];
+  for (const f of states.features) {
+    if (f.properties.ST_NM === "Jammu & Kashmir") continue; // rebuilt from districts
+    features.push({ ...f, properties: { code: NAME_TO_CODE[f.properties.ST_NM] || "XX" } });
+  }
+  for (const f of dists.features) {
+    if (f.properties.ST_NM !== "Jammu & Kashmir") continue;
+    const d = f.properties.DISTRICT;
+    if (d === "Data Not Available") features.push(...(await splitUnnamed(f)));
+    else features.push({ ...f, properties: { code: d === "Leh (ladakh)" || d === "Kargil" ? "LA" : "JK" } });
+  }
+  const cmd = [
+    "-i india.geojson snap",
+    "-clean",
+    "-dissolve2 code",
+    "-simplify 4% keep-shapes",
+    "-filter-fields code",
+    "-rename-layers india",
+    "-o format=topojson quantization=100000 india-states.topo.json",
+  ].join(" ");
+  log(cmd);
+  const out = await mapshaper.applyCommands(cmd, { "india.geojson": { type: "FeatureCollection", features } });
+  const topo = out["india-states.topo.json"];
+  const json = typeof topo === "string" ? topo : new TextDecoder().decode(topo);
+  const codes = JSON.parse(json).objects.india.geometries.map((g) => g.properties.code).sort();
+  log(`features: ${codes.length}\n${codes.join(" ")}\nsize: ${(json.length / 1024).toFixed(0)} KB`);
+  const r = await fetch("/__save/india-states.topo.json", { method: "POST", body: json });
+  log(r.ok ? "saved geo/india-states.topo.json" : `save failed ${r.status}`);
+  return { codes, kb: json.length / 1024 };
+}
+window.build = build;
+document.getElementById("go").onclick = () => build().catch((e) => log("ERROR " + e.message));
+</script>
+</body>
+</html>

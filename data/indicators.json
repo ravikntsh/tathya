@@ -1,0 +1,87 @@
+[
+  {
+    "id": "improved_sanitation",
+    "sort": 1,
+    "unit": "%",
+    "dataset": "NFHS",
+    "higher_is_better": true,
+    "short_label": { "en": "Improved sanitation", "hi": "बेहतर स्वच्छता" },
+    "label": {
+      "en": "Population living in households that use an improved sanitation facility",
+      "hi": "बेहतर स्वच्छता सुविधा वाले परिवारों में रहने वाली आबादी"
+    },
+    "definition": {
+      "en": "Share of people (all ages) whose household uses an improved toilet facility, as defined in the NFHS fact sheets. Survey estimate, not an administrative count.",
+      "hi": "उन लोगों (सभी आयु) का प्रतिशत जिनका परिवार NFHS की परिभाषा के अनुसार बेहतर शौचालय सुविधा का उपयोग करता है। यह सर्वेक्षण अनुमान है, प्रशासनिक गिनती नहीं।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "electricity",
+    "sort": 2,
+    "unit": "%",
+    "dataset": "NFHS",
+    "higher_is_better": true,
+    "short_label": { "en": "Electricity", "hi": "बिजली" },
+    "label": {
+      "en": "Population living in households with electricity",
+      "hi": "बिजली वाले परिवारों में रहने वाली आबादी"
+    },
+    "definition": {
+      "en": "Share of people (all ages) living in households that have an electricity connection. Says nothing about hours of supply.",
+      "hi": "बिजली कनेक्शन वाले परिवारों में रहने वाले लोगों (सभी आयु) का प्रतिशत। इससे आपूर्ति के घंटों का पता नहीं चलता।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "clean_fuel",
+    "sort": 3,
+    "unit": "%",
+    "dataset": "NFHS",
+    "higher_is_better": true,
+    "short_label": { "en": "Clean cooking fuel", "hi": "स्वच्छ रसोई ईंधन" },
+    "label": {
+      "en": "Households using clean fuel for cooking",
+      "hi": "खाना पकाने के लिए स्वच्छ ईंधन का उपयोग करने वाले परिवार"
+    },
+    "definition": {
+      "en": "Share of households whose main cooking fuel is clean (electricity, LPG/natural gas, biogas). This is use, not just an LPG connection, so it is lower than Ujjwala connection counts.",
+      "hi": "उन परिवारों का प्रतिशत जिनका मुख्य रसोई ईंधन स्वच्छ है (बिजली, एलपीजी/प्राकृतिक गैस, बायोगैस)। यह वास्तविक उपयोग है, केवल एलपीजी कनेक्शन नहीं, इसलिए यह उज्ज्वला कनेक्शन संख्या से कम है।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "improved_water",
+    "sort": 4,
+    "unit": "%",
+    "dataset": "NFHS",
+    "higher_is_better": true,
+    "short_label": { "en": "Improved drinking water", "hi": "बेहतर पेयजल स्रोत" },
+    "label": {
+      "en": "Population living in households with an improved drinking-water source",
+      "hi": "बेहतर पेयजल स्रोत वाले परिवारों में रहने वाली आबादी"
+    },
+    "definition": {
+      "en": "Includes piped water, public taps, tube wells and protected wells. It is not the same as a household tap connection (Jal Jeevan Mission), which will be added separately.",
+      "hi": "इसमें पाइप से पानी, सार्वजनिक नल, ट्यूबवेल और सुरक्षित कुएँ शामिल हैं। यह घरेलू नल कनेक्शन (जल जीवन मिशन) के समान नहीं है, जिसे अलग से जोड़ा जाएगा।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "women_bank_account",
+    "sort": 5,
+    "unit": "%",
+    "dataset": "NFHS",
+    "higher_is_better": true,
+    "short_label": { "en": "Women's own bank account", "hi": "महिलाओं का अपना बैंक खाता" },
+    "label": {
+      "en": "Women age 15-49 having a bank or savings account that they themselves use",
+      "hi": "15-49 वर्ष की महिलाएँ जिनके पास स्वयं उपयोग किया जाने वाला बैंक या बचत खाता है"
+    },
+    "definition": {
+      "en": "Share of women age 15-49 with a bank or savings account they use themselves. Covers women only, so it is not the same as Jan Dhan account totals.",
+      "hi": "15-49 वर्ष की उन महिलाओं का प्रतिशत जिनके पास स्वयं उपयोग किया जाने वाला बैंक या बचत खाता है। यह केवल महिलाओं पर है, इसलिए जन धन खातों की कुल संख्या के समान नहीं है।"
+    },
+    "break_note": null
+  }
+]

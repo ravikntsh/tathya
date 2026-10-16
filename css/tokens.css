@@ -1,0 +1,64 @@
+/* Palette from docs/requirements.md (Design). Saffron is for the slider handle and rare highlights only. */
+:root {
+  --paper: #FAF8F3;
+  --ink: #1F2430;
+  --ink-muted: #4A5163;
+  --navy: #1B2A6B;
+  --saffron: #D9822B;
+  --teal: #2A8C82;
+  --terracotta: #C2553A;
+  --slate: #8A93A3;
+  --surface: #FFFFFF;
+  --line: #E4E0D6;
+  --no-data: #D5D9E0;
+  /* One-hue sequential map scale, light to dark navy */
+  --seq-0: #E8EBF5;
+  --seq-1: #B9C1E0;
+  --seq-2: #8693C6;
+  --seq-3: #5262A6;
+  --seq-4: #1B2A6B;
+  --font: "Noto Sans", "Noto Sans Devanagari", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1736;
+    --ink: #EEF0F6;
+    --ink-muted: #B4BACB;
+    --navy: #A9B6EE;
+    --saffron: #F0A65C;
+    --teal: #5CC2B6;
+    --terracotta: #E88A72;
+    --slate: #9AA3B3;
+    --surface: #172150;
+    --line: #2A3566;
+    --no-data: #3A4470;
+    --seq-0: #26326B;
+    --seq-1: #3D4F9C;
+    --seq-2: #6478C8;
+    --seq-3: #9AA9E6;
+    --seq-4: #D6DDFA;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #0F1736;
+  --ink: #EEF0F6;
+  --ink-muted: #B4BACB;
+  --navy: #A9B6EE;
+  --saffron: #F0A65C;
+  --teal: #5CC2B6;
+  --terracotta: #E88A72;
+  --slate: #9AA3B3;
+  --surface: #172150;
+  --line: #2A3566;
+  --no-data: #3A4470;
+  --seq-0: #26326B;
+  --seq-1: #3D4F9C;
+  --seq-2: #6478C8;
+  --seq-3: #9AA9E6;
+  --seq-4: #D6DDFA;
+  color-scheme: dark;
+}
