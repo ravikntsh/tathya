@@ -80,6 +80,8 @@ function normalise(r) {
     archiveUrl: r.archive_url || "",
     breakBefore: r.break_before === true || r.break_before === "1" || r.break_before === 1,
     note: r.note || "",
+    // Values Tathya calculated from official counts (e.g. Census 2011 state percentages).
+    derived: /^Calculated by Tathya/.test(r.note || ""),
   };
 }
 

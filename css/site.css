@@ -237,3 +237,6 @@ thead th { color: var(--ink-muted); font-weight: 600; }
 .ut-badge:hover circle, .ut-badge:focus circle, .ut-badge.selected circle { stroke: var(--saffron); stroke-width: 2.5; }
 .ut-badge:focus { outline: none; }
 .ut-badge.est circle { fill-opacity: .5; stroke-dasharray: 2 2; }
+
+/* Values calculated by Tathya from official counts */
+.calc-tag { display: inline-block; font-size: .72rem; color: var(--ink); background: var(--surface-muted); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; }

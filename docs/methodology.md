@@ -40,6 +40,18 @@
 - **NFHS-1 to 3 India reports.** "Any toilet" (1992-2006) and women's bank accounts (NFHS-3) were read from the printed India reports. NFHS-1 is a scanned report, so its values are lower-confidence.
 - **International series** (World Bank, WHO/UNICEF JMP, WHO, Findex, UN WPP, UN IGME, UNESCO) are republished or modelled estimates. Each source entry names the original provider. They measure slightly different things from the Indian surveys (for example, population instead of households, or adults 15+ instead of age 7+), and the definition box says so.
 
+## Percentages calculated from official counts
+
+For the 1991 and 2011 Census, ORGI publishes state household amenity tables as **counts**, not percentages. Tathya calculates the percentage as
+
+> value = round(100 × households with the amenity ÷ total households, 1)
+
+with the numerator and denominator both taken from the same official table and the same Total row. For Dadra & Nagar Haveli and Daman & Diu, the counts for the two former UTs are added up before dividing.
+
+Each calculated row's note starts with "Calculated by Tathya from Census counts" and names the columns, the table and the file. Fact cards and share images carry the label "percentage calculated by Tathya from official Census counts".
+
+Before any row was used, the same formula was run on every case where ORGI also prints a percentage, and the results were compared.
+
 ## Estimates (off by default)
 
 The reader can turn on "Show estimates for years without data". When it's on, the map slider moves year by year, and years without real data are filled with estimates. **An estimate is never data.** On the map it is faded with a dashed edge, and in rankings and cards it is marked ≈. Estimates can be shared, but every shared image carries an "ESTIMATE · NOT OFFICIAL DATA" stamp, a ≈ value, the method, the 90% range (for trends) and the real data points it is based on. The estimated bar is drawn as a dashed outline. Shared text begins with the same label, and links reopen the page in estimates mode.

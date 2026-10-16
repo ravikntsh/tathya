@@ -349,6 +349,7 @@ function renderCard() {
     <p class="ind">${esc(tr(i.label))}</p>
     <p class="big">${fmt(o.value, i.decimals)}<small>${esc(unitText(i))}</small></p>
     <p class="when">${esc(o.period)} · ${esc(dsLabel(o.dataset))}</p>
+    ${o.derived ? `<p><span class="calc-tag">${t("calcTag")}</span></p>` : ""}
     ${d == null ? (prev ? `<p class="muted small">${t("notComparable")}</p>` : "")
       : `<p class="delta ${good ? "up" : "down"}">${d >= 0 ? "▲ +" : "▼ "}${fmt(d, i.decimals)}${esc(deltaUnit(i))} · ${t("change")} ${esc(prev.period)} (${fmtVal(prev.value)})</p>`}
     <p class="src">${sourceLine(o)}</p>
@@ -374,7 +375,7 @@ function renderCard() {
     years: dsLabel(o.dataset),
     prev: d == null ? null : { round: prev.period, value: prev.value },
     higherIsBetter: i.higher_is_better,
-    sourceName: src?.publisher ?? o.sourceId,
+    sourceName: (src?.publisher ?? o.sourceId) + (o.derived ? ` (${t("calcTag")})` : ""),
     sourceUrl: src?.url ?? "",
     domain: i.domain,
     series: series.slice(-8).map((s) => ({ round: s.period, value: s.value })),
