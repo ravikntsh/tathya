@@ -51,19 +51,27 @@ export function createMap(container, features, { onSelect }) {
     g.appendChild(p);
     shapes.set(code, { el: p, title, area: path.area(f) });
   }
-  // Tiny UTs (Lakshadweep, Chandigarh, Puducherry, DH) get a ring so they stay visible and tappable.
-  for (const f of features) {
-    const s = shapes.get(f.properties.code);
-    if (s.area < 12) {
-      const [x, y] = path.centroid(f);
-      const c = document.createElementNS(NS, "circle");
-      c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", 6);
-      c.classList.add("ut-ring");
-      c.addEventListener("click", () => onSelect(f.properties.code));
-      g.appendChild(c);
-      s.ring = c;
-    }
-  }
+  // UTs too small to see or tap on the map get a labelled circle in the bottom-left
+  // corner (open sea on this projection), filled with the same colour as their shape.
+  const SMALL_UTS = ["DL", "CH", "PY", "DH", "LD"].filter((c) => shapes.has(c));
+  const inset = document.createElementNS(NS, "g");
+  inset.classList.add("ut-inset");
+  const R = 15, GAP = 38, X = 24, Y0 = H - 12 - R - (SMALL_UTS.length - 1) * GAP;
+  inset.innerHTML = `<text class="ut-inset-title" x="${X - R}" y="${Y0 - R - 8}">UTs</text>`;
+  SMALL_UTS.forEach((code, k) => {
+    const b = document.createElementNS(NS, "g");
+    b.classList.add("ut-badge");
+    b.setAttribute("tabindex", "0");
+    b.setAttribute("role", "button");
+    b.innerHTML = `<title></title><circle cx="${X}" cy="${Y0 + k * GAP}" r="${R}"></circle><text x="${X}" y="${Y0 + k * GAP + 4}" text-anchor="middle">${code}</text>`;
+    b.addEventListener("click", () => onSelect(code));
+    b.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect(code); }
+    });
+    inset.appendChild(b);
+    shapes.get(code).badge = b;
+  });
+  svg.appendChild(inset);
   container.replaceChildren(svg);
 
   function update({ valueOf, regionName, selected, label, format = (v) => fmt(v) + "%", isEstimate = () => false }) {
@@ -72,17 +80,24 @@ export function createMap(container, features, { onSelect }) {
       const v = valueOf(code);
       const fill = v == null ? "url(#hatch)" : `var(--seq-${bucket(v)})`;
       s.el.style.fill = fill;
-      if (s.ring) s.ring.style.fill = fill;
       const isSel = code === selected;
       const est = v != null && isEstimate(code);
       s.el.classList.toggle("est", est);
-      s.ring?.classList.toggle("est", est);
       s.el.classList.toggle("selected", isSel);
-      s.ring?.classList.toggle("selected", isSel);
       const text = `${regionName(code)}: ${v == null ? t("noData") : (est ? "≈ " : "") + format(v)}${est ? ` (${t("estimateShort")})` : ""}`;
       s.title.textContent = text;
       s.el.setAttribute("aria-label", text);
       s.el.setAttribute("aria-pressed", String(isSel));
+      if (s.badge) {
+        s.badge.querySelector("circle").style.fill = fill;
+        // Light text on the two darkest bands, dark text otherwise.
+        s.badge.classList.toggle("on-dark", v != null && bucket(v) >= 3);
+        s.badge.classList.toggle("est", est);
+        s.badge.classList.toggle("selected", isSel);
+        s.badge.querySelector("title").textContent = text;
+        s.badge.setAttribute("aria-label", text);
+        s.badge.setAttribute("aria-pressed", String(isSel));
+      }
     }
   }
   return { update };

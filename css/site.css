@@ -82,8 +82,6 @@ svg.map { width: 100%; height: auto; max-height: 72vh; display: block; }
 .state:hover { stroke: var(--saffron); stroke-width: 1.5; }
 .state.selected { stroke: var(--saffron); stroke-width: 2.2; }
 .state:focus { outline: none; stroke: var(--saffron); stroke-width: 2.2; }
-.ut-ring { stroke: var(--navy); stroke-width: 1; cursor: pointer; }
-.ut-ring.selected { stroke: var(--saffron); stroke-width: 2.5; }
 .legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .78rem; color: var(--ink-muted); margin-top: 6px; }
 .lg-cell { display: inline-flex; align-items: center; gap: 4px; }
 .lg-cell i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; border: 1px solid var(--line); }
@@ -225,7 +223,17 @@ thead th { color: var(--ink-muted); font-weight: 600; }
 .rank-val { min-width: 4.5em; white-space: nowrap; }
 
 /* Estimates on the map and cards */
-.state.est, .ut-ring.est { fill-opacity: .5; stroke: var(--ink-muted); stroke-dasharray: 2 2; stroke-width: .9; }
+.state.est { fill-opacity: .5; stroke: var(--ink-muted); stroke-dasharray: 2 2; stroke-width: .9; }
 .lg-est { background: var(--seq-2); opacity: .5; outline: 1px dashed var(--ink-muted); outline-offset: -1px; }
 .est-big { color: var(--ink-muted); }
 .est-tag { display: inline-block; font-size: .72rem; font-weight: 600; color: var(--ink); background: var(--surface-muted); border: 1px dashed var(--ink-muted); border-radius: 4px; padding: 0 6px; margin-right: 4px; }
+
+/* Small-UT badges in the map's bottom-left corner */
+.ut-inset-title { font-size: 11px; font-weight: 600; fill: var(--ink-muted); }
+.ut-badge { cursor: pointer; }
+.ut-badge circle { stroke: var(--navy); stroke-width: 1; transition: fill .25s; }
+.ut-badge text { font-size: 10px; font-weight: 700; fill: var(--ink); pointer-events: none; }
+.ut-badge.on-dark text { fill: #FFFFFF; }
+.ut-badge:hover circle, .ut-badge:focus circle, .ut-badge.selected circle { stroke: var(--saffron); stroke-width: 2.5; }
+.ut-badge:focus { outline: none; }
+.ut-badge.est circle { fill-opacity: .5; stroke-dasharray: 2 2; }
