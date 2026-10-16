@@ -14,13 +14,14 @@ export const LINE_STYLES = [
   { cls: "s4", dash: "1 2" },
 ];
 
-const W = 420, H = 230, M = { t: 14, r: 46, b: 26, l: 46 };
+const W = 420, H = 248, M = { t: 14, r: 46, b: 44, l: 46 };
+const STRIP_Y = H - 14, STRIP_H = 11;
 
 // Year-axis line chart. lines = [{ label, points: [obs], style }]. A point with
 // breakBefore starts a new segment, so a definition change is never joined up.
 // With estimates on, each line gets a dashed projection and a shaded 90% range
 // after its last point, and hovering between points shows interpolated values.
-export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds, scale, events = [] }) {
+export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds, scale, events = [], terms = [] }) {
   const toYear = Math.max(new Date().getFullYear() + 4, xDomain[1]);
   // Only extend series that are still current (see projectionEnd in estimate.js);
   // a series that ended in 1946 is history, not something to project.
@@ -40,7 +41,7 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
     s += `<line class="grid" x1="${M.l}" x2="${W - M.r}" y1="${y(v)}" y2="${y(v)}"/><text class="tick" x="${M.l - 6}" y="${y(v) + 4}" text-anchor="end">${fmtCompact(v)}</text>`;
   }
   for (const v of x.ticks(6)) {
-    s += `<text class="tick" x="${x(v)}" y="${H - 8}" text-anchor="middle">${v}</text>`;
+    s += `<text class="tick" x="${x(v)}" y="${H - M.b + 13}" text-anchor="middle">${v}</text>`;
   }
   // Reference years: 1857, Independence (1947) and the 1991 economic reforms.
   for (const yr of [1857, 1947, 1991]) {
@@ -83,6 +84,18 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
       for (const p of pts) s += `<circle class="dot ${l.style.cls}" cx="${x(p.year).toFixed(1)}" cy="${y(p.value).toFixed(1)}" r="3"/>`;
     }
   }
+  // Government at the time: one neutral grey block per Prime Minister's term,
+  // alternating shades, name only (no party colours). Hover for party and dates.
+  const tx = (d) => Number(d.slice(0, 4)) + (Number(d.slice(5, 7) || 1) - 1) / 12;
+  terms.forEach((g, k) => {
+    const a = Math.max(tx(g.start), xDomain[0]), b = Math.min(g.end ? tx(g.end) : new Date().getFullYear() + 0.99, xMax);
+    if (b <= a) return;
+    const x0 = x(a), x1 = x(b), w = Math.max(0.5, x1 - x0);
+    s += `<g class="pm"><rect class="pm-${k % 2}" x="${x0.toFixed(1)}" y="${STRIP_Y}" width="${w.toFixed(1)}" height="${STRIP_H}"><title>${esc(g.detail)}</title></rect>`;
+    if (w > 38) s += `<text x="${(x0 + w / 2).toFixed(1)}" y="${STRIP_Y + 8.5}" text-anchor="middle">${esc(g.short)}</text>`;
+    s += `</g>`;
+  });
+
   // Hover layer: crosshair, highlighted points, and a hit area over the plot.
   s += `<g class="hover" visibility="hidden"><rect class="range" y="${M.t}" height="${H - M.t - M.b}" width="0"/><line class="xhair" y1="${M.t}" y2="${H - M.b}"/><line class="xhair xhair2" y1="${M.t}" y2="${H - M.b}" visibility="hidden"/><g class="hover-dots"></g></g>`;
   s += `<rect class="hit" x="${M.l}" y="${M.t}" width="${W - M.l - M.r}" height="${H - M.t - M.b}"/>`;
@@ -94,10 +107,10 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
     .join("")}${projs.some(Boolean) ? `<span class="est-key"><svg width="22" height="10" aria-hidden="true"><rect class="est-band s0" x="1" y="1" width="20" height="8"/><line class="est-line s0" x1="1" x2="21" y1="5" y2="5"/></svg>${t("estimateKey")}</span>` : ""}</div>`;
   el.innerHTML = s;
   el.classList.add("chart-wrap");
-  bindHover(el, { lines, projs, x, y, xDomain: [xDomain[0], xMax], decimals, unit, estimates, events: evs });
+  bindHover(el, { lines, projs, x, y, xDomain: [xDomain[0], xMax], decimals, unit, estimates, events: evs, terms });
 }
 
-function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates, events = [] }) {
+function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates, events = [], terms = [] }) {
   const svg = el.querySelector("svg.chart");
   const hit = svg.querySelector(".hit");
   const hover = svg.querySelector(".hover");
@@ -132,7 +145,9 @@ function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates,
     dots.innerHTML = rows.map(({ l, v }) => `<circle class="dot ${l.style.cls}${v.est ? " est" : ""}" cx="${x(year)}" cy="${y(v.value)}" r="4.5"/>`).join("");
     hover.setAttribute("visibility", "visible");
     const here = events.filter((e) => Math.abs(e.year - year) <= 0 || (e.endYear && year >= e.year && year <= e.endYear));
-    tip.innerHTML = `<strong>${year}</strong>${here.map((e) => `<div class="tip-ctx">⚑ ${esc(e.label)}</div>`).join("")}${rows.length ? rows.map(({ l, v }) =>
+    const mid = `${year}-07-01`;
+    const gov = terms.filter((g) => g.start <= mid && (!g.end || g.end >= mid)).map((g) => g.full ?? g.short).join(", ");
+    tip.innerHTML = `<strong>${year}</strong>${gov ? `<div class="tip-gov">${esc(t("pmLabel"))}: ${esc(gov)}</div>` : ""}${here.map((e) => `<div class="tip-ctx">⚑ ${esc(e.label)}</div>`).join("")}${rows.length ? rows.map(({ l, v }) =>
       `<div class="tip-row"><i class="sw ${l.style.cls}"></i><span>${esc(l.label)}</span><b>${v.text}</b>${v.note ? `<small>${esc(v.note)}</small>` : ""}</div>`).join("")
       : `<div class="muted">${t("noData")}</div>`}`;
     tip.hidden = false;

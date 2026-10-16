@@ -23,9 +23,10 @@ export async function loadData() {
     data.origin = "local";
   }
   const out = index(data);
-  [out.population, out.context] = await Promise.all([
+  [out.population, out.context, out.governments] = await Promise.all([
     loadPopulation(),
     fetch("data/context_events.json").then((r) => (r.ok ? r.json() : [])).catch(() => []),
+    fetch("data/union_governments.csv").then((r) => (r.ok ? r.text() : "")).then((t) => (t ? csvParse(t) : [])).catch(() => []),
   ]);
   return out;
 }

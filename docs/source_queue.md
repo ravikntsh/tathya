@@ -35,3 +35,11 @@ Events shown on the site with the tag "News report: official source pending". Fo
 | Pakistan | 2025-05-07 | Operation Sindoor and four days of hostilities | Al Jazeera; Al Jazeera | `pk-2025-operation-sindoor` |
 
 Also wanted but not yet sourced at all (not on the site): 1959 Dalai Lama asylum; Nathu La and Cho La clashes (1967); India-Burma Friendship Treaty (1951) and boundary agreement (1967); India-Maldives maritime boundary (1976); India-Pakistan non-attack of nuclear installations agreement (1988); Islamabad joint statement (2004); Bhutan's operation against ULFA camps (2003); Ganges water agreement (1977); Kushiyara MoU (2022); Operation Devi Shakti (2021).
+
+## State Chief Ministers (data/state_governments.csv, not yet on the site)
+
+755 rows are collected, but there are too many gaps to publish a map of who governed each state. To fill before publishing (an Indian network connection should reach the sites that blocked access from abroad):
+- Gujarat after 1996; Delhi after 2015 (and Sheila Dikshit's end date); Telangana (party labels; split KCR's terms); Andhra Pradesh 1989-94, 2004-14 and 2019-24; Puducherry 1991-2021; Arunachal Pradesh 2003-2016.
+- Party labels missing for J&K and Uttarakhand, most of Bihar, Odisha, West Bengal, Tamil Nadu, Jharkhand and Maharashtra, and Karnataka before 1972. Source: Election Commission results (eci.gov.in returned 406 from abroad) or assembly member records.
+- Tamil Nadu and Jharkhand: confirm the current Chief Minister after the 2026 elections. Assam: Himanta Biswa Sarma's second term.
+- Rows whose note says "END DATE NOT IN ANY SOURCE OPENED" must not be read as current.

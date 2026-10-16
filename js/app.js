@@ -176,6 +176,30 @@ const regionName = (code) => tr(data.regionByCode.get(code)?.name) || code;
 const dsLabel = (id) => (id === "__all" ? t("allSources") : tr(data.datasetById.get(id)?.label) || id);
 const ind = () => data.indicatorById.get(state.indicator);
 const unitText = (i) => (i.unit === "%" ? "%" : ` ${i.unit}`);
+// Union governments for the chart strip (data/union_governments.csv): name only on
+// the strip; party, coalition and dates on hover. No party colours.
+function pmTerms() {
+  // Consecutive terms of the same Prime Minister form one block on the strip.
+  const out = [];
+  for (const g of data.governments || []) {
+    const prev = out.at(-1);
+    const part = `${g.party}${g.coalition ? `, ${g.coalition}` : ""}: ${g.start_date} to ${g.end_date || t("present")}`;
+    if (prev && prev.full === g.pm && prev.end === g.start_date) {
+      prev.end = g.end_date || null;
+      prev.detail += `; ${part}`;
+      continue;
+    }
+    const names = g.pm.replace(/\./g, "").split(" ");
+    out.push({
+      start: g.start_date, end: g.end_date || null, full: g.pm,
+      // Initials plus surname, so "M Singh" and "I Gandhi" are not confused.
+      short: names.length > 1 ? `${names.slice(0, -1).map((n) => n[0]).join(". ")}. ${names.at(-1)}` : g.pm,
+      detail: `${g.pm} (${part}`,
+    });
+  }
+  return out.map((g) => ({ ...g, detail: g.detail + ")" }));
+}
+
 // Context events for an indicator's charts (data/context_events.json).
 function contextFor(indicatorId) {
   return (data.context || [])
@@ -501,6 +525,7 @@ function renderTrend() {
     bounds: boundsOf(i),
     scale: scaleOf(i),
     events: contextFor(i.id),
+    terms: pmTerms(),
   });
   $("trend-note").textContent = lines.length > 1 ? t("sourcesNote") : "";
 }
