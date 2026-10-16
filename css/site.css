@@ -252,3 +252,16 @@ thead th { color: var(--ink-muted); font-weight: 600; }
 .rail .rail-group ul li span { padding: 2px 6px; font-size: .78rem; }
 .rail .rail-soon { display: block; padding: 0 10px 6px; font-size: .7rem; color: var(--ink-muted); }
 @media (min-width: 900px) { .rail .rail-group ul { flex-direction: column; } }
+.big .star { font-size: 1.4rem; margin-left: 2px; vertical-align: super; line-height: 0; }
+
+/* Phone layout: the rail scrolls sideways inside itself instead of widening the page. */
+.layout { grid-template-columns: minmax(0, 1fr); }
+.rail, main { min-width: 0; }
+.rail ul#issues { overflow-x: auto; }
+@media (max-width: 899px) {
+  .rail .rail-group { display: flex; align-items: center; gap: 2px; flex: none; }
+  .rail .rail-group-h { padding: 6px 4px 6px 10px; }
+  .rail .rail-group ul { flex-wrap: nowrap; padding: 0; }
+  .rail .rail-soon { display: none; }
+}
+@media (min-width: 900px) { .layout { grid-template-columns: 200px minmax(0, 1fr); } }

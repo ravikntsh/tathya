@@ -442,7 +442,7 @@ function renderWeightedCard(el, i, c) {
   el.innerHTML = `
     <p class="region">${esc(regionName("IN"))}</p>
     <p class="ind">${esc(tr(i.label))}</p>
-    <p class="big est-big">${fmt(c.value, i.decimals)}<small>${esc(unitText(i))}</small>*</p>
+    <p class="big est-big">${fmt(c.value, i.decimals)}<sup class="star">*</sup><small>${esc(unitText(i))}</small></p>
     <p class="when"><span class="est-tag">${t("weightedTitle")}</span> ${esc(when)}</p>
     <p class="small">${esc(t("weightedHow")(c.states, Math.round(c.coverage * 100), c.popYear, dsLabel(state.dataset)))}</p>
     ${c.skipped.length ? `<p class="muted small">${esc(t("weightedSkip")(c.skipped.map(regionName).join(", ")))}</p>` : ""}
@@ -462,7 +462,7 @@ function renderEstimateCard(el, i, code, c) {
   el.innerHTML = `
     <p class="region">${esc(regionName(code))}</p>
     <p class="ind">${esc(tr(i.label))}</p>
-    <p class="big est-big">${fmt(c.value, i.decimals)}<small>${esc(unitText(i))}</small>*</p>
+    <p class="big est-big">${fmt(c.value, i.decimals)}<sup class="star">*</sup><small>${esc(unitText(i))}</small></p>
     <p class="when"><span class="est-tag">* ${t("estimateTitle")}</span> ${estMode() ? state.year : esc(state.period)}</p>
     <p class="small">${esc(how)}</p>
     ${basis.map((o) => `<p class="src">${sourceLine(o)}</p>`).join("")}
