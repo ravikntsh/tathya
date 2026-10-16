@@ -5,7 +5,7 @@ const STRINGS = {
     development: "Development",
     soon: "coming soon",
     issueList: [
-      "Terror", "Corruption", "Communal violence", "Insurgency", "Infrastructure failures", "Exam leaks",
+      "Terror", "Corruption", "Communal relations", "Insurgency", "Infrastructure failures", "Exam leaks",
       "Inflation and rupee", "Censorship and takedowns",
       ["Border & neighbours", ["China", "Pakistan", "Bangladesh", "Nepal", "Bhutan", "Sri Lanka", "Myanmar", "Maldives", "Afghanistan"]],
       ["India in the world", ["How other countries see India", "GDP and economic rank", "Military strength", "Diplomacy and trade"]],
@@ -102,7 +102,7 @@ const STRINGS = {
     development: "विकास",
     soon: "जल्द आ रहा है",
     issueList: [
-      "आतंकवाद", "भ्रष्टाचार", "सांप्रदायिक हिंसा", "उग्रवाद", "बुनियादी ढाँचे की विफलताएँ", "परीक्षा पेपर लीक",
+      "आतंकवाद", "भ्रष्टाचार", "सांप्रदायिक संबंध", "उग्रवाद", "बुनियादी ढाँचे की विफलताएँ", "परीक्षा पेपर लीक",
       "महँगाई और रुपया", "सेंसरशिप और टेकडाउन",
       ["सीमा और पड़ोसी", ["चीन", "पाकिस्तान", "बांग्लादेश", "नेपाल", "भूटान", "श्रीलंका", "म्यांमार", "मालदीव", "अफ़ग़ानिस्तान"]],
       ["दुनिया में भारत", ["दूसरे देश भारत को कैसे देखते हैं", "GDP और आर्थिक रैंक", "सैन्य शक्ति", "कूटनीति और व्यापार"]],

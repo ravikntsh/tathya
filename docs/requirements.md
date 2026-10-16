@@ -30,6 +30,12 @@ Decisions made after an outside review (a ChatGPT-drafted "Product Blueprint"). 
   - Diplomacy and trade: memberships, embassies and trade partners.
 - The same rules apply as everywhere else: each source is its own line, every index carries a methodology note, and wins sit beside setbacks.
 
+**Communal relations (renamed from "Communal violence")**
+- The rail item and page are called "Communal relations". The page covers both incidents and coexistence:
+  - Incidents, riots and deaths, labelled exactly as their sources label them (NCRB "communal/religious riots", MHA "communal incidents"), with reporting caveats.
+  - Survey data on attitudes and coexistence (for example, Pew Research Center's 2021 "Religion in India: Tolerance and Segregation"), with sample and method notes.
+- The heading is neutral, so it neither hides incidents nor shows only the bad side.
+
 **Login**
 - Sign in with Google, or with email and password. No magic links, and no phone OTP.
 
