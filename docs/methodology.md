@@ -4,6 +4,9 @@
 
 - **Source:** National Family Health Survey (NFHS), conducted by the International Institute for Population Sciences (IIPS) for the Ministry of Health and Family Welfare. Each value links to the official fact sheet PDF it was read from.
 - **Rounds:** NFHS-4 (2015-16) and NFHS-5 (2019-21). Both rounds come from the NFHS-5 state fact sheets, which print the two side by side. That keeps each line to one dataset and one set of definitions, with no mixing.
+- **Two NFHS-5 phases:** 22 states and UTs were surveyed in Phase I (fact sheets print 2019-20), and India plus 14 states and UTs in Phase II (2020-21; India 2019-21). Each row keeps the years printed in its own fact sheet.
+- **Where the PDFs came from:** the official NFHS site (rchiips.org/nfhs) no longer serves these fact sheets. Phase I values were read from the MoHFW National Health Mission copy of the compendium (nhm.gov.in). Phase II values were read from the IIPS compendium as hosted by The DHS Program (ICF, IIPS's partner on NFHS). Both are the official IIPS documents, not reworked versions.
+- **Provisional:** the fact sheets are provisional results. The NFHS-5 national report is the final version, and any differences found will go in the correction log.
 - **Survey estimates:** these are household survey results with sampling error, not administrative counts. Small differences between states, or between rounds, may not be meaningful. A "real change or chance" test is planned for phase 3.
 - **What these indicators are not:**
   - "Improved drinking-water source" is not a household tap connection (Jal Jeevan Mission).
