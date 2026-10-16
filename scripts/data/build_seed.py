@@ -29,7 +29,9 @@ def j(v):
 
 
 regions, indicators, datasets = load("regions.json"), load("indicators.json"), load("datasets.json")
-sources = [s for f in sorted(DATA.glob("sources_*.json")) for s in load(f.name)]
+# Files still being researched or not yet verified stay out of the build.
+PENDING = {"sources_governments.json"}
+sources = [s for f in sorted(DATA.glob("sources_*.json")) if f.name not in PENDING for s in load(f.name)]
 
 # When two files give the same key (e.g. the All-India SRS row appears both in the
 # ORGI documents and in the RBI Handbook), keep the file listed first: primary
