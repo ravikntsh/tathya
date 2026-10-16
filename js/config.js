@@ -1,7 +1,7 @@
 // Supabase project. The anon key is a public, read-only key (row-level security
 // allows SELECT only). Never put the service_role key in this repo.
 export const SUPABASE_URL = "https://hqueptmttyerlzpomfwy.supabase.co";
-export const SUPABASE_ANON_KEY = ""; // paste the anon / publishable key here
+export const SUPABASE_ANON_KEY = "sb_publishable_44O7JB2fFe2e7T3vRnfCNg_iB59d9tK";
 
 export const SITE_NAME = "Tathya";
 export const SITE_URL = "https://ravikntsh.github.io/tathya/";

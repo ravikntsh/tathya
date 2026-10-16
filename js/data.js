@@ -23,7 +23,8 @@ export async function loadData() {
 
 async function rest(table, query = "select=*") {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}`, {
-    headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+    // Publishable keys (sb_publishable_…) are not JWTs, so only the apikey header is sent.
+    headers: { apikey: SUPABASE_ANON_KEY },
   });
   if (!res.ok) throw new Error(`${table}: HTTP ${res.status}`);
   return res.json();
@@ -90,8 +91,12 @@ function index({ regions, indicators, observations, origin }) {
     if (!byRound) return [];
     return [...byRound.keys()]
       .map((round) => {
-        const any = byRound.get(round).values().next().value;
-        return { round, years: any.years, periodEnd: any.periodEnd };
+        // NFHS-5 was fielded in two phases (2019-20 and 2020-21); label the round
+        // with the full span while each row keeps the years printed in its source.
+        const rows = [...byRound.get(round).values()];
+        const start = Math.min(...rows.map((o) => Number(String(o.years).slice(0, 4))));
+        const end = Math.max(...rows.map((o) => o.periodEnd));
+        return { round, years: `${start}-${String(end).slice(2)}`, periodEnd: end };
       })
       .sort((a, b) => a.periodEnd - b.periodEnd);
   }
