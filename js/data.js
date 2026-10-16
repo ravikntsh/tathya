@@ -83,8 +83,8 @@ async function fromSupabase() {
 async function fromLocal() {
   const [regions, indicators, datasets, sources, csv] = await Promise.all([
     fetch("data/regions.json").then((r) => r.json()),
-    fetch("data/indicators.json").then((r) => r.json()),
-    fetch("data/datasets.json").then((r) => r.json()),
+    fetch("data/site_indicators.json").then((r) => r.json()),
+    fetch("data/site_datasets.json").then((r) => r.json()),
     fetch("data/sources.json").then((r) => r.json()),
     fetch("data/observations.csv").then((r) => (r.ok ? r.text() : "")),
   ]);

@@ -271,8 +271,14 @@ function render() {
   setDomain(i.map_domain ?? i.domain);
 
   // Indicator chips
-  $("indicators").innerHTML = data.indicators
-    .map((x) => `<button class="chip" role="radio" aria-checked="${x.id === state.indicator}" data-id="${x.id}">${esc(tr(x.short_label))}</button>`)
+  // Indicators grouped: basic necessities, health, education, infrastructure, economy & jobs, defence.
+  const GROUPS = ["necessities", "health", "education", "infrastructure", "economy", "defence"];
+  $("indicators").innerHTML = GROUPS
+    .map((g) => [g, data.indicators.filter((x) => (x.group || "economy") === g)])
+    .filter(([, xs]) => xs.length)
+    .map(([g, xs]) => `<div class="chip-group"><span class="chip-group-h">${esc(t("groups")[g] ?? g)}</span>${xs
+      .map((x) => `<button class="chip" role="radio" aria-checked="${x.id === state.indicator}" data-id="${x.id}">${esc(tr(x.short_label))}</button>`)
+      .join("")}</div>`)
     .join("");
   $("indicators").querySelectorAll("button").forEach((b) =>
     b.addEventListener("click", () => {

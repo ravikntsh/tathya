@@ -1,0 +1,318 @@
+[
+ {
+  "id": "nfhs",
+  "label": {
+   "en": "NFHS (household survey)",
+   "hi": "NFHS (घरेलू सर्वेक्षण)"
+  },
+  "provider": "IIPS / MoHFW",
+  "class": "A"
+ },
+ {
+  "id": "census_literacy",
+  "label": {
+   "en": "Census, effective literacy (age 5+/7+)",
+   "hi": "जनगणना, प्रभावी साक्षरता (5+/7+ आयु)"
+  },
+  "provider": "Census of India",
+  "class": "A"
+ },
+ {
+  "id": "census_literacy_state",
+  "label": {
+   "en": "Census of India",
+   "hi": "भारत की जनगणना"
+  },
+  "provider": "Census of India via RBI Handbook",
+  "class": "A",
+  "chart": false
+ },
+ {
+  "id": "srs_le",
+  "label": {
+   "en": "SRS life tables",
+   "hi": "SRS जीवन तालिकाएँ"
+  },
+  "provider": "Registrar General of India",
+  "class": "A"
+ },
+ {
+  "id": "srs_imr",
+  "label": {
+   "en": "Sample Registration System",
+   "hi": "नमूना पंजीकरण प्रणाली"
+  },
+  "provider": "Registrar General of India",
+  "class": "A"
+ },
+ {
+  "id": "colonial_imr",
+  "label": {
+   "en": "British India vital registration",
+   "hi": "ब्रिटिश भारत महत्वपूर्ण पंजीकरण"
+  },
+  "provider": "Government of British India",
+  "class": "A"
+ },
+ {
+  "id": "rbi_nsdp_pc_2011",
+  "label": {
+   "en": "State accounts, 2011-12 prices",
+   "hi": "राज्य लेखा, 2011-12 मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on Indian States",
+  "class": "A"
+ },
+ {
+  "id": "maddison_gdppc",
+  "label": {
+   "en": "Maddison Project (Groningen)",
+   "hi": "मैडिसन प्रोजेक्ट (ग्रोनिंगन)"
+  },
+  "provider": "Maddison Project 2023",
+  "class": "C"
+ },
+ {
+  "id": "wb_electricity",
+  "label": {
+   "en": "World Bank",
+   "hi": "विश्व बैंक"
+  },
+  "provider": "World Bank / SE4ALL",
+  "class": "B"
+ },
+ {
+  "id": "jmp_basic_water",
+  "label": {
+   "en": "WHO/UNICEF JMP (basic water)",
+   "hi": "WHO/UNICEF JMP (बुनियादी पेयजल)"
+  },
+  "provider": "WHO/UNICEF JMP",
+  "class": "B"
+ },
+ {
+  "id": "jmp_basic_sanitation",
+  "label": {
+   "en": "WHO/UNICEF JMP (basic sanitation)",
+   "hi": "WHO/UNICEF JMP (बुनियादी स्वच्छता)"
+  },
+  "provider": "WHO/UNICEF JMP",
+  "class": "B"
+ },
+ {
+  "id": "who_clean_fuel",
+  "label": {
+   "en": "WHO (share of people)",
+   "hi": "WHO (लोगों का प्रतिशत)"
+  },
+  "provider": "WHO",
+  "class": "B"
+ },
+ {
+  "id": "findex_women_account",
+  "label": {
+   "en": "World Bank Findex (women 15+)",
+   "hi": "विश्व बैंक फ़िंडेक्स (15+ महिलाएँ)"
+  },
+  "provider": "World Bank Global Findex",
+  "class": "B"
+ },
+ {
+  "id": "un_wpp_le",
+  "label": {
+   "en": "UN World Population Prospects",
+   "hi": "संयुक्त राष्ट्र विश्व जनसंख्या संभावनाएँ"
+  },
+  "provider": "UN DESA",
+  "class": "B"
+ },
+ {
+  "id": "un_igme_imr",
+  "label": {
+   "en": "UN IGME estimates",
+   "hi": "संयुक्त राष्ट्र IGME अनुमान"
+  },
+  "provider": "UN IGME",
+  "class": "B"
+ },
+ {
+  "id": "unesco_adult_literacy",
+  "label": {
+   "en": "UNESCO (adults 15+)",
+   "hi": "यूनेस्को (15+ वयस्क)"
+  },
+  "provider": "UNESCO UIS",
+  "class": "B"
+ },
+ {
+  "id": "census_actuarial_le_male",
+  "label": {
+   "en": "Census actuarial reports (men)",
+   "hi": "जनगणना बीमांकिक रिपोर्ट (पुरुष)"
+  },
+  "provider": "Census of India",
+  "class": "A"
+ },
+ {
+  "id": "census_actuarial_le_female",
+  "label": {
+   "en": "Census actuarial reports (women)",
+   "hi": "जनगणना बीमांकिक रिपोर्ट (महिलाएँ)"
+  },
+  "provider": "Census of India",
+  "class": "A"
+ },
+ {
+  "id": "census_literacy_per1000_orgi1971",
+  "label": {
+   "en": "Census, literates per 1,000 (all ages)",
+   "hi": "जनगणना, प्रति 1,000 साक्षर (सभी आयु)"
+  },
+  "provider": "Census of India 1971 Monograph No. 9",
+  "class": "A"
+ },
+ {
+  "id": "dhs_api",
+  "label": {
+   "en": "NFHS via DHS Program (1992-2021)",
+   "hi": "NFHS, DHS प्रोग्राम द्वारा (1992-2021)"
+  },
+  "provider": "The DHS Program (ICF), tabulations of NFHS data",
+  "class": "B"
+ },
+ {
+  "id": "dhs_api_incl_shared",
+  "label": {
+   "en": "NFHS via DHS (shared toilets counted)",
+   "hi": "NFHS, DHS द्वारा (साझा शौचालय शामिल)"
+  },
+  "provider": "The DHS Program (ICF), tabulations of NFHS data",
+  "class": "B"
+ },
+ {
+  "id": "nfhs_early",
+  "label": {
+   "en": "NFHS India reports (NFHS-1 to 3)",
+   "hi": "NFHS भारत रिपोर्ट (NFHS-1 से 3)"
+  },
+  "provider": "IIPS / MoHFW",
+  "class": "A"
+ },
+ {
+  "id": "census_hh",
+  "label": {
+   "en": "Census of India (houselisting)",
+   "hi": "भारत की जनगणना (मकान सूचीकरण)"
+  },
+  "provider": "Office of the Registrar General & Census Commissioner",
+  "class": "A"
+ },
+ {
+  "id": "census_hh_lpg",
+  "label": {
+   "en": "Census: LPG/PNG as main cooking fuel",
+   "hi": "जनगणना: मुख्य रसोई ईंधन के रूप में LPG/PNG"
+  },
+  "provider": "Office of the Registrar General & Census Commissioner",
+  "class": "A"
+ },
+ {
+  "id": "plfs_literacy",
+  "label": {
+   "en": "PLFS survey (MoSPI), age 7+",
+   "hi": "PLFS सर्वेक्षण (MoSPI), 7+ आयु"
+  },
+  "provider": "MoSPI, Periodic Labour Force Survey",
+  "class": "A"
+ },
+ {
+  "id": "mospi_nni_pc_1993",
+  "label": {
+   "en": "India NNI, 1993-94 prices",
+   "hi": "भारत NNI, 1993-94 मूल्य"
+  },
+  "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+  "class": "A"
+ },
+ {
+  "id": "mospi_nni_pc_1999",
+  "label": {
+   "en": "India NNI, 1999-2000 prices",
+   "hi": "भारत NNI, 1999-2000 मूल्य"
+  },
+  "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+  "class": "A"
+ },
+ {
+  "id": "mospi_nni_pc_2004",
+  "label": {
+   "en": "India NNI, 2004-05 prices",
+   "hi": "भारत NNI, 2004-05 मूल्य"
+  },
+  "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+  "class": "A"
+ },
+ {
+  "id": "mospi_nni_pc_2011",
+  "label": {
+   "en": "India NNI, 2011-12 prices",
+   "hi": "भारत NNI, 2011-12 मूल्य"
+  },
+  "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+  "class": "A"
+ },
+ {
+  "id": "mospi_nni_pc_2022",
+  "label": {
+   "en": "India NNI, 2022-23 prices (new base)",
+   "hi": "भारत NNI, 2022-23 मूल्य (नया आधार)"
+  },
+  "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+  "class": "A"
+ },
+ {
+  "id": "mospi_nni_pc_current",
+  "label": {
+   "en": "India NNI, today's prices",
+   "hi": "भारत NNI, उसी वर्ष के मूल्य"
+  },
+  "provider": "MoSPI national accounts via RBI Handbook of Statistics on the Indian Economy",
+  "class": "A"
+ },
+ {
+  "id": "rbi_nsdp_pc_1993",
+  "label": {
+   "en": "State accounts, 1993-94 prices",
+   "hi": "राज्य लेखा, 1993-94 मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on Indian States",
+  "class": "A"
+ },
+ {
+  "id": "rbi_nsdp_pc_1999",
+  "label": {
+   "en": "State accounts, 1999-2000 prices",
+   "hi": "राज्य लेखा, 1999-2000 मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on Indian States",
+  "class": "A"
+ },
+ {
+  "id": "rbi_nsdp_pc_2004",
+  "label": {
+   "en": "State accounts, 2004-05 prices",
+   "hi": "राज्य लेखा, 2004-05 मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on Indian States",
+  "class": "A"
+ },
+ {
+  "id": "rbi_nsdp_pc_current",
+  "label": {
+   "en": "State accounts, today's prices",
+   "hi": "राज्य लेखा, उसी वर्ष के मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on Indian States",
+  "class": "A"
+ }
+]

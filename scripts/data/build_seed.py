@@ -29,6 +29,13 @@ def j(v):
 
 
 regions, indicators, datasets = load("regions.json"), load("indicators.json"), load("datasets.json")
+# Indicators and datasets delivered by research batches (indicators_*.json, datasets_*.json).
+_ids = {i["id"] for i in indicators}
+for f in sorted(DATA.glob("indicators_*.json")):
+    indicators += [i for i in load(f.name) if i["id"] not in _ids and not _ids.add(i["id"])]
+_ids = {d["id"] for d in datasets}
+for f in sorted(DATA.glob("datasets_*.json")):
+    datasets += [d for d in load(f.name) if d["id"] not in _ids and not _ids.add(d["id"])]
 # Files still being researched or not yet verified stay out of the build.
 PENDING = {"sources_governments.json"}
 sources = [s for f in sorted(DATA.glob("sources_*.json")) if f.name not in PENDING for s in load(f.name)]
@@ -129,4 +136,7 @@ with (DATA / "observations.csv").open("w", newline="", encoding="utf-8") as fh:
     w.writeheader()
     w.writerows(rows)
 (DATA / "sources.json").write_text(json.dumps(sources, indent=1, ensure_ascii=False), encoding="utf-8")
+# Merged lists the site and push_supabase.py read.
+(DATA / "site_indicators.json").write_text(json.dumps(indicators, indent=1, ensure_ascii=False), encoding="utf-8")
+(DATA / "site_datasets.json").write_text(json.dumps(datasets, indent=1, ensure_ascii=False), encoding="utf-8")
 print(f"{len(rows)} observations, {len(sources)} sources, {len(datasets)} datasets", file=sys.stderr)

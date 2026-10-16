@@ -78,9 +78,9 @@ indicators = [{
     "unit": i["unit"], "dataset": "multiple", "higher_is_better": i["higher_is_better"],
     "break_note": i.get("break_note"), "sort": i["sort"], "domain": i.get("domain"),
     "decimals": i.get("decimals", 1), "map_domain": i.get("map_domain"),
-} for i in load("indicators.json")]
+} for i in load("site_indicators.json")]
 datasets = [{"id": d["id"], "label": d["label"], "provider": d["provider"], "class": d["class"], "chart": d.get("chart", True)}
-            for d in load("datasets.json")]
+            for d in load("site_datasets.json")]
 sources = [{k: s.get(k) for k in ("id", "publisher", "title", "url", "class", "licence", "method", "coverage", "limitations", "last_checked")}
            for s in load("sources.json")]
 
