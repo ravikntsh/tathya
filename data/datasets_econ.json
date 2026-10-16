@@ -1,0 +1,227 @@
+[
+ {
+  "id": "asi_rbi_hbs",
+  "label": {
+   "en": "Annual Survey of Industries (All-India, 1990s)",
+   "hi": "उद्योगों का वार्षिक सर्वेक्षण (अखिल भारत, 1990 का दशक)"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (MoSPI ASI)",
+  "class": "A"
+ },
+ {
+  "id": "asi_rbi_hsis",
+  "label": {
+   "en": "Annual Survey of Industries (state tables)",
+   "hi": "उद्योगों का वार्षिक सर्वेक्षण (राज्य तालिकाएँ)"
+  },
+  "provider": "RBI Handbook of Statistics on Indian States (MoSPI ASI)",
+  "class": "A"
+ },
+ {
+  "id": "plfs_ar",
+  "label": {
+   "en": "PLFS annual reports (July-June)",
+   "hi": "PLFS वार्षिक रिपोर्ट (जुलाई-जून)"
+  },
+  "provider": "MoSPI / NSO",
+  "class": "A"
+ },
+ {
+  "id": "plfs_ar_calc",
+  "label": {
+   "en": "PLFS annual reports, summed sections (July-June)",
+   "hi": "PLFS वार्षिक रिपोर्ट, खंडों का योग (जुलाई-जून)"
+  },
+  "provider": "MoSPI / NSO",
+  "class": "A"
+ },
+ {
+  "id": "plfs_cy_api",
+  "label": {
+   "en": "PLFS calendar year (MoSPI API)",
+   "hi": "PLFS कैलेंडर वर्ष (MoSPI API)"
+  },
+  "provider": "MoSPI / NSO",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_1993",
+  "label": {
+   "en": "National accounts, base 1993-94",
+   "hi": "राष्ट्रीय लेखा, आधार 1993-94"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_1999",
+  "label": {
+   "en": "National accounts, base 1999-2000",
+   "hi": "राष्ट्रीय लेखा, आधार 1999-2000"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_2004",
+  "label": {
+   "en": "National accounts, base 2004-05",
+   "hi": "राष्ट्रीय लेखा, आधार 2004-05"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_2011",
+  "label": {
+   "en": "National accounts, base 2011-12",
+   "hi": "राष्ट्रीय लेखा, आधार 2011-12"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_2022",
+  "label": {
+   "en": "National accounts, base 2022-23",
+   "hi": "राष्ट्रीय लेखा, आधार 2022-23"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_share_1993_calc",
+  "label": {
+   "en": "National accounts, base 1993-94 (calculated ratio)",
+   "hi": "राष्ट्रीय लेखा, आधार 1993-94 (परिकलित अनुपात)"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_share_1999_calc",
+  "label": {
+   "en": "National accounts, base 1999-2000 (calculated ratio)",
+   "hi": "राष्ट्रीय लेखा, आधार 1999-2000 (परिकलित अनुपात)"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_share_2004_calc",
+  "label": {
+   "en": "National accounts, base 2004-05 (calculated ratio)",
+   "hi": "राष्ट्रीय लेखा, आधार 2004-05 (परिकलित अनुपात)"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_share_2011_calc",
+  "label": {
+   "en": "National accounts, base 2011-12 (calculated ratio)",
+   "hi": "राष्ट्रीय लेखा, आधार 2011-12 (परिकलित अनुपात)"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_cfc_share_2022_calc",
+  "label": {
+   "en": "National accounts, base 2022-23 (calculated ratio)",
+   "hi": "राष्ट्रीय लेखा, आधार 2022-23 (परिकलित अनुपात)"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_dgcis_trade_usd",
+  "label": {
+   "en": "DGCI&S merchandise trade (April-March)",
+   "hi": "DGCI&S वस्तु व्यापार (अप्रैल-मार्च)"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_gdppc_const_2011",
+  "label": {
+   "en": "National accounts, 2011-12 prices",
+   "hi": "राष्ट्रीय लेखा, 2011-12 के मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_gdppc_const_2022",
+  "label": {
+   "en": "National accounts, 2022-23 prices",
+   "hi": "राष्ट्रीय लेखा, 2022-23 के मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_gdppc_cur_2011",
+  "label": {
+   "en": "National accounts, base 2011-12, current prices",
+   "hi": "राष्ट्रीय लेखा, आधार 2011-12, चालू मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_gdppc_cur_2022",
+  "label": {
+   "en": "National accounts, base 2022-23, current prices",
+   "hi": "राष्ट्रीय लेखा, आधार 2022-23, चालू मूल्य"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_nfia_1993",
+  "label": {
+   "en": "National accounts, base 1993-94",
+   "hi": "राष्ट्रीय लेखा, आधार 1993-94"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_nfia_1999",
+  "label": {
+   "en": "National accounts, base 1999-2000",
+   "hi": "राष्ट्रीय लेखा, आधार 1999-2000"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_nfia_2004",
+  "label": {
+   "en": "National accounts, base 2004-05",
+   "hi": "राष्ट्रीय लेखा, आधार 2004-05"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_nfia_2011",
+  "label": {
+   "en": "National accounts, base 2011-12",
+   "hi": "राष्ट्रीय लेखा, आधार 2011-12"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hbs_nfia_2022",
+  "label": {
+   "en": "National accounts, base 2022-23",
+   "hi": "राष्ट्रीय लेखा, आधार 2022-23"
+  },
+  "provider": "RBI Handbook of Statistics on the Indian Economy (NSO/DGCI&S data)",
+  "class": "A"
+ }
+]

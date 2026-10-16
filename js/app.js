@@ -463,7 +463,8 @@ function render() {
     .map((s) => ({ code: s.code, name: regionName(s.code), value: valueOf(s.code), est: isEstimate(s.code) }))
     // Rankings use real figures only; estimates stay on the map with their star.
     .filter((r) => r.value != null && !parentOf(r.code) && !r.est)
-    .sort((a, b) => (i.higher_is_better ? b.value - a.value : a.value - b.value));
+    // Neutral indicators (higher_is_better null) rank highest first, like 'higher is better'.
+    .sort((a, b) => (i.higher_is_better === false ? a.value - b.value : b.value - a.value));
   rankBars($("top"), ranked.slice(0, 5), { onSelect: selectRegion, selected: state.region, domain: i.domain, decimals: i.decimals });
   rankBars($("bottom"), ranked.slice(-5).reverse(), { onSelect: selectRegion, selected: state.region, domain: i.domain, decimals: i.decimals });
   $("ranks").hidden = ranked.length === 0;
@@ -571,7 +572,7 @@ function renderCard() {
   const k = series.findIndex((p) => p.period === o.period);
   const prev = k > 0 ? series[k - 1] : null;
   const d = prev && !o.breakBefore ? o.value - prev.value : null;
-  const good = d == null ? null : (d >= 0) === i.higher_is_better;
+  const good = d == null || i.higher_is_better == null ? null : (d >= 0) === i.higher_is_better;
   el.innerHTML = `
     <p class="region">${esc(regionName(code))}</p>
     <p class="ind">${esc(tr(i.label))}</p>
@@ -580,7 +581,7 @@ function renderCard() {
     ${o.derived ? `<p><span class="calc-tag">${t("calcTag")}</span></p>` : ""}
     ${parentNote}
     ${d == null ? (prev ? `<p class="muted small">${t("notComparable")}</p>` : "")
-      : `<p class="delta ${good ? "up" : "down"}">${d >= 0 ? "▲ +" : "▼ "}${fmt(d, i.decimals)}${esc(deltaUnit(i))} · ${t("change")} ${esc(prev.period)} (${fmtVal(prev.value)})</p>`}
+      : `<p class="delta ${good == null ? "neutral" : good ? "up" : "down"}">${d >= 0 ? "▲ +" : "▼ "}${fmt(d, i.decimals)}${esc(deltaUnit(i))} · ${t("change")} ${esc(prev.period)} (${fmtVal(prev.value)})</p>`}
     <p class="src">${sourceLine(o)}</p>
     ${state.region ? "" : `<p class="muted small">${t("tapState")}</p>`}
     <div class="share" role="group" aria-label="${t("share")}">

@@ -94,8 +94,8 @@ export async function shareImage(card, link, [W, H]) {
     wrap(g, card.estimate.note, pad, y + Math.round(H * 0.11), W * 0.58 - pad, Math.round(H * 0.036));
   } else if (card.prev) {
     const d = card.value - card.prev.value;
-    const good = (d >= 0) === card.higherIsBetter;
-    g.fillStyle = good ? C.teal : C.terracotta;
+    const good = card.higherIsBetter == null ? null : (d >= 0) === card.higherIsBetter;
+    g.fillStyle = good == null ? C.muted : good ? C.teal : C.terracotta;
     g.font = font(600, Math.round(H * 0.04));
     const txt = hi
       ? `${d >= 0 ? "▲ +" : "▼ "}${num(card, d)} (${card.prev.round} से)`

@@ -1,0 +1,461 @@
+[
+ {
+  "id": "jobs_agri_share",
+  "sort": 1,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Jobs in farming",
+   "hi": "खेती में रोज़गार"
+  },
+  "label": {
+   "en": "Share of workers whose main or subsidiary work is in agriculture, forestry and fishing",
+   "hi": "कृषि, वानिकी और मत्स्य पालन में मुख्य या सहायक काम करने वाले श्रमिकों का हिस्सा"
+  },
+  "definition": {
+   "en": "Per cent of usually working persons (principal + subsidiary status) whose industry of work is NIC-2008 section A. PLFS survey estimate; July-June agricultural years.",
+   "hi": "सामान्य रूप से काम करने वाले व्यक्तियों (मुख्य + सहायक स्थिति) का प्रतिशत जिनका काम NIC-2008 खंड A में है। PLFS सर्वेक्षण अनुमान; जुलाई-जून कृषि वर्ष।"
+  },
+  "break_note": "July-June annual reports (2017-18 to 2022-23); 2020-21 and 2023-24 missing.",
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "jobs_industry_share",
+  "sort": 2,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Jobs in industry",
+   "hi": "उद्योग में रोज़गार"
+  },
+  "label": {
+   "en": "Share of workers in industry: mining, manufacturing, electricity, gas, water and construction",
+   "hi": "उद्योग में श्रमिकों का हिस्सा: खनन, विनिर्माण, बिजली, गैस, पानी और निर्माण कार्य"
+  },
+  "definition": {
+   "en": "Sum of NIC-2008 sections B to F as printed in the PLFS state tables (calculated here; the report gives sections, not this total). Construction is a large part of it.",
+   "hi": "PLFS राज्य तालिकाओं में छपे NIC-2008 खंड B से F का योग (यहाँ परिकलित; रिपोर्ट में केवल खंड दिए हैं)। इसमें निर्माण कार्य का बड़ा हिस्सा है।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "jobs_services_share",
+  "sort": 3,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Jobs in services",
+   "hi": "सेवाओं में रोज़गार"
+  },
+  "label": {
+   "en": "Share of workers in services: trade, transport, hotels, finance, public administration, education, health and other services",
+   "hi": "सेवाओं में श्रमिकों का हिस्सा: व्यापार, परिवहन, होटल, वित्त, लोक प्रशासन, शिक्षा, स्वास्थ्य और अन्य सेवाएँ"
+  },
+  "definition": {
+   "en": "Sum of NIC-2008 sections G to U as printed in the PLFS state tables (calculated here).",
+   "hi": "PLFS राज्य तालिकाओं में छपे NIC-2008 खंड G से U का योग (यहाँ परिकलित)।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "jobs_manufacturing_share",
+  "sort": 4,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Jobs in manufacturing",
+   "hi": "विनिर्माण में रोज़गार"
+  },
+  "label": {
+   "en": "Share of workers in manufacturing",
+   "hi": "विनिर्माण में काम करने वाले श्रमिकों का हिस्सा"
+  },
+  "definition": {
+   "en": "Per cent of usually working persons (ps+ss) in NIC-2008 section C (manufacturing), formal and informal. PLFS survey estimate.",
+   "hi": "सामान्य रूप से काम करने वाले व्यक्तियों (ps+ss) का प्रतिशत जो NIC-2008 खंड C (विनिर्माण) में हैं, औपचारिक और अनौपचारिक दोनों। PLFS सर्वेक्षण अनुमान।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "jobs_construction_share",
+  "sort": 5,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Jobs in construction",
+   "hi": "निर्माण कार्य में रोज़गार"
+  },
+  "label": {
+   "en": "Share of workers in construction",
+   "hi": "निर्माण कार्य में लगे श्रमिकों का हिस्सा"
+  },
+  "definition": {
+   "en": "Per cent of usually working persons (ps+ss) in NIC-2008 section F (construction). PLFS survey estimate.",
+   "hi": "सामान्य रूप से काम करने वाले व्यक्तियों (ps+ss) का प्रतिशत जो NIC-2008 खंड F (निर्माण कार्य) में हैं। PLFS सर्वेक्षण अनुमान।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "unemployment_rate",
+  "sort": 6,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Unemployment rate",
+   "hi": "बेरोज़गारी दर"
+  },
+  "label": {
+   "en": "Unemployment rate, usual status (ps+ss), age 15 and above",
+   "hi": "बेरोज़गारी दर, सामान्य स्थिति (ps+ss), 15 वर्ष और अधिक आयु"
+  },
+  "definition": {
+   "en": "Unemployed persons as a per cent of the labour force (those working or seeking work), age 15+, usual status. Someone who did any subsidiary work during the year counts as employed, so this rate is low by design.",
+   "hi": "श्रम बल (काम करने वाले या काम खोजने वाले) में बेरोज़गार व्यक्तियों का प्रतिशत, 15+ आयु, सामान्य स्थिति। वर्ष में कोई भी सहायक काम करने वाला रोज़गार में गिना जाता है, इसलिए यह दर स्वभावतः कम रहती है।"
+  },
+  "break_note": "July-June annual-report series and calendar-year (Jan-Dec) API series are kept separate.",
+  "domain": [
+   0,
+   40
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "wpr",
+  "sort": 7,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Worker population ratio",
+   "hi": "श्रमिक जनसंख्या अनुपात"
+  },
+  "label": {
+   "en": "Worker population ratio, usual status (ps+ss), age 15 and above",
+   "hi": "श्रमिक जनसंख्या अनुपात, सामान्य स्थिति (ps+ss), 15 वर्ष और अधिक आयु"
+  },
+  "definition": {
+   "en": "Workers as a per cent of all persons aged 15+. Includes unpaid helpers in household enterprises.",
+   "hi": "15+ आयु के सभी व्यक्तियों में श्रमिकों का प्रतिशत। इसमें घरेलू उद्यमों में बिना वेतन के सहायक भी शामिल हैं।"
+  },
+  "break_note": "July-June annual-report series and calendar-year (Jan-Dec) API series are kept separate.",
+  "domain": [
+   0,
+   80
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "factories",
+  "sort": 8,
+  "group": "economy",
+  "unit": "number",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Factories",
+   "hi": "कारखाने"
+  },
+  "label": {
+   "en": "Number of factories covered by the Annual Survey of Industries",
+   "hi": "उद्योगों के वार्षिक सर्वेक्षण में शामिल कारखानों की संख्या"
+  },
+  "definition": {
+   "en": "Registered factories (Factories Act; mainly 10+ workers with power or 20+ without) counted by ASI. Excludes small unregistered units.",
+   "hi": "ASI द्वारा गिने गए पंजीकृत कारखाने (कारखाना अधिनियम; मुख्यतः बिजली के साथ 10+ या बिना बिजली 20+ श्रमिक)। छोटी अपंजीकृत इकाइयाँ शामिल नहीं।"
+  },
+  "break_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks.",
+  "domain": [
+   0,
+   300000
+  ],
+  "decimals": 0,
+  "anchor": null
+ },
+ {
+  "id": "factory_workers",
+  "sort": 9,
+  "group": "economy",
+  "unit": "number",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Factory workers",
+   "hi": "कारखाना श्रमिक"
+  },
+  "label": {
+   "en": "Number of workers in factories (Annual Survey of Industries)",
+   "hi": "कारखानों में श्रमिकों की संख्या (उद्योगों का वार्षिक सर्वेक्षण)"
+  },
+  "definition": {
+   "en": "Workers directly or through contractors engaged in manufacturing in ASI factories; excludes supervisory and managerial staff (counted under employees).",
+   "hi": "ASI कारखानों में विनिर्माण में सीधे या ठेकेदार के माध्यम से लगे श्रमिक; पर्यवेक्षी और प्रबंधकीय कर्मचारी (कर्मचारियों में गिने जाते हैं) शामिल नहीं।"
+  },
+  "break_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks.",
+  "domain": [
+   0,
+   20000000
+  ],
+  "decimals": 0,
+  "anchor": null
+ },
+ {
+  "id": "factory_gva_inr_crore",
+  "sort": 10,
+  "group": "economy",
+  "unit": "₹ crore (that year's prices)",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Factory value added",
+   "hi": "कारखानों का मूल्य वर्धन"
+  },
+  "label": {
+   "en": "Gross value added by factories (ASI), current prices",
+   "hi": "कारखानों द्वारा सकल मूल्य वर्धन (ASI), चालू मूल्य"
+  },
+  "definition": {
+   "en": "Value of output minus inputs of ASI factories, before depreciation, in that year's rupees (not adjusted for inflation).",
+   "hi": "ASI कारखानों के उत्पादन मूल्य में से इनपुट घटाकर, मूल्यह्रास से पहले, उसी वर्ष के रुपयों में (मुद्रास्फीति समायोजित नहीं)।"
+  },
+  "break_note": "Andhra Pradesh split (2012-13), Jammu & Kashmir/Ladakh split (2019-20), DNH and DD merged (2020-21) are marked as breaks.",
+  "domain": [
+   0,
+   3000000
+  ],
+  "decimals": 0,
+  "anchor": null
+ },
+ {
+  "id": "trade_exports_usd_bn",
+  "sort": 11,
+  "group": "economy",
+  "unit": "US$ billion",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Merchandise exports",
+   "hi": "वस्तु निर्यात"
+  },
+  "label": {
+   "en": "India's merchandise exports, US$ billion, April-March",
+   "hi": "भारत का वस्तु निर्यात, अरब अमेरिकी डॉलर, अप्रैल-मार्च"
+  },
+  "definition": {
+   "en": "Goods exported as recorded by DGCI&S (customs basis), oil and non-oil, in current US dollars. Excludes services exports.",
+   "hi": "DGCI&S द्वारा दर्ज (सीमा शुल्क आधार) निर्यात की गई वस्तुएँ, तेल और गैर-तेल, चालू अमेरिकी डॉलर में। सेवाओं का निर्यात शामिल नहीं।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   500
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "trade_imports_usd_bn",
+  "sort": 12,
+  "group": "economy",
+  "unit": "US$ billion",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Merchandise imports",
+   "hi": "वस्तु आयात"
+  },
+  "label": {
+   "en": "India's merchandise imports, US$ billion, April-March",
+   "hi": "भारत का वस्तु आयात, अरब अमेरिकी डॉलर, अप्रैल-मार्च"
+  },
+  "definition": {
+   "en": "Goods imported as recorded by DGCI&S (customs basis), oil and non-oil, in current US dollars. Excludes services imports.",
+   "hi": "DGCI&S द्वारा दर्ज (सीमा शुल्क आधार) आयात की गई वस्तुएँ, तेल और गैर-तेल, चालू अमेरिकी डॉलर में। सेवाओं का आयात शामिल नहीं।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   800
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "gdp_per_capita_current",
+  "sort": 13,
+  "group": "economy",
+  "unit": "₹ (that year's prices)",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "GDP per person (that year's ₹)",
+   "hi": "प्रति व्यक्ति जीडीपी (उसी वर्ष के ₹)"
+  },
+  "label": {
+   "en": "Gross domestic product per person, current prices",
+   "hi": "प्रति व्यक्ति सकल घरेलू उत्पाद, चालू मूल्य"
+  },
+  "definition": {
+   "en": "GDP divided by mid-year population, in that year's rupees. Larger than income per person (NNI per capita) because it still includes depreciation and income paid abroad. Base years 2011-12 and 2022-23 are separate series.",
+   "hi": "मध्य-वर्ष जनसंख्या से विभाजित जीडीपी, उसी वर्ष के रुपयों में। प्रति व्यक्ति आय (प्रति व्यक्ति NNI) से अधिक, क्योंकि इसमें मूल्यह्रास और विदेश को दी गई आय शामिल रहती है। आधार वर्ष 2011-12 और 2022-23 अलग श्रृंखलाएँ हैं।"
+  },
+  "break_note": "Base 2011-12 and base 2022-23 are separate datasets; do not join.",
+  "domain": [
+   0,
+   300000
+  ],
+  "decimals": 0,
+  "anchor": null
+ },
+ {
+  "id": "gdp_per_capita_constant",
+  "sort": 14,
+  "group": "economy",
+  "unit": "₹ (base-year prices)",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "GDP per person (fixed prices)",
+   "hi": "प्रति व्यक्ति जीडीपी (स्थिर मूल्य)"
+  },
+  "label": {
+   "en": "Gross domestic product per person at constant prices (2011-12 or 2022-23 prices)",
+   "hi": "स्थिर मूल्यों (2011-12 या 2022-23 के मूल्य) पर प्रति व्यक्ति सकल घरेलू उत्पाद"
+  },
+  "definition": {
+   "en": "Real GDP per person; inflation removed using the base year's prices. The two base series have different price levels and must not be joined.",
+   "hi": "वास्तविक प्रति व्यक्ति जीडीपी; आधार वर्ष के मूल्यों से मुद्रास्फीति हटाई गई। दोनों आधार श्रृंखलाओं के मूल्य स्तर अलग हैं और इन्हें जोड़ा नहीं जाना चाहिए।"
+  },
+  "break_note": "Base 2011-12 and base 2022-23 are separate datasets; do not join.",
+  "domain": [
+   0,
+   300000
+  ],
+  "decimals": 0,
+  "anchor": null
+ },
+ {
+  "id": "cfc_share_gdp",
+  "sort": 15,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Depreciation share of GDP",
+   "hi": "जीडीपी में मूल्यह्रास का हिस्सा"
+  },
+  "label": {
+   "en": "Consumption of fixed capital (depreciation) as a per cent of GDP, current prices",
+   "hi": "जीडीपी के प्रतिशत के रूप में अचल पूंजी का उपभोग (मूल्यह्रास), चालू मूल्य"
+  },
+  "definition": {
+   "en": "Wear and tear of buildings, machinery and other fixed assets, as a share of GDP at market prices. Calculated here from the two printed values. This is the main gap between GDP and net national income.",
+   "hi": "भवनों, मशीनरी और अन्य अचल परिसंपत्तियों की टूट-फूट, बाज़ार मूल्य पर जीडीपी के हिस्से के रूप में। यहाँ दो छपे मानों से परिकलित। यही जीडीपी और शुद्ध राष्ट्रीय आय के बीच का मुख्य अंतर है।"
+  },
+  "break_note": "One dataset per national-accounts base (1993-94, 1999-2000, 2004-05, 2011-12, 2022-23); bases overlap in years and differ in level.",
+  "domain": [
+   0,
+   20
+  ],
+  "decimals": 1,
+  "anchor": null
+ },
+ {
+  "id": "cfc_current_inr_crore",
+  "sort": 16,
+  "group": "economy",
+  "unit": "₹ crore (that year's prices)",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Depreciation (₹ crore)",
+   "hi": "मूल्यह्रास (₹ करोड़)"
+  },
+  "label": {
+   "en": "Consumption of fixed capital, current prices",
+   "hi": "अचल पूंजी का उपभोग, चालू मूल्य"
+  },
+  "definition": {
+   "en": "Depreciation of the economy's fixed assets as estimated in the national accounts, in that year's rupees.",
+   "hi": "राष्ट्रीय लेखा में अनुमानित अर्थव्यवस्था की अचल परिसंपत्तियों का मूल्यह्रास, उसी वर्ष के रुपयों में।"
+  },
+  "break_note": "One dataset per national-accounts base; not spliced.",
+  "domain": [
+   0,
+   5000000
+  ],
+  "decimals": 0,
+  "anchor": null
+ },
+ {
+  "id": "nfia_current_inr_crore",
+  "sort": 17,
+  "group": "economy",
+  "unit": "₹ crore (that year's prices)",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Net income from abroad",
+   "hi": "विदेश से शुद्ध आय"
+  },
+  "label": {
+   "en": "Net factor income from abroad (primary income receivable from the rest of the world, net), current prices",
+   "hi": "विदेश से शुद्ध साधन आय (शेष विश्व से प्राप्य प्राथमिक आय, शुद्ध), चालू मूल्य"
+  },
+  "definition": {
+   "en": "Income earned by Indians abroad minus income paid to foreigners (interest, profits, wages). Negative means more goes out than comes in; GNI = GDP + this.",
+   "hi": "विदेश में भारतीयों द्वारा अर्जित आय में से विदेशियों को दी गई आय (ब्याज, लाभ, मज़दूरी) घटाकर। ऋणात्मक का अर्थ है जितनी आय आती है उससे अधिक बाहर जाती है; GNI = GDP + यह।"
+  },
+  "break_note": "One dataset per national-accounts base; not spliced.",
+  "domain": [
+   -500000,
+   400
+  ],
+  "decimals": 0,
+  "anchor": null
+ }
+]
