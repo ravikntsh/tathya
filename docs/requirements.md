@@ -41,6 +41,13 @@ Decisions made after an outside review (a ChatGPT-drafted "Product Blueprint"). 
 - **Current issues:** each live protest or allegation gets a page showing the claim, what the site's data shows (linked charts), what is still unknown, and the legal status, with a dated update log.
 - **Chart notices:** sudden changes in a chart are marked with dated context events (wars, droughts, the Emergency, 1991, the 2008 crisis, demonetisation, GST, COVID-19 and so on), each with a source. A marker explains the timing; it never claims a cause.
 
+**National security (replaces "Terror" and "Insurgency")**
+- **External:** cross-border terror attacks, infiltration, ceasefire violations, and wars and clashes.
+- **Internal:** J&K militancy, Left-wing extremism and the North-East insurgencies.
+- For each: incidents and deaths (civilians, security forces, militants as the source splits them) per year, plus the running total to date. Primary source: MHA annual reports and Parliament answers. Incident trackers (e.g. SATP) only as class E, cross-checked, with their definitions shown.
+
+**Charts: compare two dates.** Two fingers on a chart (or click-and-drag on a computer) select two years, as in a phone stock app. The chart shades the range and shows each source's value at both ends and the change, both absolute and in %.
+
 **Communal relations (renamed from "Communal violence")**
 - The rail item and page are called "Communal relations". The page covers both incidents and coexistence:
   - Incidents, riots and deaths, labelled exactly as their sources label them (NCRB "communal/religious riots", MHA "communal incidents"), with reporting caveats.

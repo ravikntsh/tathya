@@ -14,8 +14,8 @@ export function renderRail(el, { active = "development" } = {}) {
     items
       .map((i, k) => {
         if (!Array.isArray(i)) return `<li><span aria-disabled="true">${esc(i)}<small>${t("soon")}</small></span></li>`;
-        // The first group is Border & neighbours (live pages); later groups are still to come.
-        const isNeighbours = k === items.findIndex(Array.isArray);
+        // Border & neighbours (live pages) is the group with the nine neighbour labels.
+        const isNeighbours = i[1].length === NEIGHBOURS.length;
         const subs = i[1]
           .map((x, j) => (isNeighbours
             ? `<li>${link(`neighbours.html#c=${NEIGHBOURS[j]}`, x, active === NEIGHBOURS[j])}</li>`

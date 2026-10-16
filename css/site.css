@@ -296,3 +296,8 @@ a.brand { color: inherit; text-decoration: none; }
 .chart .ctx line { stroke: var(--saffron); stroke-opacity: .45; stroke-dasharray: 1 3; }
 .chart .ctx path { fill: var(--saffron); cursor: help; }
 .tip-ctx { color: var(--ink); font-weight: 600; font-size: .74rem; margin: 1px 0 3px; }
+
+/* Two-date compare */
+.chart .range { fill: var(--navy); fill-opacity: .08; }
+.chart .hit { touch-action: pan-y; }
+.tip .chg { font-weight: 600; color: var(--ink); }

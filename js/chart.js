@@ -84,7 +84,7 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
     }
   }
   // Hover layer: crosshair, highlighted points, and a hit area over the plot.
-  s += `<g class="hover" visibility="hidden"><line class="xhair" y1="${M.t}" y2="${H - M.b}"/><g class="hover-dots"></g></g>`;
+  s += `<g class="hover" visibility="hidden"><rect class="range" y="${M.t}" height="${H - M.t - M.b}" width="0"/><line class="xhair" y1="${M.t}" y2="${H - M.b}"/><line class="xhair xhair2" y1="${M.t}" y2="${H - M.b}" visibility="hidden"/><g class="hover-dots"></g></g>`;
   s += `<rect class="hit" x="${M.l}" y="${M.t}" width="${W - M.l - M.r}" height="${H - M.t - M.b}"/>`;
   s += `</svg>`;
   s += `<div class="tip" hidden></div>`;
@@ -145,9 +145,91 @@ function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates,
     hover.setAttribute("visibility", "hidden");
     tip.hidden = true;
   }
-  hit.addEventListener("pointermove", move);
-  hit.addEventListener("pointerdown", move);
-  hit.addEventListener("pointerleave", leave);
+  // Compare two dates, like a phone stock chart: two fingers on a touch screen, or
+  // click-and-drag with a mouse. The result stays until the next tap or click.
+  const band = svg.querySelector(".range");
+  const xhair2 = svg.querySelector(".xhair2");
+  const pointers = new Map();
+  let anchor = null, locked = false, dragged = false;
+  const yearOf = (clientX) => {
+    const r = svg.getBoundingClientRect();
+    const yr = Math.round(x.invert(((clientX - r.left) / r.width) * W));
+    return Math.min(xDomain[1], Math.max(xDomain[0], yr));
+  };
+  const sign = (v) => (v > 0 ? "+" : v < 0 ? "−" : "±");
+
+  function showRange(a, b) {
+    if (a === b) return;
+    const [y0, y1] = a < b ? [a, b] : [b, a];
+    const r = svg.getBoundingClientRect();
+    band.setAttribute("x", x(y0)); band.setAttribute("width", Math.max(0, x(y1) - x(y0)));
+    xhair.setAttribute("x1", x(y0)); xhair.setAttribute("x2", x(y0));
+    xhair2.setAttribute("x1", x(y1)); xhair2.setAttribute("x2", x(y1));
+    xhair2.setAttribute("visibility", "visible");
+    // Each source uses its own first and last real figures inside the range (or the
+    // exact ends, when estimates are on and an estimate exists), and says which years.
+    const ends = (l, k) => {
+      if (estimates) {
+        const a = valueAt(l, k, y0), b = valueAt(l, k, y1);
+        if (a && b) return { a: { ...a, year: y0 }, b: { ...b, year: y1 } };
+      }
+      const inside = l.points.filter((p) => p.year >= y0 && p.year <= y1);
+      if (inside.length < 2) return null;
+      const f = inside[0], g = inside.at(-1);
+      const pt = (p) => ({ value: p.value, text: `${fmt(p.value, decimals)}${u}`, year: p.year, period: p.period });
+      // A definition or territory change between the two ends makes the change less comparable.
+      return { a: pt(f), b: pt(g), broken: inside.some((p) => p.breakBefore && p.year > f.year) };
+    };
+    const rows = lines.map((l, k) => ({ l, ...(ends(l, k) || {}) })).filter((r) => r.a && r.b);
+    const breakLines = new Set(rows.filter((r) => r.broken).map((r) => r.l));
+    dots.innerHTML = rows.flatMap(({ l, a, b }) => [
+      `<circle class="dot ${l.style.cls}${a.est ? " est" : ""}" cx="${x(a.year)}" cy="${y(a.value)}" r="4.5"/>`,
+      `<circle class="dot ${l.style.cls}${b.est ? " est" : ""}" cx="${x(b.year)}" cy="${y(b.value)}" r="4.5"/>`]).join("");
+    hover.setAttribute("visibility", "visible");
+    const du = unit === "%" ? ` ${t("pts")}` : u;
+    tip.innerHTML = `<strong>${y0} → ${y1}</strong><div class="muted">${y1 - y0} ${t("years")}</div>${rows.length ? rows.map(({ l, a, b }) => {
+      const d = b.value - a.value;
+      const pct = a.value ? (d / Math.abs(a.value)) * 100 : null;
+      const yrs = a.year !== y0 || b.year !== y1 ? ` <small>(${esc(a.period ?? a.year)} → ${esc(b.period ?? b.year)})</small>` : "";
+      return `<div class="tip-row"><i class="sw ${l.style.cls}"></i><span>${esc(l.label)}${yrs}</span>
+        <b>${a.text} → ${b.text}</b>
+        <small class="chg">${sign(d)}${fmt(Math.abs(d), decimals)}${du}${pct != null && unit !== "%" ? ` (${sign(d)}${fmt(Math.abs(pct), 0)}%)` : ""}${a.est || b.est ? ` · ${t("estimateShort")}` : ""}${breakLines.has(l) ? `<br>⚠ ${t("breakInside")}` : ""}</small></div>`;
+    }).join("") : `<div class="muted">${t("noData")}</div>`}`;
+    tip.hidden = false;
+    const mid = ((x((y0 + y1) / 2) / W) * r.width), tw = tip.offsetWidth;
+    tip.style.left = `${Math.max(0, Math.min(r.width - tw, mid - tw / 2))}px`;
+    tip.style.top = `4px`;
+  }
+  function clearRange() {
+    locked = false; anchor = null;
+    band.setAttribute("width", 0);
+    xhair2.setAttribute("visibility", "hidden");
+  }
+
+  hit.addEventListener("pointerdown", (ev) => {
+    pointers.set(ev.pointerId, ev.clientX);
+    if (locked) clearRange();
+    dragged = false;
+    if (ev.pointerType === "mouse") { anchor = yearOf(ev.clientX); hit.setPointerCapture(ev.pointerId); }
+    if (pointers.size === 2) { const [p1, p2] = [...pointers.values()]; showRange(yearOf(p1), yearOf(p2)); dragged = true; return; }
+    move(ev);
+  });
+  hit.addEventListener("pointermove", (ev) => {
+    if (pointers.has(ev.pointerId)) pointers.set(ev.pointerId, ev.clientX);
+    if (pointers.size >= 2) { const [p1, p2] = [...pointers.values()]; showRange(yearOf(p1), yearOf(p2)); dragged = true; return; }
+    if (anchor != null && pointers.size === 1 && ev.pointerType === "mouse" && yearOf(ev.clientX) !== anchor) {
+      showRange(anchor, yearOf(ev.clientX)); dragged = true; return;
+    }
+    if (!locked) { xhair2.setAttribute("visibility", "hidden"); band.setAttribute("width", 0); move(ev); }
+  });
+  const end = (ev) => {
+    pointers.delete(ev.pointerId);
+    if (dragged) locked = true; // keep the comparison on screen
+    if (ev.pointerType === "mouse") anchor = null;
+  };
+  hit.addEventListener("pointerup", end);
+  hit.addEventListener("pointercancel", end);
+  hit.addEventListener("pointerleave", () => { if (!locked && !pointers.size) leave(); });
 }
 
 // Draws the chart (with title, legend and sources) to a PNG for download.

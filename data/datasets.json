@@ -215,5 +215,14 @@
     },
     "provider": "Office of the Registrar General & Census Commissioner",
     "class": "A"
+  },
+  {
+    "id": "plfs_literacy",
+    "label": {
+      "en": "PLFS survey (MoSPI), age 7+",
+      "hi": "PLFS सर्वेक्षण (MoSPI), 7+ आयु"
+    },
+    "provider": "MoSPI, Periodic Labour Force Survey",
+    "class": "A"
   }
 ]
