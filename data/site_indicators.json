@@ -1803,5 +1803,265 @@
    0,
    25
   ]
+ },
+ {
+  "id": "nh_length_km",
+  "sort": 1,
+  "group": "infrastructure",
+  "unit": "km",
+  "domain": [
+   0,
+   160000
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "National Highways",
+   "hi": "राष्ट्रीय राजमार्ग"
+  },
+  "label": {
+   "en": "Length of National Highways (km)",
+   "hi": "राष्ट्रीय राजमार्गों की लंबाई (किमी)"
+  },
+  "definition": {
+   "en": "Total length of roads notified as National Highways, as at 31 March (RBI table: end-December for 2022-24). Rises both through construction and when existing state roads are declared NHs, so a jump is not the same as new road built.",
+   "hi": "राष्ट्रीय राजमार्ग घोषित सड़कों की कुल लंबाई, 31 मार्च की स्थिति में (RBI तालिका में 2022-24 के लिए दिसंबर अंत)। यह निर्माण से भी बढ़ती है और तब भी जब मौजूदा राज्य सड़कों को राष्ट्रीय राजमार्ग घोषित किया जाता है, इसलिए अचानक उछाल का मतलब नई सड़क बनना नहीं है।"
+  },
+  "break_note": "Large one-year jumps (e.g. 2016 to 2017) are flagged as breaks; the source does not say whether they are new roads or reclassified ones.",
+  "anchor": []
+ },
+ {
+  "id": "road_length_km",
+  "sort": 2,
+  "group": "infrastructure",
+  "unit": "km",
+  "domain": [
+   0,
+   7000000
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Total road length",
+   "hi": "कुल सड़क लंबाई"
+  },
+  "label": {
+   "en": "Total length of all roads (km)",
+   "hi": "सभी सड़कों की कुल लंबाई (किमी)"
+  },
+  "definition": {
+   "en": "All categories of road (national and state highways, district, rural, urban and project roads), as at 31 March. Includes unsurfaced roads. MoRTH and RBI totals differ in coverage, so they are kept as separate series.",
+   "hi": "सभी श्रेणियों की सड़कें (राष्ट्रीय और राज्य राजमार्ग, जिला, ग्रामीण, शहरी और परियोजना सड़कें), 31 मार्च की स्थिति में। कच्ची सड़कें भी शामिल। MoRTH और RBI के कुल योग का दायरा अलग है, इसलिए दोनों अलग शृंखलाएँ हैं।"
+  },
+  "break_note": null,
+  "anchor": []
+ },
+ {
+  "id": "rail_route_km",
+  "sort": 3,
+  "group": "infrastructure",
+  "unit": "km",
+  "domain": [
+   0,
+   75000
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Railway route length",
+   "hi": "रेल मार्ग लंबाई"
+  },
+  "label": {
+   "en": "Railway route length (route km)",
+   "hi": "रेल मार्ग की लंबाई (मार्ग किमी)"
+  },
+  "definition": {
+   "en": "Length of railway routes open for traffic, all gauges, as at 31 March. A double line counts once (route km, not track km).",
+   "hi": "यातायात के लिए खुले रेल मार्गों की लंबाई, सभी गेज, 31 मार्च की स्थिति में। दोहरी लाइन एक ही बार गिनी जाती है (मार्ग किमी, ट्रैक किमी नहीं)।"
+  },
+  "break_note": null,
+  "anchor": []
+ },
+ {
+  "id": "rail_electrified_km",
+  "sort": 4,
+  "group": "infrastructure",
+  "unit": "km",
+  "domain": [
+   0,
+   75000
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Electrified rail route",
+   "hi": "विद्युतीकृत रेल मार्ग"
+  },
+  "label": {
+   "en": "Electrified railway route length (route km)",
+   "hi": "विद्युतीकृत रेल मार्ग की लंबाई (मार्ग किमी)"
+  },
+  "definition": {
+   "en": "Route km with overhead electric traction in operation. The state figures are broad gauge only (as on 31 Oct 2023).",
+   "hi": "वे मार्ग किमी जिन पर बिजली से चलने वाली (ओवरहेड) व्यवस्था चालू है। राज्य आँकड़े केवल ब्रॉड गेज के हैं (31 अक्टूबर 2023 की स्थिति)।"
+  },
+  "break_note": null,
+  "anchor": []
+ },
+ {
+  "id": "airports_operational",
+  "sort": 5,
+  "group": "infrastructure",
+  "unit": "airports",
+  "domain": [
+   0,
+   180
+  ],
+  "decimals": 0,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Operational airports",
+   "hi": "चालू हवाई अड्डे"
+  },
+  "label": {
+   "en": "Number of operational airports (incl. heliports and water aerodromes)",
+   "hi": "चालू हवाई अड्डों की संख्या (हेलीपोर्ट और जल हवाई अड्डे सहित)"
+  },
+  "definition": {
+   "en": "Airports, heliports and water aerodromes with operations, as counted by the Ministry of Civil Aviation on the date of a reply in Parliament. Operational does not mean daily scheduled flights.",
+   "hi": "संसद में उत्तर की तारीख पर नागर विमानन मंत्रालय द्वारा गिने गए चालू हवाई अड्डे, हेलीपोर्ट और जल हवाई अड्डे। चालू का मतलब रोज़ाना नियमित उड़ानें नहीं है।"
+  },
+  "break_note": null,
+  "anchor": []
+ },
+ {
+  "id": "air_passengers_mn",
+  "sort": 6,
+  "group": "infrastructure",
+  "unit": "million",
+  "domain": [
+   0,
+   450
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Air passengers",
+   "hi": "हवाई यात्री"
+  },
+  "label": {
+   "en": "Passengers handled at Indian airports (million, domestic + international)",
+   "hi": "भारतीय हवाई अड्डों पर संभाले गए यात्री (मिलियन, घरेलू + अंतरराष्ट्रीय)"
+  },
+  "definition": {
+   "en": "Passengers handled at all Indian airports in the financial year. Each trip is counted at both the departure and the arrival airport, so this is roughly twice the number of airline passengers carried.",
+   "hi": "वित्त वर्ष में सभी भारतीय हवाई अड्डों पर संभाले गए यात्री। हर यात्रा प्रस्थान और आगमन दोनों हवाई अड्डों पर गिनी जाती है, इसलिए यह एयरलाइनों द्वारा ले जाए गए यात्रियों की संख्या का लगभग दोगुना है।"
+  },
+  "break_note": "2020-21 and 2021-22 hit by COVID-19 travel restrictions.",
+  "anchor": []
+ },
+ {
+  "id": "metro_km",
+  "sort": 7,
+  "group": "infrastructure",
+  "unit": "km",
+  "domain": [
+   0,
+   1200
+  ],
+  "decimals": 1,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Metro network",
+   "hi": "मेट्रो नेटवर्क"
+  },
+  "label": {
+   "en": "Operational metro rail length (km)",
+   "hi": "चालू मेट्रो रेल लंबाई (किमी)"
+  },
+  "definition": {
+   "en": "Length of metro rail lines in operation on the date of a Ministry of Housing and Urban Affairs reply in Parliament. From 2023 includes the operational part of the Delhi-Meerut RRTS (Namo Bharat). State values are given only where the state has one metro city or its cities are printed as one figure.",
+   "hi": "संसद में आवास और शहरी कार्य मंत्रालय के उत्तर की तारीख पर चालू मेट्रो लाइनों की लंबाई। 2023 से दिल्ली-मेरठ RRTS (नमो भारत) का चालू भाग शामिल। राज्य आँकड़े केवल वहीं दिए गए हैं जहाँ राज्य में एक मेट्रो शहर है या उसके शहर एक ही आँकड़े में छपे हैं।"
+  },
+  "break_note": null,
+  "anchor": []
+ },
+ {
+  "id": "port_cargo_mt",
+  "sort": 8,
+  "group": "infrastructure",
+  "unit": "million tonnes",
+  "domain": [
+   0,
+   1000
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Major port cargo",
+   "hi": "प्रमुख पत्तन कार्गो"
+  },
+  "label": {
+   "en": "Cargo handled at Major Ports (million tonnes)",
+   "hi": "प्रमुख पत्तनों पर संभाला गया कार्गो (मिलियन टन)"
+  },
+  "definition": {
+   "en": "Cargo loaded and unloaded at the 12 centrally owned Major Ports in the financial year (overseas + coastal). Excludes state-run and private non-major ports, which handle almost half of India's cargo.",
+   "hi": "वित्त वर्ष में केंद्र के 12 प्रमुख पत्तनों पर लादा और उतारा गया कार्गो (विदेशी + तटीय)। राज्य और निजी गैर-प्रमुख पत्तन शामिल नहीं, जो भारत का लगभग आधा कार्गो संभालते हैं।"
+  },
+  "break_note": null,
+  "anchor": []
+ },
+ {
+  "id": "port_cargo_all_mt",
+  "sort": 9,
+  "group": "infrastructure",
+  "unit": "million tonnes",
+  "domain": [
+   0,
+   1800
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "All-port cargo",
+   "hi": "सभी पत्तनों का कार्गो"
+  },
+  "label": {
+   "en": "Cargo handled at all Indian ports, major + non-major (million tonnes)",
+   "hi": "सभी भारतीय पत्तनों पर संभाला गया कार्गो, प्रमुख + गैर-प्रमुख (मिलियन टन)"
+  },
+  "definition": {
+   "en": "Total cargo handled at Major and non-major ports in the financial year, as stated in the ministry's annual reports (approximate, revised in later editions).",
+   "hi": "वित्त वर्ष में प्रमुख और गैर-प्रमुख पत्तनों पर संभाला गया कुल कार्गो, मंत्रालय की वार्षिक रिपोर्टों के अनुसार (अनुमानित, बाद के संस्करणों में संशोधित)।"
+  },
+  "break_note": null,
+  "anchor": []
+ },
+ {
+  "id": "port_cargo_nonmajor_mt",
+  "sort": 10,
+  "group": "infrastructure",
+  "unit": "million tonnes",
+  "domain": [
+   0,
+   800
+  ],
+  "decimals": 2,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Non-major port cargo",
+   "hi": "गैर-प्रमुख पत्तन कार्गो"
+  },
+  "label": {
+   "en": "Cargo handled at non-major ports (million tonnes)",
+   "hi": "गैर-प्रमुख पत्तनों पर संभाला गया कार्गो (मिलियन टन)"
+  },
+  "definition": {
+   "en": "Cargo at ports run by State Maritime Boards and private operators, by maritime state. Does not include the Major Port located in the same state.",
+   "hi": "राज्य समुद्री बोर्डों और निजी संचालकों के पत्तनों पर कार्गो, समुद्री राज्यवार। उसी राज्य में स्थित प्रमुख पत्तन शामिल नहीं।"
+  },
+  "break_note": null,
+  "anchor": []
  }
 ]

@@ -926,5 +926,167 @@
   },
   "provider": "Ministry of Education - AISHE",
   "class": "A"
+ },
+ {
+  "id": "rbi_hsis_nh_state",
+  "label": {
+   "en": "RBI Handbook (MoRTH data)",
+   "hi": "RBI हैंडबुक (MoRTH आँकड़े)"
+  },
+  "provider": "RBI / MoRTH",
+  "class": "A"
+ },
+ {
+  "id": "morth_brs_nh",
+  "label": {
+   "en": "Basic Road Statistics of India",
+   "hi": "भारत के बुनियादी सड़क आँकड़े"
+  },
+  "provider": "MoRTH",
+  "class": "A"
+ },
+ {
+  "id": "morth_brs_roads",
+  "label": {
+   "en": "Basic Road Statistics of India",
+   "hi": "भारत के बुनियादी सड़क आँकड़े"
+  },
+  "provider": "MoRTH",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hsis_roads_state",
+  "label": {
+   "en": "RBI Handbook (MoRTH data)",
+   "hi": "RBI हैंडबुक (MoRTH आँकड़े)"
+  },
+  "provider": "RBI / MoRTH",
+  "class": "A"
+ },
+ {
+  "id": "rbi_hsis_rail_state",
+  "label": {
+   "en": "RBI Handbook (Railways data)",
+   "hi": "RBI हैंडबुक (रेलवे आँकड़े)"
+  },
+  "provider": "RBI / Ministry of Railways",
+  "class": "A"
+ },
+ {
+  "id": "es_2025_26_rail",
+  "label": {
+   "en": "Economic Survey 2025-26",
+   "hi": "आर्थिक सर्वेक्षण 2025-26"
+  },
+  "provider": "Ministry of Finance / Ministry of Railways",
+  "class": "A"
+ },
+ {
+  "id": "ls_rail_elec_state_2023",
+  "label": {
+   "en": "Railways reply in Lok Sabha",
+   "hi": "लोकसभा में रेल मंत्रालय का उत्तर"
+  },
+  "provider": "Ministry of Railways",
+  "class": "A"
+ },
+ {
+  "id": "es_2025_26_aviation",
+  "label": {
+   "en": "Economic Survey 2025-26",
+   "hi": "आर्थिक सर्वेक्षण 2025-26"
+  },
+  "provider": "Ministry of Finance / Ministry of Civil Aviation",
+  "class": "A"
+ },
+ {
+  "id": "aai_traffic_news",
+  "label": {
+   "en": "AAI traffic reports",
+   "hi": "AAI यातायात रिपोर्ट"
+  },
+  "provider": "Airports Authority of India",
+  "class": "A"
+ },
+ {
+  "id": "mohua_parl_metro",
+  "label": {
+   "en": "MoHUA replies in Lok Sabha",
+   "hi": "लोकसभा में आवास और शहरी कार्य मंत्रालय के उत्तर"
+  },
+  "provider": "Ministry of Housing and Urban Affairs",
+  "class": "A"
+ },
+ {
+  "id": "mopsw_ar_2017_18_major",
+  "label": {
+   "en": "Ministry of Shipping Annual Report 2017-18",
+   "hi": "नौवहन मंत्रालय वार्षिक रिपोर्ट 2017-18"
+  },
+  "provider": "Ministry of Shipping",
+  "class": "A"
+ },
+ {
+  "id": "mopsw_ar_2025_26_major",
+  "label": {
+   "en": "MoPSW Annual Report 2025-26",
+   "hi": "पत्तन, पोत परिवहन और जलमार्ग मंत्रालय वार्षिक रिपोर्ट 2025-26"
+  },
+  "provider": "Ministry of Ports, Shipping and Waterways",
+  "class": "A"
+ },
+ {
+  "id": "mopsw_cargo_mar2026",
+  "label": {
+   "en": "MoPSW monthly cargo report",
+   "hi": "पत्तन मंत्रालय मासिक कार्गो रिपोर्ट"
+  },
+  "provider": "Ministry of Ports, Shipping and Waterways",
+  "class": "A"
+ },
+ {
+  "id": "mopsw_ar_2025_26_all",
+  "label": {
+   "en": "MoPSW Annual Report 2025-26",
+   "hi": "पत्तन, पोत परिवहन और जलमार्ग मंत्रालय वार्षिक रिपोर्ट 2025-26"
+  },
+  "provider": "Ministry of Ports, Shipping and Waterways",
+  "class": "A"
+ },
+ {
+  "id": "mopsw_ar_2024_25_all",
+  "label": {
+   "en": "MoPSW Annual Report 2024-25",
+   "hi": "पत्तन, पोत परिवहन और जलमार्ग मंत्रालय वार्षिक रिपोर्ट 2024-25"
+  },
+  "provider": "Ministry of Ports, Shipping and Waterways",
+  "class": "A"
+ },
+ {
+  "id": "mopsw_ar_2017_18_nonmajor",
+  "label": {
+   "en": "Ministry of Shipping Annual Report 2017-18",
+   "hi": "नौवहन मंत्रालय वार्षिक रिपोर्ट 2017-18"
+  },
+  "provider": "Ministry of Shipping",
+  "class": "A"
+ },
+ {
+  "id": "mopsw_nonmajor_mar2026",
+  "label": {
+   "en": "MoPSW monthly cargo report (non-major ports)",
+   "hi": "पत्तन मंत्रालय मासिक कार्गो रिपोर्ट (गैर-प्रमुख पत्तन)"
+  },
+  "provider": "Ministry of Ports, Shipping and Waterways",
+  "class": "A"
+ },
+ {
+  "id": "moca_parl_airports",
+  "label": {
+   "en": "MoCA replies in Lok Sabha",
+   "hi": "लोकसभा में नागर विमानन मंत्रालय के उत्तर"
+  },
+  "provider": "Ministry of Civil Aviation",
+  "class": "A"
  }
 ]
