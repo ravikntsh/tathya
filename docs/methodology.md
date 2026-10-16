@@ -52,6 +52,16 @@ Each calculated row's note starts with "Calculated by Tathya from Census counts"
 
 Before any row was used, the same formula was run on every case where ORGI also prints a percentage, and the results were compared.
 
+## Combined map view ("All sources")
+
+The map's default view combines every source that has state data for an indicator. The slider moves through each year that any source covers. For each state and year:
+- **Source order:** the first real figure found, taking official (class A) sources first, then other sources, newest first. A figure dated within one year counts, because NFHS rounds were fielded across two years.
+- **Showing the source:** the fact card names the source of the figure, so mixing sources is visible, never hidden.
+- **Two-state compare:** each state's line uses one source only (the first in that order with at least two points), and the line's label names it.
+- **Rankings:** Top 5 and Bottom 5 use real figures only. Estimates stay on the map, marked with a star.
+
+A single source can still be chosen from the map's source menu.
+
 ## Gaps filled with starred (*) estimates
 
 On the map, when a state has no figure for the round or year shown, Tathya fills it with an estimate and marks it with a **\***. The state is also faded with a dashed edge. A note under the map explains the star.

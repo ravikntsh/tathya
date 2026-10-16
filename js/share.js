@@ -9,7 +9,8 @@ export function cardLink(state) {
   if (state.dataset) p.set("src", state.dataset);
   if (state.round) p.set("round", state.round);
   if (state.region) p.set("state", state.region);
-  if (state.est) { p.set("est", "1"); if (state.year) p.set("yr", state.year); }
+  if (state.est) p.set("est", "1");
+  if ((state.est || state.dataset === "__all") && state.year) p.set("yr", state.year);
   return `${SITE_URL}#${p}`;
 }
 
