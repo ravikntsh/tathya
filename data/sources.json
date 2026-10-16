@@ -1396,6 +1396,18 @@
   "last_checked": "2026-10-16"
  },
  {
+  "id": "rbi-hsis-2023-24-t01",
+  "publisher": "Reserve Bank of India (Handbook of Statistics on Indian States 2023-24); original source: Office of the Registrar General and Census Commissioner, Ministry of Home Affairs",
+  "title": "Table 1: State-wise Total Population (thousands), census years 1951-2011",
+  "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/1T_09122024203D0FF3A7FC42068D952BA8D5603050.XLSX",
+  "class": "A",
+  "licence": "RBI website content; reuse with attribution to RBI and the original source (no explicit open licence stated in the file)",
+  "method": "Decennial Census total population (persons) as compiled by RBI, printed in thousands; converted to persons by multiplying by 1,000. DH = Dadra & Nagar Haveli + Daman & Diu (printed separately) summed. Taken from the 2023-24 edition because the latest (2024-25) edition has no population table. Cells printed '-' skipped.",
+  "coverage": "35 states/UTs (incl. DH as a sum) plus All India; 1951, 1961, 1971, 1981, 1991, 2001, 2011; 244 values",
+  "limitations": "Rounded to the nearest thousand in the source, so persons values are approximate (+/-500; +/-1,000 for the DH sum). Assam 1981 and Jammu & Kashmir 1991 are interpolated (no census held). Arunachal Pradesh first enumerated in 1961. India and Manipur 2001 include estimated population of three Senapati sub-divisions. Andhra Pradesh is undivided (no Telangana row); Jammu & Kashmir includes Ladakh (no Ladakh row). Table note says efforts were made to cover newly created states, i.e. figures appear to be on present-day boundaries.",
+  "last_checked": "2026-10-16"
+ },
+ {
   "id": "rbi-hsis-2023-24-t06",
   "publisher": "Reserve Bank of India (Handbook of Statistics on Indian States 2023-24); original source: Office of the Registrar General and Census Commissioner, Ministry of Home Affairs",
   "title": "Table 6: State-wise Literacy Rate (per cent), census years 1951-2011",

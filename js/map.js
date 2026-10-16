@@ -49,8 +49,22 @@ export function createMap(container, features, { onSelect }) {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect(code); }
     });
     g.appendChild(p);
-    shapes.set(code, { el: p, title, area: path.area(f) });
+    shapes.set(code, { el: p, title, area: path.area(f), centroid: path.centroid(f) });
   }
+  // A star over each state whose value is an estimate (drawn above all shapes).
+  const stars = document.createElementNS(NS, "g");
+  stars.classList.add("est-stars");
+  for (const [code, s] of shapes) {
+    if (!Number.isFinite(s.centroid[0])) continue;
+    const st = document.createElementNS(NS, "text");
+    st.setAttribute("x", s.centroid[0]); st.setAttribute("y", s.centroid[1] + 5);
+    st.setAttribute("text-anchor", "middle");
+    st.textContent = "*";
+    st.style.display = "none";
+    stars.appendChild(st);
+    s.star = st;
+  }
+  svg.appendChild(stars);
   // UTs too small to see or tap on the map get a labelled circle in the bottom-left
   // corner (open sea on this projection), filled with the same colour as their shape.
   const SMALL_UTS = ["DL", "CH", "PY", "DH", "LD"].filter((c) => shapes.has(c));
@@ -84,7 +98,9 @@ export function createMap(container, features, { onSelect }) {
       const est = v != null && isEstimate(code);
       s.el.classList.toggle("est", est);
       s.el.classList.toggle("selected", isSel);
-      const text = `${regionName(code)}: ${v == null ? t("noData") : (est ? "≈ " : "") + format(v)}${est ? ` (${t("estimateShort")})` : ""}`;
+      // Tiny UTs show their star on the badge instead of over the shape.
+      if (s.star) s.star.style.display = est && !s.badge ? "" : "none";
+      const text = `${regionName(code)}: ${v == null ? t("noData") : format(v)}${est ? `* (${t("estimateShort")})` : ""}`;
       s.title.textContent = text;
       s.el.setAttribute("aria-label", text);
       s.el.setAttribute("aria-pressed", String(isSel));
@@ -93,6 +109,7 @@ export function createMap(container, features, { onSelect }) {
         // Light text on the two darkest bands, dark text otherwise.
         s.badge.classList.toggle("on-dark", v != null && bucket(v) >= 3);
         s.badge.classList.toggle("est", est);
+        s.badge.querySelector("text").textContent = est ? `${code}*` : code;
         s.badge.classList.toggle("selected", isSel);
         s.badge.querySelector("title").textContent = text;
         s.badge.setAttribute("aria-label", text);
@@ -112,6 +129,6 @@ export function renderLegend(el, unit = "%", { estimates = false } = {}) {
     return `<span class="lg-cell"><i style="background:var(--seq-${i})"></i>${n(lo)}–${n(hi)}${unit === "%" ? "%" : ""}</span>`;
   });
   if (unit !== "%") cells.push(`<span class="lg-cell muted">${unit}</span>`);
-  el.innerHTML = `${cells.join("")}<span class="lg-cell"><i class="lg-nodata"></i>${t("noData")}</span>${estimates ? `<span class="lg-cell"><i class="lg-est"></i>${t("estimateLegend")}</span>` : ""}`;
+  el.innerHTML = `${cells.join("")}<span class="lg-cell"><i class="lg-nodata"></i>${t("noData")}</span>`;
 }
 

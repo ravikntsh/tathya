@@ -203,7 +203,7 @@ export function rankBars(el, rows, { onSelect, selected, domain, decimals }) {
       (r) => `<button class="rank-row${r.code === selected ? " selected" : ""}" data-code="${r.code}">
       <span class="rank-name">${esc(r.name)}</span>
       <span class="rank-bar"><i style="width:${Math.max(0, Math.min(100, ((r.value - lo) / (hi - lo)) * 100))}%"></i></span>
-      <span class="rank-val">${r.est ? "≈ " : ""}${r.value >= 100000 ? fmtCompact(r.value) : fmt(r.value, decimals)}</span></button>`
+      <span class="rank-val">${r.value >= 100000 ? fmtCompact(r.value) : fmt(r.value, decimals)}${r.est ? "*" : ""}</span></button>`
     )
     .join("");
   el.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => onSelect(b.dataset.code)));

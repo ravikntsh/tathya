@@ -9,7 +9,7 @@ import { estimateAt } from "./estimate.js";
 const $ = (id) => document.getElementById(id);
 const RANGES = { all: 1850, 1947: 1947, 1991: 1991 };
 const state = { indicator: null, dataset: null, period: null, region: null, range: "all", cmpA: "", cmpB: "", estimates: false, year: null };
-let data, map;
+let data, map, lastCells = null;
 
 init();
 
@@ -83,7 +83,9 @@ function applyStaticText() {
   const issues = t("issueList");
   $("issues").innerHTML =
     `<li><a href="#" class="active" aria-current="page">${t("development")}</a></li>` +
-    issues.map((i) => `<li><span aria-disabled="true">${esc(i)}<small>${t("soon")}</small></span></li>`).join("");
+    issues.map((i) => Array.isArray(i)
+      ? `<li class="rail-group"><span class="rail-group-h">${esc(i[0])}</span><ul>${i[1].map((x) => `<li><span aria-disabled="true">${esc(x)}</span></li>`).join("")}</ul><small class="rail-soon">${t("soon")}</small></li>`
+      : `<li><span aria-disabled="true">${esc(i)}<small>${t("soon")}</small></span></li>`).join("");
 }
 
 function bindControls() {
@@ -185,14 +187,56 @@ function yearSlots() {
   for (let y = ps[0].year; y <= new Date().getFullYear(); y++) out.push(y);
   return out;
 }
-// The value shown for one region: observed, or (in estimates mode) an estimate.
+// The value shown for one region in the selected round or year:
+// - the observed value when the source has one;
+// - otherwise an estimate from the region's own series in the same source
+//   (between its real points, or its recent trend), shown with a star (*);
+// - for India only, when no official figure exists: the population-weighted
+//   average of the states shown (also starred and labelled as calculated).
 function cell(code) {
   if (!state.dataset) return null;
+  const year = estMode() ? state.year : data.periods(state.indicator, state.dataset, { statesOnly: true }).find((p) => p.period === state.period)?.year;
   if (!estMode()) {
     const o = data.get(state.indicator, state.dataset, state.period, code);
-    return o ? { kind: "obs", value: o.value, o } : null;
+    if (o) return { kind: "obs", value: o.value, o };
   }
-  return estimateAt(data.series(state.indicator, state.dataset, code), state.year, { bounds: boundsOf(ind()), scale: scaleOf(ind()) });
+  if (year == null) return null;
+  const opts = { bounds: boundsOf(ind()), scale: scaleOf(ind()) };
+  const own = estimateAt(data.series(state.indicator, state.dataset, code), year, opts);
+  if (own) return own;
+  // Fallback: the same indicator from another source that has this state, e.g. the
+  // DHS series (NFHS-1 to 5) when a state was not surveyed in NFHS-6. Always starred,
+  // and the card names the source used.
+  for (const ds of data.stateDatasets(state.indicator)) {
+    if (ds === state.dataset) continue;
+    const c = estimateAt(data.series(state.indicator, ds, code), year, opts);
+    if (c) return { ...c, kind: c.kind === "obs" ? "other" : c.kind, via: ds };
+  }
+  return null;
+}
+
+// Population-weighted average of state values, used for India only when the
+// source has no All-India figure. Weights are Census populations for the census
+// year nearest to (and not after, where possible) the year shown. Needs states
+// covering at least 80% of India's population, or no figure is shown.
+function weightedIndia(cells, year) {
+  const pop = data.population;
+  if (!pop?.size || year == null) return null;
+  const years = [...new Set([...pop.values()].flatMap((m) => [...m.keys()]))].sort((a, b) => a - b);
+  const wy = years.filter((y) => y <= year).at(-1) ?? years[0];
+  const total = pop.get("IN")?.get(wy);
+  if (!total) return null;
+  // Census populations exist only for undivided Andhra Pradesh and for J&K including
+  // Ladakh, so after those splits the affected states are left out of the weights.
+  const skip = new Set([...(year >= 2014 ? ["AP", "TG"] : []), ...(year >= 2019 ? ["JK", "LA"] : [])]);
+  let sum = 0, w = 0, n = 0;
+  for (const s of data.states) {
+    if (skip.has(s.code)) continue;
+    const c = cells.get(s.code), p = pop.get(s.code)?.get(wy);
+    if (c && p) { sum += c.value * p; w += p; n++; }
+  }
+  if (!w || w / total < 0.8) return null;
+  return { kind: "weighted", value: sum / w, states: n, coverage: w / total, popYear: wy, skipped: [...skip] };
 }
 
 function render() {
@@ -245,8 +289,15 @@ function render() {
   $("origin").textContent = data.origin === "supabase" ? "Supabase (live)" : t("snapshot");
 
   const cells = new Map(["IN", ...data.states.map((s) => s.code)].map((c) => [c, cell(c)]));
+  if (!cells.get("IN")) {
+    const y = estMode() ? state.year : periods.find((p) => p.period === state.period)?.year;
+    cells.set("IN", weightedIndia(cells, y));
+  }
+  lastCells = cells;
   const valueOf = (code) => cells.get(code)?.value ?? null;
   const isEstimate = (code) => !!cells.get(code) && cells.get(code).kind !== "obs";
+  const anyStar = [...cells.values()].some((c) => c && c.kind !== "obs");
+  $("star-note").hidden = !anyStar;
   const when = estMode() ? String(state.year) : state.period ?? "";
   map?.update({ valueOf, regionName, selected: state.region, label: `${tr(i.label)}, ${when}`, format: (v) => fmtVal(v), isEstimate });
   renderLegend($("legend"), i.unit, { estimates: estMode() });
@@ -265,9 +316,9 @@ function render() {
   // Text summary
   const nat = valueOf("IN");
   $("summary").textContent = ranked.length
-    ? t("summary")(tr(i.short_label), `${when} (${dsLabel(state.dataset)})`, nat != null ? (isEstimate("IN") ? "≈ " : "") + fmtVal(nat) : "",
-        `${ranked[0].name} ${ranked[0].est ? "≈ " : ""}${fmtVal(ranked[0].value)}`, `${ranked.at(-1).name} ${ranked.at(-1).est ? "≈ " : ""}${fmtVal(ranked.at(-1).value)}`)
-      + (estMode() && [...cells.values()].some((c) => c && c.kind !== "obs") ? ` (${t("estimateLegend")})` : "")
+    ? t("summary")(tr(i.short_label), `${when} (${dsLabel(state.dataset)})`, nat != null ? fmtVal(nat) + (isEstimate("IN") ? "*" : "") : "",
+        `${ranked[0].name} ${fmtVal(ranked[0].value)}${ranked[0].est ? "*" : ""}`, `${ranked.at(-1).name} ${fmtVal(ranked.at(-1).value)}${ranked.at(-1).est ? "*" : ""}`)
+      + (anyStar ? ` ${t("starShort")}` : "")
     : "";
 
   $("ind-def").textContent = tr(i.definition);
@@ -329,7 +380,8 @@ function renderCard() {
   const code = state.region || "IN";
   // National-only indicators: show India's latest value from the first national source.
   const natDs = data.nationalDatasets(state.indicator)[0];
-  const c = cell(code);
+  const c = lastCells?.get(code) ?? cell(code);
+  if (c && c.kind === "weighted") return renderWeightedCard(el, i, c);
   if (c && c.kind !== "obs") return renderEstimateCard(el, i, code, c);
   const o = state.dataset
     ? c?.o ?? null
@@ -385,17 +437,33 @@ function renderCard() {
 
 // Card for a year without data: shows the estimate, how it was made and the real
 // points behind it. No share buttons: estimates are not shared as facts.
+function renderWeightedCard(el, i, c) {
+  const when = estMode() ? String(state.year) : state.period;
+  el.innerHTML = `
+    <p class="region">${esc(regionName("IN"))}</p>
+    <p class="ind">${esc(tr(i.label))}</p>
+    <p class="big est-big">${fmt(c.value, i.decimals)}<small>${esc(unitText(i))}</small>*</p>
+    <p class="when"><span class="est-tag">${t("weightedTitle")}</span> ${esc(when)}</p>
+    <p class="small">${esc(t("weightedHow")(c.states, Math.round(c.coverage * 100), c.popYear, dsLabel(state.dataset)))}</p>
+    ${c.skipped.length ? `<p class="muted small">${esc(t("weightedSkip")(c.skipped.map(regionName).join(", ")))}</p>` : ""}
+    <p class="muted small">${t("source")}: <a href="https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/1T_09122024203D0FF3A7FC42068D952BA8D5603050.XLSX" target="_blank" rel="noopener">RBI, Handbook of Statistics on Indian States 2023-24, Table 1 (Census populations)</a></p>
+    <p class="muted small">${t("starNote")}</p>`;
+}
+
 function renderEstimateCard(el, i, code, c) {
-  const src = dsLabel(state.dataset);
-  const how = c.kind === "interp"
-    ? t("estInterp")(`${c.from.period} (${fmtVal(c.from.value)})`, `${c.to.period} (${fmtVal(c.to.value)})`, src)
-    : t("estProj")(c.basis.join(", "), fmtVal(c.lo), fmtVal(c.hi), src);
-  const basis = c.kind === "interp" ? [c.from, c.to] : [c.last];
+  const src = dsLabel(c.via ?? state.dataset);
+  const how = c.kind === "other"
+    ? t("estOther")(src, c.o.period, dsLabel(state.dataset))
+    : (c.kind === "interp"
+      ? t("estInterp")(`${c.from.period} (${fmtVal(c.from.value)})`, `${c.to.period} (${fmtVal(c.to.value)})`, src)
+      : t("estProj")(c.basis.join(", "), fmtVal(c.lo), fmtVal(c.hi), src))
+    + (c.via && c.kind !== "other" ? " " + t("estVia")(dsLabel(state.dataset)) : "");
+  const basis = c.kind === "other" ? [c.o] : c.kind === "interp" ? [c.from, c.to] : [c.last];
   el.innerHTML = `
     <p class="region">${esc(regionName(code))}</p>
     <p class="ind">${esc(tr(i.label))}</p>
-    <p class="big est-big">≈ ${fmt(c.value, i.decimals)}<small>${esc(unitText(i))}</small></p>
-    <p class="when"><span class="est-tag">${t("estimateTitle")}</span> ${state.year}</p>
+    <p class="big est-big">${fmt(c.value, i.decimals)}<small>${esc(unitText(i))}</small>*</p>
+    <p class="when"><span class="est-tag">* ${t("estimateTitle")}</span> ${estMode() ? state.year : esc(state.period)}</p>
     <p class="small">${esc(how)}</p>
     ${basis.map((o) => `<p class="src">${sourceLine(o)}</p>`).join("")}
     <p class="muted small">${t("estShareNote")}</p>
@@ -408,7 +476,8 @@ function renderEstimateCard(el, i, code, c) {
     </div>`;
 
   // Observed points, then the estimate as an outlined bar.
-  const real = data.series(state.indicator, state.dataset, code).filter((p) => p.year < state.year).slice(-6);
+  const shownYear = estMode() ? state.year : (c.o?.year ?? c.to?.year ?? basis.at(-1).year + 1);
+  const real = data.series(state.indicator, c.via ?? state.dataset, code).filter((p) => p.year < shownYear).slice(-6);
   const srcs = [...new Set(basis.map((o) => data.sourceById.get(o.sourceId)?.publisher ?? o.sourceId))];
   const card = {
     regionName: regionName(code),
@@ -418,14 +487,14 @@ function renderEstimateCard(el, i, code, c) {
     unit: unitText(i),
     deltaUnit: deltaUnit(i),
     decimals: i.decimals,
-    round: String(state.year),
+    round: estMode() ? String(state.year) : state.period,
     years: src,
     prev: null,
     higherIsBetter: i.higher_is_better,
     sourceName: `${srcs.join("; ")} (${src})`,
     sourceUrl: data.sourceById.get(basis.at(-1).sourceId)?.url ?? "",
     domain: i.domain,
-    series: [...real.map((s) => ({ round: s.period, value: s.value })), { round: String(state.year), value: c.value, est: true }],
+    series: [...real.map((s) => ({ round: s.period, value: s.value })), { round: estMode() ? String(state.year) : state.period, value: c.value, est: true }],
     estimate: { note: how },
   };
   wireShare(el, card, code, String(state.year));

@@ -21,6 +21,15 @@ Decisions made after an outside review (a ChatGPT-drafted "Product Blueprint"). 
 - Every photo carries a caption, date, place and source. No AI-generated images of real people or events. Illustrations are labelled as illustrations.
 - Photos go through the same two-approval review as other contributions.
 
+**Border & neighbours, and India in the world (new pages)**
+- **Border & neighbours** replaces "Border and China". It has one page per neighbour: China, Pakistan, Bangladesh, Nepal, Bhutan, Sri Lanka, Myanmar, Maldives and Afghanistan. Each page shows how the relationship has changed since 1947, through treaties, wars and clashes, trade, aid, migration, border agreements and incidents, all dated and sourced (MEA, treaties, Parliament answers, SIPRI, UN Comtrade).
+- **India in the world** covers four areas:
+  - How other countries see India: Pew Global Attitudes and other surveys with published methods, showing who was asked, when and how many.
+  - GDP and economic rank: IMF, World Bank and Maddison, in both PPP and market-rate terms.
+  - Military strength: SIPRI spending and arms transfers. Spending is an input, not proof of capability, and commercial "power rankings" are labelled with their method.
+  - Diplomacy and trade: memberships, embassies and trade partners.
+- The same rules apply as everywhere else: each source is its own line, every index carries a methodology note, and wins sit beside setbacks.
+
 **Login**
 - Sign in with Google, or with email and password. No magic links, and no phone OTP.
 

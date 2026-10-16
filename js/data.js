@@ -22,7 +22,28 @@ export async function loadData() {
     data = await fromLocal();
     data.origin = "local";
   }
-  return index(data);
+  const out = index(data);
+  out.population = await loadPopulation();
+  return out;
+}
+
+// Census state populations (persons), used only to weight an All-India average
+// when a source has no India figure. Optional: the site works without the file.
+async function loadPopulation() {
+  try {
+    const res = await fetch("data/population_state.csv");
+    if (!res.ok) return new Map();
+    const pop = new Map();
+    for (const r of csvParse(await res.text())) {
+      const v = Number(r.population), y = Number(r.year);
+      if (!Number.isFinite(v) || !Number.isFinite(y)) continue;
+      if (!pop.has(r.region_code)) pop.set(r.region_code, new Map());
+      pop.get(r.region_code).set(y, v);
+    }
+    return pop;
+  } catch {
+    return new Map();
+  }
 }
 
 async function rest(table, query = "select=*") {

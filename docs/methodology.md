@@ -52,6 +52,19 @@ Each calculated row's note starts with "Calculated by Tathya from Census counts"
 
 Before any row was used, the same formula was run on every case where ORGI also prints a percentage, and the results were compared.
 
+## Gaps filled with starred (*) estimates
+
+On the map, when a state has no figure for the round or year shown, Tathya fills it with an estimate and marks it with a **\***. The state is also faded with a dashed edge. A note under the map explains the star.
+
+1. **The state's own data in the same source** comes first: a straight line between its real points, or its recent trend after the last one (method below).
+2. **If that isn't possible, the same indicator from another source** that covers the state. For example, Manipur was not surveyed in NFHS-6, so its value comes from the DHS series of NFHS-1 to 5. The card names the source used.
+3. **India, when the source has no All-India figure** (for example, per capita state income): the population-weighted average of the states shown, using Census populations (RBI Handbook 2023-24, Table 1) for the census year at or before the year shown.
+   - It needs at least 80% of India's population covered.
+   - After 2014 Andhra Pradesh and Telangana are left out, and after 2019 J&K and Ladakh, because Census populations exist only for the undivided states.
+   - An official India figure, where one exists, is always used instead.
+
+No star is ever shown before a state's first real data point.
+
 ## Estimates (off by default)
 
 The reader can turn on "Show estimates for years without data". When it's on, the map slider moves year by year, and years without real data are filled with estimates. **An estimate is never data.** On the map it is faded with a dashed edge, and in rankings and cards it is marked ≈. Estimates can be shared, but every shared image carries an "ESTIMATE · NOT OFFICIAL DATA" stamp, a ≈ value, the method, the 90% range (for trends) and the real data points it is based on. The estimated bar is drawn as a dashed outline. Shared text begins with the same label, and links reopen the page in estimates mode.
