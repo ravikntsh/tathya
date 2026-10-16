@@ -37,6 +37,6 @@ Rules:
 
 ## Map
 
-`geo/india-states.topo.json` is built by `tools/build-map.html` (open it on the local server and press Build) from DataMeet boundaries that are kept outside git in `geo/src/`.
+`geo/india-states.topo.json` is built by `tools/build-map.html` (open it on the local server and press Build) from a January 2020 Survey-of-India-based state shapefile (AnujTiwari on GitHub, no licence yet) kept outside git in `geo/src/`.
 
 **It has not been verified against the Survey of India map.** The site shows a banner until that review is done. See [docs/methodology.md](docs/methodology.md#map).

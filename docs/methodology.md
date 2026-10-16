@@ -18,11 +18,8 @@
 
 ## Map
 
-- **Development boundaries:** from DataMeet (community data, `states.geojson` and `dists11.geojson`), rebuilt to current internal boundaries by `tools/build-map.html`:
-  - Ladakh UT = Leh + Kargil districts, plus Gilgit-Baltistan
-  - J&K UT = the other J&K districts, plus PoK
-  - Dadra & Nagar Haveli and Daman & Diu merged
-- **Approximation:** DataMeet has PoK and Gilgit-Baltistan as one unnamed polygon. It's split at 35.0°N (north to Ladakh, south to J&K) as a stand-in for the Survey of India line.
+- **Development boundaries:** the January 2020 state and UT boundary shapefile from github.com/AnujTiwari/India-State-and-Country-Shapefile-Updated-Jan-2020, which says it follows Survey of India records. It already has the 2019 J&K and Ladakh UTs (Gilgit-Baltistan and Aksai Chin in Ladakh, PoK in J&K) and the 2020 DNH-DD merger. `tools/build-map.html` reprojects and simplifies it.
+- **Licence:** that repository has no licence. Get the author's permission, or replace it with the Survey of India file, before launch.
 - **Not yet verified:** the map carries a "not yet verified against Survey of India" banner (`MAP_VERIFIED` in `js/config.js`). That stays until someone who knows the current Survey of India guidelines has checked it against the official political map.
 
 ## Colour
