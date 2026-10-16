@@ -168,7 +168,8 @@ const unitText = (i) => (i.unit === "%" ? "%" : ` ${i.unit}`);
 // Context events for an indicator's charts (data/context_events.json).
 function contextFor(indicatorId) {
   return (data.context || [])
-    .filter((e) => !e.indicators?.length || e.indicators.includes(indicatorId))
+    // "*" = shown on every chart (wars, the Emergency); an empty list = not on charts.
+    .filter((e) => e.indicators?.includes("*") || e.indicators?.includes(indicatorId))
     .map((e) => ({ year: Number(String(e.date).slice(0, 4)), endYear: e.end_date ? Number(String(e.end_date).slice(0, 4)) : null,
       label: e.label, summary: e.summary, when: e.end_date ? `${e.date} – ${e.end_date}` : e.date }));
 }

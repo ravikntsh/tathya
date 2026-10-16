@@ -1,0 +1,641 @@
+[
+  {
+    "id": "influenza-pandemic-1918",
+    "date": "1918",
+    "end_date": "1919",
+    "category": "health",
+    "label": "1918 influenza pandemic",
+    "summary": "An H1N1 influenza pandemic spread worldwide during 1918-1919, with at least 50 million deaths estimated globally.",
+    "indicators": [
+      "life_expectancy"
+    ],
+    "sources": [
+      {
+        "publisher": "U.S. Centers for Disease Control and Prevention",
+        "title": "1918 Pandemic (H1N1 virus)",
+        "url": "https://archive.cdc.gov/www_cdc_gov/flu/pandemic-resources/1918-pandemic-h1n1.html"
+      }
+    ]
+  },
+  {
+    "id": "bengal-famine-1943",
+    "date": "1943",
+    "category": "disaster",
+    "label": "Bengal famine",
+    "summary": "A famine in Bengal in 1943 caused deaths from starvation and disease; contemporary official records stated that province-wide death figures were not available.",
+    "indicators": [
+      "life_expectancy",
+      "infant_mortality"
+    ],
+    "sources": [
+      {
+        "publisher": "UK Parliament (Hansard)",
+        "title": "Bengal (Starvation and Disease), House of Commons, 16 December 1943",
+        "url": "https://api.parliament.uk/historic-hansard/commons/1943/dec/16/bengal-starvation-and-disease"
+      },
+      {
+        "publisher": "UK Parliament (Hansard)",
+        "title": "India (Food Situation), House of Commons, 28 October 1943",
+        "url": "https://api.parliament.uk/historic-hansard/commons/1943/oct/28/india-food-situation"
+      }
+    ]
+  },
+  {
+    "id": "india-pakistan-war-1947",
+    "date": "1947",
+    "end_date": "1948",
+    "category": "war",
+    "label": "1947-48 war",
+    "summary": "The dispute over Jammu and Kashmir led to the first India-Pakistan war in 1947-48, which ended with UN mediation.",
+    "indicators": [
+      "*"
+    ],
+    "sources": [
+      {
+        "publisher": "U.S. Department of State, Office of the Historian",
+        "title": "Milestones: The India-Pakistan War of 1965",
+        "url": "https://history.state.gov/milestones/1961-1968/india-pakistan-war"
+      }
+    ]
+  },
+  {
+    "id": "first-five-year-plan",
+    "date": "1951",
+    "category": "policy",
+    "label": "First Five-Year Plan",
+    "summary": "The Planning Commission, set up in March 1950, published the First Five-Year Plan in 1951.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "NITI Aayog Library (Planning Commission)",
+        "title": "The First Five Year Plan: A Summary",
+        "url": "https://digitallibrary.niti.gov.in/handle/123456789/3480"
+      }
+    ]
+  },
+  {
+    "id": "sino-indian-war-1962",
+    "date": "1962-10-20",
+    "category": "war",
+    "label": "India-China war",
+    "summary": "Chinese forces launched an attack along the NEFA border on 20 October 1962, beginning the India-China border war.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "U.S. Department of State, Office of the Historian (FRUS 1961-63, Vol. XIX, Doc. 190)",
+        "title": "Memorandum from Kaysen to President Kennedy, 3 November 1962",
+        "url": "https://history.state.gov/historicaldocuments/frus1961-63v19/d190"
+      }
+    ]
+  },
+  {
+    "id": "drought-1965-66",
+    "date": "1965",
+    "end_date": "1966",
+    "category": "disaster",
+    "label": "1965-66 drought",
+    "summary": "A monsoon failure combined with war preceded a contraction of GDP in 1965-66, one of three contractions since the 1960s identified by the RBI.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India (RBI Bulletin)",
+        "title": "Union Budget 2021-22: An Assessment (19 March 2021)",
+        "url": "https://rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=20142"
+      }
+    ]
+  },
+  {
+    "id": "india-pakistan-war-1965",
+    "date": "1965-08",
+    "end_date": "1965-09-22",
+    "category": "war",
+    "label": "1965 war",
+    "summary": "Hostilities between India and Pakistan intensified in August 1965; India accepted a UN ceasefire on 21 September and Pakistan on 22 September.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "U.S. Department of State, Office of the Historian",
+        "title": "Milestones: The India-Pakistan War of 1965",
+        "url": "https://history.state.gov/milestones/1961-1968/india-pakistan-war"
+      }
+    ]
+  },
+  {
+    "id": "hyv-programme-1966",
+    "date": "1966",
+    "category": "policy",
+    "label": "Green Revolution begins",
+    "summary": "The High-Yielding Varieties Programme was launched in the 1966-67 kharif season, alongside the introduction of high-yielding rice and wheat varieties.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India (Occasional Papers, Vol. 24, No. 3, 2003)",
+        "title": "Rural Income: Some Evidence of Effect of Rural Credit During Last Three Decades",
+        "url": "https://www.rbi.org.in/upload/publications/pdfs/60618.pdf"
+      },
+      {
+        "publisher": "Food and Agriculture Organization of the United Nations",
+        "title": "Bridging the rice yield gap in India (E.A. Siddiq)",
+        "url": "https://www.fao.org/4/x6905e/x6905e09.htm"
+      }
+    ]
+  },
+  {
+    "id": "rupee-devaluation-1966",
+    "date": "1966-06-06",
+    "category": "economy",
+    "label": "Rupee devalued 36.5%",
+    "summary": "The rupee was devalued by 36.5 per cent, moving the US dollar rate from Rs 4.75 to Rs 7.50.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India",
+        "title": "RBI History: Brief Chronology 1960 to 1971",
+        "url": "https://www.rbi.org.in/commonman/english/history/Scripts/Brief_Chro1960to1971.aspx"
+      }
+    ]
+  },
+  {
+    "id": "bank-nationalisation-1969",
+    "date": "1969-07-19",
+    "category": "economy",
+    "label": "Banks nationalised",
+    "summary": "Fourteen major scheduled commercial banks with deposits of over Rs 50 crore each were nationalised.",
+    "indicators": [
+      "household_banking"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India",
+        "title": "RBI History: Chronology of Events 1968 to 1985",
+        "url": "https://rbi.org.in/history/Brief_Chro1968to1985.html"
+      }
+    ]
+  },
+  {
+    "id": "india-pakistan-war-1971",
+    "date": "1971-12-03",
+    "end_date": "1971-12-17",
+    "category": "war",
+    "label": "1971 war",
+    "summary": "Open war between India and Pakistan began on 3 December 1971; a ceasefire took effect on 17 December 1971.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "U.S. Department of State, Office of the Historian",
+        "title": "Milestones: The South Asia Crisis and the Founding of Bangladesh, 1971",
+        "url": "https://history.state.gov/milestones/1969-1976/south-asia"
+      },
+      {
+        "publisher": "United Nations Peacekeeping",
+        "title": "UNMOGIP: United Nations Military Observer Group in India and Pakistan",
+        "url": "https://peacekeeping.un.org/en/mission/unmogip"
+      }
+    ]
+  },
+  {
+    "id": "oil-shock-1973",
+    "date": "1973-10-19",
+    "category": "economy",
+    "label": "First oil shock",
+    "summary": "Arab oil-exporting countries began an oil embargo in October 1973, and world oil prices quadrupled.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Federal Reserve History",
+        "title": "Oil Shock of 1973-74",
+        "url": "https://www.federalreservehistory.org/essays/oil-shock-of-1973-74"
+      },
+      {
+        "publisher": "Reserve Bank of India",
+        "title": "RBI History: Chronology of Events 1968 to 1985",
+        "url": "https://rbi.org.in/history/Brief_Chro1968to1985.html"
+      }
+    ]
+  },
+  {
+    "id": "emergency-1975",
+    "date": "1975-06-25",
+    "category": "politics",
+    "label": "Emergency",
+    "summary": "The President proclaimed a national Emergency under Article 352 of the Constitution on 25 June 1975, citing internal disturbance.",
+    "indicators": [
+      "*"
+    ],
+    "sources": [
+      {
+        "publisher": "Mizoram Gazette Extraordinary (reprinting Ministry of Home Affairs notification G.S.R. 353(E), 26 June 1975)",
+        "title": "Proclamation of Emergency, dated 25 June 1975",
+        "url": "https://mizoramassembly.in/storage/Assembly/Gazette/EO/GZEO4ISS_021.pdf"
+      }
+    ]
+  },
+  {
+    "id": "oil-shock-1979",
+    "date": "1979",
+    "category": "economy",
+    "label": "Second oil shock",
+    "summary": "World oil prices rose rapidly from mid-1979, more than doubling between April 1979 and April 1980.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Federal Reserve History",
+        "title": "Oil Shock of 1978-79",
+        "url": "https://www.federalreservehistory.org/essays/oil-shock-of-1978-79"
+      }
+    ]
+  },
+  {
+    "id": "drought-1979-80",
+    "date": "1979",
+    "end_date": "1980",
+    "category": "disaster",
+    "label": "1979 drought",
+    "summary": "A severe drought with a 19 per cent monsoon rainfall deficiency was followed by a contraction of GDP in 1979-80.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India (RBI Bulletin)",
+        "title": "Union Budget 2021-22: An Assessment (19 March 2021)",
+        "url": "https://rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=20142"
+      }
+    ]
+  },
+  {
+    "id": "bop-crisis-1991",
+    "date": "1991-07-01",
+    "category": "economy",
+    "label": "1991 crisis and reforms",
+    "summary": "During an external payments crisis the rupee was devalued in two stages on 1 and 3 July 1991, by about 18 per cent in US dollar terms, as economic reforms began.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India",
+        "title": "RBI History: Crisis and Reforms, 1991 to 2000",
+        "url": "https://www.rbi.org.in/commonman/english/history/Scripts/Chron1991to2000.aspx"
+      }
+    ]
+  },
+  {
+    "id": "panchayati-raj-amendments",
+    "date": "1992",
+    "category": "politics",
+    "label": "Panchayati Raj amendments",
+    "summary": "The 73rd and 74th Constitutional Amendments of 1992 gave constitutional status to elected village panchayats and urban local bodies.",
+    "indicators": [],
+    "sources": [
+      {
+        "publisher": "World Bank (Policy Research Working Paper 10793)",
+        "title": "Two Hundred and Fifty-Thousand Democracies: A Review of Village Government in India",
+        "url": "https://documents1.worldbank.org/curated/en/099352506052423764/pdf/IDU19460152816e9c1407d1974312e8ea5706cd3.pdf"
+      }
+    ]
+  },
+  {
+    "id": "asian-financial-crisis-1997",
+    "date": "1997-07",
+    "category": "economy",
+    "label": "Asian financial crisis",
+    "summary": "The Asian financial crisis began in Thailand with the floating of the baht in July 1997; the RBI introduced response measures in November 1997.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "International Monetary Fund",
+        "title": "Recovery from the Asian Crisis and the Role of the IMF (Issues Brief, June 2000)",
+        "url": "https://www.imf.org/external/np/exr/ib/2000/062300.htm"
+      },
+      {
+        "publisher": "Reserve Bank of India",
+        "title": "RBI History: Crisis and Reforms, 1991 to 2000",
+        "url": "https://www.rbi.org.in/commonman/english/history/Scripts/Chron1991to2000.aspx"
+      }
+    ]
+  },
+  {
+    "id": "kargil-war-1999",
+    "date": "1999-05",
+    "end_date": "1999-07-26",
+    "category": "war",
+    "label": "Kargil war",
+    "summary": "The Indian Army launched Operation Vijay in May 1999 against intrusions in Kargil, and the operation concluded on 26 July 1999.",
+    "indicators": [
+      "*"
+    ],
+    "sources": [
+      {
+        "publisher": "New India Samachar (Press Information Bureau), 16-31 July 2022",
+        "title": "Kargil Vijay Diwas 26 July: Bravehearts of Kargil",
+        "url": "https://newindiasamachar.pib.gov.in/WriteReadData/story/2022/Jul/S202207167790.pdf"
+      }
+    ]
+  },
+  {
+    "id": "rti-act-2005",
+    "date": "2005-10-12",
+    "category": "policy",
+    "label": "Right to Information Act",
+    "summary": "The Central Information Commission was constituted under the Right to Information Act, 2005 with effect from 12 October 2005.",
+    "indicators": [],
+    "sources": [
+      {
+        "publisher": "Central Information Commission",
+        "title": "About Us",
+        "url": "https://cic.gov.in/about-us"
+      }
+    ]
+  },
+  {
+    "id": "nrega-2006",
+    "date": "2006",
+    "category": "policy",
+    "label": "NREGA begins",
+    "summary": "The National Rural Employment Guarantee Act, guaranteeing 100 days of wage work per rural household, was implemented from 2006 in 200 districts and later extended in phases.",
+    "indicators": [],
+    "sources": [
+      {
+        "publisher": "World Bank (Policy Research Working Paper)",
+        "title": "A Tale of Two Programs: Assessing Treatment and Control in NREGA Studies",
+        "url": "https://documents1.worldbank.org/curated/en/123811635968088739/pdf/A-Tale-of-Two-Programs-Assessing-Treatment-and-Control-in-NREGA-Studies.pdf"
+      }
+    ]
+  },
+  {
+    "id": "global-financial-crisis-2008",
+    "date": "2008-09",
+    "category": "economy",
+    "label": "Global financial crisis",
+    "summary": "Lehman Brothers filed for bankruptcy in September 2008, deepening a global financial crisis and recession.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Federal Reserve History",
+        "title": "The Great Recession and Its Aftermath",
+        "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath"
+      }
+    ]
+  },
+  {
+    "id": "aadhaar-2010",
+    "date": "2010-09-29",
+    "category": "policy",
+    "label": "First Aadhaar issued",
+    "summary": "The first Aadhaar number was generated on 29 September 2010; UIDAI had been set up by a gazette notification dated 28 January 2009.",
+    "indicators": [
+      "household_banking",
+      "women_bank_account"
+    ],
+    "sources": [
+      {
+        "publisher": "Unique Identification Authority of India",
+        "title": "UIDAI Annual Report 2019-20",
+        "url": "https://uidai.gov.in/images/AADHAR_AR_2019_20_ENG_approved.pdf"
+      }
+    ]
+  },
+  {
+    "id": "taper-tantrum-2013",
+    "date": "2013-05-22",
+    "category": "economy",
+    "label": "Taper tantrum",
+    "summary": "After the US Federal Reserve signalled on 22 May 2013 that it would taper asset purchases, the rupee depreciated sharply to a record low in late August 2013.",
+    "indicators": [
+      "gdp_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India (RBI Bulletin)",
+        "title": "V. Financial Markets (Macroeconomic and Monetary Developments, 2014)",
+        "url": "https://rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=14726"
+      }
+    ]
+  },
+  {
+    "id": "jan-dhan-2014",
+    "date": "2014-08-28",
+    "category": "policy",
+    "label": "Jan Dhan Yojana",
+    "summary": "Pradhan Mantri Jan Dhan Yojana was launched as the National Mission for Financial Inclusion on 28 August 2014.",
+    "indicators": [
+      "women_bank_account",
+      "household_banking"
+    ],
+    "sources": [
+      {
+        "publisher": "Department of Financial Services, Ministry of Finance",
+        "title": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+        "url": "https://financialservices.gov.in/index.php/pradhan-mantri-jan-dhan-yojana-pmjdy"
+      }
+    ]
+  },
+  {
+    "id": "swachh-bharat-2014",
+    "date": "2014-10-02",
+    "category": "policy",
+    "label": "Swachh Bharat Mission",
+    "summary": "The Prime Minister launched the Swachh Bharat Mission on 2 October 2014.",
+    "indicators": [
+      "improved_sanitation",
+      "open_defecation"
+    ],
+    "sources": [
+      {
+        "publisher": "Department of Drinking Water and Sanitation, Ministry of Jal Shakti",
+        "title": "Swachh Bharat Mission (Grameen): About Us",
+        "url": "https://swachhbharatmission.ddws.gov.in/about-us"
+      }
+    ]
+  },
+  {
+    "id": "gdp-base-revision-2015",
+    "date": "2015-01-30",
+    "category": "statistics",
+    "label": "GDP base year 2011-12",
+    "summary": "The Central Statistics Office released a new national accounts series on 30 January 2015, shifting the base year from 2004-05 to 2011-12 with revised methods and data sources.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Ministry of Statistics and Programme Implementation",
+        "title": "Changes in Methodology and Data Sources in the New Series of National Accounts, Base Year 2011-12 (March 2015)",
+        "url": "https://mospi.gov.in/sites/default/files/press_releases_statements/Changes%20in%20Methodology%20NS%202011-12%20March%202015.pdf"
+      }
+    ]
+  },
+  {
+    "id": "ujjwala-2016",
+    "date": "2016-05-01",
+    "category": "policy",
+    "label": "Ujjwala LPG scheme",
+    "summary": "Pradhan Mantri Ujjwala Yojana, providing LPG connections to poor households, was launched on 1 May 2016 in Ballia, Uttar Pradesh.",
+    "indicators": [
+      "clean_fuel"
+    ],
+    "sources": [
+      {
+        "publisher": "Ministry of Petroleum and Natural Gas (PMUY portal)",
+        "title": "About PMUY",
+        "url": "https://pmuy.gov.in/about.html"
+      }
+    ]
+  },
+  {
+    "id": "insolvency-code-2016",
+    "date": "2016-05-28",
+    "category": "policy",
+    "label": "Insolvency code enacted",
+    "summary": "The Insolvency and Bankruptcy Code, 2016 received Presidential assent on 28 May 2016 after passage by both Houses of Parliament.",
+    "indicators": [],
+    "sources": [
+      {
+        "publisher": "Insolvency and Bankruptcy Board of India",
+        "title": "Building the Insolvency and Bankruptcy Board of India (Report of Working Group 1)",
+        "url": "https://ibbi.gov.in/Wg-01%20Report.pdf"
+      },
+      {
+        "publisher": "PRS Legislative Research",
+        "title": "The Insolvency and Bankruptcy Code, 2015 (bill track)",
+        "url": "https://prsindia.org/billtrack/the-insolvency-and-bankruptcy-code-2015"
+      }
+    ]
+  },
+  {
+    "id": "demonetisation-2016",
+    "date": "2016-11-08",
+    "category": "economy",
+    "label": "Demonetisation",
+    "summary": "Under a Government of India notification dated 8 November 2016, existing Rs 500 and Rs 1000 banknotes ceased to be legal tender from 9 November 2016.",
+    "indicators": [
+      "gdp_per_capita",
+      "household_banking"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India",
+        "title": "RBI/2016-17/112: Withdrawal of Legal Tender Character of existing Rs 500 and Rs 1000 Bank Notes (8 November 2016)",
+        "url": "https://www.rbi.org.in/commonman/Upload/English/Notification/PDFs/NOTI11270CF2F17E86E4C5F92FEDFFDF8820934.pdf"
+      }
+    ]
+  },
+  {
+    "id": "gst-2017",
+    "date": "2017-07-01",
+    "category": "policy",
+    "label": "GST introduced",
+    "summary": "The Goods and Services Tax replaced a range of central and state indirect taxes from 1 July 2017.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita"
+    ],
+    "sources": [
+      {
+        "publisher": "Reserve Bank of India",
+        "title": "Annual Report 2016-17, Chapter I: Assessment and Prospects",
+        "url": "https://rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1201"
+      }
+    ]
+  },
+  {
+    "id": "jal-jeevan-mission-2019",
+    "date": "2019-08-15",
+    "category": "policy",
+    "label": "Jal Jeevan Mission",
+    "summary": "Jal Jeevan Mission, aiming at a tap water connection for every rural household, was announced on 15 August 2019.",
+    "indicators": [
+      "tap_water",
+      "improved_water"
+    ],
+    "sources": [
+      {
+        "publisher": "Jal Jeevan Mission, Ministry of Jal Shakti",
+        "title": "Union Jal Shakti Minister chairs day-long regional conference of 6 States on JJM and SBM(G) in Kolkata",
+        "url": "https://jaljeevanmission.gov.in/media/union-jal-shakti-minister-shri-gajendra-singh-shekhawat-chairs-day-long-regional-conference-6"
+      }
+    ]
+  },
+  {
+    "id": "covid-first-case-2020",
+    "date": "2020-01-30",
+    "category": "health",
+    "label": "First COVID-19 case",
+    "summary": "India's first laboratory-confirmed case of the novel coronavirus was reported in Kerala on 30 January 2020.",
+    "indicators": [
+      "life_expectancy"
+    ],
+    "sources": [
+      {
+        "publisher": "World Health Organization, Country Office for India",
+        "title": "Novel Coronavirus (2019-nCoV) India Situation Report 1 (31 January 2020)",
+        "url": "https://www.who.int/docs/default-source/wrindia/india-situation-report-1.pdf"
+      }
+    ]
+  },
+  {
+    "id": "covid-lockdown-2020",
+    "date": "2020-03-25",
+    "category": "health",
+    "label": "COVID-19 lockdown",
+    "summary": "A nationwide lockdown for 21 days took effect on 25 March 2020 under the Disaster Management Act, 2005, and was later extended.",
+    "indicators": [
+      "gdp_per_capita",
+      "state_income_per_capita",
+      "life_expectancy"
+    ],
+    "sources": [
+      {
+        "publisher": "World Health Organization, Country Office for India",
+        "title": "COVID-19 India Situation Report 9 (28 March 2020)",
+        "url": "https://www.who.int/docs/default-source/wrindia/situation-report/india-situation-report-9.pdf"
+      }
+    ]
+  },
+  {
+    "id": "census-2021-not-held",
+    "date": "2021",
+    "category": "statistics",
+    "label": "Census 2021 not held",
+    "summary": "The decennial census declared in March 2019 was not conducted in 2021; a notification of 16 June 2025 superseded that declaration and set the census for 2027.",
+    "indicators": [
+      "literacy"
+    ],
+    "sources": [
+      {
+        "publisher": "Gazette of Meghalaya (republishing Ministry of Home Affairs notification S.O. 2681(E), 16 June 2025)",
+        "title": "Census of India 2027 notification",
+        "url": "https://megpns.gov.in/gazette/2025/07/10-07-25-III.pdf"
+      }
+    ]
+  }
+]
