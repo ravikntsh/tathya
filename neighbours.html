@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tathya: India and its neighbours</title>
+  <meta name="description" content="How India's relations with China, Pakistan, Bangladesh, Nepal, Bhutan, Sri Lanka, Myanmar, the Maldives and Afghanistan changed since 1947, with a source for every event.">
+  <meta property="og:title" content="Tathya: India and its neighbours">
+  <meta property="og:description" content="Treaties, wars, border deals and trade since 1947, with a source for every event.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="module" src="js/neighbours.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <a class="brand" href="index.html">
+      <span class="logo" aria-hidden="true">त</span>
+      <div>
+        <strong>Tathya</strong>
+        <span class="tagline" data-i18n="tagline"></span>
+      </div>
+    </a>
+    <div class="top-actions">
+      <button id="lang" class="pill" type="button" aria-label="Switch language">हिं</button>
+      <button id="theme" class="pill" type="button" aria-label="Switch colour theme">◐</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="rail" aria-labelledby="rail-h">
+      <h2 id="rail-h" class="rail-h" data-i18n="issues"></h2>
+      <ul id="issues"></ul>
+    </nav>
+
+    <main id="main">
+      <section class="intro">
+        <h1 data-i18n="nbTitle"></h1>
+        <p data-i18n="nbIntro"></p>
+      </section>
+
+      <div id="countries" class="chips" role="tablist" aria-label="Neighbour"></div>
+      <p id="status" class="status" role="status"></p>
+
+      <div class="nb-grid">
+        <section class="panel" aria-labelledby="tl-h">
+          <div class="panel-head">
+            <h2 id="tl-h" data-i18n="nbTimeline"></h2>
+            <div id="types" class="chips small-chips" role="group" aria-label="Event type"></div>
+          </div>
+          <ol id="timeline" class="timeline"></ol>
+        </section>
+
+        <aside class="side">
+          <section class="panel">
+            <h2 data-i18n="nbTrade"></h2>
+            <div id="trade-stats" class="nb-stats"></div>
+            <div id="trade-chart"></div>
+            <p id="trade-note" class="muted small"></p>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <p data-i18n="nbFoot"></p>
+    <p><a href="docs/corrections.md" data-i18n="corrections"></a> · <a href="docs/methodology.md" data-i18n="methodology"></a> · <a href="https://github.com/ravikntsh/tathya">GitHub</a></p>
+  </footer>
+</body>
+</html>

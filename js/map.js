@@ -88,7 +88,7 @@ export function createMap(container, features, { onSelect }) {
   svg.appendChild(inset);
   container.replaceChildren(svg);
 
-  function update({ valueOf, regionName, selected, label, format = (v) => fmt(v) + "%", isEstimate = () => false }) {
+  function update({ valueOf, regionName, selected, label, format = (v) => fmt(v) + "%", isEstimate = () => false, note = () => "" }) {
     svg.setAttribute("aria-label", label);
     for (const [code, s] of shapes) {
       const v = valueOf(code);
@@ -100,7 +100,8 @@ export function createMap(container, features, { onSelect }) {
       s.el.classList.toggle("selected", isSel);
       // Tiny UTs show their star on the badge instead of over the shape.
       if (s.star) s.star.style.display = est && !s.badge ? "" : "none";
-      const text = `${regionName(code)}: ${v == null ? t("noData") : format(v)}${est ? `* (${t("estimateShort")})` : ""}`;
+      const extra = note(code);
+      const text = `${regionName(code)}: ${v == null ? t("noData") : format(v)}${est ? `* (${t("estimateShort")})` : ""}${extra ? ` (${extra})` : ""}`;
       s.title.textContent = text;
       s.el.setAttribute("aria-label", text);
       s.el.setAttribute("aria-pressed", String(isSel));

@@ -5,6 +5,7 @@ import { t, tr, fmt, setLang, getLang } from "./i18n.js";
 import { cardLink, shareTexts, shareImage, download, copy } from "./share.js";
 import { MAP_VERIFIED } from "./config.js";
 import { estimateAt } from "./estimate.js";
+import { renderRail } from "./rail.js";
 
 const $ = (id) => document.getElementById(id);
 const RANGES = { all: 1850, 1947: 1947, 1991: 1991 };
@@ -80,12 +81,7 @@ function writeHash() {
 function applyStaticText() {
   document.querySelectorAll("[data-i18n]").forEach((el) => (el.textContent = t(el.dataset.i18n)));
   $("lang").textContent = getLang() === "en" ? "हिं" : "EN";
-  const issues = t("issueList");
-  $("issues").innerHTML =
-    `<li><a href="#" class="active" aria-current="page">${t("development")}</a></li>` +
-    issues.map((i) => Array.isArray(i)
-      ? `<li class="rail-group"><span class="rail-group-h">${esc(i[0])}</span><ul>${i[1].map((x) => `<li><span aria-disabled="true">${esc(x)}</span></li>`).join("")}</ul><small class="rail-soon">${t("soon")}</small></li>`
-      : `<li><span aria-disabled="true">${esc(i)}<small>${t("soon")}</small></span></li>`).join("");
+  renderRail($("issues"), { active: "development" });
 }
 
 function bindControls() {
@@ -193,6 +189,11 @@ function yearSlots() {
 //   (between its real points, or its recent trend), shown with a star (*);
 // - for India only, when no official figure exists: the population-weighted
 //   average of the states shown (also starred and labelled as calculated).
+// States created by splitting another: before the split, a source reports only
+// the parent, so the child area shows the parent's figure (real data for the state
+// as it then was), labelled "part of undivided ...", not starred.
+const SPLITS = { TG: ["AP", 2014], LA: ["JK", 2019], CT: ["MP", 2000], JH: ["BR", 2000], UT: ["UP", 2000] };
+
 function cell(code) {
   if (!state.dataset) return null;
   const year = estMode() ? state.year : data.periods(state.indicator, state.dataset, { statesOnly: true }).find((p) => p.period === state.period)?.year;
@@ -201,6 +202,13 @@ function cell(code) {
     if (o) return { kind: "obs", value: o.value, o };
   }
   if (year == null) return null;
+  const split = SPLITS[code];
+  if (split && year < split[1]) {
+    const po = estMode()
+      ? data.series(state.indicator, state.dataset, split[0]).find((p) => p.year === year)
+      : data.get(state.indicator, state.dataset, state.period, split[0]);
+    if (po) return { kind: "parent", value: po.value, o: po, parent: split[0] };
+  }
   const opts = { bounds: boundsOf(ind()), scale: scaleOf(ind()) };
   const own = estimateAt(data.series(state.indicator, state.dataset, code), year, opts);
   if (own) return own;
@@ -233,7 +241,7 @@ function weightedIndia(cells, year) {
   for (const s of data.states) {
     if (skip.has(s.code)) continue;
     const c = cells.get(s.code), p = pop.get(s.code)?.get(wy);
-    if (c && p) { sum += c.value * p; w += p; n++; }
+    if (c && p && c.kind !== "parent") { sum += c.value * p; w += p; n++; }
   }
   if (!w || w / total < 0.8) return null;
   return { kind: "weighted", value: sum / w, states: n, coverage: w / total, popYear: wy, skipped: [...skip] };
@@ -295,17 +303,19 @@ function render() {
   }
   lastCells = cells;
   const valueOf = (code) => cells.get(code)?.value ?? null;
-  const isEstimate = (code) => !!cells.get(code) && cells.get(code).kind !== "obs";
-  const anyStar = [...cells.values()].some((c) => c && c.kind !== "obs");
+  const isEstimate = (code) => !!cells.get(code) && !["obs", "parent"].includes(cells.get(code).kind);
+  const parentOf = (code) => (cells.get(code)?.kind === "parent" ? cells.get(code).parent : null);
+  const anyStar = [...cells.values()].some((c) => c && !["obs", "parent"].includes(c.kind));
   $("star-note").hidden = !anyStar;
   const when = estMode() ? String(state.year) : state.period ?? "";
-  map?.update({ valueOf, regionName, selected: state.region, label: `${tr(i.label)}, ${when}`, format: (v) => fmtVal(v), isEstimate });
+  map?.update({ valueOf, regionName, selected: state.region, label: `${tr(i.label)}, ${when}`, format: (v) => fmtVal(v), isEstimate,
+    note: (code) => (parentOf(code) ? t("partOf")(regionName(parentOf(code))) : "") });
   renderLegend($("legend"), i.unit, { estimates: estMode() });
 
   // Rankings
   const ranked = data.states
     .map((s) => ({ code: s.code, name: regionName(s.code), value: valueOf(s.code), est: isEstimate(s.code) }))
-    .filter((r) => r.value != null)
+    .filter((r) => r.value != null && !parentOf(r.code))
     .sort((a, b) => (i.higher_is_better ? b.value - a.value : a.value - b.value));
   rankBars($("top"), ranked.slice(0, 5), { onSelect: selectRegion, selected: state.region, domain: i.domain, decimals: i.decimals });
   rankBars($("bottom"), ranked.slice(-5).reverse(), { onSelect: selectRegion, selected: state.region, domain: i.domain, decimals: i.decimals });
@@ -381,10 +391,11 @@ function renderCard() {
   // National-only indicators: show India's latest value from the first national source.
   const natDs = data.nationalDatasets(state.indicator)[0];
   const c = lastCells?.get(code) ?? cell(code);
+  const parentNote = c?.kind === "parent" ? `<p><span class="calc-tag">${t("partOf")(regionName(c.parent))}</span></p>` : "";
   if (c && c.kind === "weighted") return renderWeightedCard(el, i, c);
-  if (c && c.kind !== "obs") return renderEstimateCard(el, i, code, c);
+  if (c && !["obs", "parent"].includes(c.kind)) return renderEstimateCard(el, i, code, c);
   const o = state.dataset
-    ? c?.o ?? null
+    ? (c && ["obs", "parent"].includes(c.kind) ? c.o : null)
     : code === "IN" && natDs ? data.series(state.indicator, natDs, "IN").at(-1) ?? null : null;
   if (!o) {
     el.innerHTML = `<p class="region">${esc(regionName(code))}</p><p class="ind">${esc(tr(i.label))}</p>
@@ -402,6 +413,7 @@ function renderCard() {
     <p class="big">${fmt(o.value, i.decimals)}<small>${esc(unitText(i))}</small></p>
     <p class="when">${esc(o.period)} · ${esc(dsLabel(o.dataset))}</p>
     ${o.derived ? `<p><span class="calc-tag">${t("calcTag")}</span></p>` : ""}
+    ${parentNote}
     ${d == null ? (prev ? `<p class="muted small">${t("notComparable")}</p>` : "")
       : `<p class="delta ${good ? "up" : "down"}">${d >= 0 ? "▲ +" : "▼ "}${fmt(d, i.decimals)}${esc(deltaUnit(i))} · ${t("change")} ${esc(prev.period)} (${fmtVal(prev.value)})</p>`}
     <p class="src">${sourceLine(o)}</p>
