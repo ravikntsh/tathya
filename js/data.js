@@ -37,13 +37,17 @@ async function fromSupabase() {
     rest("datasets"),
     rest("sources"),
   ]);
-  // PostgREST caps responses, so page through observations.
-  const observations = [];
-  for (let from = 0; ; from += 1000) {
-    const page = await rest("observations", `select=*&order=id&offset=${from}&limit=1000`);
-    observations.push(...page);
-    if (page.length < 1000) break;
-  }
+  // PostgREST caps responses at 1,000 rows: read the total, then fetch all pages in parallel.
+  const head = await fetch(`${SUPABASE_URL}/rest/v1/observations?select=id&limit=1`, {
+    headers: { apikey: SUPABASE_ANON_KEY, Prefer: "count=exact" },
+  });
+  if (!head.ok) throw new Error(`observations: HTTP ${head.status}`);
+  const total = Number(head.headers.get("content-range")?.split("/")[1]) || 0;
+  const pages = await Promise.all(
+    Array.from({ length: Math.ceil(total / 1000) }, (_, k) =>
+      rest("observations", `select=*&order=id&offset=${k * 1000}&limit=1000`))
+  );
+  const observations = pages.flat();
   if (observations.length && !("dataset_id" in observations[0])) throw new Error("old schema");
   return { regions, indicators, datasets, sources, observations: observations.map(normalise) };
 }
