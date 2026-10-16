@@ -66,7 +66,7 @@ export function createMap(container, features, { onSelect }) {
   }
   container.replaceChildren(svg);
 
-  function update({ valueOf, regionName, selected, label, format = (v) => fmt(v) + "%" }) {
+  function update({ valueOf, regionName, selected, label, format = (v) => fmt(v) + "%", isEstimate = () => false }) {
     svg.setAttribute("aria-label", label);
     for (const [code, s] of shapes) {
       const v = valueOf(code);
@@ -74,9 +74,12 @@ export function createMap(container, features, { onSelect }) {
       s.el.style.fill = fill;
       if (s.ring) s.ring.style.fill = fill;
       const isSel = code === selected;
+      const est = v != null && isEstimate(code);
+      s.el.classList.toggle("est", est);
+      s.ring?.classList.toggle("est", est);
       s.el.classList.toggle("selected", isSel);
       s.ring?.classList.toggle("selected", isSel);
-      const text = `${regionName(code)}: ${v == null ? t("noData") : format(v)}`;
+      const text = `${regionName(code)}: ${v == null ? t("noData") : (est ? "≈ " : "") + format(v)}${est ? ` (${t("estimateShort")})` : ""}`;
       s.title.textContent = text;
       s.el.setAttribute("aria-label", text);
       s.el.setAttribute("aria-pressed", String(isSel));
@@ -85,7 +88,7 @@ export function createMap(container, features, { onSelect }) {
   return { update };
 }
 
-export function renderLegend(el, unit = "%") {
+export function renderLegend(el, unit = "%", { estimates = false } = {}) {
   const th = thresholds();
   const n = (v) => fmt(v, 0);
   const cells = [0, 1, 2, 3, 4].map((i) => {
@@ -94,6 +97,6 @@ export function renderLegend(el, unit = "%") {
     return `<span class="lg-cell"><i style="background:var(--seq-${i})"></i>${n(lo)}–${n(hi)}${unit === "%" ? "%" : ""}</span>`;
   });
   if (unit !== "%") cells.push(`<span class="lg-cell muted">${unit}</span>`);
-  el.innerHTML = `${cells.join("")}<span class="lg-cell"><i class="lg-nodata"></i>${t("noData")}</span>`;
+  el.innerHTML = `${cells.join("")}<span class="lg-cell"><i class="lg-nodata"></i>${t("noData")}</span>${estimates ? `<span class="lg-cell"><i class="lg-est"></i>${t("estimateLegend")}</span>` : ""}`;
 }
 

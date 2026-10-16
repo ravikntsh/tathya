@@ -1,6 +1,6 @@
 import { scaleLinear } from "https://cdn.jsdelivr.net/npm/d3-scale@4.0.2/+esm";
 import { t, fmt, fmtCompact } from "./i18n.js";
-import { projection, interpolate } from "./estimate.js";
+import { projection, interpolate, projectionEnd } from "./estimate.js";
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
@@ -20,12 +20,16 @@ const W = 420, H = 230, M = { t: 14, r: 46, b: 26, l: 46 };
 // breakBefore starts a new segment, so a definition change is never joined up.
 // With estimates on, each line gets a dashed projection and a shaded 90% range
 // after its last point, and hovering between points shows interpolated values.
-export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds }) {
+export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds, scale }) {
   const toYear = Math.max(new Date().getFullYear() + 4, xDomain[1]);
-  // Only extend series that are still being published (latest point within 10 years);
+  // Only extend series that are still current (see projectionEnd in estimate.js);
   // a series that ended in 1946 is history, not something to project.
-  const thisYear = new Date().getFullYear();
-  const projs = lines.map((l) => (estimates && (l.points.at(-1)?.year ?? 0) >= thisYear - 10 ? projection(l.points, { toYear, bounds }) : null));
+  const projs = lines.map((l) => {
+    const last = l.points.at(-1)?.year;
+    if (!estimates || last == null) return null;
+    const end = projectionEnd(last);
+    return end > last ? projection(l.points, { toYear: end, bounds, scale }) : null;
+  });
   const xMax = projs.some(Boolean) ? toYear : xDomain[1];
   const x = scaleLinear([xDomain[0], xMax], [M.l, W - M.r]);
   const y = scaleLinear(yDomain, [H - M.b, M.t]).nice();
@@ -199,7 +203,7 @@ export function rankBars(el, rows, { onSelect, selected, domain, decimals }) {
       (r) => `<button class="rank-row${r.code === selected ? " selected" : ""}" data-code="${r.code}">
       <span class="rank-name">${esc(r.name)}</span>
       <span class="rank-bar"><i style="width:${Math.max(0, Math.min(100, ((r.value - lo) / (hi - lo)) * 100))}%"></i></span>
-      <span class="rank-val">${r.value >= 100000 ? fmtCompact(r.value) : fmt(r.value, decimals)}</span></button>`
+      <span class="rank-val">${r.est ? "≈ " : ""}${r.value >= 100000 ? fmtCompact(r.value) : fmt(r.value, decimals)}</span></button>`
     )
     .join("");
   el.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => onSelect(b.dataset.code)));

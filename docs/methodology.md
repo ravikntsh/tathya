@@ -40,6 +40,17 @@
 - **NFHS-1 to 3 India reports.** "Any toilet" (1992-2006) and women's bank accounts (NFHS-3) were read from the printed India reports. NFHS-1 is a scanned report, so its values are lower-confidence.
 - **International series** (World Bank, WHO/UNICEF JMP, WHO, Findex, UN WPP, UN IGME, UNESCO) are republished or modelled estimates. Each source entry names the original provider. They measure slightly different things from the Indian surveys (for example, population instead of households, or adults 15+ instead of age 7+), and the definition box says so.
 
+## Estimates (off by default)
+
+The reader can turn on "Show estimates for years without data". When it's on, the map slider moves year by year, and years without real data are filled with estimates. **An estimate is never data.** On the map it is faded with a dashed edge, in rankings and cards it is marked ≈, and it can't be shared as an image or text.
+
+- **Between two real data points** of the same series: a straight line. If a definition or territory changes between the two points, there is no estimate across that gap.
+- **After the latest point:** a trend through the latest (up to) five points of the latest unbroken segment, with a 90% prediction interval. It needs at least three points.
+  - **Scale:** the trend is fitted on a logit scale for percentages, so it flattens near 0% and 100%, and on a log scale for rates per 1,000 such as infant mortality, so it stays above zero. Other indicators use a straight line.
+  - **How far:** only series whose latest point is within 15 years are extended, and at most 15 years past that point, and never beyond four years from today. A series that ended in 1946 is never projected.
+  - **Too uncertain:** if the 90% range is wider than the estimate itself, no estimate is shown. This happens for small states whose yearly figures swing widely.
+- **No estimates before the first real data point.**
+
 ## Map
 
 - **Development boundaries:** the January 2020 state and UT boundary shapefile from github.com/AnujTiwari/India-State-and-Country-Shapefile-Updated-Jan-2020, which says it follows Survey of India records. It already has the 2019 J&K and Ladakh UTs (Gilgit-Baltistan and Aksai Chin in Ladakh, PoK in J&K) and the 2020 DNH-DD merger. `tools/build-map.html` reprojects and simplifies it.

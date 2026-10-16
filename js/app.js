@@ -4,10 +4,11 @@ import { yearChart, rankBars, dataTable, esc, LINE_STYLES, chartPng } from "./ch
 import { t, tr, fmt, setLang, getLang } from "./i18n.js";
 import { cardLink, shareTexts, shareImage, download, copy } from "./share.js";
 import { MAP_VERIFIED } from "./config.js";
+import { estimateAt } from "./estimate.js";
 
 const $ = (id) => document.getElementById(id);
 const RANGES = { all: 1850, 1947: 1947, 1991: 1991 };
-const state = { indicator: null, dataset: null, period: null, region: null, range: "all", cmpA: "", cmpB: "", estimates: false };
+const state = { indicator: null, dataset: null, period: null, region: null, range: "all", cmpA: "", cmpB: "", estimates: false, year: null };
 let data, map;
 
 init();
@@ -34,6 +35,7 @@ async function init() {
   bindControls();
   // Browsers restore checkbox state on reload; keep it in step with the page state.
   $("estimates").checked = state.estimates;
+  $("est-note").hidden = !state.estimates;
   render();
 }
 
@@ -61,6 +63,8 @@ function readHash() {
   state.period = p.get("round") || null;
   state.region = p.get("state") || null;
   if (RANGES[p.get("from")]) state.range = p.get("from");
+  state.estimates = p.get("est") === "1";
+  state.year = Number(p.get("yr")) || null;
 }
 
 function writeHash() {
@@ -69,6 +73,7 @@ function writeHash() {
   if (state.period) p.set("round", state.period);
   if (state.region) p.set("state", state.region);
   if (state.range !== "all") p.set("from", state.range);
+  if (state.estimates) { p.set("est", "1"); if (state.year) p.set("yr", state.year); }
   history.replaceState(null, "", `#${p}`);
 }
 
@@ -83,8 +88,12 @@ function applyStaticText() {
 
 function bindControls() {
   $("round").addEventListener("input", (e) => {
-    const ps = data.periods(state.indicator, state.dataset, { statesOnly: true });
-    state.period = ps[Number(e.target.value)]?.period ?? null;
+    if (estMode()) {
+      state.year = yearSlots()[Number(e.target.value)] ?? state.year;
+    } else {
+      const ps = data.periods(state.indicator, state.dataset, { statesOnly: true });
+      state.period = ps[Number(e.target.value)]?.period ?? null;
+    }
     render();
   });
   $("source").addEventListener("change", (e) => {
@@ -122,8 +131,15 @@ function bindControls() {
   $("estimates").addEventListener("change", (e) => {
     state.estimates = e.target.checked;
     $("est-note").hidden = !state.estimates;
-    renderTrend();
-    renderCompare();
+    const ps = state.dataset ? data.periods(state.indicator, state.dataset, { statesOnly: true }) : [];
+    if (state.estimates) {
+      // Start the year slider at the round that was showing.
+      state.year = ps.find((p) => p.period === state.period)?.year ?? ps.at(-1)?.year ?? null;
+    } else if (state.year) {
+      // Back to rounds: the latest round at or before the chosen year.
+      state.period = (ps.filter((p) => p.year <= state.year).at(-1) ?? ps[0])?.period ?? state.period;
+    }
+    render();
   });
   $("chart-png").addEventListener("click", async () => {
     const i = ind();
@@ -153,9 +169,31 @@ const ind = () => data.indicatorById.get(state.indicator);
 const unitText = (i) => (i.unit === "%" ? "%" : ` ${i.unit}`);
 // Estimates can't go below 0, or above 100 for percentages.
 const boundsOf = (i) => [0, i.unit === "%" ? 100 : Infinity];
+// Trend scale for estimates: logit for percentages, log for rates per 1,000, linear otherwise.
+const scaleOf = (i) => (i.unit === "%" ? "logit" : /per 1,000/.test(i.unit) ? "log" : "linear");
 const fmtVal = (v, i = ind()) => `${fmt(v, i.decimals ?? 1)}${unitText(i)}`;
 // Changes in a percentage are percentage points, not per cent.
 const deltaUnit = (i) => (i.unit === "%" ? ` ${t("pts")}` : unitText(i));
+
+// Estimates mode: the slider moves year by year from the dataset's first round to
+// this year, and the map fills years without data with clearly marked estimates.
+const estMode = () => state.estimates && !!state.dataset;
+function yearSlots() {
+  const ps = data.periods(state.indicator, state.dataset, { statesOnly: true });
+  if (!ps.length) return [];
+  const out = [];
+  for (let y = ps[0].year; y <= new Date().getFullYear(); y++) out.push(y);
+  return out;
+}
+// The value shown for one region: observed, or (in estimates mode) an estimate.
+function cell(code) {
+  if (!state.dataset) return null;
+  if (!estMode()) {
+    const o = data.get(state.indicator, state.dataset, state.period, code);
+    return o ? { kind: "obs", value: o.value, o } : null;
+  }
+  return estimateAt(data.series(state.indicator, state.dataset, code), state.year, { bounds: boundsOf(ind()), scale: scaleOf(ind()) });
+}
 
 function render() {
   const i = ind();
@@ -180,18 +218,23 @@ function render() {
   $("source").value = state.dataset ?? "";
   $("source-field").hidden = stateDs.length < 2;
   const periods = state.dataset ? data.periods(state.indicator, state.dataset, { statesOnly: true }) : [];
-  const idx = Math.max(0, periods.findIndex((p) => p.period === state.period));
+  const slots = estMode()
+    ? yearSlots().map((y) => ({ period: String(y), year: y, real: periods.some((p) => p.year === y) }))
+    : periods.map((p) => ({ ...p, real: true }));
+  if (estMode() && !slots.some((x) => x.year === state.year)) state.year = slots.at(-1)?.year ?? null;
+  const idx = Math.max(0, estMode() ? slots.findIndex((x) => x.year === state.year) : slots.findIndex((p) => p.period === state.period));
   const slider = $("round");
-  slider.max = Math.max(0, periods.length - 1);
+  slider.max = Math.max(0, slots.length - 1);
   slider.value = idx;
-  slider.disabled = periods.length < 2;
-  slider.setAttribute("aria-valuetext", periods[idx]?.period ?? t("noData"));
-  // Long series: label first, current and last only.
-  $("round-ticks").innerHTML = periods
-    .map((p, k) => (periods.length <= 6 || k === 0 || k === idx || k === periods.length - 1)
-      ? `<span class="${k === idx ? "active" : ""}">${esc(p.period)}</span>` : "")
+  slider.disabled = slots.length < 2;
+  slider.setAttribute("aria-valuetext", slots[idx] ? `${slots[idx].period}${slots[idx].real ? "" : ` (${t("estimateShort")})`}` : t("noData"));
+  document.querySelector('label[for="round"]').textContent = estMode() ? t("estYear") : t("round");
+  // Long series: label first, current and last only. Years without real data get a *.
+  $("round-ticks").innerHTML = slots
+    .map((p, k) => (slots.length <= 6 || k === 0 || k === idx || k === slots.length - 1)
+      ? `<span class="${k === idx ? "active" : ""}">${esc(p.period)}${p.real ? "" : "*"}</span>` : "")
     .join("");
-  $("slider-field").hidden = periods.length === 0;
+  $("slider-field").hidden = slots.length === 0;
 
   $("status").className = "status";
   $("status").textContent = "";
@@ -201,13 +244,16 @@ function render() {
   }
   $("origin").textContent = data.origin === "supabase" ? "Supabase" : "data/observations.csv";
 
-  const valueOf = (code) => (state.dataset ? data.get(state.indicator, state.dataset, state.period, code)?.value ?? null : null);
-  map?.update({ valueOf, regionName, selected: state.region, label: `${tr(i.label)}, ${state.period ?? ""}`, format: (v) => fmtVal(v) });
-  renderLegend($("legend"), i.unit);
+  const cells = new Map(["IN", ...data.states.map((s) => s.code)].map((c) => [c, cell(c)]));
+  const valueOf = (code) => cells.get(code)?.value ?? null;
+  const isEstimate = (code) => !!cells.get(code) && cells.get(code).kind !== "obs";
+  const when = estMode() ? String(state.year) : state.period ?? "";
+  map?.update({ valueOf, regionName, selected: state.region, label: `${tr(i.label)}, ${when}`, format: (v) => fmtVal(v), isEstimate });
+  renderLegend($("legend"), i.unit, { estimates: estMode() });
 
   // Rankings
   const ranked = data.states
-    .map((s) => ({ code: s.code, name: regionName(s.code), value: valueOf(s.code) }))
+    .map((s) => ({ code: s.code, name: regionName(s.code), value: valueOf(s.code), est: isEstimate(s.code) }))
     .filter((r) => r.value != null)
     .sort((a, b) => (i.higher_is_better ? b.value - a.value : a.value - b.value));
   rankBars($("top"), ranked.slice(0, 5), { onSelect: selectRegion, selected: state.region, domain: i.domain, decimals: i.decimals });
@@ -219,8 +265,9 @@ function render() {
   // Text summary
   const nat = valueOf("IN");
   $("summary").textContent = ranked.length
-    ? t("summary")(tr(i.short_label), `${state.period} (${dsLabel(state.dataset)})`, nat != null ? fmtVal(nat) : "",
-        `${ranked[0].name} ${fmtVal(ranked[0].value)}`, `${ranked.at(-1).name} ${fmtVal(ranked.at(-1).value)}`)
+    ? t("summary")(tr(i.short_label), `${when} (${dsLabel(state.dataset)})`, nat != null ? (isEstimate("IN") ? "≈ " : "") + fmtVal(nat) : "",
+        `${ranked[0].name} ${ranked[0].est ? "≈ " : ""}${fmtVal(ranked[0].value)}`, `${ranked.at(-1).name} ${ranked.at(-1).est ? "≈ " : ""}${fmtVal(ranked.at(-1).value)}`)
+      + (estMode() && [...cells.values()].some((c) => c && c.kind !== "obs") ? ` (${t("estimateLegend")})` : "")
     : "";
 
   $("ind-def").textContent = tr(i.definition);
@@ -253,7 +300,7 @@ function renderTrend() {
   const maxYear = Math.max(...years);
   document.querySelectorAll("#ranges button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.range === state.range)));
   if (!years.length) { $("trend").innerHTML = `<p class="muted small">${t("noData")}</p>`; return; }
-  const activeYear = state.dataset ? data.get(state.indicator, state.dataset, state.period, "IN")?.year : null;
+  const activeYear = estMode() ? state.year : state.dataset ? data.get(state.indicator, state.dataset, state.period, "IN")?.year : null;
   yearChart($("trend"), {
     lines,
     xDomain: [minYear, Math.max(maxYear, minYear + 1)],
@@ -263,6 +310,7 @@ function renderTrend() {
     unit: i.unit,
     estimates: state.estimates,
     bounds: boundsOf(i),
+    scale: scaleOf(i),
   });
   $("trend-note").textContent = lines.length > 1 ? t("sourcesNote") : "";
 }
@@ -281,8 +329,10 @@ function renderCard() {
   const code = state.region || "IN";
   // National-only indicators: show India's latest value from the first national source.
   const natDs = data.nationalDatasets(state.indicator)[0];
+  const c = cell(code);
+  if (c && c.kind !== "obs") return renderEstimateCard(el, i, code, c);
   const o = state.dataset
-    ? data.get(state.indicator, state.dataset, state.period, code)
+    ? c?.o ?? null
     : code === "IN" && natDs ? data.series(state.indicator, natDs, "IN").at(-1) ?? null : null;
   if (!o) {
     el.innerHTML = `<p class="region">${esc(regionName(code))}</p><p class="ind">${esc(tr(i.label))}</p>
@@ -345,6 +395,24 @@ function renderCard() {
   );
 }
 
+// Card for a year without data: shows the estimate, how it was made and the real
+// points behind it. No share buttons: estimates are not shared as facts.
+function renderEstimateCard(el, i, code, c) {
+  const src = dsLabel(state.dataset);
+  const how = c.kind === "interp"
+    ? t("estInterp")(`${c.from.period} (${fmtVal(c.from.value)})`, `${c.to.period} (${fmtVal(c.to.value)})`, src)
+    : t("estProj")(c.basis.join(", "), fmtVal(c.lo), fmtVal(c.hi), src);
+  const basis = c.kind === "interp" ? [c.from, c.to] : [c.last];
+  el.innerHTML = `
+    <p class="region">${esc(regionName(code))}</p>
+    <p class="ind">${esc(tr(i.label))}</p>
+    <p class="big est-big">≈ ${fmt(c.value, i.decimals)}<small>${esc(unitText(i))}</small></p>
+    <p class="when"><span class="est-tag">${t("estimateTitle")}</span> ${state.year}</p>
+    <p class="small">${esc(how)}</p>
+    ${basis.map((o) => `<p class="src">${sourceLine(o)}</p>`).join("")}
+    <p class="muted small">${t("estNoShare")}</p>`;
+}
+
 function renderCompareOptions() {
   const opts = `<option value="">${t("pickState")}</option>` +
     data.states.map((s) => `<option value="${s.code}">${esc(regionName(s.code))}</option>`).join("");
@@ -364,7 +432,7 @@ function renderCompare() {
   if (!lines.length || !state.dataset) { el.innerHTML = ""; return; }
   const years = lines.flatMap((l) => l.points.map((p) => p.year));
   if (!years.length) { el.innerHTML = `<p class="muted small">${t("noData")}</p>`; return; }
-  yearChart(el, { lines, xDomain: [Math.min(...years), Math.max(Math.max(...years), Math.min(...years) + 1)], yDomain: i.domain, decimals: i.decimals, unit: i.unit, estimates: state.estimates, bounds: boundsOf(i) });
+  yearChart(el, { lines, xDomain: [Math.min(...years), Math.max(Math.max(...years), Math.min(...years) + 1)], yDomain: i.domain, decimals: i.decimals, unit: i.unit, estimates: state.estimates, bounds: boundsOf(i), scale: scaleOf(i) });
 }
 
 function downloadCsv() {

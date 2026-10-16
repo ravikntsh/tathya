@@ -1,11 +1,14 @@
-// Estimates for years without data. Shown only when the reader turns them on,
-// always dashed and labelled, never used on the map, fact cards or share images.
+// Estimates for years without data. Shown only when the reader turns them on:
+// dashed on charts, faded with dashed edges on the map, marked ≈ in cards and
+// rankings, and never available to share images or share text.
 //
 // - Between two observed points of the same series: straight-line interpolation.
 // - After the last observed point: an ordinary least-squares line through the
 //   last (up to) 5 points of the latest unbroken segment, with a 90% prediction
-//   interval. Needs at least 3 points. Values are clamped to the indicator's bounds.
-//   The chart only projects series whose latest point is within the last 10 years.
+//   interval. Needs at least 3 points. The fit is done on a scale that respects
+//   the indicator's limits: logit for percentages (flattens near 0% and 100%), log
+//   for rates such as infant mortality (falls but stays above 0), linear otherwise.
+//   Only series whose latest point is recent are projected (see projectionEnd).
 
 // Two-sided 90% t critical values by degrees of freedom (n - 2).
 const T90 = { 1: 6.314, 2: 2.92, 3: 2.353 };
@@ -16,13 +19,23 @@ export function lastSegment(points) {
   return points.slice(start);
 }
 
-export function projection(points, { toYear, bounds = [-Infinity, Infinity] }) {
+const SCALES = {
+  linear: { f: (v) => v, inv: (v) => v },
+  log: { f: (v) => Math.log(Math.max(v, 1e-6)), inv: (v) => Math.exp(v) },
+  logit: {
+    f: (v) => { const p = Math.min(99.9, Math.max(0.1, v)) / 100; return Math.log(p / (1 - p)); },
+    inv: (v) => 100 / (1 + Math.exp(-v)),
+  },
+};
+
+export function projection(points, { toYear, bounds = [-Infinity, Infinity], scale = "linear" }) {
   const seg = lastSegment(points).slice(-5);
   const n = seg.length;
   if (n < 3) return null;
   const last = seg.at(-1);
   if (toYear <= last.year) return null;
-  const xs = seg.map((p) => p.year), ys = seg.map((p) => p.value);
+  const sc = SCALES[scale] ?? SCALES.linear;
+  const xs = seg.map((p) => p.year), ys = seg.map((p) => sc.f(p.value));
   const xbar = xs.reduce((a, b) => a + b, 0) / n, ybar = ys.reduce((a, b) => a + b, 0) / n;
   const sxx = xs.reduce((a, x) => a + (x - xbar) ** 2, 0);
   if (sxx === 0) return null;
@@ -36,9 +49,35 @@ export function projection(points, { toYear, bounds = [-Infinity, Infinity] }) {
   for (let yr = last.year + 1; yr <= toYear; yr++) {
     const fit = icpt + slope * yr;
     const half = t * s * Math.sqrt(1 + 1 / n + (yr - xbar) ** 2 / sxx);
-    out.push({ year: yr, value: clamp(fit), lo: clamp(fit - half), hi: clamp(fit + half) });
+    out.push({ year: yr, value: clamp(sc.inv(fit)), lo: clamp(sc.inv(fit - half)), hi: clamp(sc.inv(fit + half)) });
   }
   return { points: out, basis: seg.map((p) => p.period), slope };
+}
+
+// How far estimates may reach: a series qualifies for a forward trend only if its
+// latest point is within MAX_AGE years of today, and the trend runs at most
+// MAX_AHEAD years past that point and no later than four years from today.
+export const MAX_AGE = 15, MAX_AHEAD = 15;
+export const projectionEnd = (lastYear, now = new Date().getFullYear()) =>
+  lastYear >= now - MAX_AGE ? Math.min(now + 4, lastYear + MAX_AHEAD) : lastYear;
+
+// Observed value, or an estimate, for one series at one year.
+// Returns { kind: "obs", o } | { kind: "interp", value, from, to } | { kind: "proj", value, lo, hi, basis, last } | null
+export function estimateAt(points, year, { bounds, scale } = {}) {
+  if (!points.length) return null;
+  const exact = points.find((p) => p.year === year);
+  if (exact) return { kind: "obs", value: exact.value, o: exact };
+  const ip = interpolate(points, year);
+  if (ip) return { kind: "interp", value: ip.value, from: ip.from, to: ip.to };
+  const last = points.at(-1);
+  if (year > last.year && year <= projectionEnd(last.year)) {
+    const pr = projection(points, { toYear: year, bounds, scale });
+    const p = pr?.points.at(-1);
+    // Too uncertain to mean anything (90% range wider than the estimate itself, e.g. a
+    // small state whose yearly figures swing from 3 to 13): show no estimate at all.
+    if (p && p.hi - p.lo <= Math.max(p.value, 1)) return { kind: "proj", value: p.value, lo: p.lo, hi: p.hi, basis: pr.basis, last };
+  }
+  return null;
 }
 
 // Value at a year between two observed points of the same unbroken segment.
