@@ -316,6 +316,33 @@
   "class": "A"
  },
  {
+  "id": "jjm_admin",
+  "label": {
+   "en": "Jal Jeevan Mission (reported to Parliament)",
+   "hi": "जल जीवन मिशन (संसद को दी गई जानकारी)"
+  },
+  "provider": "Ministry of Jal Shakti, Lok Sabha answers",
+  "class": "A"
+ },
+ {
+  "id": "sbm_admin",
+  "label": {
+   "en": "Swachh Bharat Mission-Grameen (reported to Parliament)",
+   "hi": "स्वच्छ भारत मिशन-ग्रामीण (संसद को दी गई जानकारी)"
+  },
+  "provider": "Ministry of Jal Shakti / Drinking Water & Sanitation, Lok Sabha answers",
+  "class": "A"
+ },
+ {
+  "id": "power_admin",
+  "label": {
+   "en": "Saubhagya (reported to Parliament)",
+   "hi": "सौभाग्य (संसद को दी गई जानकारी)"
+  },
+  "provider": "Ministry of Power, Lok Sabha answers",
+  "class": "A"
+ },
+ {
   "id": "sipri_milex_const_usd",
   "label": {
    "en": "SIPRI military expenditure, constant US$",

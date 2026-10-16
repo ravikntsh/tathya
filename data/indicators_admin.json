@@ -1,0 +1,77 @@
+[
+  {
+    "id": "tap_water_rural_jjm",
+    "sort": 20,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Tap connections (JJM)",
+      "hi": "नल कनेक्शन (जल जीवन मिशन)"
+    },
+    "label": {
+      "en": "Rural households with a tap water connection, as reported under Jal Jeevan Mission",
+      "hi": "ग्रामीण परिवार जिनके घर में नल का कनेक्शन है, जल जीवन मिशन के अंतर्गत बताए अनुसार"
+    },
+    "definition": {
+      "en": "Share of rural households that States/UTs report on the JJM-IMIS as having a household tap connection, as printed in the Ministry of Jal Shakti's Lok Sabha answers on the stated 'as on' date. Administrative data: it counts connections provided, not whether water is supplied regularly or is safe. Not comparable with survey or Census figures.",
+      "hi": "ग्रामीण परिवारों का वह प्रतिशत जिनके घर में नल कनेक्शन होने की जानकारी राज्यों/केंद्रशासित प्रदेशों ने JJM-IMIS पर दी है, जैसा जल शक्ति मंत्रालय के लोकसभा उत्तरों में बताई गई तिथि के अनुसार छपा है। यह प्रशासनिक आँकड़ा है: इसमें दिए गए कनेक्शन गिने जाते हैं, यह नहीं कि पानी नियमित या सुरक्षित मिलता है। सर्वेक्षण या जनगणना के आँकड़ों से तुलनीय नहीं।"
+    },
+    "break_note": null,
+    "group": "necessities"
+  },
+  {
+    "id": "toilet_coverage_sbm",
+    "sort": 21,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Toilet coverage (SBM-G)",
+      "hi": "शौचालय कवरेज (स्वच्छ भारत मिशन-ग्रामीण)"
+    },
+    "label": {
+      "en": "Rural households with an individual household toilet, as reported under Swachh Bharat Mission (Gramin)",
+      "hi": "ग्रामीण परिवार जिनके पास अपना घरेलू शौचालय है, स्वच्छ भारत मिशन (ग्रामीण) के अंतर्गत बताए अनुसार"
+    },
+    "definition": {
+      "en": "Sanitation coverage: share of rural households on the SBM(G) baseline list that States/UTs report as having an individual household latrine, as printed in Lok Sabha answers on the stated 'as on' date. Administrative data: it counts toilets built, not their use. The baseline was revised in 2017, so values before and after are on different denominators.",
+      "hi": "स्वच्छता कवरेज: SBM(G) की आधार सूची के ग्रामीण परिवारों का वह प्रतिशत जिनके पास घरेलू शौचालय होने की जानकारी राज्यों/केंद्रशासित प्रदेशों ने दी है, जैसा लोकसभा उत्तरों में बताई गई तिथि के अनुसार छपा है। यह प्रशासनिक आँकड़ा है: इसमें बने शौचालय गिने जाते हैं, उनका उपयोग नहीं। आधार सूची 2017 में संशोधित हुई, इसलिए उससे पहले और बाद के आँकड़ों का आधार अलग है।"
+    },
+    "break_note": null,
+    "group": "necessities"
+  },
+  {
+    "id": "electrified_hh_admin",
+    "sort": 22,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Household electrification (Saubhagya)",
+      "hi": "घरों का विद्युतीकरण (सौभाग्य)"
+    },
+    "label": {
+      "en": "Households electrified, as informed by States under Saubhagya",
+      "hi": "बिजली कनेक्शन वाले परिवार, सौभाग्य योजना के अंतर्गत राज्यों द्वारा बताए अनुसार"
+    },
+    "definition": {
+      "en": "Household electrification percentage as informed by the States to the Ministry of Power under Saubhagya (Pradhan Mantri Sahaj Bijli Har Ghar Yojana), as printed in a Lok Sabha answer on the stated 'as on' date. Administrative data: it counts connections given, not hours of supply. Not comparable with survey or Census figures.",
+      "hi": "सौभाग्य (प्रधानमंत्री सहज बिजली हर घर योजना) के अंतर्गत राज्यों द्वारा बिजली मंत्रालय को बताया गया घरों के विद्युतीकरण का प्रतिशत, जैसा लोकसभा उत्तर में बताई गई तिथि के अनुसार छपा है। यह प्रशासनिक आँकड़ा है: इसमें दिए गए कनेक्शन गिने जाते हैं, बिजली आपूर्ति के घंटे नहीं। सर्वेक्षण या जनगणना के आँकड़ों से तुलनीय नहीं।"
+    },
+    "break_note": null,
+    "group": "necessities"
+  }
+]
