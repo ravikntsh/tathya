@@ -1,0 +1,122 @@
+[
+  {
+    "id": "nfhs6-factsheets",
+    "publisher": "International Institute for Population Sciences (IIPS) / Ministry of Health and Family Welfare",
+    "title": "National Family Health Survey (NFHS-6), 2023-24: India and State/UT Fact Sheets (May 2026)",
+    "url": "https://www.nfhsiips.in/nfhsuser/assets/National%20Family%20Health%20Survey%20(NFHS-6)%202023-2024%20Fact%20Sheets.pdf",
+    "class": "A",
+    "licence": "Government of India publication",
+    "method": "Household survey (679,238 households, 716,397 women, 100,977 men); fact sheets print NFHS-6 Urban/Rural/Total and NFHS-5 Total side by side. Total column used.",
+    "coverage": "India and 35 states/UTs; Manipur not surveyed",
+    "limitations": "Provisional results. The NFHS-6 fact sheets do not print improved sanitation or clean cooking fuel. Fieldwork ran from May 2023 to Dec 2024 in two phases, so state reference years differ (2023 or 2024).",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "nfhs1-india-report",
+    "publisher": "International Institute for Population Sciences (IIPS), Bombay (copy hosted by The DHS Program, ICF)",
+    "title": "National Family Health Survey (MCH and Family Planning), India 1992-93 (August 1995)",
+    "url": "https://dhsprogram.com/pubs/pdf/FRIND1/FRIND1.pdf",
+    "class": "A",
+    "licence": "Government of India / IIPS publication",
+    "method": "Household survey 1992-93; Table 3.12 Housing characteristics by state (% of households).",
+    "coverage": "India and 24 states plus Jammu region of J&K; no Sikkim, no Kashmir region",
+    "limitations": "The PDF is a scan; values come from its OCR text layer. Pre-2000 undivided MP/UP/Bihar, undivided AP.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "nfhs2-india-report",
+    "publisher": "International Institute for Population Sciences (IIPS) and ORC Macro (copy hosted by The DHS Program, ICF)",
+    "title": "National Family Health Survey (NFHS-2), 1998-99: India (2000)",
+    "url": "https://dhsprogram.com/pubs/pdf/FRIND2/FRIND2.pdf",
+    "class": "A",
+    "licence": "Government of India / IIPS publication",
+    "method": "Household survey 1998-99; Table 2.12 Housing characteristics by state (% of households).",
+    "coverage": "India and 25 states; Tripura not in report (fieldwork delayed)",
+    "limitations": "Undivided MP/UP/Bihar and AP. Water and fuel columns (piped or hand pump; biomass) don't match the requested indicators, so they weren't used.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "nfhs3-india-report",
+    "publisher": "International Institute for Population Sciences (IIPS) and Macro International (copy hosted by The DHS Program, ICF)",
+    "title": "National Family Health Survey (NFHS-3), 2005-06: India, Volumes I and II (2007)",
+    "url": "https://dhsprogram.com/pubs/pdf/FRIND3/FRIND3-Vol1AndVol2.pdf",
+    "class": "A",
+    "licence": "Government of India / IIPS publication",
+    "method": "Household survey 2005-06; Table 2.16 Housing characteristics by state (% households) and Table 14.14 Women's access to money and credit by state (% women 15-49).",
+    "coverage": "India and 29 states",
+    "limitations": "AP undivided; J&K includes Ladakh.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "dhs-api-HC_ELEC_P_ELC",
+    "publisher": "The DHS Program (ICF), tabulations of NFHS data (IIPS/MoHFW)",
+    "title": "DHS Program Indicator Data API: Population with electricity (HC_ELEC_P_ELC), India NFHS-1 to NFHS-5",
+    "url": "https://api.dhsprogram.com/rest/dhs/data?countryIds=IA&indicatorIds=HC_ELEC_P_ELC&breakdown=subnational&f=json&perpage=1000",
+    "class": "B",
+    "licence": "The DHS Program data, free to use with attribution",
+    "method": "DHS recalculation from NFHS microdata to DHS standard definitions. State values come from breakdown=subnational and India from breakdown=national (same query with breakdown=national). Surveys IA1993DHS, IA1999DHS, IA2006DHS, IA2015DHS, IA2020DHS; IsPreferred rows only.",
+    "coverage": "States as surveyed in each round (25 in NFHS-1, 26 in NFHS-2, 29 in NFHS-3, 34 states/UTs in NFHS-4, 36 in NFHS-5) plus India",
+    "limitations": "Values can differ slightly from printed NFHS reports (NFHS-4/5 checked: within 0.1 point of the fact sheets). DHS-built aggregates such as 'Bihar, inc Jharkhand' for post-2000 rounds, NFHS-1 'Jammu region', and NFHS-4 separate DNH / Daman & Diu were skipped.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "dhs-api-WS_SRCE_P_IMP",
+    "publisher": "The DHS Program (ICF), tabulations of NFHS data (IIPS/MoHFW)",
+    "title": "DHS Program Indicator Data API: Population using an improved water source (WS_SRCE_P_IMP), India NFHS-1 to NFHS-5",
+    "url": "https://api.dhsprogram.com/rest/dhs/data?countryIds=IA&indicatorIds=WS_SRCE_P_IMP&breakdown=subnational&f=json&perpage=1000",
+    "class": "B",
+    "licence": "The DHS Program data, free to use with attribution",
+    "method": "DHS recalculation from NFHS microdata to DHS standard definitions. State values come from breakdown=subnational and India from breakdown=national (same query with breakdown=national). Surveys IA1993DHS, IA1999DHS, IA2006DHS, IA2015DHS, IA2020DHS; IsPreferred rows only.",
+    "coverage": "States as surveyed in each round (25 in NFHS-1, 26 in NFHS-2, 29 in NFHS-3, 34 states/UTs in NFHS-4, 36 in NFHS-5) plus India",
+    "limitations": "Values can differ slightly from printed NFHS reports (NFHS-4/5 checked: within 0.1 point of the fact sheets). DHS-built aggregates such as 'Bihar, inc Jharkhand' for post-2000 rounds, NFHS-1 'Jammu region', and NFHS-4 separate DNH / Daman & Diu were skipped.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "dhs-api-WS_TLET_P_IMP",
+    "publisher": "The DHS Program (ICF), tabulations of NFHS data (IIPS/MoHFW)",
+    "title": "DHS Program Indicator Data API: Population with an improved sanitation facility (WS_TLET_P_IMP), India NFHS-1 to NFHS-5",
+    "url": "https://api.dhsprogram.com/rest/dhs/data?countryIds=IA&indicatorIds=WS_TLET_P_IMP&breakdown=subnational&f=json&perpage=1000",
+    "class": "B",
+    "licence": "The DHS Program data, free to use with attribution",
+    "method": "DHS recalculation from NFHS microdata to DHS standard definitions. State values come from breakdown=subnational and India from breakdown=national (same query with breakdown=national). Surveys IA1993DHS, IA1999DHS, IA2006DHS, IA2015DHS, IA2020DHS; IsPreferred rows only.",
+    "coverage": "States as surveyed in each round (25 in NFHS-1, 26 in NFHS-2, 29 in NFHS-3, 34 states/UTs in NFHS-4, 36 in NFHS-5) plus India",
+    "limitations": "Values can differ slightly from printed NFHS reports (NFHS-4/5 checked: within 0.1 point of the fact sheets). DHS-built aggregates such as 'Bihar, inc Jharkhand' for post-2000 rounds, NFHS-1 'Jammu region', and NFHS-4 separate DNH / Daman & Diu were skipped.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "dhs-api-HC_CKFL_H_CLN",
+    "publisher": "The DHS Program (ICF), tabulations of NFHS data (IIPS/MoHFW)",
+    "title": "DHS Program Indicator Data API: Households using clean fuel for cooking (HC_CKFL_H_CLN), India NFHS-1 to NFHS-5",
+    "url": "https://api.dhsprogram.com/rest/dhs/data?countryIds=IA&indicatorIds=HC_CKFL_H_CLN&breakdown=subnational&f=json&perpage=1000",
+    "class": "B",
+    "licence": "The DHS Program data, free to use with attribution",
+    "method": "DHS recalculation from NFHS microdata to DHS standard definitions. State values come from breakdown=subnational and India from breakdown=national (same query with breakdown=national). Surveys IA1993DHS, IA1999DHS, IA2006DHS, IA2015DHS, IA2020DHS; IsPreferred rows only.",
+    "coverage": "States as surveyed in each round (25 in NFHS-1, 26 in NFHS-2, 29 in NFHS-3, 34 states/UTs in NFHS-4, 36 in NFHS-5) plus India",
+    "limitations": "Values can differ slightly from printed NFHS reports (NFHS-4/5 checked: within 0.1 point of the fact sheets). DHS-built aggregates such as 'Bihar, inc Jharkhand' for post-2000 rounds, NFHS-1 'Jammu region', and NFHS-4 separate DNH / Daman & Diu were skipped.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "dhs-api-WS_TLET_H_NFC",
+    "publisher": "The DHS Program (ICF), tabulations of NFHS data (IIPS/MoHFW)",
+    "title": "DHS Program Indicator Data API: Households using open defecation (WS_TLET_H_NFC), India NFHS-1 to NFHS-5",
+    "url": "https://api.dhsprogram.com/rest/dhs/data?countryIds=IA&indicatorIds=WS_TLET_H_NFC&breakdown=subnational&f=json&perpage=1000",
+    "class": "B",
+    "licence": "The DHS Program data, free to use with attribution",
+    "method": "DHS recalculation from NFHS microdata to DHS standard definitions. State values come from breakdown=subnational and India from breakdown=national (same query with breakdown=national). Surveys IA1993DHS, IA1999DHS, IA2006DHS, IA2015DHS, IA2020DHS; IsPreferred rows only.",
+    "coverage": "States as surveyed in each round (25 in NFHS-1, 26 in NFHS-2, 29 in NFHS-3, 34 states/UTs in NFHS-4, 36 in NFHS-5) plus India",
+    "limitations": "Values can differ slightly from printed NFHS reports (NFHS-4/5 checked: within 0.1 point of the fact sheets). DHS-built aggregates such as 'Bihar, inc Jharkhand' for post-2000 rounds, NFHS-1 'Jammu region', and NFHS-4 separate DNH / Daman & Diu were skipped.",
+    "last_checked": "2026-10-16"
+  },
+  {
+    "id": "dhs-api-CO_MOBB_W_BNK",
+    "publisher": "The DHS Program (ICF), tabulations of NFHS data (IIPS/MoHFW)",
+    "title": "DHS Program Indicator Data API: Women who have a bank account (CO_MOBB_W_BNK), India NFHS-1 to NFHS-5",
+    "url": "https://api.dhsprogram.com/rest/dhs/data?countryIds=IA&indicatorIds=CO_MOBB_W_BNK&breakdown=subnational&f=json&perpage=1000",
+    "class": "B",
+    "licence": "The DHS Program data, free to use with attribution",
+    "method": "DHS recalculation from NFHS microdata to DHS standard definitions. State values come from breakdown=subnational and India from breakdown=national (same query with breakdown=national). Surveys IA1993DHS, IA1999DHS, IA2006DHS, IA2015DHS, IA2020DHS; IsPreferred rows only.",
+    "coverage": "States as surveyed in each round (25 in NFHS-1, 26 in NFHS-2, 29 in NFHS-3, 34 states/UTs in NFHS-4, 36 in NFHS-5) plus India",
+    "limitations": "Values can differ slightly from printed NFHS reports (NFHS-4/5 checked: within 0.1 point of the fact sheets). DHS-built aggregates such as 'Bihar, inc Jharkhand' for post-2000 rounds, NFHS-1 'Jammu region', and NFHS-4 separate DNH / Daman & Diu were skipped.",
+    "last_checked": "2026-10-16"
+  }
+]

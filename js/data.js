@@ -6,7 +6,9 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
 // Supabase is unreachable or still on the old schema.
 export async function loadData() {
   let data = null;
-  if (SUPABASE_ANON_KEY) {
+  // ?local=1 reads the repo files even when Supabase is configured (to preview a new seed).
+  const forceLocal = new URLSearchParams(location.search).has("local");
+  if (SUPABASE_ANON_KEY && !forceLocal) {
     try {
       data = await fromSupabase();
       data.origin = "supabase";
@@ -95,8 +97,16 @@ function index({ regions, indicators, datasets, sources, observations, origin })
 
   const datasetIds = (ind) => [...(cube.get(ind)?.keys() ?? [])];
   // Datasets with values for states (map-able) and for India (chart lines).
+  // Ordered newest-first (latest year, then most periods) so the map opens on the most recent source.
   const stateDatasets = (ind) =>
-    datasetIds(ind).filter((ds) => [...cube.get(ind).get(ds).values()].some((m) => [...m.keys()].some((k) => k !== "IN")));
+    datasetIds(ind)
+      .filter((ds) => [...cube.get(ind).get(ds).values()].some((m) => [...m.keys()].some((k) => k !== "IN")))
+      .map((ds) => {
+        const ps = [...cube.get(ind).get(ds).values()].flatMap((m) => [...m.values()].map((o) => o.year));
+        return { ds, last: Math.max(...ps), n: cube.get(ind).get(ds).size };
+      })
+      .sort((a, b) => b.last - a.last || b.n - a.n)
+      .map((x) => x.ds);
   const nationalDatasets = (ind) =>
     datasetIds(ind).filter((ds) => [...cube.get(ind).get(ds).values()].some((m) => m.has("IN")));
 

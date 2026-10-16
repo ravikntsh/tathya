@@ -251,5 +251,53 @@
       "hi": "किसी राज्य में प्रति व्यक्ति उत्पन्न औसत आय, 2011-12 के मूल्यों पर रुपये में। राज्य सांख्यिकी ब्यूरो द्वारा संकलित; RBI भारतीय राज्यों पर सांख्यिकी पुस्तिका।"
     },
     "break_note": null
+  },
+  {
+    "id": "open_defecation",
+    "sort": 2,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": false,
+    "short_label": {
+      "en": "Open defecation",
+      "hi": "खुले में शौच"
+    },
+    "label": {
+      "en": "Households with no toilet facility (open defecation)",
+      "hi": "बिना शौचालय सुविधा वाले परिवार (खुले में शौच)"
+    },
+    "definition": {
+      "en": "Share of households that use no toilet facility (open field, bush). Lower is better. NFHS data tabulated by The DHS Program with a standard definition across all five rounds, 1992-93 to 2019-21.",
+      "hi": "उन परिवारों का प्रतिशत जो किसी शौचालय सुविधा का उपयोग नहीं करते (खुला मैदान, झाड़ी)। कम बेहतर है। NFHS आँकड़े, DHS प्रोग्राम द्वारा पाँचों दौर (1992-93 से 2019-21) में एक मानक परिभाषा से सारणीबद्ध।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "toilet_any",
+    "sort": 3,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Any toilet (1992-2006)",
+      "hi": "कोई भी शौचालय (1992-2006)"
+    },
+    "label": {
+      "en": "Households with any toilet or latrine facility",
+      "hi": "किसी भी शौचालय सुविधा वाले परिवार"
+    },
+    "definition": {
+      "en": "As printed in the NFHS-1, 2 and 3 India reports. Counts any toilet, shared or not, so it is not the same as 'improved sanitation'. NFHS-1 values come from a scanned report and are lower-confidence.",
+      "hi": "NFHS-1, 2 और 3 भारत रिपोर्ट में छपे अनुसार। कोई भी शौचालय, साझा हो या नहीं, गिना जाता है, इसलिए यह 'बेहतर स्वच्छता' के समान नहीं है। NFHS-1 के मान स्कैन रिपोर्ट से हैं और कम विश्वसनीय हैं।"
+    },
+    "break_note": null
   }
 ]

@@ -170,5 +170,32 @@
     },
     "provider": "Census of India 1971 Monograph No. 9",
     "class": "A"
+  },
+  {
+    "id": "dhs_api",
+    "label": {
+      "en": "NFHS via DHS Program (1992-2021)",
+      "hi": "NFHS, DHS प्रोग्राम द्वारा (1992-2021)"
+    },
+    "provider": "The DHS Program (ICF), tabulations of NFHS data",
+    "class": "B"
+  },
+  {
+    "id": "dhs_api_incl_shared",
+    "label": {
+      "en": "NFHS via DHS (shared toilets counted)",
+      "hi": "NFHS, DHS द्वारा (साझा शौचालय शामिल)"
+    },
+    "provider": "The DHS Program (ICF), tabulations of NFHS data",
+    "class": "B"
+  },
+  {
+    "id": "nfhs_early",
+    "label": {
+      "en": "NFHS India reports (NFHS-1 to 3)",
+      "hi": "NFHS भारत रिपोर्ट (NFHS-1 से 3)"
+    },
+    "provider": "IIPS / MoHFW",
+    "class": "A"
   }
 ]

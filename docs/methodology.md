@@ -30,6 +30,14 @@
   - Undivided Andhra Pradesh, and J&K including Ladakh, are marked in each row's note.
   - The literacy age base changes in 1981, from 5+ to 7+, and is shown as a break.
 - **Where sources overlap, primary documents win.** The India rows for SRS infant mortality and life expectancy appear both in ORGI's own reports and in the RBI Handbook. `build_seed.py` keeps the ORGI figure and lists every difference. As of 16 Oct 2026 there is one: the RBI Handbook 2024-25, Table 7, prints All-India life expectancy for 1994-98 as 62.6, the same as its Andhra Pradesh row. ORGI's SRS Abridged Life Tables print 61.4. We use 61.4.
+- **NFHS-6 (2023-24).** Read from the official NFHS-6 Fact Sheets (nfhsiips.in). The copy the editor supplied is byte-identical to the official file. It covers India and 35 states/UTs; Manipur was not surveyed. The NFHS-6 fact sheets do not print sanitation or cooking fuel. Their NFHS-5 comparison column matches our NFHS-5 data in all 108 cases checked.
+- **NFHS-1 to NFHS-5 via the DHS Program API.** The DHS Program (ICF) recalculates NFHS indicators to its own standard definitions:
+  - Electricity and water are per person.
+  - Sanitation counts shared toilets as improved, so it is its own line and not the fact-sheet series.
+  - Open defecation uses the same definition in all five rounds.
+  
+  For NFHS-4 and 5, the DHS values for electricity, water, cooking fuel and bank accounts are within 0.1 point of the fact sheets. Pre-2000 rounds show undivided Bihar, MP, UP and AP, and J&K includes Ladakh until NFHS-5; these are marked as breaks.
+- **NFHS-1 to 3 India reports.** "Any toilet" (1992-2006) and women's bank accounts (NFHS-3) were read from the printed India reports. NFHS-1 is a scanned report, so its values are lower-confidence.
 - **International series** (World Bank, WHO/UNICEF JMP, WHO, Findex, UN WPP, UN IGME, UNESCO) are republished or modelled estimates. Each source entry names the original provider. They measure slightly different things from the Indian surveys (for example, population instead of households, or adults 15+ instead of age 7+), and the definition box says so.
 
 ## Map
