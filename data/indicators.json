@@ -22,7 +22,10 @@
       0,
       100
     ],
-    "decimals": 1
+    "decimals": 1,
+    "anchor": [
+      "jmp_basic_sanitation"
+    ]
   },
   {
     "id": "electricity",
@@ -47,7 +50,10 @@
       0,
       100
     ],
-    "decimals": 1
+    "decimals": 1,
+    "anchor": [
+      "wb_electricity"
+    ]
   },
   {
     "id": "clean_fuel",
@@ -72,7 +78,10 @@
       0,
       100
     ],
-    "decimals": 1
+    "decimals": 1,
+    "anchor": [
+      "who_clean_fuel"
+    ]
   },
   {
     "id": "improved_water",
@@ -97,7 +106,10 @@
       0,
       100
     ],
-    "decimals": 1
+    "decimals": 1,
+    "anchor": [
+      "jmp_basic_water"
+    ]
   },
   {
     "id": "women_bank_account",
@@ -122,7 +134,10 @@
       0,
       100
     ],
-    "decimals": 1
+    "decimals": 1,
+    "anchor": [
+      "findex_women_account"
+    ]
   },
   {
     "id": "literacy",
@@ -146,7 +161,11 @@
       "en": "Share of people who can read and write with understanding in any language. The Census age base changed over time (whole population before 1951, age 5+ in 1951-1971, age 7+ from 1981), marked as breaks. UNESCO's line covers adults 15+.",
       "hi": "किसी भी भाषा में समझ के साथ पढ़-लिख सकने वाले लोगों का प्रतिशत। जनगणना का आयु आधार समय के साथ बदला (1951 से पहले पूरी आबादी, 1951-1971 में 5+ आयु, 1981 से 7+ आयु), जिसे विराम के रूप में दिखाया गया है। यूनेस्को की रेखा 15+ वयस्कों की है।"
     },
-    "break_note": null
+    "break_note": null,
+    "anchor": [
+      "plfs_literacy",
+      "census_literacy"
+    ]
   },
   {
     "id": "life_expectancy",
@@ -174,6 +193,9 @@
     "map_domain": [
       55,
       80
+    ],
+    "anchor": [
+      "srs_le"
     ]
   },
   {
@@ -202,6 +224,9 @@
     "map_domain": [
       0,
       100
+    ],
+    "anchor": [
+      "srs_imr"
     ]
   },
   {
@@ -231,7 +256,7 @@
   {
     "id": "state_income_per_capita",
     "sort": 10,
-    "unit": "₹ (2011-12 prices)",
+    "unit": "₹ in 2011-12 prices",
     "domain": [
       0,
       400000
@@ -239,18 +264,21 @@
     "decimals": 0,
     "higher_is_better": true,
     "short_label": {
-      "en": "State income per person",
-      "hi": "प्रति व्यक्ति राज्य आय"
+      "en": "Income per person (2011-12 ₹)",
+      "hi": "प्रति व्यक्ति आय (2011-12 ₹)"
     },
     "label": {
-      "en": "Per capita Net State Domestic Product, constant 2011-12 prices",
-      "hi": "प्रति व्यक्ति शुद्ध राज्य घरेलू उत्पाद, स्थिर 2011-12 मूल्य"
+      "en": "Income per person in 2011-12 rupees (inflation removed): per capita Net State Domestic Product at constant 2011-12 prices",
+      "hi": "2011-12 के रुपयों में प्रति व्यक्ति आय (मुद्रास्फीति हटाकर): स्थिर 2011-12 मूल्यों पर प्रति व्यक्ति शुद्ध राज्य घरेलू उत्पाद"
     },
     "definition": {
-      "en": "Average income produced per person in a state, in rupees at 2011-12 prices. Compiled by state statistics bureaus; RBI Handbook of Statistics on Indian States.",
-      "hi": "किसी राज्य में प्रति व्यक्ति उत्पन्न औसत आय, 2011-12 के मूल्यों पर रुपये में। राज्य सांख्यिकी ब्यूरो द्वारा संकलित; RBI भारतीय राज्यों पर सांख्यिकी पुस्तिका।"
+      "en": "Average income produced per person, valued at 2011-12 prices so that inflation is removed and years can be compared. It is NOT what people earn in today's rupees: at 2024-25's own prices the all-India figure is roughly ₹2 lakh. It is also net of depreciation, so it is lower than GDP per person. To convert to dollars, use the 2011 rates: about ₹46.7 per US$ (market) or ₹15.5 per international $ (PPP, World Bank).",
+      "hi": "प्रति व्यक्ति औसत आय, 2011-12 के मूल्यों पर, ताकि मुद्रास्फीति हट जाए और वर्षों की तुलना हो सके। यह आज के रुपयों में कमाई नहीं है: 2024-25 के अपने मूल्यों पर अखिल भारतीय आँकड़ा लगभग ₹2 लाख है। यह मूल्यह्रास के बाद की शुद्ध आय है, इसलिए प्रति व्यक्ति GDP से कम है। डॉलर में बदलने के लिए 2011 की दरें लें: लगभग ₹46.7 प्रति अमेरिकी डॉलर (बाज़ार) या ₹15.5 प्रति अंतरराष्ट्रीय डॉलर (PPP, विश्व बैंक)।"
     },
-    "break_note": null
+    "break_note": null,
+    "anchor": [
+      "mospi_nni_pc_2011"
+    ]
   },
   {
     "id": "open_defecation",

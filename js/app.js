@@ -4,7 +4,7 @@ import { yearChart, rankBars, dataTable, esc, LINE_STYLES, chartPng } from "./ch
 import { t, tr, fmt, setLang, getLang } from "./i18n.js";
 import { cardLink, shareTexts, shareImage, download, copy } from "./share.js";
 import { MAP_VERIFIED } from "./config.js";
-import { estimateAt } from "./estimate.js";
+import { estimateAt, anchoredEstimate } from "./estimate.js";
 import { renderRail } from "./rail.js";
 
 const $ = (id) => document.getElementById(id);
@@ -218,7 +218,17 @@ function cell(code) {
     if (po) return { kind: "parent", value: po.value, o: po, parent: split[0] };
   }
   const opts = { bounds: boundsOf(ind()), scale: scaleOf(ind()) };
-  const own = estimateAt(data.series(state.indicator, state.dataset, code), year, opts);
+  const mine = data.series(state.indicator, state.dataset, code);
+  // First choice: follow an annual All-India series, keeping this state's own gap to it.
+  if (code !== "IN") {
+    for (const a of ind().anchor || []) {
+      const nat = data.series(state.indicator, a, "IN");
+      if (nat.length < 3) continue;
+      const c = anchoredEstimate(mine, nat, year, opts);
+      if (c) return { ...c, anchor: a };
+    }
+  }
+  const own = estimateAt(mine, year, opts);
   if (own) return own;
   // Fallback: the same indicator from another source that has this state, e.g. the
   // DHS series (NFHS-1 to 5) when a state was not surveyed in NFHS-6. Always starred,
@@ -473,7 +483,9 @@ function renderWeightedCard(el, i, c) {
 
 function renderEstimateCard(el, i, code, c) {
   const src = dsLabel(c.via ?? state.dataset);
-  const how = c.kind === "other"
+  const how = c.kind === "anchored"
+    ? t("estAnchored")(dsLabel(c.anchor), c.basis.map((p) => p.period).join(" & "), fmtVal(c.lo), fmtVal(c.hi), src)
+    : c.kind === "other"
     ? t("estOther")(src, c.o.period, dsLabel(state.dataset))
     : (c.kind === "interp"
       ? t("estInterp")(`${c.from.period} (${fmtVal(c.from.value)})`, `${c.to.period} (${fmtVal(c.to.value)})`, src)

@@ -91,3 +91,61 @@ export function interpolate(points, year) {
   }
   return null;
 }
+
+// National-anchored estimate for a state in a year without state data.
+//
+// An annual All-India series (the anchor) carries the year-to-year movement; the
+// state's own real data points fix its distance from India. On the indicator's
+// scale (logit for %, log for rates and money), the state's gap to India is
+// measured at each year the state has data, interpolated in a straight line
+// between those years and held at its last value afterwards (for at most
+// MAX_AHEAD years). Estimate = India's value that year + the state's gap.
+// The 90% range widens with distance from the nearest real state point, at the
+// pace the state's gap has actually drifted between its own data points.
+// No estimate before the state's first point, or across a break in its series.
+export function anchoredEstimate(statePts, anchorPts, year, { scale = "linear", bounds = [-Infinity, Infinity] } = {}) {
+  const sc = SCALES[scale] ?? SCALES.linear;
+  const seg = lastSegmentBefore(statePts, year);
+  if (!seg.length || year < seg[0].year) return null;
+  const natAt = (yr) => {
+    const exact = anchorPts.find((p) => p.year === yr);
+    if (exact) return exact.value;
+    const ip = interpolate(anchorPts, yr);
+    return ip ? ip.value : null;
+  };
+  const nYear = natAt(year);
+  if (nYear == null) return null;
+  const gaps = seg.map((p) => ({ year: p.year, g: natAt(p.year) == null ? null : sc.f(p.value) - sc.f(natAt(p.year)), p }))
+    .filter((x) => x.g != null);
+  if (!gaps.length) return null;
+  let g, basis;
+  const after = gaps.findIndex((x) => x.year > year);
+  if (after === -1) {
+    const last = gaps.at(-1);
+    if (year - last.year > MAX_AHEAD) return null;
+    g = last.g; basis = [last.p];
+  } else if (after === 0) {
+    return null;
+  } else {
+    const a = gaps[after - 1], b = gaps[after];
+    g = a.g + ((b.g - a.g) * (year - a.year)) / (b.year - a.year);
+    basis = [a.p, b.p];
+  }
+  // Drift of the gap per year between the state's own points (floor keeps a range).
+  const drifts = gaps.slice(1).map((x, k) => Math.abs(x.g - gaps[k].g) / (x.year - gaps[k].year));
+  const rate = Math.max(0.01, drifts.length ? drifts.reduce((a, b) => a + b, 0) / drifts.length : 0.03);
+  const dist = Math.min(...gaps.map((x) => Math.abs(x.year - year)));
+  const half = 1.645 * rate * dist;
+  const clamp = (v) => Math.min(bounds[1], Math.max(bounds[0], v));
+  const f = sc.f(nYear) + g;
+  return { kind: "anchored", value: clamp(sc.inv(f)), lo: clamp(sc.inv(f - half)), hi: clamp(sc.inv(f + half)), basis, last: basis.at(-1), national: nYear };
+}
+
+// The unbroken stretch of a state's series that a given year belongs to.
+function lastSegmentBefore(points, year) {
+  let start = 0;
+  points.forEach((p, k) => { if (p.breakBefore && p.year <= year) start = k; });
+  const rest = points.slice(start);
+  const end = rest.findIndex((p, k) => k > 0 && p.breakBefore);
+  return end === -1 ? rest : rest.slice(0, end);
+}
