@@ -25,8 +25,8 @@ powershell -ExecutionPolicy Bypass -File scripts/serve.ps1
 The site reads from Supabase when `SUPABASE_ANON_KEY` is set in `js/config.js`, and falls back to the local files otherwise.
 
 To load the data into Supabase:
-1. In the Supabase SQL Editor, run `supabase/migrations/0001_tracker.sql`.
-2. Run `C:ProgramDatanaconda3python.exe -I scripts/data/build_seed.py`.
+1. In the Supabase SQL Editor, run `supabase/migrations/0001_tracker.sql`, then `0002_sources_and_series.sql`.
+2. Run `C:\ProgramDatanaconda3\python.exe -I scripts/data/build_seed.py`.
 3. Run the generated `supabase/seed.sql` in the SQL Editor.
 
 Rules:
