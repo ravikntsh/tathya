@@ -14,14 +14,17 @@ export const LINE_STYLES = [
   { cls: "s4", dash: "1 2" },
 ];
 
-const W = 420, H = 248, M = { t: 14, r: 46, b: 44, l: 46 };
-const STRIP_Y = H - 14, STRIP_H = 11;
+// Default chart size (viewBox units); the expanded view passes a larger size, which
+// gives room for more year labels and Prime Minister names.
+const DEFAULT_W = 420, DEFAULT_H = 248, M = { t: 14, r: 46, b: 44, l: 46 };
+const STRIP_H = 11;
 
 // Year-axis line chart. lines = [{ label, points: [obs], style }]. A point with
 // breakBefore starts a new segment, so a definition change is never joined up.
 // With estimates on, each line gets a dashed projection and a shaded 90% range
 // after its last point, and hovering between points shows interpolated values.
-export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds, scale, events = [], terms = [] }) {
+export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYear, unit = "", estimates = false, bounds, scale, events = [], terms = [], width = DEFAULT_W, height = DEFAULT_H }) {
+  const W = width, H = height, STRIP_Y = H - 14;
   const toYear = Math.max(new Date().getFullYear() + 4, xDomain[1]);
   // Only extend series that are still current (see projectionEnd in estimate.js);
   // a series that ended in 1946 is history, not something to project.
@@ -37,10 +40,10 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
   const inX = (p) => p.year >= xDomain[0] && p.year <= xMax;
   const label = lines.map((l) => `${l.label}: ${l.points.filter(inX).map((p) => `${p.period} ${fmt(p.value, decimals)}`).join(", ")}`).join("; ");
   let s = `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="${esc(label)}">`;
-  for (const v of y.ticks(4)) {
+  for (const v of y.ticks(Math.max(4, Math.round(H / 60)))) {
     s += `<line class="grid" x1="${M.l}" x2="${W - M.r}" y1="${y(v)}" y2="${y(v)}"/><text class="tick" x="${M.l - 6}" y="${y(v) + 4}" text-anchor="end">${fmtCompact(v)}</text>`;
   }
-  for (const v of x.ticks(6)) {
+  for (const v of x.ticks(Math.max(6, Math.round(W / 70)))) {
     s += `<text class="tick" x="${x(v)}" y="${H - M.b + 13}" text-anchor="middle">${v}</text>`;
   }
   // Reference years: 1857, Independence (1947) and the 1991 economic reforms.
@@ -107,10 +110,10 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
     .join("")}${projs.some(Boolean) ? `<span class="est-key"><svg width="22" height="10" aria-hidden="true"><rect class="est-band s0" x="1" y="1" width="20" height="8"/><line class="est-line s0" x1="1" x2="21" y1="5" y2="5"/></svg>${t("estimateKey")}</span>` : ""}</div>`;
   el.innerHTML = s;
   el.classList.add("chart-wrap");
-  bindHover(el, { lines, projs, x, y, xDomain: [xDomain[0], xMax], decimals, unit, estimates, events: evs, terms });
+  bindHover(el, { lines, projs, x, y, xDomain: [xDomain[0], xMax], decimals, unit, estimates, events: evs, terms, W });
 }
 
-function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates, events = [], terms = [] }) {
+function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates, events = [], terms = [], W = DEFAULT_W }) {
   const svg = el.querySelector("svg.chart");
   const hit = svg.querySelector(".hit");
   const hover = svg.querySelector(".hover");
@@ -264,6 +267,7 @@ export async function chartPng(el, { title, subtitle, sources, site }) {
     const d = dst[j++];
     if (d) d.setAttribute("style", props.map((p) => `${p}:${cs.getPropertyValue(p)}`).join(";"));
   });
+  const [, , W, H] = svg.getAttribute("viewBox").split(" ").map(Number);
   clone.setAttribute("width", W); clone.setAttribute("height", H);
   const img = new Image();
   img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(clone));

@@ -162,6 +162,9 @@ function bindControls() {
     });
     download(blob, `tathya-${i.id}-chart.png`);
   });
+  $("expand").addEventListener("click", openExpanded);
+  $("dlg-close").addEventListener("click", () => $("chart-dlg").close());
+  $("chart-dlg").addEventListener("close", closeExpanded);
   $("cmp-a").addEventListener("change", (e) => { state.cmpA = e.target.value; renderCompare(); });
   $("cmp-b").addEventListener("change", (e) => { state.cmpB = e.target.value; renderCompare(); });
 }
@@ -198,6 +201,12 @@ function pmTerms() {
     });
   }
   return out.map((g) => ({ ...g, detail: g.detail + ")" }));
+}
+
+// Chart size for the expanded view: wide and tall on a desktop, taller on a phone.
+function expandedSize() {
+  const w = Math.min(window.innerWidth, 1400);
+  return w < 700 ? { width: 420, height: 420 } : { width: Math.round(w * 0.9), height: Math.round(Math.min(window.innerHeight * 0.55, 560)) };
 }
 
 // Context events for an indicator's charts (data/context_events.json).
@@ -526,7 +535,9 @@ function renderTrend() {
     scale: scaleOf(i),
     events: contextFor(i.id),
     terms: pmTerms(),
+    ...(state.expanded ? expandedSize() : {}),
   });
+  if (state.expanded) $("dlg-title").textContent = `${state.region ? regionName(state.region) + ": " : ""}${tr(i.label)}`;
   $("trend-note").textContent = lines.length > 1 ? t("sourcesNote") : "";
 }
 
@@ -696,6 +707,29 @@ function splitCard() {
     if (!head) foot.appendChild(n);
   }
   foot.hidden = !foot.children.length;
+}
+
+// Expanded view: the source picker, year slider and trend panel move into a full-
+// screen dialog (moving nodes keeps their handlers) and the chart is drawn larger.
+const moved = [];
+function openExpanded() {
+  const body = $("dlg-body");
+  for (const el of [document.querySelector(".controls .field-row"), $("trend").closest(".panel")]) {
+    const mark = document.createComment("expanded");
+    el.before(mark);
+    moved.push([el, mark]);
+    body.appendChild(el);
+  }
+  state.expanded = true;
+  $("expand").hidden = true;
+  $("chart-dlg").showModal();
+  render();
+}
+function closeExpanded() {
+  for (const [el, mark] of moved.splice(0)) { mark.replaceWith(el); }
+  state.expanded = false;
+  $("expand").hidden = false;
+  render();
 }
 
 function renderCompareOptions() {

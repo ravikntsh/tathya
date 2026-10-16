@@ -1,0 +1,173 @@
+[
+  {
+    "id": "sipri_milex_const_usd",
+    "label": {
+      "en": "SIPRI military expenditure, constant US$",
+      "hi": "SIPRI सैन्य व्यय, स्थिर अमेरिकी डॉलर"
+    },
+    "provider": "SIPRI",
+    "class": "B"
+  },
+  {
+    "id": "sipri_milex_inr_fy",
+    "label": {
+      "en": "SIPRI military expenditure, ₹ current (financial year)",
+      "hi": "SIPRI सैन्य व्यय, चालू ₹ (वित्त वर्ष)"
+    },
+    "provider": "SIPRI",
+    "class": "B"
+  },
+  {
+    "id": "sipri_milex_pct_gdp",
+    "label": {
+      "en": "SIPRI military expenditure, % of GDP",
+      "hi": "SIPRI सैन्य व्यय, GDP का %"
+    },
+    "provider": "SIPRI",
+    "class": "B"
+  },
+  {
+    "id": "wb_milex_pct_gdp",
+    "label": {
+      "en": "World Bank (SIPRI data), military expenditure % of GDP",
+      "hi": "विश्व बैंक (SIPRI आँकड़े), सैन्य व्यय GDP का %"
+    },
+    "provider": "World Bank / SIPRI",
+    "class": "B"
+  },
+  {
+    "id": "sipri_milex_pct_govt",
+    "label": {
+      "en": "SIPRI military expenditure, % of government spending",
+      "hi": "SIPRI सैन्य व्यय, सरकारी व्यय का %"
+    },
+    "provider": "SIPRI",
+    "class": "B"
+  },
+  {
+    "id": "sipri_atd_imports",
+    "label": {
+      "en": "SIPRI Arms Transfers Database, imports (TIV)",
+      "hi": "SIPRI हथियार हस्तांतरण डेटाबेस, आयात (TIV)"
+    },
+    "provider": "SIPRI",
+    "class": "B"
+  },
+  {
+    "id": "sipri_atd_exports",
+    "label": {
+      "en": "SIPRI Arms Transfers Database, exports (TIV)",
+      "hi": "SIPRI हथियार हस्तांतरण डेटाबेस, निर्यात (TIV)"
+    },
+    "provider": "SIPRI",
+    "class": "B"
+  },
+  {
+    "id": "wb_armed_forces",
+    "label": {
+      "en": "World Bank (IISS Military Balance), armed forces personnel",
+      "hi": "विश्व बैंक (IISS मिलिट्री बैलेंस), सशस्त्र बल कार्मिक"
+    },
+    "provider": "World Bank / IISS",
+    "class": "B"
+  },
+  {
+    "id": "ub_def_capital_be",
+    "label": {
+      "en": "Union Budget, capital outlay on defence: Budget Estimates",
+      "hi": "केंद्रीय बजट, रक्षा पूंजी परिव्यय: बजट अनुमान"
+    },
+    "provider": "Ministry of Finance (Union Budget)",
+    "class": "A"
+  },
+  {
+    "id": "ub_def_capital_actual",
+    "label": {
+      "en": "Union Budget, capital outlay on defence: Actuals",
+      "hi": "केंद्रीय बजट, रक्षा पूंजी परिव्यय: वास्तविक"
+    },
+    "provider": "Ministry of Finance (Union Budget)",
+    "class": "A"
+  },
+  {
+    "id": "ub_def_revenue_be",
+    "label": {
+      "en": "Union Budget, Defence Services (Revenue): Budget Estimates",
+      "hi": "केंद्रीय बजट, रक्षा सेवाएँ (राजस्व): बजट अनुमान"
+    },
+    "provider": "Ministry of Finance (Union Budget)",
+    "class": "A"
+  },
+  {
+    "id": "ub_def_revenue_actual",
+    "label": {
+      "en": "Union Budget, Defence Services (Revenue): Actuals",
+      "hi": "केंद्रीय बजट, रक्षा सेवाएँ (राजस्व): वास्तविक"
+    },
+    "provider": "Ministry of Finance (Union Budget)",
+    "class": "A"
+  },
+  {
+    "id": "ub_def_pensions_be",
+    "label": {
+      "en": "Union Budget, Defence Pensions: Budget Estimates",
+      "hi": "केंद्रीय बजट, रक्षा पेंशन: बजट अनुमान"
+    },
+    "provider": "Ministry of Finance (Union Budget)",
+    "class": "A"
+  },
+  {
+    "id": "ub_def_pensions_actual",
+    "label": {
+      "en": "Union Budget, Defence Pensions: Actuals",
+      "hi": "केंद्रीय बजट, रक्षा पेंशन: वास्तविक"
+    },
+    "provider": "Ministry of Finance (Union Budget)",
+    "class": "A"
+  },
+  {
+    "id": "ddp_production",
+    "label": {
+      "en": "DDP dashboard, value of defence production",
+      "hi": "DDP डैशबोर्ड, रक्षा उत्पादन का मूल्य"
+    },
+    "provider": "Department of Defence Production, MoD",
+    "class": "A"
+  },
+  {
+    "id": "pib_def_production_2014_15",
+    "label": {
+      "en": "PIB, defence production 2014-15",
+      "hi": "PIB, रक्षा उत्पादन 2014-15"
+    },
+    "provider": "PIB (Ministry of Defence)",
+    "class": "A"
+  },
+  {
+    "id": "ddp_exports",
+    "label": {
+      "en": "DDP dashboard, defence exports",
+      "hi": "DDP डैशबोर्ड, रक्षा निर्यात"
+    },
+    "provider": "Department of Defence Production, MoD",
+    "class": "A"
+  },
+  {
+    "id": "pib_ls2022_def_exports",
+    "label": {
+      "en": "Lok Sabha reply (Mar 2022), defence exports",
+      "hi": "लोकसभा उत्तर (मार्च 2022), रक्षा निर्यात"
+    },
+    "provider": "Ministry of Defence via PIB",
+    "class": "A"
+  },
+  {
+    "id": "pib_def_exports_2013_14",
+    "label": {
+      "en": "PIB, defence exports 2013-14",
+      "hi": "PIB, रक्षा निर्यात 2013-14"
+    },
+    "provider": "PIB (Ministry of Defence)",
+    "class": "A"
+  }
+]

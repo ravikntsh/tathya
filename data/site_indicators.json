@@ -442,5 +442,354 @@
    "mospi_nni_pc_current"
   ],
   "group": "economy"
+ },
+ {
+  "id": "milex_usd_bn_constant",
+  "sort": 1,
+  "unit": "US$ bn (constant 2024 prices)",
+  "domain": [
+   0,
+   100
+  ],
+  "decimals": 1,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Military spending (constant US$)",
+   "hi": "सैन्य व्यय (स्थिर अमेरिकी डॉलर)"
+  },
+  "label": {
+   "en": "Military expenditure in billions of US dollars at constant 2024 prices and exchange rates (SIPRI)",
+   "hi": "स्थिर 2024 मूल्यों और विनिमय दरों पर अरब अमेरिकी डॉलर में सैन्य व्यय (SIPRI)"
+  },
+  "definition": {
+   "en": "SIPRI's estimate of all military spending, including the paramilitary forces it counts for India (BSF, CRPF, Assam Rifles, ITBP, SSB) and military pensions, but not military nuclear activities. Calendar years. Constant dollars remove inflation, so years can be compared. SIPRI calls military spending an input, not a measure of military capability or security. Pre-1988 figures are SIPRI estimates. The price base changes with each SIPRI edition. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "SIPRI का कुल सैन्य व्यय का अनुमान, जिसमें भारत के लिए गिने गए अर्धसैनिक बल (BSF, CRPF, असम राइफल्स, ITBP, SSB) और सैन्य पेंशन शामिल हैं, पर सैन्य परमाणु गतिविधियाँ नहीं। कैलेंडर वर्ष। स्थिर डॉलर मुद्रास्फीति हटाते हैं, इसलिए वर्षों की तुलना हो सकती है। SIPRI के अनुसार सैन्य व्यय एक इनपुट है, सैन्य क्षमता या सुरक्षा का माप नहीं। 1988 से पहले के आँकड़े SIPRI के अनुमान हैं। हर SIPRI संस्करण के साथ मूल्य-आधार बदलता है। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "sipri_milex_const_usd"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "milex_inr_cr_current",
+  "sort": 2,
+  "unit": "₹ crore (current prices)",
+  "domain": [
+   0,
+   900000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Military spending (₹, current)",
+   "hi": "सैन्य व्यय (₹, चालू)"
+  },
+  "label": {
+   "en": "Military expenditure in rupees crore at current prices, by financial year (SIPRI)",
+   "hi": "चालू मूल्यों पर करोड़ रुपये में सैन्य व्यय, वित्त वर्ष के अनुसार (SIPRI)"
+  },
+  "definition": {
+   "en": "SIPRI's military spending figure for India in that year's rupees, for the April-March financial year. Includes inflation. Uses SIPRI's definition (paramilitary forces and pensions in, military nuclear activities out), so it is larger than the Ministry of Defence budget. SIPRI calls military spending an input, not a measure of military capability or security. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "भारत के लिए SIPRI का सैन्य व्यय, उस वर्ष के रुपयों में, अप्रैल-मार्च वित्त वर्ष के लिए। इसमें मुद्रास्फीति शामिल है। SIPRI की परिभाषा (अर्धसैनिक बल और पेंशन शामिल, सैन्य परमाणु गतिविधियाँ बाहर) के कारण यह रक्षा मंत्रालय के बजट से बड़ा है। SIPRI के अनुसार सैन्य व्यय एक इनपुट है, सैन्य क्षमता या सुरक्षा का माप नहीं। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "sipri_milex_inr_fy"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "milex_pct_gdp",
+  "sort": 3,
+  "unit": "% of GDP",
+  "domain": [
+   0,
+   5
+  ],
+  "decimals": 1,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Military spending, % of GDP",
+   "hi": "सैन्य व्यय, GDP का %"
+  },
+  "label": {
+   "en": "Military expenditure as a share of gross domestic product",
+   "hi": "सकल घरेलू उत्पाद के हिस्से के रूप में सैन्य व्यय"
+  },
+  "definition": {
+   "en": "SIPRI military spending divided by GDP, calendar years. The World Bank republishes the same SIPRI figures; both are shown as separate lines. A rough measure of the burden on the economy; SIPRI calls military spending an input, not a measure of military capability or security. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "SIPRI सैन्य व्यय को GDP से भाग देकर, कैलेंडर वर्ष। विश्व बैंक यही SIPRI आँकड़े दोबारा प्रकाशित करता है; दोनों अलग रेखाओं में हैं। अर्थव्यवस्था पर बोझ का मोटा माप; SIPRI के अनुसार सैन्य व्यय एक इनपुट है, सैन्य क्षमता या सुरक्षा का माप नहीं। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "sipri_milex_pct_gdp",
+   "wb_milex_pct_gdp"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "milex_pct_govt",
+  "sort": 4,
+  "unit": "% of government spending",
+  "domain": [
+   0,
+   16
+  ],
+  "decimals": 1,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Military spending, % of govt spending",
+   "hi": "सैन्य व्यय, सरकारी व्यय का %"
+  },
+  "label": {
+   "en": "Military expenditure as a share of general government expenditure (SIPRI)",
+   "hi": "सामान्य सरकारी व्यय के हिस्से के रूप में सैन्य व्यय (SIPRI)"
+  },
+  "definition": {
+   "en": "SIPRI military spending divided by general government expenditure (IMF World Economic Outlook), which includes the Centre, states and local bodies, not only the Union budget. Calendar years, from 1988. SIPRI calls military spending an input, not a measure of military capability or security. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "SIPRI सैन्य व्यय को सामान्य सरकारी व्यय (IMF विश्व आर्थिक परिदृश्य) से भाग देकर, जिसमें केवल केंद्रीय बजट नहीं बल्कि केंद्र, राज्य और स्थानीय निकाय शामिल हैं। कैलेंडर वर्ष, 1988 से। SIPRI के अनुसार सैन्य व्यय एक इनपुट है, सैन्य क्षमता या सुरक्षा का माप नहीं। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "sipri_milex_pct_govt"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "arms_imports_tiv",
+  "sort": 5,
+  "unit": "million SIPRI TIV (not money)",
+  "domain": [
+   0,
+   6000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Arms imports (SIPRI TIV)",
+   "hi": "हथियार आयात (SIPRI TIV)"
+  },
+  "label": {
+   "en": "Volume of major conventional weapons delivered to India, in SIPRI trend-indicator values",
+   "hi": "भारत को दिए गए प्रमुख पारंपरिक हथियारों की मात्रा, SIPRI ट्रेंड-इंडिकेटर वैल्यू में"
+  },
+  "definition": {
+   "en": "Deliveries of major arms (aircraft, ships, armoured vehicles, missiles and similar) by year of delivery. TIV is not money: SIPRI's trend-indicator value measures the volume of military resources transferred, based on production costs of a core set of weapons, and SIPRI says it must not be compared with prices, budgets or GDP. Use it for trends and shares. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "प्रमुख हथियारों (विमान, जहाज़, बख़्तरबंद वाहन, मिसाइल आदि) की आपूर्ति, आपूर्ति वर्ष के अनुसार। TIV पैसा नहीं है: SIPRI का ट्रेंड-इंडिकेटर वैल्यू हथियारों के एक मुख्य समूह की उत्पादन लागत के आधार पर हस्तांतरित सैन्य संसाधनों की मात्रा मापता है, और SIPRI कहता है कि इसकी तुलना कीमतों, बजट या GDP से नहीं करनी चाहिए। इसे रुझानों और हिस्सों के लिए इस्तेमाल करें। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "sipri_atd_imports"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "arms_exports_tiv",
+  "sort": 6,
+  "unit": "million SIPRI TIV (not money)",
+  "domain": [
+   0,
+   200
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Arms exports (SIPRI TIV)",
+   "hi": "हथियार निर्यात (SIPRI TIV)"
+  },
+  "label": {
+   "en": "Volume of major conventional weapons delivered by India to other countries, in SIPRI trend-indicator values",
+   "hi": "भारत द्वारा अन्य देशों को दिए गए प्रमुख पारंपरिक हथियारों की मात्रा, SIPRI ट्रेंड-इंडिकेटर वैल्यू में"
+  },
+  "definition": {
+   "en": "India's deliveries of major arms abroad by year. TIV is not money and is not comparable with the rupee export figures of the Department of Defence Production, which also count parts, components and services. Years in which SIPRI identified no deliveries are blank. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "विदेश को भारत की प्रमुख हथियारों की आपूर्ति, वर्ष के अनुसार। TIV पैसा नहीं है और रक्षा उत्पादन विभाग के रुपये वाले निर्यात आँकड़ों से तुलनीय नहीं है, जिनमें पुर्ज़े, घटक और सेवाएँ भी गिनी जाती हैं। जिन वर्षों में SIPRI को कोई आपूर्ति नहीं मिली, वे ख़ाली हैं। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "sipri_atd_exports"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "armed_forces_personnel",
+  "sort": 7,
+  "unit": "persons",
+  "domain": [
+   0,
+   3500000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Armed forces personnel",
+   "hi": "सशस्त्र बल कार्मिक"
+  },
+  "label": {
+   "en": "Active armed forces personnel, including paramilitary forces (IISS via the World Bank)",
+   "hi": "सक्रिय सशस्त्र बल कार्मिक, अर्धसैनिक बलों सहित (IISS, विश्व बैंक के माध्यम से)"
+  },
+  "definition": {
+   "en": "Active-duty military personnel plus paramilitary forces that IISS judges could support or replace regular forces; reservists are excluded. From IISS The Military Balance, partly IISS estimates. The series rises from 1.27 million (1994) to 2.15 million (1995); the World Bank metadata does not explain the step, so compare across it with care. Ends in 2020 in the World Bank data. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "सक्रिय सैन्य कार्मिक और वे अर्धसैनिक बल जिन्हें IISS नियमित बलों की सहायता या उनकी जगह लेने योग्य मानता है; रिज़र्व शामिल नहीं। IISS द मिलिट्री बैलेंस से, आंशिक रूप से IISS के अनुमान। यह शृंखला 12.7 लाख (1994) से 21.5 लाख (1995) तक बढ़ती है; विश्व बैंक का मेटाडेटा इस उछाल की व्याख्या नहीं करता, इसलिए इसके आर-पार तुलना सावधानी से करें। विश्व बैंक के आँकड़े 2020 पर समाप्त होते हैं। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "wb_armed_forces"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "def_budget_capital_cr",
+  "sort": 8,
+  "unit": "₹ crore (current prices)",
+  "domain": [
+   0,
+   250000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Defence capital outlay",
+   "hi": "रक्षा पूंजी परिव्यय"
+  },
+  "label": {
+   "en": "Capital Outlay on Defence Services: Union Budget demand of the Ministry of Defence",
+   "hi": "रक्षा सेवाओं पर पूंजी परिव्यय: रक्षा मंत्रालय की केंद्रीय बजट मांग"
+  },
+  "definition": {
+   "en": "Capital spending of the armed forces, the 'Capital Outlay on Defence Services' demand. Its heads include land, aircraft and aero-engines, heavy and medium vehicles, other equipment, naval fleet and dockyards, construction works, and investment in defence public enterprises (2026-27 document). Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "सशस्त्र बलों का पूंजीगत व्यय, 'रक्षा सेवाओं पर पूंजी परिव्यय' मांग। इसके शीर्षों में भूमि, विमान और एयरो-इंजन, भारी और मध्यम वाहन, अन्य उपकरण, नौसैनिक बेड़ा और गोदी, निर्माण कार्य और रक्षा सार्वजनिक उपक्रमों में निवेश शामिल हैं (2026-27 दस्तावेज़)। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": {
+   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+  },
+  "anchor": [
+   "ub_def_capital_actual",
+   "ub_def_capital_be"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "def_budget_revenue_cr",
+  "sort": 9,
+  "unit": "₹ crore (current prices)",
+  "domain": [
+   0,
+   400000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Defence revenue spending",
+   "hi": "रक्षा राजस्व व्यय"
+  },
+  "label": {
+   "en": "Defence Services (Revenue): Union Budget demand of the Ministry of Defence",
+   "hi": "रक्षा सेवाएँ (राजस्व): रक्षा मंत्रालय की केंद्रीय बजट मांग"
+  },
+  "definition": {
+   "en": "Day-to-day spending of the armed forces (pay and allowances, stores, transportation, works and other running costs, as in the demand's heads), the 'Defence Services (Revenue)' demand. Excludes pensions and capital outlay. This single demand starts in the 2016-17 documents, which also recast 2014-15 Actuals and the 2015-16 Budget Estimate; earlier years were split over five demands and are not added up here. Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "सशस्त्र बलों का दैनिक व्यय (वेतन और भत्ते, भंडार, परिवहन, निर्माण कार्य, रखरखाव), 'रक्षा सेवाएँ (राजस्व)' मांग। इसमें पेंशन और पूंजी परिव्यय शामिल नहीं। यह एकल मांग 2016-17 के दस्तावेज़ों से शुरू होती है, जिनमें 2014-15 के वास्तविक और 2015-16 के बजट अनुमान भी नए ढाँचे में दिए गए; पहले के वर्ष पाँच मांगों में बँटे थे और यहाँ जोड़े नहीं गए। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": {
+   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+  },
+  "anchor": [
+   "ub_def_revenue_actual",
+   "ub_def_revenue_be"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "def_pensions_cr",
+  "sort": 10,
+  "unit": "₹ crore (current prices)",
+  "domain": [
+   0,
+   200000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Defence pensions",
+   "hi": "रक्षा पेंशन"
+  },
+  "label": {
+   "en": "Defence Pensions: Union Budget demand of the Ministry of Defence",
+   "hi": "रक्षा पेंशन: रक्षा मंत्रालय की केंद्रीय बजट मांग"
+  },
+  "definition": {
+   "en": "Pensions and other retirement benefits paid under the 'Defence Pensions' demand. Union Budget, Notes on Demands for Grants, net of recoveries. Budget Estimates (the year's allocation, from that year's budget) and Actuals (spent, printed two years later) are separate lines; Revised Estimates are not shown. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "'रक्षा पेंशन' मांग के तहत दी गई पेंशन और अन्य सेवानिवृत्ति लाभ। केंद्रीय बजट, अनुदान मांगों पर टिप्पणियाँ, वसूलियों को घटाकर। बजट अनुमान (उसी वर्ष के बजट में आवंटन) और वास्तविक (खर्च, दो वर्ष बाद छपा) अलग-अलग रेखाएँ हैं; संशोधित अनुमान नहीं दिखाए गए। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": {
+   "en": "The 2016-17 budget documents reorganised the Ministry of Defence demands (the separate Army, Navy, Air Force, Ordnance Factories and R&D revenue demands became one 'Defence Services (Revenue)' demand). Figures from that document on (Actuals 2014-15, Budget 2016-17) follow the new structure.",
+   "hi": "2016-17 के बजट दस्तावेज़ों में रक्षा मंत्रालय की मांगों का पुनर्गठन हुआ (थल सेना, नौसेना, वायु सेना, आयुध निर्माणी और अनुसंधान एवं विकास की अलग राजस्व मांगें एक 'रक्षा सेवाएँ (राजस्व)' मांग बन गईं)। उस दस्तावेज़ से आगे के आँकड़े (वास्तविक 2014-15, बजट 2016-17) नई संरचना पर आधारित हैं।"
+  },
+  "anchor": [
+   "ub_def_pensions_actual",
+   "ub_def_pensions_be"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "def_production_cr",
+  "sort": 11,
+  "unit": "₹ crore (current prices)",
+  "domain": [
+   0,
+   200000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Defence production",
+   "hi": "रक्षा उत्पादन"
+  },
+  "label": {
+   "en": "Value of defence production in India (Department of Defence Production)",
+   "hi": "भारत में रक्षा उत्पादन का मूल्य (रक्षा उत्पादन विभाग)"
+  },
+  "definition": {
+   "en": "Value of production reported by Defence PSUs, the companies formed from the Ordnance Factory Board, other PSUs and private firms making defence items, by financial year, in that year's rupees (not adjusted for inflation). Self-reported and revised; the latest year can be provisional. A 2014-15 figure from a PIB release is a separate line. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "रक्षा सार्वजनिक उपक्रमों, आयुध निर्माणी बोर्ड से बनी कंपनियों, अन्य सार्वजनिक उपक्रमों और रक्षा सामान बनाने वाली निजी कंपनियों द्वारा बताया गया उत्पादन मूल्य, वित्त वर्ष के अनुसार, उस वर्ष के रुपयों में (मुद्रास्फीति समायोजित नहीं)। स्वयं बताए गए और संशोधित आँकड़े; नवीनतम वर्ष अनंतिम हो सकता है। PIB विज्ञप्ति से 2014-15 का आँकड़ा अलग रेखा है। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "ddp_production"
+  ],
+  "group": "defence"
+ },
+ {
+  "id": "def_exports_cr",
+  "sort": 12,
+  "unit": "₹ crore (current prices)",
+  "domain": [
+   0,
+   40000
+  ],
+  "decimals": 0,
+  "higher_is_better": false,
+  "short_label": {
+   "en": "Defence exports (₹)",
+   "hi": "रक्षा निर्यात (₹)"
+  },
+  "label": {
+   "en": "Defence exports in rupees crore (Department of Defence Production)",
+   "hi": "करोड़ रुपये में रक्षा निर्यात (रक्षा उत्पादन विभाग)"
+  },
+  "definition": {
+   "en": "Exports by Defence PSUs and by private firms under DDP export authorisations, including parts, components and services, by financial year, in that year's rupees. A money value, unlike SIPRI's TIV, and not comparable with it. An earlier Parliament table (2022) and a PIB figure for 2013-14 are separate lines. Neither direction is 'better': higher_is_better is set to false only because the field needs a value.",
+   "hi": "रक्षा सार्वजनिक उपक्रमों और DDP निर्यात प्राधिकरणों के तहत निजी कंपनियों का निर्यात, पुर्ज़ों, घटकों और सेवाओं सहित, वित्त वर्ष के अनुसार, उस वर्ष के रुपयों में। यह पैसे का मूल्य है, SIPRI के TIV जैसा नहीं, और उससे तुलनीय नहीं। संसद की पहले की तालिका (2022) और 2013-14 का PIB आँकड़ा अलग रेखाएँ हैं। इसमें कोई भी दिशा 'बेहतर' नहीं है: higher_is_better को केवल इसलिए false रखा गया है क्योंकि इस क्षेत्र में कोई मान देना ज़रूरी है।"
+  },
+  "break_note": null,
+  "anchor": [
+   "ddp_exports"
+  ],
+  "group": "defence"
  }
 ]
