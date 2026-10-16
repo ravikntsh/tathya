@@ -299,5 +299,77 @@
       "hi": "NFHS-1, 2 और 3 भारत रिपोर्ट में छपे अनुसार। कोई भी शौचालय, साझा हो या नहीं, गिना जाता है, इसलिए यह 'बेहतर स्वच्छता' के समान नहीं है। NFHS-1 के मान स्कैन रिपोर्ट से हैं और कम विश्वसनीय हैं।"
     },
     "break_note": null
+  },
+  {
+    "id": "tap_water",
+    "sort": 4,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Tap water",
+      "hi": "नल का पानी"
+    },
+    "label": {
+      "en": "Households whose main source of drinking water is a tap",
+      "hi": "वे परिवार जिनका पीने के पानी का मुख्य स्रोत नल है"
+    },
+    "definition": {
+      "en": "Census of India houselisting: households whose main drinking-water source is tap water (2011 adds treated and untreated sources together, as printed). Not the same as Jal Jeevan Mission 'functional household tap connections'.",
+      "hi": "भारत की जनगणना मकान सूचीकरण: वे परिवार जिनका पीने के पानी का मुख्य स्रोत नल है (2011 में उपचारित और अनुपचारित स्रोत मिलाकर, जैसा छपा है)। यह जल जीवन मिशन के 'कार्यात्मक घरेलू नल कनेक्शन' के समान नहीं है।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "household_banking",
+    "sort": 6,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Household banking",
+      "hi": "घरेलू बैंकिंग"
+    },
+    "label": {
+      "en": "Households availing banking services",
+      "hi": "बैंकिंग सेवाओं का लाभ उठाने वाले परिवार"
+    },
+    "definition": {
+      "en": "Census of India 2001 and 2011: households where any member has a bank account or uses banking services. Not the same as individual accounts (Findex) or Jan Dhan totals.",
+      "hi": "भारत की जनगणना 2001 और 2011: वे परिवार जिनके किसी सदस्य का बैंक खाता है या जो बैंकिंग सेवाओं का उपयोग करते हैं। यह व्यक्तिगत खातों (फ़िंडेक्स) या जन धन के कुल योग के समान नहीं है।"
+    },
+    "break_note": null
+  },
+  {
+    "id": "toilet_premises",
+    "sort": 3,
+    "unit": "%",
+    "domain": [
+      0,
+      100
+    ],
+    "decimals": 1,
+    "higher_is_better": true,
+    "short_label": {
+      "en": "Toilet at home (Census)",
+      "hi": "घर में शौचालय (जनगणना)"
+    },
+    "label": {
+      "en": "Households with a latrine within the premises",
+      "hi": "परिसर के भीतर शौचालय वाले परिवार"
+    },
+    "definition": {
+      "en": "Census of India: 2001 asked about a latrine 'within the house', 2011 'within the premises'. ORGI compares the two directly.",
+      "hi": "भारत की जनगणना: 2001 में 'घर के भीतर' शौचालय के बारे में पूछा गया, 2011 में 'परिसर के भीतर'। ORGI दोनों की सीधे तुलना करता है।"
+    },
+    "break_note": null
   }
 ]

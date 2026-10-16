@@ -197,5 +197,23 @@
     },
     "provider": "IIPS / MoHFW",
     "class": "A"
+  },
+  {
+    "id": "census_hh",
+    "label": {
+      "en": "Census of India (houselisting)",
+      "hi": "भारत की जनगणना (मकान सूचीकरण)"
+    },
+    "provider": "Office of the Registrar General & Census Commissioner",
+    "class": "A"
+  },
+  {
+    "id": "census_hh_lpg",
+    "label": {
+      "en": "Census: LPG/PNG as main cooking fuel",
+      "hi": "जनगणना: मुख्य रसोई ईंधन के रूप में LPG/PNG"
+    },
+    "provider": "Office of the Registrar General & Census Commissioner",
+    "class": "A"
   }
 ]
