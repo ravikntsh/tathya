@@ -6,9 +6,11 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
 // Supabase is unreachable or still on the old schema.
 export async function loadData() {
   let data = null;
-  // ?local=1 reads the repo files even when Supabase is configured (to preview a new seed).
-  const forceLocal = new URLSearchParams(location.search).has("local");
-  if (SUPABASE_ANON_KEY && !forceLocal) {
+  // The published snapshot in /data is served from the GitHub Pages CDN as one
+  // compressed file, which loads several times faster than paging through
+  // Supabase. Supabase stays the master copy; ?live=1 reads it directly.
+  const live = new URLSearchParams(location.search).has("live");
+  if (SUPABASE_ANON_KEY && live) {
     try {
       data = await fromSupabase();
       data.origin = "supabase";

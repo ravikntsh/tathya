@@ -242,7 +242,7 @@ function render() {
     $("status").className = "status warn";
     $("status").textContent = t("nationalOnly");
   }
-  $("origin").textContent = data.origin === "supabase" ? "Supabase" : "data/observations.csv";
+  $("origin").textContent = data.origin === "supabase" ? "Supabase (live)" : t("snapshot");
 
   const cells = new Map(["IN", ...data.states.map((s) => s.code)].map((c) => [c, cell(c)]));
   const valueOf = (code) => cells.get(code)?.value ?? null;

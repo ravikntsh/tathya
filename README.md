@@ -25,7 +25,9 @@ powershell -ExecutionPolicy Bypass -File scripts/serve.ps1
 | `scripts/data/build_seed.py` | Checks every row, then writes `supabase/seed.sql`, `data/observations.csv` and `data/sources.json` |
 | `supabase/migrations/` | Tables plus read-only row-level security |
 
-The site reads from Supabase when `SUPABASE_ANON_KEY` is set in `js/config.js`, and falls back to the local files otherwise.
+The public site reads the published snapshot (`data/observations.csv` and the JSON files), which GitHub Pages serves as one compressed file. That is several times faster than paging through Supabase. Supabase is the master copy: add `?live=1` to the URL to read it directly.
+
+To update Supabase without the SQL Editor, set the secret key once (`setx SUPABASE_SECRET_KEY "..."`), then run `C:\ProgramData\anaconda3\python.exe -I scripts/data/push_supabase.py` after `build_seed.py`.
 
 To load the data into Supabase:
 1. In the Supabase SQL Editor, run `supabase/migrations/0001_tracker.sql`, then `0002_sources_and_series.sql`.
