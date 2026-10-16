@@ -28,8 +28,8 @@ export function yearChart(el, { lines, xDomain, yDomain, decimals = 1, activeYea
   for (const v of x.ticks(6)) {
     s += `<text class="tick" x="${x(v)}" y="${H - 8}" text-anchor="middle">${v}</text>`;
   }
-  // Context bands: 1857 and 1947 when in range.
-  for (const yr of [1857, 1947]) {
+  // Reference years: 1857, Independence (1947) and the 1991 economic reforms.
+  for (const yr of [1857, 1947, 1991]) {
     if (yr > xDomain[0] && yr < xDomain[1]) {
       s += `<line class="era" x1="${x(yr)}" x2="${x(yr)}" y1="${m.t}" y2="${H - m.b}"/><text class="era-label" x="${x(yr) + 3}" y="${m.t + 9}">${yr}</text>`;
     }

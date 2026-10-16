@@ -6,7 +6,7 @@ import { cardLink, shareTexts, shareImage, download, copy } from "./share.js";
 import { MAP_VERIFIED } from "./config.js";
 
 const $ = (id) => document.getElementById(id);
-const RANGES = { all: 1850, 1947: 1947, 1990: 1990 };
+const RANGES = { all: 1850, 1947: 1947, 1991: 1991 };
 const state = { indicator: null, dataset: null, period: null, region: null, range: "all", cmpA: "", cmpB: "" };
 let data, map;
 
