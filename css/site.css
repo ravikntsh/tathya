@@ -182,3 +182,44 @@ thead th { color: var(--ink-muted); font-weight: 600; }
 .legend-inline span { display: inline-flex; align-items: center; gap: 4px; }
 .fact-card .big small { font-size: 1rem; font-weight: 600; margin-left: 4px; }
 .table-panel .pill + .pill { margin-left: 6px; }
+
+/* Chart hover, estimates and tools */
+.chart-wrap { position: relative; }
+.chart .hit { fill: transparent; cursor: crosshair; touch-action: pan-y; }
+.chart .xhair { stroke: var(--ink-muted); stroke-width: 1; }
+.chart .hover-dots .dot { stroke: var(--surface); stroke-width: 1.5; }
+.chart .hover-dots .dot.est { fill: var(--surface); stroke-width: 2; }
+.chart .hover-dots .dot.est.s0 { stroke: var(--navy); }
+.chart .hover-dots .dot.est.s1 { stroke: #5B6E9E; }
+.chart .hover-dots .dot.est.s2 { stroke: var(--teal); }
+.chart .est-line, .legend-inline .est-line { fill: none; stroke-width: 1.8; stroke-dasharray: 4 3; }
+.chart .est-band, .legend-inline .est-band { stroke: none; opacity: .14; }
+.est-line.s0, .est-band.s0 { stroke: var(--navy); fill: var(--navy); }
+.est-line.s1, .est-band.s1 { stroke: #5B6E9E; fill: #5B6E9E; }
+.est-line.s2, .est-band.s2 { stroke: var(--teal); fill: var(--teal); }
+.est-line.s3, .est-band.s3 { stroke: var(--slate); fill: var(--slate); }
+.est-line.s4, .est-band.s4 { stroke: var(--saffron); fill: var(--saffron); }
+.chart .est-line { fill: none; }
+.legend-inline .est-line { fill: none; }
+.tip {
+  position: absolute; z-index: 3; pointer-events: none; width: max-content; max-width: 220px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, .12); font-size: .78rem;
+}
+.tip strong { display: block; color: var(--navy); margin-bottom: 2px; }
+.tip-row { display: grid; grid-template-columns: 10px 1fr; gap: 0 6px; align-items: center; margin-top: 3px; }
+.tip-row span { color: var(--ink-muted); line-height: 1.25; }
+.tip-row b, .tip-row small { grid-column: 2; }
+.tip-row small { color: var(--ink-muted); }
+.tip-row b { font-variant-numeric: tabular-nums; }
+.sw { width: 10px; height: 3px; display: inline-block; }
+.sw.s0 { background: var(--navy); } .sw.s1 { background: #5B6E9E; } .sw.s2 { background: var(--teal); }
+.sw.s3 { background: var(--slate); } .sw.s4 { background: var(--saffron); }
+.chart-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-top: 6px; }
+.check { display: inline-flex; gap: 6px; align-items: center; font-size: .82rem; cursor: pointer; }
+.check input { accent-color: var(--navy); width: 16px; height: 16px; }
+
+/* Rankings: stacked lists so long names and large numbers never collide. */
+.ranks, .ranks.panel { grid-template-columns: 1fr !important; }
+.rank-row { grid-template-columns: minmax(0, 9em) 1fr auto !important; }
+.rank-val { min-width: 4.5em; white-space: nowrap; }

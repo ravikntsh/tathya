@@ -1,13 +1,13 @@
 import { loadData } from "./data.js";
 import { loadMap, createMap, renderLegend, setDomain } from "./map.js";
-import { yearChart, rankBars, dataTable, esc, LINE_STYLES } from "./chart.js";
+import { yearChart, rankBars, dataTable, esc, LINE_STYLES, chartPng } from "./chart.js";
 import { t, tr, fmt, setLang, getLang } from "./i18n.js";
 import { cardLink, shareTexts, shareImage, download, copy } from "./share.js";
 import { MAP_VERIFIED } from "./config.js";
 
 const $ = (id) => document.getElementById(id);
 const RANGES = { all: 1850, 1947: 1947, 1991: 1991 };
-const state = { indicator: null, dataset: null, period: null, region: null, range: "all", cmpA: "", cmpB: "" };
+const state = { indicator: null, dataset: null, period: null, region: null, range: "all", cmpA: "", cmpB: "", estimates: false };
 let data, map;
 
 init();
@@ -32,6 +32,8 @@ async function init() {
   $("map-banner").hidden = MAP_VERIFIED;
 
   bindControls();
+  // Browsers restore checkbox state on reload; keep it in step with the page state.
+  $("estimates").checked = state.estimates;
   render();
 }
 
@@ -117,6 +119,24 @@ function bindControls() {
     $("table-toggle").textContent = tbl.hidden ? t("showTable") : t("hideTable");
   });
   $("csv").addEventListener("click", downloadCsv);
+  $("estimates").addEventListener("change", (e) => {
+    state.estimates = e.target.checked;
+    $("est-note").hidden = !state.estimates;
+    renderTrend();
+    renderCompare();
+  });
+  $("chart-png").addEventListener("click", async () => {
+    const i = ind();
+    const srcs = [...new Set(data.nationalDatasets(state.indicator).filter((ds) => data.datasetById.get(ds)?.chart !== false)
+      .flatMap((ds) => data.series(state.indicator, ds, "IN").map((o) => data.sourceById.get(o.sourceId)?.publisher ?? o.sourceId)))];
+    const blob = await chartPng($("trend"), {
+      title: `${t("national")}: ${tr(i.short_label)}`,
+      subtitle: `${tr(i.label)} (${i.unit})${state.estimates ? " · " + t("estimateKey") : ""}`,
+      sources: srcs.map((x) => `${t("source")}: ${x}`),
+      site: `Tathya · ${location.href.replace(/^https?:\/\//, "").slice(0, 90)}`,
+    });
+    download(blob, `tathya-${i.id}-chart.png`);
+  });
   $("cmp-a").addEventListener("change", (e) => { state.cmpA = e.target.value; renderCompare(); });
   $("cmp-b").addEventListener("change", (e) => { state.cmpB = e.target.value; renderCompare(); });
 }
@@ -131,6 +151,8 @@ const regionName = (code) => tr(data.regionByCode.get(code)?.name) || code;
 const dsLabel = (id) => tr(data.datasetById.get(id)?.label) || id;
 const ind = () => data.indicatorById.get(state.indicator);
 const unitText = (i) => (i.unit === "%" ? "%" : ` ${i.unit}`);
+// Estimates can't go below 0, or above 100 for percentages.
+const boundsOf = (i) => [0, i.unit === "%" ? 100 : Infinity];
 const fmtVal = (v, i = ind()) => `${fmt(v, i.decimals ?? 1)}${unitText(i)}`;
 // Changes in a percentage are percentage points, not per cent.
 const deltaUnit = (i) => (i.unit === "%" ? ` ${t("pts")}` : unitText(i));
@@ -197,7 +219,7 @@ function render() {
   // Text summary
   const nat = valueOf("IN");
   $("summary").textContent = ranked.length
-    ? t("summary")(tr(i.short_label), `${state.period} (${dsLabel(state.dataset)})`, nat != null ? fmtVal(nat) : t("noData"),
+    ? t("summary")(tr(i.short_label), `${state.period} (${dsLabel(state.dataset)})`, nat != null ? fmtVal(nat) : "",
         `${ranked[0].name} ${fmtVal(ranked[0].value)}`, `${ranked.at(-1).name} ${fmtVal(ranked.at(-1).value)}`)
     : "";
 
@@ -239,6 +261,8 @@ function renderTrend() {
     decimals: i.decimals,
     activeYear,
     unit: i.unit,
+    estimates: state.estimates,
+    bounds: boundsOf(i),
   });
   $("trend-note").textContent = lines.length > 1 ? t("sourcesNote") : "";
 }
@@ -340,7 +364,7 @@ function renderCompare() {
   if (!lines.length || !state.dataset) { el.innerHTML = ""; return; }
   const years = lines.flatMap((l) => l.points.map((p) => p.year));
   if (!years.length) { el.innerHTML = `<p class="muted small">${t("noData")}</p>`; return; }
-  yearChart(el, { lines, xDomain: [Math.min(...years), Math.max(Math.max(...years), Math.min(...years) + 1)], yDomain: i.domain, decimals: i.decimals, unit: i.unit });
+  yearChart(el, { lines, xDomain: [Math.min(...years), Math.max(Math.max(...years), Math.min(...years) + 1)], yDomain: i.domain, decimals: i.decimals, unit: i.unit, estimates: state.estimates, bounds: boundsOf(i) });
 }
 
 function downloadCsv() {

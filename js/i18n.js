@@ -44,8 +44,14 @@ const STRINGS = {
     legendHigh: "Higher",
     surveyNote: "Survey estimates (NFHS). Comparable across these two rounds because both come from the same NFHS-5 fact sheet.",
     summary: (ind, round, nat, hi, lo) =>
-      `${ind}, ${round}: All-India ${nat}. Top: ${hi}. Bottom: ${lo}.`,
+      `${ind}, ${round}: ${nat ? `All-India ${nat}. ` : ""}Top: ${hi}. Bottom: ${lo}.`,
     mapSource: "Map source",
+    estimates: "Show estimates for years without data",
+    estimateKey: "Estimate (trend of last 5 points, 90% range), not data",
+    estimate: "estimate, 90% range",
+    interpolated: "interpolated between data points",
+    estimatesNote: "Estimates are straight-line trends from each source's latest points. They are not data, and never appear on the map or fact cards.",
+    downloadChart: "Download chart (PNG)",
     since1857: "Since 1857",
     since1947: "Since 1947",
     since1991: "Since 1991",
@@ -99,8 +105,14 @@ const STRINGS = {
     legendHigh: "अधिक",
     surveyNote: "सर्वेक्षण अनुमान (NFHS)। दोनों दौर एक ही NFHS-5 तथ्य पत्रक से लिए गए हैं, इसलिए तुलनीय हैं।",
     summary: (ind, round, nat, hi, lo) =>
-      `${ind}, ${round}: अखिल भारत ${nat}। सबसे अच्छा: ${hi}। सबसे खराब: ${lo}।`,
+      `${ind}, ${round}: ${nat ? `अखिल भारत ${nat}। ` : ""}सबसे ऊपर: ${hi}। सबसे नीचे: ${lo}।`,
     mapSource: "मानचित्र स्रोत",
+    estimates: "बिना आँकड़ों वाले वर्षों के अनुमान दिखाएँ",
+    estimateKey: "अनुमान (पिछले 5 बिंदुओं का रुझान, 90% सीमा), आँकड़ा नहीं",
+    estimate: "अनुमान, 90% सीमा",
+    interpolated: "आँकड़ा बिंदुओं के बीच अनुमानित",
+    estimatesNote: "अनुमान हर स्रोत के नवीनतम बिंदुओं की सीधी रेखा वाले रुझान हैं। ये आँकड़े नहीं हैं, और मानचित्र या तथ्य कार्ड पर कभी नहीं दिखते।",
+    downloadChart: "चार्ट डाउनलोड करें (PNG)",
     since1857: "1857 से",
     since1947: "1947 से",
     since1991: "1991 से",
@@ -122,3 +134,11 @@ export const t = (key) => STRINGS[lang][key] ?? STRINGS.en[key] ?? key;
 export const tr = (obj) => (obj ? obj[lang] ?? obj.en : "");
 export const fmt = (v, digits = 1) =>
   Number.isFinite(v) ? v.toLocaleString(lang === "hi" ? "hi-IN" : "en-IN", { maximumFractionDigits: digits, minimumFractionDigits: digits }) : "–";
+
+// Short form for large numbers: 2,83,093 -> 2.83 L (Indian lakh/crore notation).
+export const fmtCompact = (v) => {
+  if (!Number.isFinite(v)) return "–";
+  if (Math.abs(v) < 100000) return v.toLocaleString(lang === "hi" ? "hi-IN" : "en-IN", { maximumFractionDigits: 0 });
+  const [d, u] = Math.abs(v) >= 1e7 ? [1e7, lang === "hi" ? " करोड़" : " Cr"] : [1e5, lang === "hi" ? " लाख" : " L"];
+  return (v / d).toLocaleString(lang === "hi" ? "hi-IN" : "en-IN", { maximumFractionDigits: 2 }) + u;
+};
