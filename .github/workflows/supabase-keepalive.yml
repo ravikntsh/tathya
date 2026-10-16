@@ -1,0 +1,27 @@
+# Keeps the Supabase free-tier project from pausing after a week without activity.
+# Runs three times a week and makes one small read with the public, read-only
+# publishable key (the same key the website ships). No secrets are needed.
+name: Supabase keep-alive
+
+on:
+  schedule:
+    - cron: "17 3 * * 1,3,5"   # 03:17 UTC on Monday, Wednesday and Friday
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read one row from Supabase
+        env:
+          SUPABASE_URL: https://hqueptmttyerlzpomfwy.supabase.co
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_44O7JB2fFe2e7T3vRnfCNg_iB59d9tK
+        run: |
+          code=$(curl -s -o /tmp/out.json -w "%{http_code}" \
+            -H "apikey: $SUPABASE_PUBLISHABLE_KEY" \
+            "$SUPABASE_URL/rest/v1/indicators?select=id&limit=1")
+          echo "HTTP $code: $(cat /tmp/out.json)"
+          test "$code" = "200"
