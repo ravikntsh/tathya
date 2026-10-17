@@ -222,6 +222,18 @@ Every fact card, chart and claim card has a share button that produces three thi
 - Languages: share text in English and Hindi at launch.
 - No watermark wars: the site name sits small in a corner. The source is bigger than the brand.
 
+### Swipe feed (feed.html)
+
+A phone-first way in: one full-screen fact per indicator.
+
+- Swipe up or down between facts. Swipe left or right (or use the slider and arrows) to move through the years that have real figures.
+- One button switches between the map and the chart; the choice carries to the next facts.
+- Tapping a state puts that state's figure in the headline; "India" goes back.
+- The source of the number on screen is always visible, never behind a tap.
+- Figures follow the tracker's "All sources" rules. Estimates and calculated averages are starred and say how they were made; shared images carry the estimate stamp.
+- Each fact opens on the latest year with real state figures, so the first map is real data.
+- No likes, votes or reaction buttons: facts are not up for a popularity vote.
+
 ## Design
 
 Build the palette around the navy of the Ashoka Chakra, not saffron or green: the flag's centre reads as national, while saffron and green read as party colours in Indian politics.

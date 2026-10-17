@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tathya: swipe through India's record</title>
+  <meta name="description" content="One fact at a time: swipe up for the next fact, left or right through the years. The source of every number stays on screen.">
+  <meta property="og:title" content="Tathya: swipe through India's record">
+  <meta property="og:description" content="One fact at a time, with the source of every number on screen.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="module" src="js/feed.js"></script>
+</head>
+<body class="feed-page">
+  <!-- Shared "no data" hatch for every map on the page (each map also defines one;
+       the first in the document wins, and this one is never hidden). -->
+  <svg class="defs-only" aria-hidden="true" width="0" height="0"><defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="6" height="6" fill="var(--no-data)"></rect><line x1="0" y1="0" x2="0" y2="6" stroke="var(--slate)" stroke-width="1.2"></line>
+    </pattern></defs></svg>
+  <header class="top feed-top">
+    <a class="brand" href="index.html">
+      <span class="logo" aria-hidden="true">त</span>
+      <strong>Tathya</strong>
+    </a>
+    <select id="jump" class="pill feed-jump" aria-label="Jump to section"></select>
+    <div class="top-actions">
+      <button id="lang" class="pill" type="button" aria-label="Switch language">हिं</button>
+      <button id="theme" class="pill" type="button" aria-label="Switch colour theme">◐</button>
+    </div>
+  </header>
+
+  <main id="feed" class="feed" tabindex="-1"></main>
+
+  <dialog id="share-dlg" class="share-dlg" aria-labelledby="share-what">
+    <div class="dlg-head">
+      <h2 id="share-what"></h2>
+      <button id="share-close" class="pill" type="button" data-i18n="close"></button>
+    </div>
+    <p id="share-est" class="small est-note" data-i18n="estShareNote" hidden></p>
+    <div id="share-actions" class="share"></div>
+  </dialog>
+</body>
+</html>

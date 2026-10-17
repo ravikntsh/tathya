@@ -11,6 +11,7 @@ export function renderRail(el, { active = "development" } = {}) {
   const link = (href, label, on) => `<a href="${href}"${on ? ' class="active" aria-current="page"' : ""}>${esc(label)}</a>`;
   el.innerHTML =
     `<li>${link("index.html", t("development"), active === "development")}</li>` +
+    `<li>${link("feed.html", `↕ ${t("feedLink")}`, active === "feed")}</li>` +
     items
       .map((i, k) => {
         if (!Array.isArray(i)) return `<li><span aria-disabled="true">${esc(i)}<small>${t("soon")}</small></span></li>`;
