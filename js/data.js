@@ -145,7 +145,7 @@ function index({ regions, indicators, datasets, sources, observations, origin })
     if (!byPeriod) return [];
     return [...byPeriod.entries()]
       .filter(([, m]) => !statesOnly || [...m.keys()].some((k) => k !== "IN"))
-      .map(([period, m]) => ({ period, year: Math.max(...[...m.values()].map((o) => o.year)) }))
+      .map(([period, m]) => ({ period, year: Math.max(...[...m.values()].map((o) => o.year)), n: [...m.keys()].filter((k) => k !== "IN").length }))
       .sort((a, b) => a.year - b.year);
   }
   const get = (ind, ds, period, region) => cube.get(ind)?.get(ds)?.get(period)?.get(region) ?? null;

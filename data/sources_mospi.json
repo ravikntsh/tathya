@@ -1,0 +1,29 @@
+[
+ {
+  "id": "mospi-esankhyiki-nas-state-2011",
+  "publisher": "National Statistical Office (NSO), MoSPI - eSankhyiki API",
+  "title": "National Accounts Statistics API getNASData: state GSDP (indicator 23) and GSDP growth rate (indicator 26); All-India GDP (indicator 5) and GDP growth rate (indicator 22); base 2011-12, current series, annual",
+  "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2011-12&series=Current&frequency_code=Annually&indicator_code=23&Format=JSON",
+  "class": "A",
+  "licence": "Government of India data; reuse with attribution under the Government Open Data Use Licence - India / National Data Sharing and Accessibility Policy (licence not restated in the API)",
+  "method": "All pages fetched by scripts/data/fetch_mospi.py (no key needed; API specs at github.com/nso-india/esankhyiki-mcp). GSDP from field current_price (Rs crore); growth from field constant_price (per cent, constant 2011-12 prices). Rows with an empty value are skipped. All-India rows: for each year the latest estimate round in the API is kept (Final, then Third/Second/First Revised, Provisional, Second and First Advance). State names in the API are matched to Tathya region codes by name. The API carries the latest NSO release, so recent years can differ from the RBI Handbook copy (checked 2026-10-17: 351 of 412 per-capita NSDP values identical; the 61 that differ are 2021-22 onwards, consistent with later revisions)."
+ },
+ {
+  "id": "mospi-esankhyiki-plfs-lfpr",
+  "publisher": "National Statistical Office (NSO), MoSPI - eSankhyiki API",
+  "title": "PLFS API getData: labour force participation rate (indicator 1), persons and women, annual, calendar years",
+  "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&age_code=1&weekly_status_code=1&sector_code=3&gender_code=2,3&Format=JSON",
+  "class": "A",
+  "licence": "Government of India data; reuse with attribution under the Government Open Data Use Licence - India / National Data Sharing and Accessibility Policy (licence not restated in the API)",
+  "method": "All pages fetched by scripts/data/fetch_mospi.py. Kept records with weekly_status PS+SS, AgeGroup 15 years and above, sector rural + urban, religion/socialGroup/General_Education all, gender person or female. On 2026-10-17 the API returned calendar years 2022-2025 only (no July-June years)."
+ },
+ {
+  "id": "mospi-esankhyiki-cpi-2012",
+  "publisher": "National Statistical Office (NSO), MoSPI - eSankhyiki API",
+  "title": "CPI API getCPIIndex: monthly Consumer Price Index, General Index, base 2012=100, combined rural+urban, All-India and states",
+  "url": "https://api.mospi.gov.in/api/cpi/getCPIIndex?base_year=2012&series=Current&sector_code=3&state_code=99&Format=JSON",
+  "class": "A",
+  "licence": "Government of India data; reuse with attribution under the Government Open Data Use Licence - India / National Data Sharing and Accessibility Policy (licence not restated in the API)",
+  "method": "All pages for state codes 1-36 and 99 (All-India) fetched by scripts/data/fetch_mospi.py; subgroup General-Overall kept. Yearly inflation calculated by Tathya: mean of the 12 monthly index values for April-March divided by the mean for the previous April-March, minus 1, as a per cent. A year is calculated only when all 24 months are present. Rows say when any month was provisional."
+ }
+]

@@ -2063,5 +2063,145 @@
   },
   "break_note": null,
   "anchor": []
+ },
+ {
+  "id": "lfpr",
+  "sort": 6,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Labour force participation",
+   "hi": "श्रम बल भागीदारी"
+  },
+  "label": {
+   "en": "Labour force participation rate, usual status (ps+ss), age 15 and above",
+   "hi": "श्रम बल भागीदारी दर, सामान्य स्थिति (ps+ss), 15 वर्ष और अधिक आयु"
+  },
+  "definition": {
+   "en": "People who are working or looking for work, as a per cent of everyone aged 15+. Students, homemakers and retired people who are not seeking work are outside the labour force.",
+   "hi": "काम करने वाले या काम खोजने वाले लोग, 15+ आयु के सभी लोगों के प्रतिशत के रूप में। जो छात्र, गृहिणियाँ और सेवानिवृत्त लोग काम नहीं खोज रहे, वे श्रम बल से बाहर हैं।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   80
+  ],
+  "decimals": 1,
+  "anchor": null,
+  "method_note": "Calendar-year (Jan-Dec) series from the MoSPI PLFS API."
+ },
+ {
+  "id": "lfpr_female",
+  "sort": 6,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "Women in the labour force",
+   "hi": "श्रम बल में महिलाएँ"
+  },
+  "label": {
+   "en": "Labour force participation rate of women, usual status (ps+ss), age 15 and above",
+   "hi": "महिलाओं की श्रम बल भागीदारी दर, सामान्य स्थिति (ps+ss), 15 वर्ष और अधिक आयु"
+  },
+  "definition": {
+   "en": "Women who are working or looking for work, as a per cent of all women aged 15+. Unpaid work at home is not counted as being in the labour force; unpaid help in a family business is.",
+   "hi": "काम करने वाली या काम खोजने वाली महिलाएँ, 15+ आयु की सभी महिलाओं के प्रतिशत के रूप में। घर का बिना वेतन का काम श्रम बल में नहीं गिना जाता; पारिवारिक व्यवसाय में बिना वेतन की मदद गिनी जाती है।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   80
+  ],
+  "decimals": 1,
+  "anchor": null,
+  "method_note": "Calendar-year (Jan-Dec) series from the MoSPI PLFS API."
+ },
+ {
+  "id": "cpi_inflation",
+  "sort": 18,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": null,
+  "short_label": {
+   "en": "Inflation (CPI)",
+   "hi": "महँगाई (CPI)"
+  },
+  "label": {
+   "en": "Consumer price inflation, average over the financial year (CPI General Index, rural+urban)",
+   "hi": "उपभोक्ता मूल्य महँगाई, वित्त वर्ष का औसत (CPI सामान्य सूचकांक, ग्रामीण+शहरी)"
+  },
+  "definition": {
+   "en": "How much prices of what households buy rose on average over April-March, compared with the year before. Calculated by Tathya from MoSPI's monthly Consumer Price Index (base 2012), the way MoSPI calculates yearly inflation. RBI's target is 4%, within a band of 2% to 6%.",
+   "hi": "परिवारों द्वारा खरीदी जाने वाली चीज़ों के दाम अप्रैल-मार्च में पिछले वर्ष की तुलना में औसतन कितने बढ़े। MoSPI के मासिक उपभोक्ता मूल्य सूचकांक (आधार 2012) से तथ्य द्वारा गणना, उसी तरीके से जैसे MoSPI वार्षिक महँगाई निकालता है। RBI का लक्ष्य 4% है, 2% से 6% के दायरे में।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   12
+  ],
+  "decimals": 1,
+  "anchor": null,
+  "method_note": "Base 2012 only; the base 2024 series (from 2025) is not joined to it."
+ },
+ {
+  "id": "gsdp_current",
+  "sort": 19,
+  "group": "economy",
+  "unit": "₹ crore (that year's prices)",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "State economy size (GSDP)",
+   "hi": "राज्य अर्थव्यवस्था का आकार (GSDP)"
+  },
+  "label": {
+   "en": "Gross State Domestic Product, current prices",
+   "hi": "सकल राज्य घरेलू उत्पाद, चालू मूल्य"
+  },
+  "definition": {
+   "en": "The value of everything produced in the state in a year, in that year's rupees. It shows the size of a state's economy, not how well off its people are: for that, see income per person.",
+   "hi": "किसी वर्ष में राज्य में उत्पादित हर चीज़ का मूल्य, उसी वर्ष के रुपयों में। यह राज्य की अर्थव्यवस्था का आकार दिखाता है, लोगों की संपन्नता नहीं: उसके लिए प्रति व्यक्ति आय देखें।"
+  },
+  "break_note": null,
+  "domain": [
+   0,
+   5000000
+  ],
+  "decimals": 0,
+  "anchor": null,
+  "method_note": "Base 2011-12, latest NSO release; recent years are revised as states report."
+ },
+ {
+  "id": "gsdp_growth_real",
+  "sort": 20,
+  "group": "economy",
+  "unit": "%",
+  "dataset": null,
+  "higher_is_better": true,
+  "short_label": {
+   "en": "State economic growth",
+   "hi": "राज्य की आर्थिक वृद्धि"
+  },
+  "label": {
+   "en": "Growth of Gross State Domestic Product at constant prices (inflation removed)",
+   "hi": "स्थिर मूल्यों पर सकल राज्य घरेलू उत्पाद की वृद्धि (मुद्रास्फीति हटाकर)"
+  },
+  "definition": {
+   "en": "How much the state's economy grew over the year before, with inflation removed (constant 2011-12 prices), as published by NSO. The latest years are early estimates and are revised.",
+   "hi": "पिछले वर्ष की तुलना में राज्य की अर्थव्यवस्था कितनी बढ़ी, मुद्रास्फीति हटाकर (स्थिर 2011-12 मूल्य), जैसा NSO ने प्रकाशित किया। नवीनतम वर्ष शुरुआती अनुमान हैं और संशोधित होते हैं।"
+  },
+  "break_note": null,
+  "domain": [
+   -10,
+   20
+  ],
+  "decimals": 1,
+  "anchor": null,
+  "method_note": "Base 2011-12, latest NSO release."
  }
 ]

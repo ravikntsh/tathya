@@ -1,0 +1,29 @@
+[
+ {
+  "id": "mospi_nas_state_2011",
+  "label": {
+   "en": "State and national accounts, base 2011-12 (NSO, latest release)",
+   "hi": "राज्य और राष्ट्रीय लेखा, आधार 2011-12 (NSO, नवीनतम जारी)"
+  },
+  "provider": "MoSPI / NSO, eSankhyiki API",
+  "class": "A"
+ },
+ {
+  "id": "plfs_ay_api",
+  "label": {
+   "en": "PLFS July-June (MoSPI API)",
+   "hi": "PLFS जुलाई-जून (MoSPI API)"
+  },
+  "provider": "MoSPI / NSO",
+  "class": "A"
+ },
+ {
+  "id": "cpi_2012_fy",
+  "label": {
+   "en": "CPI base 2012, April-March average (calculated)",
+   "hi": "CPI आधार 2012, अप्रैल-मार्च औसत (गणना)"
+  },
+  "provider": "MoSPI / NSO, eSankhyiki API",
+  "class": "A"
+ }
+]

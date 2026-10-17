@@ -51,8 +51,9 @@ function pickDataset() {
   const valid = ds.includes(state.dataset) || (state.dataset === ALL && ds.length > 1);
   if (!valid) state.dataset = ds.length > 1 ? ALL : ds[0] ?? null;
   const ps = mapPeriods();
-  if (!ps.some((p) => p.period === state.period)) state.period = ps.at(-1)?.period ?? null;
-  if (yearMode() && !ps.some((p) => p.year === state.year) && !estMode()) state.year = ps.at(-1)?.year ?? null;
+  const open = latestCovered(ps);
+  if (!ps.some((p) => p.period === state.period)) state.period = open?.period ?? null;
+  if (yearMode() && !ps.some((p) => p.year === state.year) && !estMode()) state.year = open?.year ?? null;
 }
 
 function readPrefs() {
@@ -248,10 +249,19 @@ function priorityDatasets() {
   const rank = (d) => (data.datasetById.get(d)?.class === "A" ? 0 : 1);
   return [...ds].sort((a, b) => rank(a) - rank(b));
 }
+// The period a map opens on: the latest one that at least two-thirds as many states have
+// reported as the best-covered period, so a year with only early figures from a few
+// states (e.g. advance estimates) does not open as a mostly empty map.
+function latestCovered(ps) {
+  const max = Math.max(0, ...ps.map((p) => p.n ?? 0));
+  return [...ps].reverse().find((p) => (p.n ?? 0) >= (max * 2) / 3) ?? ps.at(-1);
+}
 function mapPeriods() {
   if (combined()) {
-    const years = new Set(priorityDatasets().flatMap((d) => data.periods(state.indicator, d, { statesOnly: true }).map((p) => p.year)));
-    return [...years].sort((a, b) => a - b).map((y) => ({ period: String(y), year: y }));
+    const n = new Map();
+    for (const d of priorityDatasets())
+      for (const p of data.periods(state.indicator, d, { statesOnly: true })) n.set(p.year, Math.max(n.get(p.year) ?? 0, p.n));
+    return [...n.keys()].sort((a, b) => a - b).map((y) => ({ period: String(y), year: y, n: n.get(y) }));
   }
   return state.dataset ? data.periods(state.indicator, state.dataset, { statesOnly: true }) : [];
 }

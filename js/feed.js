@@ -231,7 +231,11 @@ function build() {
   if (p.get("view") === "map" || p.get("view") === "chart") view = p.get("view");
   cards = list.map((i) => ({ i, slots: slotsOf(i), region: "IN" })).filter((c) => c.slots.length);
   cards.forEach((c) => {
-    const lastState = Math.max(-Infinity, ...stateOrder(c.i).map((d) => data.periods(c.i.id, d, { statesOnly: true }).at(-1)?.year ?? -Infinity));
+    // Latest year that at least two-thirds as many states have reported as the best-covered one.
+    const lastState = Math.max(-Infinity, ...stateOrder(c.i).map((d) => {
+      const ps = data.periods(c.i.id, d, { statesOnly: true }), max = Math.max(0, ...ps.map((p) => p.n));
+      return [...ps].reverse().find((p) => p.n >= (max * 2) / 3)?.year ?? -Infinity;
+    }));
     const k = canMap(c) ? c.slots.lastIndexOf(lastState) : -1;
     c.k = k >= 0 ? k : c.slots.length - 1;
   });
