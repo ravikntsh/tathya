@@ -4,7 +4,7 @@ import { yearChart, esc, LINE_STYLES } from "./chart.js";
 import { t, tr, fmt, setLang, getLang } from "./i18n.js";
 import { shareTexts, shareImage, download, copy } from "./share.js";
 import { SITE_URL } from "./config.js";
-import { estimateAt, anchoredEstimate } from "./estimate.js";
+import { estimateAt, anchoredEstimate, interpolateAcross } from "./estimate.js";
 
 // Swipe feed: one full-screen fact per indicator. Swipe up or down between facts,
 // left or right through the years. Each fact shows India (or a tapped state), a map
@@ -139,6 +139,23 @@ function stateCell(i, code, y) {
     const c = estimateAt(data.series(i.id, d, code), y, opts(i));
     if (c && c.kind !== "obs") return { ...c, via: d };
   }
+  // Across a break (or with too few points for a trend): move with India in the same
+  // source, keeping the state's gap to India at its nearest real figure.
+  for (const d of order) {
+    const nat = data.series(i.id, d, "IN");
+    if (nat.length < 2) continue;
+    const c = anchoredEstimate(data.series(i.id, d, code), nat, y, opts(i));
+    if (c) return { ...c, anchor: d, same: true, via: d };
+  }
+  for (const d of order) {
+    const b = interpolateAcross(data.series(i.id, d, code), y);
+    if (b) return { ...b, via: d };
+  }
+  // A state created by a split, before the split: the undivided state's estimate.
+  if (split && y < split[1]) {
+    const pc = stateCell(i, split[0], y);
+    if (isEst(pc)) return { ...pc, parentOf: split[0] };
+  }
   return null;
 }
 function stateCells(i, y) {
@@ -186,7 +203,11 @@ function baseFor(i, code, o) {
 }
 
 function howText(i, c) {
+  return howCore(i, c) + (c.broken ? " " + t("estBroken") : "") + (c.parentOf ? " " + t("estParent")(regionName(c.parentOf)) : "");
+}
+function howCore(i, c) {
   const src = dsLabel(c.via);
+  if (c.kind === "anchored" && c.same) return t("estSame")(src, c.basis.map((p) => p.period).join(" & "), fmtVal(c.lo, i), fmtVal(c.hi, i));
   if (c.kind === "anchored") return t("estAnchored")(dsLabel(c.anchor), c.basis.map((p) => p.period).join(" & "), fmtVal(c.lo, i), fmtVal(c.hi, i), src);
   if (c.kind === "interp") return t("estInterp")(`${c.from.period} (${fmtVal(c.from.value, i)})`, `${c.to.period} (${fmtVal(c.to.value, i)})`, src);
   return t("estProj")(c.basis.join(", "), fmtVal(c.lo, i), fmtVal(c.hi, i), src);
@@ -416,7 +437,8 @@ function renderViz(c) {
       label: `${tr(i.label)}, ${y}`,
       format: (v) => fmtVal(v, i),
       isEstimate: (code) => isEst(cells.get(code)),
-      note: (code) => (cells.get(code)?.kind === "parent" ? t("partOf")(regionName(cells.get(code).parent)) : ""),
+      note: (code) => (cells.get(code)?.kind === "parent" ? t("partOf")(regionName(cells.get(code).parent))
+        : cells.get(code)?.parentOf ? t("estParentShort")(regionName(cells.get(code).parentOf)) : ""),
     });
     renderLegend(c.viz.querySelector(".fc-legend"), i.unit, { estimates: false });
     // Which sources the coloured states come from this year (real figures only).

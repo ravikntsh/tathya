@@ -84,7 +84,10 @@ The reader can turn on "Show estimates for years without data". When it's on, th
   - **Scale:** the trend is fitted on a logit scale for percentages, so it flattens near 0% and 100%, and on a log scale for rates per 1,000 such as infant mortality, so it stays above zero. Other indicators use a straight line.
   - **How far:** only series whose latest point is within 15 years are extended, and at most 15 years past that point, and never beyond four years from today. A series that ended in 1946 is never projected.
   - **Too uncertain:** if the 90% range is wider than the estimate itself, no estimate is shown. This happens for small states whose yearly figures swing widely.
-- **No estimates before the first real data point.**
+- **Same-source fallback:** where neither of the above works (the year sits across a break, or the state's latest stretch has fewer than three points), the state moves with India's figures in the same source, keeping the gap to India it had at its nearest real figure (on the same logit or log scale). India's figures are interpolated between that source's rounds and never extended past its last round. The gap is held for at most 15 years. Example: Madhya Pradesh in 2002, between undivided MP in NFHS-2 (1998-99) and today's MP in NFHS-3 (2005-06).
+- **Across a break, as a last resort (maps only):** if a state still has no estimate, a straight line between its nearest real figures on either side, even though the series breaks between them, as long as they are at most 12 years apart. The card says the two figures are not fully comparable. Example: Uttar Pradesh in 2002, between undivided UP in 1998-99 and today's UP in 2005-06. Charts never draw a line across a break.
+- **States created by a split, before the split:** where the source has no figure for the undivided state that year, the child state shows the undivided state's estimate, starred and labelled "estimate for undivided ...". Example: Telangana in 2013 shows undivided Andhra Pradesh.
+- **No estimates before the first real data point** (of the state, or of the undivided state it was part of).
 
 ## Map
 

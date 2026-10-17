@@ -4,7 +4,7 @@ import { yearChart, rankBars, dataTable, esc, LINE_STYLES, chartPng } from "./ch
 import { t, tr, fmt, setLang, getLang } from "./i18n.js";
 import { cardLink, shareTexts, shareImage, download, copy } from "./share.js";
 import { MAP_VERIFIED } from "./config.js";
-import { estimateAt, anchoredEstimate } from "./estimate.js";
+import { estimateAt, anchoredEstimate, interpolateAcross } from "./estimate.js";
 import { renderRail } from "./rail.js";
 
 const $ = (id) => document.getElementById(id);
@@ -314,6 +314,14 @@ function cell(code) {
   }
   const own = estimateAt(mine, year, opts);
   if (own) return own;
+  // Across a break, or past the last point with too few points for a trend: move
+  // with India in the same source, keeping the state's gap to India.
+  if (code !== "IN") {
+    const c = sameSourceEstimate(state.dataset, code, year, opts);
+    if (c) return c;
+    const b = interpolateAcross(mine, year);
+    if (b) return b;
+  }
   // Fallback: the same indicator from another source that has this state, e.g. the
   // DHS series (NFHS-1 to 5) when a state was not surveyed in NFHS-6. Always starred,
   // and the card names the source used.
@@ -322,7 +330,23 @@ function cell(code) {
     const c = estimateAt(data.series(state.indicator, ds, code), year, opts);
     if (c) return { ...c, kind: c.kind === "obs" ? "other" : c.kind, via: ds };
   }
+  // A state created by a split, before the split: the undivided state's estimate.
+  if (split && year < split[1]) {
+    const pc = cell(split[0]);
+    if (pc && !["obs", "parent"].includes(pc.kind)) return { ...pc, parentOf: split[0] };
+  }
   return null;
+}
+
+// Estimate from the state's own source: India's figures in that source (interpolated
+// between its rounds, never extended past them) carry the state, which keeps the gap
+// to India it had at its nearest real figure. Used when the state's own line can't
+// give one: across a definition or territory change, or with too few points for a trend.
+function sameSourceEstimate(ds, code, year, opts) {
+  const nat = data.series(state.indicator, ds, "IN");
+  if (nat.length < 2) return null;
+  const c = anchoredEstimate(data.series(state.indicator, ds, code), nat, year, opts);
+  return c ? { ...c, anchor: ds, same: true } : null;
 }
 
 function combinedCell(code) {
@@ -350,6 +374,20 @@ function combinedCell(code) {
   for (const ds of order) {
     const c = estimateAt(data.series(state.indicator, ds, code), y, opts);
     if (c && c.kind !== "obs") return { ...c, via: ds };
+  }
+  if (code !== "IN") {
+    for (const ds of order) {
+      const c = sameSourceEstimate(ds, code, y, opts);
+      if (c) return { ...c, via: ds };
+    }
+    for (const ds of order) {
+      const b = interpolateAcross(data.series(state.indicator, ds, code), y);
+      if (b) return { ...b, via: ds };
+    }
+  }
+  if (split && y < split[1]) {
+    const pc = combinedCell(split[0]);
+    if (pc && !["obs", "parent"].includes(pc.kind)) return { ...pc, parentOf: split[0] };
   }
   return null;
 }
@@ -467,7 +505,8 @@ function render() {
   $("combined-note").hidden = !combined();
   const when = yearMode() ? String(state.year) : state.period ?? "";
   map?.update({ valueOf, regionName, selected: state.region, label: `${tr(i.label)}, ${when}`, format: (v) => fmtVal(v), isEstimate,
-    note: (code) => (parentOf(code) ? t("partOf")(regionName(parentOf(code))) : "") });
+    note: (code) => (parentOf(code) ? t("partOf")(regionName(parentOf(code)))
+      : cells.get(code)?.parentOf ? t("estParentShort")(regionName(cells.get(code).parentOf)) : "") });
   renderLegend($("legend"), i.unit, { estimates: estMode() });
 
   // Rankings
@@ -642,14 +681,18 @@ function renderWeightedCard(el, i, c) {
 
 function renderEstimateCard(el, i, code, c) {
   const src = dsLabel(c.via ?? state.dataset);
-  const how = c.kind === "anchored"
+  const how = (c.kind === "anchored" && c.same
+    ? t("estSame")(src, c.basis.map((p) => p.period).join(" & "), fmtVal(c.lo), fmtVal(c.hi))
+    : c.kind === "anchored"
     ? t("estAnchored")(dsLabel(c.anchor), c.basis.map((p) => p.period).join(" & "), fmtVal(c.lo), fmtVal(c.hi), src)
     : c.kind === "other"
     ? t("estOther")(src, c.o.period, dsLabel(state.dataset))
     : (c.kind === "interp"
       ? t("estInterp")(`${c.from.period} (${fmtVal(c.from.value)})`, `${c.to.period} (${fmtVal(c.to.value)})`, src)
       : t("estProj")(c.basis.join(", "), fmtVal(c.lo), fmtVal(c.hi), src))
-    + (c.via && c.kind !== "other" && !combined() ? " " + t("estVia")(dsLabel(state.dataset)) : "");
+    + (c.via && c.kind !== "other" && !combined() ? " " + t("estVia")(dsLabel(state.dataset)) : ""))
+    + (c.broken ? " " + t("estBroken") : "")
+    + (c.parentOf ? " " + t("estParent")(regionName(c.parentOf)) : "");
   const basis = c.kind === "other" ? [c.o] : c.kind === "interp" ? [c.from, c.to] : [c.last];
   el.innerHTML = `
     <p class="region">${esc(regionName(code))}</p>

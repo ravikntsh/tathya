@@ -92,6 +92,17 @@ export function interpolate(points, year) {
   return null;
 }
 
+// Last resort for maps: a straight line between the nearest real figures on either
+// side even when the series breaks between them (a change of definition or borders,
+// e.g. undivided Madhya Pradesh in 1998-99 and today's in 2005-06). Marked `broken`
+// so the card says the two figures are not fully comparable. At most MAX_BRIDGE years apart.
+export const MAX_BRIDGE = 12;
+export function interpolateAcross(points, year) {
+  const a = points.filter((p) => p.year < year).at(-1), b = points.find((p) => p.year > year);
+  if (!a || !b || b.year - a.year > MAX_BRIDGE) return null;
+  return { kind: "interp", value: a.value + ((b.value - a.value) * (year - a.year)) / (b.year - a.year), from: a, to: b, broken: true };
+}
+
 // National-anchored estimate for a state in a year without state data.
 //
 // An annual All-India series (the anchor) carries the year-to-year movement; the
