@@ -43,3 +43,50 @@ Also wanted but not yet sourced at all (not on the site): 1959 Dalai Lama asylum
 - Party labels missing for J&K and Uttarakhand, most of Bihar, Odisha, West Bengal, Tamil Nadu, Jharkhand and Maharashtra, and Karnataka before 1972. Source: Election Commission results (eci.gov.in returned 406 from abroad) or assembly member records.
 - Tamil Nadu and Jharkhand: confirm the current Chief Minister after the 2026 elections. Assam: Himanta Biswa Sarma's second term.
 - Rows whose note says "END DATE NOT IN ANY SOURCE OPENED" must not be read as current.
+
+## Leads from Indian Data Project (to verify at source)
+
+Indian Data Project (indiandataproject.org; code at github.com/ronit111/indian-data-project, AGPL-3.0) is used here **only as a pointer to primary sources**. Never cite it and never copy its numbers or code. Its figures were hand-curated with AI help, and its own audit (pipeline/CURATED_DATA_AUDIT.md, March 2026) found and fixed errors, including 21 of 30 state immunisation values and a reversed sign for Mizoram's forest change. Every lead below must be read at the primary source before any number enters `data/`.
+
+"Reach" means the host answered from this machine on 2026-10-17. Many .gov.in hosts block or reset connections from here.
+
+### Best lead: MoSPI eSankhyiki API (official, no key)
+
+- **What:** MoSPI's own data API at https://api.mospi.gov.in. The specs are published by MoSPI's National Statistics Office at github.com/nso-india/esankhyiki-mcp (MIT licence, folder `swagger/`).
+- **Reach: yes.** It needs no sign-up. A test call returned state GSDP by year (base 2011-12) and GVA by industry.
+- **32 datasets:**
+  - National Accounts (NAS): national indicators 1-22; state GSDP, NSDP and GSVA are codes 23-34.
+  - PLFS, CPI, WPI, IIP, Index of Service Production, ASI, ASUSE, Economic Census.
+  - Energy Statistics, MNRE renewables, Environment Statistics.
+  - NFHS, UDISE+, AISHE, Women and Men in India, Household Consumption Expenditure, Time Use Survey.
+  - NSS rounds 71-80, including the debt and investment survey (AIDIS).
+  - An RBI dataset.
+- **Use for:**
+  - Automating quarterly refreshes of national accounts, state GSDP/NSDP, PLFS jobs and prices.
+  - Checking our NFHS, UDISE+ and AISHE figures.
+  - New indicators: energy mix, renewables, environment, gender statistics.
+- **Cautions:**
+  - The API's state codes are its own (state_code 10 returned Himachal Pradesh), so map them explicitly.
+  - Keep base 2011-12 and base 2022-23 as separate series.
+  - Each dataset still needs its own entry in the source registry.
+- verified: no (API reachable; no values taken yet)
+
+### Topic leads
+
+| Area | Primary source | URL | Coverage | Reach | Verified |
+|---|---|---|---|---|---|
+| Crime | NCRB, Crime in India (yearly; Table 1.1 totals, Part III court disposal Table 18A.1) | https://www.ncrb.gov.in/ | State-wise, yearly; 2023 edition published Oct 2025 | yes (home page) | no |
+| Road deaths | MoRTH, Road Accidents in India (yearly) | https://morth.gov.in/ | State-wise, yearly | yes (home page) | no |
+| State finances | RBI, Handbook of Statistics on Indian States (Tables 19-33: GSDP, revenue, deficits, debt) | https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States | State-wise, long yearly series | yes (already a Tathya source) | no |
+| Forest cover | Forest Survey of India, India State of Forest Report (2023); "forest cover" (21.76%) is not "forest + tree cover" (25.17%) | https://fsi.nic.in/isfr-2023 | State-wise, every two years | yes (redirects to fsi.nic.in/hindi/) | no |
+| Air quality | CPCB (national air quality data); WHO Global Air Quality Database for city PM2.5 | https://cpcb.nic.in/ ; https://www.who.int/data/gho/data/themes/air-pollution | City/station level | yes | no |
+| Power mix | Central Electricity Authority (installed capacity, generation by fuel) | https://cea.nic.in/ | National and state, monthly/yearly | yes | no |
+| Elections | Election Commission of India (turnout, results, women candidates) | https://www.eci.gov.in/ ; https://results.eci.gov.in/ | Every election | eci.gov.in: no (406); results.eci.gov.in: yes | no |
+| MPs' declared assets and criminal cases | ADR / MyNeta (from candidates' sworn affidavits; ADR is a civil-society analyst, class B) | https://www.myneta.info/LokSabha2024/ | Per election | yes | no |
+| Health infrastructure | CBHI, National Health Profile (yearly); MoHFW Rural Health Statistics | https://cbhidghs.mohfw.gov.in/ | State-wise, yearly | no (connection failed) | no |
+| Schools | UDISE+ report (Tables 2.2, 6.1); GER methodology changed in 2022-23, so values over 100% before then are not comparable | https://udiseplus.gov.in/ | State-wise, yearly | yes | no |
+| Learning levels | ASER (Pratham; civil-society survey, class B) | https://asercentre.org/ | State-wise, rural, every 2 years | not tested | no |
+| Union Budget | Annual Financial Statement and Budget at a Glance | https://www.indiabudget.gov.in/ | Yearly | yes | no |
+| NFHS-5 machine-readable check | github.com/pratapvardhan/NFHS-5 (CC-BY-4.0 CSV of the NFHS-5 fact sheets): use only to cross-check our NFHS-5 values, never as the cited source | https://github.com/pratapvardhan/NFHS-5 | NFHS-5 states and districts | yes | no |
+
+Design ideas seen there, to do in Tathya's own style: a "per citizen per day" figure for the Union Budget; a crime funnel from cases reported to charge-sheets to convictions; one headline number per section on the home page.
