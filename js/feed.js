@@ -1,8 +1,8 @@
 import { loadData } from "./data.js";
-import { loadMap, createMap, renderLegend, setDomain } from "./map.js";
-import { yearChart, esc, LINE_STYLES } from "./chart.js";
+import { loadMap, createMap, renderLegend, setDomain, bands } from "./map.js";
+import { yearChart, esc, LINE_STYLES, chartPng, svgImage } from "./chart.js";
 import { t, tr, fmt, setLang, getLang } from "./i18n.js";
-import { shareTexts, shareImage, download, copy } from "./share.js";
+import { shareTexts, shareImage, copy, deliver, mapImage, changeImage, beforeAfter } from "./share.js";
 import { SITE_URL } from "./config.js";
 import { estimateAt, anchoredEstimate, interpolateAcross } from "./estimate.js";
 
@@ -428,27 +428,39 @@ function renderViz(c) {
         onSelect: (code) => { c.region = c.region === code ? "IN" : code; refresh(c); },
       });
     }
-    setDomain(i.map_domain ?? i.domain);
     const cells = c.cells;
-    c.map.update({
-      valueOf: (code) => cells.get(code)?.value ?? null,
-      regionName,
-      selected: c.region === "IN" ? null : c.region,
-      label: `${tr(i.label)}, ${y}`,
-      format: (v) => fmtVal(v, i),
-      isEstimate: (code) => isEst(cells.get(code)),
-      note: (code) => (cells.get(code)?.kind === "parent" ? t("partOf")(regionName(cells.get(code).parent))
-        : cells.get(code)?.parentOf ? t("estParentShort")(regionName(cells.get(code).parentOf)) : ""),
-    });
+    c.map.update(mapArgs(c));
     renderLegend(c.viz.querySelector(".fc-legend"), i.unit, { estimates: false });
     // Which sources the coloured states come from this year (real figures only).
-    const used = [...new Set([...cells.values()].filter((x) => x && !isEst(x)).map((x) => dsLabel(x.o.dataset)))];
+    const used = [...new Set(realCells(c).map((x) => dsLabel(x.o.dataset)))];
     const star = [...cells.values()].some(isEst);
     c.viz.querySelector(".fc-mapnote").textContent =
       [used.length ? t("mapSources")(used.join("; ")) : "", star ? t("starShort") : "", t("tapStateFeed")].filter(Boolean).join(" · ");
     return;
   }
   c.map = null;
+  const args = chartArgs(c);
+  c.viz.innerHTML = args ? `<div class="fc-chart"></div>` : `<p class="muted small">${esc(t("noData"))}</p>`;
+  if (args) yearChart(c.viz.querySelector(".fc-chart"), args);
+}
+
+const realCells = (c) => [...c.cells.values()].filter((x) => x && !isEst(x));
+function mapArgs(c) {
+  const i = c.i, cells = c.cells;
+  setDomain(i.map_domain ?? i.domain);
+  return {
+    valueOf: (code) => cells.get(code)?.value ?? null,
+    regionName,
+    selected: c.region === "IN" ? null : c.region,
+    label: `${tr(i.label)}, ${c.slots[c.k]}`,
+    format: (v) => fmtVal(v, i),
+    isEstimate: (code) => isEst(cells.get(code)),
+    note: (code) => (cells.get(code)?.kind === "parent" ? t("partOf")(regionName(cells.get(code).parent))
+      : cells.get(code)?.parentOf ? t("estParentShort")(regionName(cells.get(code).parentOf)) : ""),
+  };
+}
+function chartArgs(c) {
+  const i = c.i, y = c.slots[c.k];
   const lines = [];
   if (c.region !== "IN") {
     stateOrder(i).map((d) => ({ d, pts: data.series(i.id, d, c.region) }))
@@ -461,13 +473,74 @@ function renderViz(c) {
   }
   lines.forEach((l, k) => (l.style = LINE_STYLES[k]));
   const years = lines.flatMap((l) => l.points.map((p) => p.year));
-  c.viz.innerHTML = `<div class="fc-chart"></div>`;
-  if (!years.length) { c.viz.innerHTML = `<p class="muted small">${esc(t("noData"))}</p>`; return; }
+  if (!years.length) return null;
   const lo = Math.min(...years), hi = Math.max(...years);
-  yearChart(c.viz.querySelector(".fc-chart"), {
+  return {
     lines, xDomain: [lo, Math.max(hi, lo + 1)], yDomain: i.domain, decimals: i.decimals,
     activeYear: y, unit: i.unit, estimates: false, ...opts(i),
     events: contextFor(i.id), terms: pmTerms(), width: 420, height: 300,
+  };
+}
+
+// Draws a map or chart off screen (so it works whichever view is showing), runs fn on it.
+async function offscreen(width, draw) {
+  const box = document.createElement("div");
+  box.className = "offscreen";
+  box.style.width = `${width}px`;
+  document.body.appendChild(box);
+  try { return await draw(box); } finally { box.remove(); }
+}
+const pubOf = (o) => { const s = data.sourceById.get(o.sourceId); return `${s?.publisher ?? o.sourceId}${s ? `, ${s.title}` : ""}`; };
+
+async function mapBlob(c, link) {
+  const i = c.i, y = c.slots[c.k];
+  const svgImg = await offscreen(600, (box) => {
+    const m = createMap(box, features, { onSelect() {} });
+    m.update(mapArgs(c));
+    return svgImage(box.querySelector("svg"), { drop: [".ut-inset-title"] });
+  });
+  const real = realCells(c);
+  const used = [...new Set(real.map((x) => dsLabel(x.o.dataset)))];
+  const srcs = [...new Map(real.map((x) => [x.o.sourceId, x.o])).values()].map((o) => `${t("source")}: ${pubOf(o)}`);
+  const h = c.h;
+  return mapImage({
+    svgImg, title: tr(i.label),
+    subtitle: [String(y), used.length ? t("mapSources")(used.join("; ")) : ""].filter(Boolean).join(" · "),
+    headline: h ? `${regionName(c.region)}: ${isEst(h) || h.kind === "weighted" ? "≈ " : ""}${fmtVal(h.value, i)}${isEst(h) || h.kind === "weighted" ? "*" : ""}` : "",
+    bands: bands(), unit: i.unit, decimals: (i.map_domain ?? i.domain)?.[1] < 10 ? 1 : 0, noData: t("noData"),
+    estNote: [...c.cells.values()].some(isEst) || isEst(h) ? t("mapEstNote") : "",
+    sourceLines: srcs.slice(0, 3), link,
+  });
+}
+
+async function chartBlob(c, link) {
+  const i = c.i, args = chartArgs(c);
+  if (!args) return null;
+  return offscreen(420, (box) => {
+    yearChart(box, args);
+    const srcs = [...new Set(args.lines.flatMap((l) => l.points.map((o) => data.sourceById.get(o.sourceId)?.publisher ?? o.sourceId)))];
+    return chartPng(box, {
+      title: `${regionName(c.region)}: ${tr(i.short_label)}`,
+      subtitle: `${tr(i.label)} (${i.unit})`,
+      sources: srcs.map((x) => `${t("source")}: ${x}`),
+      site: `Tathya · ${link.replace(/^https?:\/\//, "").slice(0, 90)}`,
+    });
+  });
+}
+
+function changeFor(c) {
+  return canMap(c) ? beforeAfter(data, c.i.id, stateOrder(c.i), c.slots[c.k]) : null;
+}
+async function changeBlob(c, ba, link) {
+  const i = c.i;
+  const srcs = [...new Map(ba.rows.flatMap((r) => [r.a, r.b]).map((o) => [o.sourceId, o])).values()].map((o) => `${t("source")}: ${pubOf(o)}`);
+  return changeImage({
+    title: `${tr(i.short_label)}: ${ba.pa.period} → ${ba.pb.period}`,
+    subtitle: t("changeSub")(dsLabel(ba.ds), i.unit),
+    labelA: ba.pa.period, labelB: ba.pb.period,
+    rows: ba.rows.map((r) => ({ name: regionName(r.code), a: r.a.value, b: r.b.value, india: r.code === "IN" })),
+    decimals: i.decimals, unit: i.unit, higherIsBetter: i.higher_is_better,
+    sourceLines: srcs.slice(0, 2), link,
   });
 }
 
@@ -536,28 +609,28 @@ function openShare(c) {
   const name = `tathya-${c.i.id}-${c.region}-${card.round}${card.estimate ? "-estimate" : ""}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-");
   $("share-what").textContent = `${card.regionName}: ${card.indicatorLabel}: ${card.estimate ? "≈ " : ""}${card.valueText} (${card.round})`;
   $("share-est").hidden = !card.estimate;
-  const native = !!navigator.share;
+  const ba = changeFor(c);
   $("share-actions").innerHTML = `
-    ${native ? `<button class="pill primary" data-act="native">${esc(t("shareImage"))}</button>` : ""}
-    <button class="pill" data-act="sq">${esc(t("shareSquare"))}</button>
+    <button class="pill primary" data-act="sq">${esc(t("shareSquare"))}</button>
     <button class="pill" data-act="wide">${esc(t("shareWide"))}</button>
+    ${canMap(c) ? `<button class="pill" data-act="map">${esc(t("shareMap"))}</button>` : ""}
+    <button class="pill" data-act="chart">${esc(t("shareChart"))}</button>
+    ${ba ? `<button class="pill" data-act="change">${esc(t("shareChange"))} (${esc(ba.pa.period)} → ${esc(ba.pb.period)})</button>` : ""}
     <button class="pill" data-act="x">${esc(t("copyX"))}</button>
     <button class="pill" data-act="long">${esc(t("copyLong"))}</button>
     <button class="pill" data-act="link">${esc(t("copyLink"))}</button>`;
   $("share-actions").querySelectorAll("[data-act]").forEach((b) => b.addEventListener("click", async () => {
     const act = b.dataset.act;
-    if (act === "native") {
-      const blob = await shareImage(card, link, [1080, 1080]);
-      const file = new File([blob], `${name}-1080.png`, { type: "image/png" });
-      const payload = { text: texts.long, url: link };
-      try {
-        if (navigator.canShare?.({ files: [file] })) await navigator.share({ ...payload, files: [file] });
-        else await navigator.share(payload);
-      } catch {}
-      return;
-    }
-    if (act === "sq") return download(await shareImage(card, link, [1080, 1080]), `${name}-1080.png`);
-    if (act === "wide") return download(await shareImage(card, link, [1200, 675]), `${name}-1200x675.png`);
+    const send = (blob, suffix) => blob && deliver(blob, `${name}-${suffix}.png`, { text: texts.short, url: link });
+    const busy = b.textContent;
+    if (["sq", "wide", "map", "chart", "change"].includes(act)) b.textContent = "…";
+    try {
+      if (act === "sq") return await send(await shareImage(card, link, [1080, 1080]), "1080");
+      if (act === "wide") return await send(await shareImage(card, link, [1200, 675]), "1200x675");
+      if (act === "map") return await send(await mapBlob(c, link), "map");
+      if (act === "chart") return await send(await chartBlob(c, link), "chart");
+      if (act === "change") return await send(await changeBlob(c, ba, link), "change");
+    } finally { if (b.textContent === "…") b.textContent = busy; }
     const ok = await copy(act === "x" ? texts.short : act === "long" ? texts.long : link);
     if (ok) { const old = b.textContent; b.textContent = t("copied"); setTimeout(() => (b.textContent = old), 1200); }
   }));

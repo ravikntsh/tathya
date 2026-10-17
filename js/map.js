@@ -12,6 +12,8 @@ let domain = [0, 100];
 export const setDomain = (d) => (domain = d || [0, 100]);
 const thresholds = () => [1, 2, 3, 4].map((i) => domain[0] + ((domain[1] - domain[0]) * i) / 5);
 export const bucket = (v) => thresholds().filter((x) => v >= x).length;
+// The five colour bands of the current domain, for legends drawn outside the page.
+export const bands = () => [0, 1, 2, 3, 4].map((i) => ({ lo: i === 0 ? domain[0] : thresholds()[i - 1], hi: thresholds()[i] ?? domain[1] }));
 
 export async function loadMap(url) {
   const topo = await fetch(url).then((r) => {

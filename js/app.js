@@ -1,8 +1,8 @@
 import { loadData } from "./data.js";
-import { loadMap, createMap, renderLegend, setDomain } from "./map.js";
-import { yearChart, rankBars, dataTable, esc, LINE_STYLES, chartPng } from "./chart.js";
+import { loadMap, createMap, renderLegend, setDomain, bands } from "./map.js";
+import { yearChart, rankBars, dataTable, esc, LINE_STYLES, chartPng, svgImage } from "./chart.js";
 import { t, tr, fmt, setLang, getLang } from "./i18n.js";
-import { cardLink, shareTexts, shareImage, download, copy } from "./share.js";
+import { cardLink, shareTexts, shareImage, download, copy, deliver, mapImage, changeImage, beforeAfter } from "./share.js";
 import { MAP_VERIFIED } from "./config.js";
 import { estimateAt, anchoredEstimate, interpolateAcross } from "./estimate.js";
 import { renderRail } from "./rail.js";
@@ -150,23 +150,28 @@ function bindControls() {
     }
     render();
   });
-  $("chart-png").addEventListener("click", async () => {
-    const i = ind();
-    const srcs = [...new Set(data.nationalDatasets(state.indicator).filter((ds) => data.datasetById.get(ds)?.chart !== false)
-      .flatMap((ds) => data.series(state.indicator, ds, "IN").map((o) => data.sourceById.get(o.sourceId)?.publisher ?? o.sourceId)))];
-    const blob = await chartPng($("trend"), {
-      title: `${t("national")}: ${tr(i.short_label)}`,
-      subtitle: `${tr(i.label)} (${i.unit})${state.estimates ? " · " + t("estimateKey") : ""}`,
-      sources: srcs.map((x) => `${t("source")}: ${x}`),
-      site: `Tathya · ${location.href.replace(/^https?:\/\//, "").slice(0, 90)}`,
-    });
-    download(blob, `tathya-${i.id}-chart.png`);
-  });
+  $("chart-png").addEventListener("click", async () => download(await trendPng(), `tathya-${state.indicator}-chart.png`));
   $("expand").addEventListener("click", openExpanded);
   $("dlg-close").addEventListener("click", () => $("chart-dlg").close());
   $("chart-dlg").addEventListener("close", closeExpanded);
   $("cmp-a").addEventListener("change", (e) => { state.cmpA = e.target.value; renderCompare(); });
   $("cmp-b").addEventListener("change", (e) => { state.cmpB = e.target.value; renderCompare(); });
+}
+
+// The trend chart as an image (download button and share), light palette always.
+function trendPng() {
+  const i = ind();
+  const pubs = (ds, code) => data.series(state.indicator, ds, code).map((o) => data.sourceById.get(o.sourceId)?.publisher ?? o.sourceId);
+  const srcs = [...new Set([
+    ...(state.region ? data.stateDatasets(state.indicator).flatMap((ds) => pubs(ds, state.region)) : []),
+    ...data.nationalDatasets(state.indicator).filter((ds) => data.datasetById.get(ds)?.chart !== false).flatMap((ds) => pubs(ds, "IN")),
+  ])];
+  return chartPng($("trend"), {
+    title: `${state.region ? regionName(state.region) : t("national")}: ${tr(i.short_label)}`,
+    subtitle: `${tr(i.label)} (${i.unit})${state.estimates ? " · " + t("estimateKey") : ""}`,
+    sources: srcs.map((x) => `${t("source")}: ${x}`),
+    site: `Tathya · ${location.href.replace(/^https?:\/\//, "").slice(0, 90)}`,
+  });
 }
 
 function selectRegion(code) {
@@ -638,6 +643,9 @@ function renderCard() {
     <div class="share" role="group" aria-label="${t("share")}">
       <button class="pill" data-act="sq">${t("shareSquare")}</button>
       <button class="pill" data-act="wide">${t("shareWide")}</button>
+      ${map && state.dataset ? `<button class="pill" data-act="map">${t("shareMap")}</button>` : ""}
+      <button class="pill" data-act="chart">${t("shareChart")}</button>
+      ${changeData() ? `<button class="pill" data-act="change">${t("shareChange")} (${esc(changeData().pa.period)} → ${esc(changeData().pb.period)})</button>` : ""}
       <button class="pill" data-act="x">${t("copyX")}</button>
       <button class="pill" data-act="long">${t("copyLong")}</button>
       <button class="pill" data-act="link">${t("copyLink")}</button>
@@ -705,6 +713,9 @@ function renderEstimateCard(el, i, code, c) {
     <div class="share" role="group" aria-label="${t("share")}">
       <button class="pill" data-act="sq">${t("shareSquare")}</button>
       <button class="pill" data-act="wide">${t("shareWide")}</button>
+      ${map && state.dataset ? `<button class="pill" data-act="map">${t("shareMap")}</button>` : ""}
+      <button class="pill" data-act="chart">${t("shareChart")}</button>
+      ${changeData() ? `<button class="pill" data-act="change">${t("shareChange")} (${esc(changeData().pa.period)} → ${esc(changeData().pb.period)})</button>` : ""}
       <button class="pill" data-act="x">${t("copyX")}</button>
       <button class="pill" data-act="long">${t("copyLong")}</button>
       <button class="pill" data-act="link">${t("copyLink")}</button>
@@ -741,8 +752,12 @@ function wireShare(el, card, code, label) {
     b.addEventListener("click", async () => {
       const act = b.dataset.act;
       const name = `tathya-${state.indicator}-${code}-${label}${card.estimate ? "-estimate" : ""}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-");
-      if (act === "sq") download(await shareImage(card, link, [1080, 1080]), `${name}-1080.png`);
-      else if (act === "wide") download(await shareImage(card, link, [1200, 675]), `${name}-1200x675.png`);
+      const send = (blob, suffix) => blob && deliver(blob, `${name}-${suffix}.png`, { text: shareTexts(card, link).short, url: link });
+      if (act === "sq") await send(await shareImage(card, link, [1080, 1080]), "1080");
+      else if (act === "wide") await send(await shareImage(card, link, [1200, 675]), "1200x675");
+      else if (act === "map") await send(await mapPng(link), "map");
+      else if (act === "chart") await send(await trendPng(), "chart");
+      else if (act === "change") await send(await changePng(link), "change");
       else {
         const texts = shareTexts(card, link);
         const ok = await copy(act === "x" ? texts.short : act === "long" ? texts.long : link);
@@ -750,6 +765,46 @@ function wireShare(el, card, code, label) {
       }
     })
   );
+}
+
+// Map of the year on screen, as a share image (always the light palette).
+async function mapPng(link) {
+  const i = ind(), cells = lastCells;
+  const svgImg = await svgImage($("map").querySelector("svg"), { drop: [".ut-inset-title"] });
+  const real = [...cells.entries()].filter(([k, c]) => k !== "IN" && c && ["obs", "parent"].includes(c.kind)).map(([, c]) => c.o);
+  const pub = (o) => { const s = data.sourceById.get(o.sourceId); return `${s?.publisher ?? o.sourceId}${s ? `, ${s.title}` : ""}`; };
+  const srcs = [...new Map(real.map((o) => [o.sourceId, o])).values()].map((o) => `${t("source")}: ${pub(o)}`);
+  const used = [...new Set(real.map((o) => dsLabel(o.dataset)))];
+  const nat = cells.get("IN"), natEst = nat && !["obs", "parent"].includes(nat.kind);
+  const when = yearMode() ? String(state.year) : state.period ?? "";
+  const anyEst = [...cells.values()].some((c) => c && !["obs", "parent"].includes(c.kind));
+  return mapImage({
+    svgImg, title: tr(i.label),
+    subtitle: [when, used.length ? t("mapSources")(used.join("; ")) : ""].filter(Boolean).join(" · "),
+    headline: nat ? `${regionName("IN")}: ${natEst ? "≈ " : ""}${fmtVal(nat.value)}${natEst ? "*" : ""}` : "",
+    bands: bands(), unit: i.unit, decimals: (i.map_domain ?? i.domain)?.[1] < 10 ? 1 : 0, noData: t("noData"),
+    estNote: anyEst ? t("mapEstNote") : "", sourceLines: srcs.slice(0, 3), link,
+  });
+}
+
+// Before -> after for every state, one source at both ends (see beforeAfter in share.js).
+function changeData() {
+  if (!state.dataset) return null;
+  const y = yearMode() ? state.year : mapPeriods().find((p) => p.period === state.period)?.year;
+  return y == null ? null : beforeAfter(data, state.indicator, combined() ? priorityDatasets() : [state.dataset], y);
+}
+async function changePng(link) {
+  const i = ind(), ba = changeData();
+  if (!ba) return null;
+  const pub = (o) => { const s = data.sourceById.get(o.sourceId); return `${s?.publisher ?? o.sourceId}${s ? `, ${s.title}` : ""}`; };
+  const srcs = [...new Map(ba.rows.flatMap((r) => [r.a, r.b]).map((o) => [o.sourceId, o])).values()].map((o) => `${t("source")}: ${pub(o)}`);
+  return changeImage({
+    title: `${tr(i.short_label)}: ${ba.pa.period} → ${ba.pb.period}`,
+    subtitle: t("changeSub")(dsLabel(ba.ds), i.unit),
+    labelA: ba.pa.period, labelB: ba.pb.period,
+    rows: ba.rows.map((r) => ({ name: regionName(r.code), a: r.a.value, b: r.b.value, india: r.code === "IN" })),
+    decimals: i.decimals, unit: i.unit, higherIsBetter: i.higher_is_better, sourceLines: srcs.slice(0, 2), link,
+  });
 }
 
 // The card keeps the headline (place, indicator, value, change) above the trend

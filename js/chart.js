@@ -250,6 +250,43 @@ function bindHover(el, { lines, projs, x, y, xDomain, decimals, unit, estimates,
   hit.addEventListener("pointerleave", () => { if (!locked && !pointers.size) leave(); });
 }
 
+// Share images always use the light palette. Reads styles under the light theme
+// for one synchronous step (no repaint happens in between), then restores the theme.
+export function withLightTheme(fn) {
+  // Colour fades (map states have one) are switched off too, or the colours read
+  // here would be the dark ones at the start of a fade.
+  const root = document.documentElement, prev = root.dataset.theme;
+  root.dataset.theme = "light";
+  root.classList.add("no-anim");
+  try { return fn(); } finally {
+    if (prev == null) delete root.dataset.theme; else root.dataset.theme = prev;
+    void document.body.offsetHeight; // apply the restored theme while fades are still off
+    root.classList.remove("no-anim");
+  }
+}
+
+// A standalone image of an on-page SVG: computed styles (light theme) are inlined
+// so colours, dashes, hatching and hidden elements survive outside the page.
+export async function svgImage(svg, { drop = [] } = {}) {
+  const clone = svg.cloneNode(true);
+  const props = ["fill", "stroke", "stroke-width", "stroke-dasharray", "opacity", "fill-opacity", "font-size", "font-weight", "font-family", "display", "paint-order"];
+  withLightTheme(() => {
+    const src = [svg, ...svg.querySelectorAll("*")], dst = [clone, ...clone.querySelectorAll("*")];
+    src.forEach((node, k) => {
+      const cs = getComputedStyle(node);
+      dst[k].setAttribute("style", props.map((p) => `${p}:${cs.getPropertyValue(p)}`).join(";"));
+    });
+  });
+  for (const sel of drop) clone.querySelectorAll(sel).forEach((n) => n.remove());
+  clone.querySelectorAll("title").forEach((n) => n.remove());
+  const [, , W, H] = svg.getAttribute("viewBox").split(" ").map(Number);
+  clone.setAttribute("width", W); clone.setAttribute("height", H);
+  const img = new Image();
+  img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(clone));
+  await img.decode();
+  return { img, W, H };
+}
+
 // Draws the chart (with title, legend and sources) to a PNG for download.
 export async function chartPng(el, { title, subtitle, sources, site }) {
   await document.fonts?.ready;
@@ -261,12 +298,12 @@ export async function chartPng(el, { title, subtitle, sources, site }) {
   const src = svg.querySelectorAll("*"), dst = clone.querySelectorAll("*");
   const props = ["fill", "stroke", "stroke-width", "stroke-dasharray", "opacity", "fill-opacity", "font-size", "font-weight", "font-family"];
   let j = 0;
-  src.forEach((node) => {
+  withLightTheme(() => src.forEach((node) => {
     if (node.closest(".hover") || node.classList?.contains("hit")) return;
     const cs = getComputedStyle(node);
     const d = dst[j++];
     if (d) d.setAttribute("style", props.map((p) => `${p}:${cs.getPropertyValue(p)}`).join(";"));
-  });
+  }));
   const [, , W, H] = svg.getAttribute("viewBox").split(" ").map(Number);
   clone.setAttribute("width", W); clone.setAttribute("height", H);
   const img = new Image();
@@ -275,6 +312,7 @@ export async function chartPng(el, { title, subtitle, sources, site }) {
 
   const scale = 3, PW = 1200, chartW = PW - 80, chartH = (chartW * H) / W;
   const legend = [...el.querySelectorAll(".legend-inline > span")];
+  const legendStroke = withLightTheme(() => legend.map((span) => { const l = span.querySelector("line"); return l ? getComputedStyle(l).stroke : null; }));
   const PH = 120 + chartH + 30 + legend.length * 30 + 40 + sources.length * 26 + 50;
   const cv = document.createElement("canvas");
   cv.width = PW; cv.height = PH;
@@ -286,10 +324,9 @@ export async function chartPng(el, { title, subtitle, sources, site }) {
   g.fillStyle = "#4B5565"; g.font = font(400, 22); g.fillText(subtitle, 40, 96);
   g.drawImage(img, 40, 110, chartW, chartH);
   let yy = 110 + chartH + 34;
-  for (const span of legend) {
+  for (const [k, span] of legend.entries()) {
     const line = span.querySelector("line");
-    const cs = line ? getComputedStyle(line) : null;
-    g.strokeStyle = cs?.stroke || "#1B2A6B"; g.lineWidth = 4;
+    g.strokeStyle = legendStroke[k] || "#1B2A6B"; g.lineWidth = 4;
     g.setLineDash((line?.getAttribute("stroke-dasharray") || "").split(/\s+/).filter(Boolean).map((n) => Number(n) * 2));
     g.beginPath(); g.moveTo(40, yy - 7); g.lineTo(80, yy - 7); g.stroke();
     g.setLineDash([]);

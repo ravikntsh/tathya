@@ -176,3 +176,173 @@ export function download(blob, name) {
 export async function copy(text) {
   try { await navigator.clipboard.writeText(text); return true; } catch { return false; }
 }
+
+// ---------- map, line chart and before → after images ----------
+
+// Light map palette (same as css/tokens.css) so shared images look the same everywhere.
+const SEQ = ["#E8EBF5", "#B9C1E0", "#8693C6", "#5262A6", "#1B2A6B"];
+const font = (w, s) => `${w} ${s}px "Noto Sans", "Noto Sans Devanagari", sans-serif`;
+const linesOf = (g, text, maxW, f) => { g.font = f; return lines(g, text, maxW); };
+
+// On phones: the system share sheet with the image. Elsewhere: a download.
+export async function deliver(blob, name, { text, url } = {}) {
+  const file = new File([blob], name, { type: "image/png" });
+  if (navigator.canShare?.({ files: [file] })) {
+    try { await navigator.share({ files: [file], text, url }); return; } catch (e) { if (e?.name === "AbortError") return; }
+  }
+  download(blob, name);
+}
+
+// Header and footer shared by the map and before → after images. Returns where the
+// body starts and ends; the footer (sources bigger than the brand) sits at the bottom.
+function frame(g, W, H, { title, subtitle, sourceLines, link, footNote }) {
+  const pad = 60;
+  g.fillStyle = C.paper; g.fillRect(0, 0, W, H);
+  g.fillStyle = C.navy; g.fillRect(0, 0, W, 12);
+  let y = pad + 20;
+  for (const ln of linesOf(g, title, W - pad * 2, font(700, 44)).slice(0, 2)) { g.fillStyle = C.ink; g.fillText(ln, pad, y); y += 54; }
+  for (const ln of linesOf(g, subtitle, W - pad * 2, font(400, 26)).slice(0, 3)) { g.fillStyle = C.muted; g.fillText(ln, pad, y); y += 34; }
+  let fy = H - 36;
+  g.fillStyle = C.muted; g.font = font(400, 22);
+  g.fillText(`${SITE_NAME} · ${link.replace(/^https?:\/\//, "").slice(0, 80)}`, pad, fy);
+  fy -= 44;
+  const src = sourceLines.flatMap((s) => linesOf(g, s, W - pad * 2, font(600, 26))).slice(0, 5);
+  g.fillStyle = C.ink; g.font = font(600, 26);
+  src.slice().reverse().forEach((ln) => { g.fillText(ln, pad, fy); fy -= 34; });
+  if (footNote) {
+    const fl = linesOf(g, footNote, W - pad * 2, font(600, 24)).slice(0, 3);
+    g.fillStyle = AMBER.ink; g.font = font(600, 24);
+    fl.slice().reverse().forEach((ln) => { g.fillText(ln, pad, fy); fy -= 32; });
+  }
+  return { top: y + 6, bottom: fy - 10, pad };
+}
+
+// Map of every state for one year, with the colour key and the source.
+export async function mapImage({ svgImg, title, subtitle, headline, bands, unit, decimals = 0, noData, estNote, sourceLines, link }) {
+  await document.fonts?.ready;
+  const W = 1080, H = 1350;
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const g = cv.getContext("2d");
+  const { top, bottom, pad } = frame(g, W, H, { title, subtitle, sourceLines, link, footNote: estNote });
+  let y = top;
+  if (headline) { g.fillStyle = C.navy; g.font = font(700, 40); g.fillText(headline, pad, y + 34); y += 56; }
+  const keyH = 80, mapBottom = bottom - keyH;
+  const avail = mapBottom - y, scale = Math.min((W - pad * 2) / svgImg.W, avail / svgImg.H);
+  const mw = svgImg.W * scale, mh = svgImg.H * scale;
+  g.drawImage(svgImg.img, (W - mw) / 2, y + (avail - mh) / 2, mw, mh);
+  let kx = pad, ky = mapBottom + 34;
+  g.font = font(400, 22);
+  const u = unit === "%" ? "%" : "";
+  const items = bands.map((b, k) => ({ color: SEQ[k], label: `${fmt(b.lo, decimals)}–${fmt(b.hi, decimals)}${u}` }));
+  items.push({ hatch: true, label: noData });
+  if (unit !== "%") items.push({ text: true, label: unit });
+  for (const it of items) {
+    g.font = font(400, 22);
+    const w = (it.text ? 0 : 34) + g.measureText(it.label).width + 22;
+    if (kx + w > W - pad) { kx = pad; ky += 36; }
+    if (!it.text) {
+      g.fillStyle = it.hatch ? "#DDE2EA" : it.color; g.fillRect(kx, ky - 20, 26, 26);
+      if (it.hatch) {
+        g.save(); g.beginPath(); g.rect(kx, ky - 20, 26, 26); g.clip();
+        g.strokeStyle = C.slate; g.lineWidth = 2;
+        for (let d = -26; d < 52; d += 7) { g.beginPath(); g.moveTo(kx + d, ky + 6); g.lineTo(kx + d + 26, ky - 20); g.stroke(); }
+        g.restore();
+      }
+      g.strokeStyle = C.line; g.lineWidth = 1; g.strokeRect(kx, ky - 20, 26, 26);
+    }
+    g.fillStyle = it.text ? C.muted : C.ink; g.fillText(it.label, kx + (it.text ? 0 : 34), ky);
+    kx += w;
+  }
+  return new Promise((res) => cv.toBlob(res, "image/png"));
+}
+
+// The two ends for a before → after comparison, from one source only: the latest
+// round at or before `year`, and the earliest round in the same unbroken stretch
+// that most states (60% or more) share. Real figures only; a state is left out if
+// either end is missing or its series breaks in between.
+export function beforeAfter(data, indId, dsList, year) {
+  let best = null;
+  for (const ds of dsList) {
+    const ps = data.periods(indId, ds, { statesOnly: true }).filter((p) => p.year <= year + 1);
+    if (ps.length < 2) continue;
+    const pb = ps.at(-1);
+    const rowsFor = (pa) => ["IN", ...data.states.map((s) => s.code)].flatMap((code) => {
+      const s = data.series(indId, ds, code);
+      const a = s.find((p) => p.period === pa.period), b = s.find((p) => p.period === pb.period);
+      if (!a || !b || s.some((p) => p.year > a.year && p.year <= b.year && p.breakBefore)) return [];
+      return [{ code, a, b }];
+    });
+    const nB = data.states.filter((s) => data.get(indId, ds, pb.period, s.code)).length;
+    for (const pa of ps.slice(0, -1)) {
+      const rows = rowsFor(pa);
+      const n = rows.filter((r) => r.code !== "IN").length;
+      if (n >= Math.max(5, 0.6 * nB)) {
+        if (!best || n > best.n) best = { ds, pa, pb, rows, n };
+        break;
+      }
+    }
+  }
+  return best;
+}
+
+// Before → after for every state: a hollow dot for the earlier figure, a filled dot
+// for the later one, joined by a line (teal if better, terracotta if worse, grey
+// where the indicator has no better direction). Sorted by the later figure.
+export async function changeImage({ title, subtitle, labelA, labelB, rows, decimals = 1, unit, higherIsBetter, sourceLines, link, footNote }) {
+  await document.fonts?.ready;
+  const W = 1080, rowH = 30, H = Math.max(1080, 430 + rows.length * rowH + 280);
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const g = cv.getContext("2d");
+  const { top, bottom, pad } = frame(g, W, H, { title, subtitle, sourceLines, link, footNote });
+  const u = unit === "%" ? "%" : "";
+  const vals = rows.flatMap((r) => [r.a, r.b]);
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  // Round the axis to a clean step (1, 2, 2.5 or 5 times a power of ten), about 4 ticks.
+  const raw = (hi - lo || Math.abs(hi) || 1) / 4, mag = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => s >= raw);
+  lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+  if (unit === "%") { lo = Math.max(0, lo); hi = Math.min(100, hi); }
+  if (hi === lo) hi = lo + step;
+  const ticks = [];
+  for (let v = lo; v <= hi + step / 1e6; v += step) ticks.push(v);
+  const x0 = pad + 250, x1 = W - pad - 130, X = (v) => x0 + ((v - lo) / (hi - lo)) * (x1 - x0);
+  let y = top + 20;
+  g.font = font(600, 24);
+  g.strokeStyle = C.slate; g.lineWidth = 3; g.fillStyle = C.paper;
+  g.beginPath(); g.arc(pad + 10, y - 8, 9, 0, 7); g.fill(); g.stroke();
+  g.fillStyle = C.ink; g.fillText(labelA, pad + 28, y);
+  const ax = pad + 28 + g.measureText(labelA).width + 40;
+  g.fillStyle = C.navy; g.beginPath(); g.arc(ax + 10, y - 8, 9, 0, 7); g.fill();
+  g.fillStyle = C.ink; g.fillText(labelB, ax + 28, y);
+  y += 40;
+  const tickDp = step < 1 ? 1 : 0;
+  g.font = font(400, 20); g.textAlign = "center";
+  for (const v of ticks) {
+    g.fillStyle = C.muted; g.fillText(`${fmt(v, tickDp)}${u}`, X(v), y);
+    g.strokeStyle = C.line; g.lineWidth = 1;
+    g.beginPath(); g.moveTo(X(v), y + 8); g.lineTo(X(v), Math.min(bottom, y + 14 + rows.length * rowH)); g.stroke();
+  }
+  g.textAlign = "left";
+  y += 14;
+  const sorted = [...rows].sort((p, q) => q.b - p.b);
+  for (const r of sorted) {
+    if (y > bottom - rowH) break;
+    const cy = y + rowH / 2;
+    if (r.india) { g.fillStyle = "#EEF1F8"; g.fillRect(pad - 8, y + 1, W - pad * 2 + 16, rowH - 2); }
+    g.fillStyle = C.ink; g.font = font(r.india ? 700 : 400, 21);
+    g.fillText(r.name.length > 22 ? r.name.slice(0, 21) + "…" : r.name, pad, cy + 7);
+    const d = r.b - r.a;
+    const good = higherIsBetter == null || d === 0 ? null : (d > 0) === higherIsBetter;
+    const col = good == null ? C.slate : good ? C.teal : C.terracotta;
+    g.strokeStyle = col; g.lineWidth = 4;
+    g.beginPath(); g.moveTo(X(r.a), cy); g.lineTo(X(r.b), cy); g.stroke();
+    g.strokeStyle = C.slate; g.lineWidth = 3; g.fillStyle = C.paper;
+    g.beginPath(); g.arc(X(r.a), cy, 8, 0, 7); g.fill(); g.stroke();
+    g.fillStyle = C.navy; g.beginPath(); g.arc(X(r.b), cy, 8, 0, 7); g.fill();
+    g.fillStyle = col; g.font = font(600, 21); g.textAlign = "right";
+    g.fillText(`${d > 0 ? "+" : d < 0 ? "−" : "±"}${fmt(Math.abs(d), decimals)}`, W - pad, cy + 7);
+    g.textAlign = "left";
+    y += rowH;
+  }
+  return new Promise((res) => cv.toBlob(res, "image/png"));
+}

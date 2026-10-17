@@ -411,3 +411,6 @@ body.feed-page { height: 100dvh; overflow: hidden; display: flex; flex-direction
 .fcard > :not(.fc-viz) { flex: none; }
 /* Clamp cleanly: bottom spacing as a border so a fifth line never peeks through. */
 .fc-src { padding-bottom: 0; border-bottom: 5px solid var(--surface-muted); }
+
+.offscreen { position: fixed; left: -10000px; top: 0; pointer-events: none; }
+.no-anim, .no-anim * { transition: none !important; }
