@@ -383,18 +383,30 @@ function render() {
   setDomain(i.map_domain ?? i.domain);
 
   // Indicator chips
-  // Indicators grouped: basic necessities, health, education, infrastructure, economy & jobs, defence.
+  // Compact picker: one row of section tabs, then only that section's indicators in
+  // a single row that scrolls sideways (instead of every indicator at once).
   const GROUPS = ["necessities", "health", "education", "infrastructure", "economy", "defence"];
-  $("indicators").innerHTML = GROUPS
-    .map((g) => [g, data.indicators.filter((x) => (x.group || "economy") === g)])
-    .filter(([, xs]) => xs.length)
-    .map(([g, xs]) => `<div class="chip-group"><span class="chip-group-h">${esc(t("groups")[g] ?? g)}</span>${xs
+  const groupOf = (x) => x.group || "economy";
+  const present = GROUPS.filter((g) => data.indicators.some((x) => groupOf(x) === g));
+  if (!present.includes(state.pickGroup)) state.pickGroup = groupOf(i);
+  $("indicators").innerHTML =
+    `<div class="seg group-tabs" role="tablist">${present.map((g) =>
+      `<button type="button" role="tab" data-g="${g}" aria-selected="${g === state.pickGroup}">${esc(t("groups")[g] ?? g)}</button>`).join("")}</div>
+    <div class="chip-row" role="radiogroup">${data.indicators.filter((x) => groupOf(x) === state.pickGroup)
       .map((x) => `<button class="chip" role="radio" aria-checked="${x.id === state.indicator}" data-id="${x.id}">${esc(tr(x.short_label))}</button>`)
-      .join("")}</div>`)
-    .join("");
-  $("indicators").querySelectorAll("button").forEach((b) =>
+      .join("")}</div>`;
+  $("indicators").querySelectorAll(".group-tabs button").forEach((b) => b.addEventListener("click", () => {
+    state.pickGroup = b.dataset.g;
+    const first = data.indicators.find((x) => groupOf(x) === state.pickGroup);
+    if (first) { state.indicator = first.id; state.dataset = null; pickDataset(); }
+    render();
+  }));
+  // Keep the selected indicator in view in its scrolling row.
+  requestAnimationFrame(() => $("indicators").querySelector('.chip[aria-checked="true"]')?.scrollIntoView({ block: "nearest", inline: "center" }));
+  $("indicators").querySelectorAll(".chip-row button").forEach((b) =>
     b.addEventListener("click", () => {
       state.indicator = b.dataset.id;
+      state.pickGroup = groupOf(data.indicatorById.get(b.dataset.id));
       state.dataset = null;
       pickDataset();
       render();
