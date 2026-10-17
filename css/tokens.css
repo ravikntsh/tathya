@@ -12,6 +12,9 @@
   --surface: #FFFFFF;
   --line: #E3E7EE;
   --no-data: #DDE2EA;
+  /* Map: state borders and how much colour an estimated state keeps */
+  --state-edge: #FFFFFF;
+  --est-fill: .55;
   /* One-hue sequential map scale, light to dark navy */
   --seq-0: #E8EBF5;
   --seq-1: #B9C1E0;
@@ -36,6 +39,10 @@
     --surface-muted: #131C45;
     --line: #2A3566;
     --no-data: #3A4470;
+  --state-edge: #7C88BE;
+  --est-fill: .85;
+    --state-edge: #7C88BE;
+    --est-fill: .85;
     --seq-0: #26326B;
     --seq-1: #3D4F9C;
     --seq-2: #6478C8;
@@ -58,6 +65,8 @@
   --surface-muted: #131C45;
   --line: #2A3566;
   --no-data: #3A4470;
+  --state-edge: #7C88BE;
+  --est-fill: .85;
   --seq-0: #26326B;
   --seq-1: #3D4F9C;
   --seq-2: #6478C8;

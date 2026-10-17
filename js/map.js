@@ -3,6 +3,9 @@ import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm
 import { t, tr, fmt } from "./i18n.js";
 
 const NS = "http://www.w3.org/2000/svg";
+// Each map gets its own hatch pattern id: pages with several maps (the swipe feed)
+// must not share one id, or Safari draws no-data states as nothing at all.
+let mapCount = 0;
 // Five equal bands over the indicator's fixed domain, so moving the slider shows
 // real change, not a rescaled map.
 let domain = [0, 100];
@@ -21,6 +24,7 @@ export async function loadMap(url) {
 
 export function createMap(container, features, { onSelect }) {
   const W = 600, H = 680;
+  const hatch = `hatch-${++mapCount}`;
   const projection = geoMercator().fitExtent([[8, 8], [W - 8, H - 8]], { type: "FeatureCollection", features });
   const path = geoPath(projection);
 
@@ -28,7 +32,7 @@ export function createMap(container, features, { onSelect }) {
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.setAttribute("role", "group");
   svg.classList.add("map");
-  svg.innerHTML = `<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  svg.innerHTML = `<defs><pattern id="${hatch}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
     <rect width="6" height="6" fill="var(--no-data)"></rect><line x1="0" y1="0" x2="0" y2="6" stroke="var(--slate)" stroke-width="1.2"></line></pattern></defs>`;
   const g = document.createElementNS(NS, "g");
   svg.appendChild(g);
@@ -92,7 +96,7 @@ export function createMap(container, features, { onSelect }) {
     svg.setAttribute("aria-label", label);
     for (const [code, s] of shapes) {
       const v = valueOf(code);
-      const fill = v == null ? "url(#hatch)" : `var(--seq-${bucket(v)})`;
+      const fill = v == null ? `url(#${hatch})` : `var(--seq-${bucket(v)})`;
       s.el.style.fill = fill;
       const isSel = code === selected;
       const est = v != null && isEstimate(code);

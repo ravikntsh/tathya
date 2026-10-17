@@ -78,7 +78,7 @@ input[type="range"]::-webkit-slider-thumb { background: var(--saffron); }
 .banner { font-size: .8rem; margin: 0 0 6px; padding: 6px 10px; border: 1px dashed var(--slate); border-radius: 6px; color: var(--ink-muted); }
 .map-wrap { width: 100%; }
 svg.map { width: 100%; height: auto; max-height: 72vh; display: block; }
-.state { stroke: var(--paper); stroke-width: .6; cursor: pointer; transition: fill .25s; }
+.state { stroke: var(--state-edge); stroke-width: .6; cursor: pointer; transition: fill .25s; }
 .state:hover { stroke: var(--saffron); stroke-width: 1.5; }
 .state.selected { stroke: var(--saffron); stroke-width: 2.2; }
 .state:focus { outline: none; stroke: var(--saffron); stroke-width: 2.2; }
@@ -223,7 +223,7 @@ thead th { color: var(--ink-muted); font-weight: 600; }
 .rank-val { min-width: 4.5em; white-space: nowrap; }
 
 /* Estimates on the map and cards */
-.state.est { fill-opacity: .5; stroke: var(--ink-muted); stroke-dasharray: 2 2; stroke-width: .9; }
+.state.est { fill-opacity: var(--est-fill); stroke: var(--ink-muted); stroke-dasharray: 2 2; stroke-width: .9; }
 .lg-est { background: var(--seq-2); opacity: .5; outline: 1px dashed var(--ink-muted); outline-offset: -1px; }
 .est-big { color: var(--ink-muted); }
 .est-tag { display: inline-block; font-size: .72rem; font-weight: 600; color: var(--ink); background: var(--surface-muted); border: 1px dashed var(--ink-muted); border-radius: 4px; padding: 0 6px; margin-right: 4px; }
@@ -357,7 +357,6 @@ a.brand { color: inherit; text-decoration: none; }
 .group-tabs { width: max-content; max-width: 100%; }
 
 /* Swipe feed (feed.html): one full-screen fact per indicator, vertical snap */
-.defs-only { position: absolute; width: 0; height: 0; overflow: hidden; }
 body.feed-page { height: 100dvh; overflow: hidden; display: flex; flex-direction: column; background: var(--paper); }
 .feed-top { flex: none; gap: 8px; padding: 6px 12px; }
 .feed-top .brand strong { font-size: 1rem; }
